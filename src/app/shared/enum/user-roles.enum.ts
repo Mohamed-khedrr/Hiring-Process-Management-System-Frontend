@@ -1,0 +1,6 @@
+export enum UserRoles {
+  ROLE_JOBSEEKER,
+  ROLE_COMPANY,
+  ROLE_ADMIN,
+  ROLE_RECRUITER,
+}

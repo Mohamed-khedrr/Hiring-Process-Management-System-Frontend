@@ -1,0 +1,61 @@
+@import "../../../../scss/typography";
+@import "../../../../scss/variables";
+
+.verified-container {
+  background-color: $color-ac-100;
+}
+
+.verified-page {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  // height: 70vh;
+  height: 100%;
+  max-width: 90rem;
+
+  @media screen and (max-width: $breakpoint-large) {
+    padding-top: 7rem;
+  }
+  @media screen and (max-width: $breakpoint-medium) {
+    gap: 3rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    height: 80vh;
+    max-width: fit-content;
+  }
+
+  .heading {
+    font-size: $font-b1;
+    font-weight: 700;
+    font-family: $font-family-crimson;
+    color: $color-n-800;
+    margin-top: 2rem;
+    @media screen and (max-width: $breakpoint-large) {
+      font-size: $font-h5;
+      line-height: 45px;
+    }
+    @media screen and (max-width: $breakpoint-medium) {
+      font-size: $font-h6;
+      line-height: 35px;
+    }
+  }
+
+  .img-container {
+    width: 30rem;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    @media screen and (max-width: $breakpoint-medium) {
+      flex-direction: column;
+      margin-top: 0;
+    }
+    p {
+      font-size: $font-b3;
+    }
+
+    .resend {
+      color: blue;
+    }
+  }
+}

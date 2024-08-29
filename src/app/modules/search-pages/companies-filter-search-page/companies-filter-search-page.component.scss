@@ -1,0 +1,222 @@
+@import url("../scss/updates.scss");
+@import "../../../scss/variables";
+@import "../../../scss/typography"; 
+
+
+#companies-filter-search-page {
+    background-color: $color-n-200;
+
+    .container {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .global-line-bottom-border {
+        border-bottom: 1px solid #C6D2D5;
+    }
+
+    .global-line-top-border {
+        border-top: 1px solid #C6D2D5;
+    }
+
+    .global-line-border {
+        border: 1px solid #C6D2D5;
+        border-radius: 4px;
+    }
+
+    .search-filtering-words {
+        .filtering-words-title {
+            font-family: $font-family-crimson;
+            font-weight: 700;
+            font-size: $font-h8 ;
+            line-height: 27.5px;
+            color: $color-n-900;
+        }
+
+        .filtering-words-btn .btn {
+            padding: 6px 16px;
+            font-family: $font-family-open-sans;
+            font-weight: 600;
+            font-size: $font-b3 ;
+            line-height: 24px;
+            color: $color-n-800;
+            border: 1px solid $color-n-500;
+            transition: 0.6s all;
+
+            &:hover,
+            &:focus,
+            &.active {
+                background-color: $color-n-800;
+                color: white;
+                font-weight: 700;
+                border-color: $color-n-800;
+
+            }
+        }
+    }
+
+    .containing-all-under-part {
+        width: 95%;
+
+        .filter-section {
+            width: 30%;
+
+            .title {
+                font-family: $font-family-crimson;
+                font-weight: 700;
+                font-size: $font-h7 ;
+                line-height: 27.5px;
+                color: $color-n-800;
+            }
+
+            .filter-main-label {
+                font-family: $font-family-open-sans;
+                font-weight: 600;
+                font-size: $font-l2 ;
+                line-height: 24px;
+                color: $color-n-800;
+            }
+
+            .chooise-filter-label {
+                font-family: $font-family-open-sans;
+                font-size: $font-l3 ;
+                line-height: 21px;
+                color: $color-n-700;
+            }
+
+            .checkbox-input {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .search-term {
+            width: 70%;
+            border:none;
+            .title {
+                font-family: $font-family-crimson;
+                font-weight: 700;
+                font-size: $font-h7 ;
+                line-height: 27.5px;
+                color: $color-n-800;
+            }
+
+            .companies-term,
+            .people-term {
+                .company-title {
+                    font-family: $font-family-open-sans;
+                    font-size: $font-b3 ;
+                    line-height: 24px;
+                    font-weight: 600;
+                    color: $color-n-800;
+                }
+
+                .text {
+                    font-family: $font-family-open-sans;
+                    font-size: $font-b4 ;
+                    line-height: 18px;
+                    color: $color-n-600;
+                }
+
+                .people-location {
+                    padding: 2px 6px;
+                    font-weight: 600;
+                    font-family: $font-family-open-sans;
+                    font-size: $font-b4 ;
+                    line-height: 18px;
+                    color: $color-n-800;
+                    background-color: $color-n-300;
+                    transition: 0.6s all;
+
+                    &:hover {
+                        background-color: $color-n-400;
+                    }
+                }
+            }
+
+            .see-all {
+                font-family: $font-family-open-sans;
+                padding: 4px;
+                font-size: $font-b3 ;
+                font-weight: 600;
+                padding: 5px 10px;
+                color: #627D81;
+                background-color: transparent;
+                transition: 0.6s border-radius;
+                border-radius: 8px;
+                &:hover {
+                    background-color: $color-n-300;
+                    border: 1px solid $color-sec-500;
+                }
+            }
+        }
+    }
+
+
+
+    @media (min-width: 1400px) {
+        .container {
+            max-width: 1320px;
+        }
+    }
+
+    @media (max-width: 1399.98px) {
+        .container {
+            max-width: 1140px;
+        }
+
+        .containing-all-under-part {
+            width: 100%;
+
+        }
+    }
+
+    @media (max-width: 1199.98px) {
+        .container {
+            max-width: 960px;
+        }
+
+        .containing-all-under-part {
+            flex-direction: column;
+
+            .filter-section {
+                width: auto;
+            }
+
+            .search-term {
+                width: auto;
+            }
+        }
+
+    }
+
+    @media (max-width: 991.98px) {
+        .container {
+            max-width: 720px;
+        }
+
+    }
+
+    @media (max-width: 767.98px) {
+        .container {
+            max-width: 540px;
+        }
+
+    }
+}
+
+.loader {
+    padding: 0;
+    .companies-term  {
+        border: none !important;
+        padding: 2rem;  
+        box-shadow: none;
+        width: 100%;
+        margin: 0;
+  }
+}

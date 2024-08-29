@@ -1,0 +1,196 @@
+/* form section */
+* {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.login-job-seeker {
+  background-color: #f8f8f1;
+  height: 100vh;
+}
+.login-job-seeker .frame-18 {
+  padding: 32px 44px;
+}
+.login-job-seeker .frame-18 .frame-17 .welcome-back {
+  color: #033f47;
+  font-family: "Crimson Text", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 115%;
+}
+.login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-logo {
+  width: 10%;
+  border: 1px solid #2b786c;
+  padding: 10.5px;
+}
+.login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-logo svg {
+  width: 18px;
+  height: 22px;
+}
+.login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-link {
+  width: 90%;
+  padding-block: 10.5px;
+  background-color: #559389;
+}
+.login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-link .google-link-text {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+.login-job-seeker .frame-18 .frame-17 .sign-social-links .rule .line {
+  background-color: #d2d3d3;
+  width: 47.5%;
+  height: 1px;
+}
+.login-job-seeker .frame-18 .frame-17 .sign-social-links .rule .text {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 125%;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .input-label {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: small;
+  margin-top: 5px;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .input-field {
+  background: #f5f9fa;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 44px;
+  padding-left: 10px;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .password-section .new-containing {
+  border-radius: 4px;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .password-section .new-containing .eye-icon-button {
+  background: #627d81;
+  padding: 10px;
+  border-radius: 0px 3px 3px 0px;
+  right: 0.6px;
+  top: 0.8px;
+  bottom: 0.8px;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .sign-in-with-google3 .error .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: large;
+  margin-bottom: 10px;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .sign-in-with-google3 button {
+  background: #2b786c;
+  color: white;
+  border-radius: 4px;
+  padding-block: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .sign-in-with-google3 button:disabled {
+  opacity: 0.5;
+}
+.login-job-seeker .frame-18 .s-ign-in-upplication .sign-in-with-google3 button:disabled:hover {
+  cursor: default;
+}
+.login-job-seeker .frame-18 .under-form-part .terms-and-condition {
+  color: #1f2223;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 115%;
+}
+.login-job-seeker .frame-18 .under-form-part .terms-and-condition a {
+  color: #0055d9;
+}
+.login-job-seeker .frame-18 .under-form-part .last-info-section .frame-21 .rule2 {
+  height: 1px;
+  background-color: #d2d3d3;
+}
+.login-job-seeker .frame-18 .under-form-part .last-info-section .have-accout-login-link {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+.login-job-seeker .frame-18 .under-form-part .last-info-section .have-accout-login-link .ankor {
+  color: #0055d9;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .login-job-seeker .frame-18 {
+    width: 75%;
+  }
+  .login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-logo svg {
+    height: 22.5px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .login-job-seeker .frame-18 {
+    padding: 32px 34px;
+    width: 95%;
+  }
+  .login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-logo .vip-svg {
+    height: 22px;
+  }
+}
+@media (max-width: 575.98px) {
+  .login-job-seeker .frame-18 {
+    padding: 32px 24px;
+    width: 90%;
+  }
+  .login-job-seeker .frame-18 .frame-17 .sign-social-links .google-section2 .google-logo .vip-svg {
+    height: 22.5px;
+  }
+}

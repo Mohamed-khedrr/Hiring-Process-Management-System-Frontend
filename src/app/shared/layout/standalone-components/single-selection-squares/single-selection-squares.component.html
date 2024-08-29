@@ -1,0 +1,9 @@
+<div class="single-selection w-full">
+  <div class="current-level grid  md:grid-cols-3 grid-cols-2 gap-12">
+    <ng-container *ngFor="let option of inputOptionsList">
+      <input [checked]="option == selectedOption" type="radio" (change)="selectOption(option)"
+        id="{{option.replaceAll(' ', '-')}}-level" value="{{option}}" name="{{randomInputName}}" class="hidden">
+      <label class=" btn flex items-center justify-center vip" for="{{option.replaceAll(' ', '-')}}-level">{{option}}</label>
+    </ng-container>
+  </div>
+</div>

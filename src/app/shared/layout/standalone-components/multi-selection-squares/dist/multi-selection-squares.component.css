@@ -1,0 +1,25 @@
+.multi-selection .job-suggested .btn {
+  padding: 20px 10px;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 150%;
+  border-radius: 5px;
+  background-color: #80aea7;
+  transition: 0.2s all;
+}
+.multi-selection .job-suggested .btn:hover {
+  background-color: #2b786c;
+}
+.multi-selection .job-suggested .btn:focus {
+  background-color: #2b786c;
+}
+.multi-selection .job-suggested input:checked + label.btn {
+  background-color: #2b786c;
+}
+@media (max-width: 1199.98px) {
+  .multi-selection .job-suggested .btn {
+    padding: 20px 0px;
+  }
+}

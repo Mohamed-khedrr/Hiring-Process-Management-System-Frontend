@@ -1,0 +1,500 @@
+@import "../../scss/variables";
+@import "../../scss/typography";
+
+* {
+    box-sizing: border-box;
+}
+
+
+.profile-loader{
+  .container {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      width: 100%;
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+      margin-right: auto;
+      margin-left: auto;
+  }
+
+  .company-view {
+      background-color: #f8f8f1;
+      .all-containing {
+          .line-border {
+              border: 1px solid $color-n-600;
+              border-radius: 8px;
+          }
+          .intro-section {
+              .photo-cover {
+                  position: relative;
+                  background-color: $color-n-600;
+                  border-radius: 6.4px 6.4px 0px 0px;
+                  padding-block: 72px;
+                  opacity: 1;
+                  transition: opacity 1s linear;
+
+                  .add-btn {
+                      padding-block: 16px;
+                  }
+
+                  .add-cover-text {
+                      padding-block: 10px;
+                  }
+              }
+
+              .company-info {
+                  position: relative;
+
+                  .comp-profile-photo {
+                      position: relative;
+                      padding-block: 15px;
+
+                      .photo {
+                          position: absolute;
+                          top: -70px;
+                          left: 35px;
+                          width: 140px;
+                          height: 140px;
+                          background-color: $color-n-300;
+
+                          .loader {
+                              width: 48px;
+                              height: 48px;
+                              border: 3px solid #fff;
+                              border-radius: 50%;
+                              display: inline-block;
+                              position: relative;
+                              box-sizing: border-box;
+                              animation: rotation 1.5s linear infinite;
+                          }
+
+                          .loader::after {
+                              content: "";
+                              box-sizing: border-box;
+                              position: absolute;
+                              left: 50%;
+                              top: 50%;
+                              transform: translate(-50%, -50%);
+                              width: 56px;
+                              height: 56px;
+                              border-radius: 50%;
+                              border: 2.5px solid;
+                              border-color: $color-sec-300 transparent;
+                          }
+
+                          @keyframes rotation {
+                              0% {
+                                  transform: rotate(0deg);
+                              }
+
+                              100% {
+                                  transform: rotate(360deg);
+                              }
+                          }
+                      }
+
+                      .edit-photo {
+                          width: 60px;
+                          height: 24px;
+                          background-color: $color-n-300;
+                      }
+                  }
+
+                  .comp-info {
+                      padding-block: 55px 25px;
+
+                      .comp-name {
+                          padding-block: 10px;
+                          background-color: $color-n-300;
+                          width: 15%;
+                      }
+
+                      .comp-tagline {
+                          padding-block: 10px;
+                          background-color: $color-n-300;
+                          width: 25%;
+                      }
+
+                      .comp-industry-location {
+                          .industry-info {
+                              padding-block: 10px;
+                              background-color: $color-n-300;
+                              width: 40%;
+                          }
+
+                          .location {
+                              padding-block: 10px;
+                              background-color: $color-n-300;
+                              width: 15%;
+                          }
+
+                          .rank-hire {
+                              padding-block: 10px;
+                              background-color: $color-n-300;
+                              width: 25%;
+                          }
+                      }
+
+                      .subscribe-view-btn {
+                          background-color: $color-n-300;
+                          padding: 4px 8px;
+                          width: 89px;
+                          height: 30px;
+                      }
+                  }
+              }
+          }
+
+          .under-sections {
+              position: relative;
+
+              .section-header {
+                  padding-block: 14px;
+                  background-color: $color-n-300;
+                  width: 30%;
+              }
+
+              .edit-button {
+                  width: 60px;
+                  height: 24px;
+                  background-color: $color-n-300;
+              }
+
+              .title {
+                  padding-block: 12px;
+                  background-color: $color-n-300;
+                  width: 20%;
+              }
+
+              .text {
+                  padding-block: 9px;
+                  background-color: $color-n-300;
+                  width: 100%;
+              }
+
+              .vip-text {
+                  display: none;
+              }
+
+              .social-icon {
+                  width: 32px;
+                  height: 32px;
+                  background-color: $color-n-300;
+                  border-radius: 5px;
+              }
+          }
+      }
+  }
+
+  // applies to xx-large
+  @media (min-width: 1400px) {
+      .container {
+          max-width: 1320px;
+      }
+
+      .company-view {
+          .all-containing {
+              width: 85%;
+          }
+      }
+  }
+
+  // applies to x-large devices (large desktops, less than 1400px)
+  @media (max-width: 1399.98px) {
+      .container {
+          max-width: 1140px;
+      }
+
+      .company-view {
+          .all-containing {
+              width: 90%;
+
+              .intro-section {
+                  .company-info {
+                      .comp-profile-photo {
+                          .photo {
+                              width: 120px;
+                              height: 120px;
+                              top: -60px;
+
+                              .loader {
+                                  width: 40px;
+                                  height: 40px;
+                              }
+
+                              .loader::after {
+                                  width: 48px;
+                                  height: 48px;
+                              }
+                          }
+                      }
+
+                      .comp-info {
+                          padding-block: 30px 25px;
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  //  applies to large devices (desktops, less than 1200px)
+
+  @media (max-width: 1199.98px) {
+      .container {
+          max-width: 960px;
+      }
+
+      .company-view {
+          .all-containing {
+              width: 100%;
+
+              .intro-section {
+                  .company-info {
+                      .comp-info {
+                          .comp-name {
+                              width: 25%;
+                          }
+
+                          .comp-tagline {
+                              width: 35%;
+                          }
+
+                          .comp-industry-location {
+                              .industry-info {
+                                  width: 50%;
+                              }
+
+                              .location {
+                                  width: 25%;
+                              }
+
+                              .rank-hire {
+                                  width: 35%;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+
+          // applies to medium devices (tablets, less than 992px)
+          @media (max-width: 991.98px) {
+              .container {
+                  max-width: 800px;
+              }
+
+              .company-view {
+                  .all-containing {
+                      .intro-section {
+                          .photo-cover {
+                              padding-block: 65px;
+                          }
+
+                          .company-info {
+                              .comp-profile-photo {
+                                  .photo {
+                                      width: 100px;
+                                      height: 100px;
+                                      top: -50px;
+
+                                      .loader {
+                                          width: 35px;
+                                          height: 35px;
+                                      }
+
+                                      .loader::after {
+                                          width: 43px;
+                                          height: 43px;
+                                      }
+                                  }
+                              }
+
+                              .comp-info {
+                                  padding-block: 10px 25px;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  //  applies to small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+      .container {
+          max-width: 600px;
+      }
+
+      .company-view {
+          .all-containing {
+              .intro-section {
+                  .photo-cover {
+                      padding-block: 50px;
+
+                      .add-btn {
+                          .add-btn-icon {
+                              width: 17px;
+                          }
+                      }
+                  }
+
+                  .company-info {
+                      .comp-profile-photo {
+                          padding-top: 10px;
+
+                          .photo {
+                              width: 90px;
+                              height: 90px;
+                              top: -40px;
+                              left: 25px;
+                              .loader{
+                                  width:35px ;
+                                  height: 35px;
+                              }
+                              .loader::after{
+                                  width:43px ;
+                                  height: 43px;
+                              }
+                          }
+                      }
+
+                      .comp-info {
+                          padding-block: 15px 25px;
+                          .comp-name {
+                              width: 35%;
+                          }
+
+                          .comp-tagline {
+                              width: 45%;
+                          }
+
+                          .comp-industry-location {
+                              .industry-info {
+                                  width:70%;
+                              }
+
+                              .location {
+                                  width: 30%;
+                              }
+
+                              .rank-hire {
+                                  width:45%;
+                              }
+                          }
+                      }
+
+                  }
+              }
+
+              .under-sections {
+                  .about-section {
+                      .six-row {
+                          gap: 15px;
+                      }
+                  }
+              }
+
+              .pin-edit-icon {
+                  width: 20px;
+              }
+          }
+      }
+  }
+  .profile-header{
+    padding:15px 0 ;
+    background-color: $color-n-800;
+    color:$color-white;
+    max-height:80px;
+    font-size: 16px;
+    font-weight: 500;
+    .container{
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-right: auto;
+        margin-left: auto;
+        @media (max-width: 767.98px) {
+          .container {
+              max-width: 600px;
+        }
+      }
+      @media (max-width: $breakpoint-small) {
+        .container {
+            max-width: 500px;
+      }
+    }
+      .logo{
+        height: 40px;
+        padding-block: 8px;
+        background-color: #e2e8e9;
+        display: block;
+        width: 100px;
+        border-radius: 3px;
+      }
+      .nav-bar{
+        width: 100%;
+        padding-left: 30px;
+        display:flex;
+        align-items: center;
+        justify-content: end;
+        @media  (min-width:$breakpoint-medium) {
+          justify-content: space-between;
+        }
+        ul.profile-links{
+          display: none;
+          @media  (min-width:$breakpoint-medium) {
+            display:flex;
+            min-width: 80%;
+          }
+          list-style: none;
+          li{
+            a{
+              padding-block: 3px;
+              background-color: #e2e8e9;
+              display: block;
+              width: 70px;
+              margin: 0px 20px;
+              border-radius: 2px;
+            }
+          }
+        }
+        .profile-image{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .icon{
+              padding-block: 3px;
+              background-color: #e2e8e9;
+              display: block;
+              margin-right: 15px;
+              width: 20px;
+              height: 20px;
+              border-radius: 2px;
+              @media (max-width:992px) {
+                display: none;
+              }
+            }
+            div{
+              height: 40px;
+              width: 40px;;
+              border-radius: 50%;
+              background-color: #e2e8e9;
+              margin-right: 10px;
+            }
+            span{
+              padding-block: 3px;
+              background-color: #e2e8e9;
+              display: block;
+              width: 10px;
+              height: 4px;
+              border-radius: 2px;
+            }
+        }
+        }
+      }
+    }
+}

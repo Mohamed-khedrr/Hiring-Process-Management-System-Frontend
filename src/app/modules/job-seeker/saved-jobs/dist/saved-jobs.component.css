@@ -1,0 +1,117 @@
+#saved-jobs {
+  background-color: #f5f9fa;
+  min-height: 100vh;
+}
+#saved-jobs .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#saved-jobs .main-header {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #1f2223;
+  line-height: 27px;
+}
+#saved-jobs .main-body {
+  width: 70%;
+}
+#saved-jobs .job-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #033f47;
+  line-height: 27px;
+}
+#saved-jobs .exp-level,
+#saved-jobs .category,
+#saved-jobs .Keyword {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  color: #033f47;
+  line-height: 18px;
+  padding: 0px 2px;
+  background-color: #f5f9fa;
+  border-radius: 2px;
+}
+#saved-jobs .company-name,
+#saved-jobs .company-location {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #033f47;
+  line-height: 18px;
+}
+#saved-jobs .global-long-width {
+  width: 70%;
+}
+#saved-jobs .unsave-btn {
+  padding: 3px 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #2b786c;
+  line-height: 18px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  transition: 0.6s all;
+}
+#saved-jobs .unsave-btn:hover {
+  border-color: white;
+  background-color: #2b786c;
+  color: white;
+}
+#saved-jobs .unsave-btn .bookmark {
+  font-size: 15px;
+}
+@media (min-width: 1400px) {
+  #saved-jobs .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #saved-jobs .container {
+    max-width: 1140px;
+  }
+  #saved-jobs .main-body {
+    width: 75%;
+  }
+  #saved-jobs .global-long-width {
+    width: 75%;
+  }
+}
+@media (max-width: 1199.98px) {
+  #saved-jobs .container {
+    max-width: 960px;
+  }
+  #saved-jobs .main-body {
+    width: 80%;
+  }
+  #saved-jobs .global-long-width {
+    width: 80%;
+  }
+}
+@media (max-width: 991.98px) {
+  #saved-jobs .container {
+    max-width: 720px;
+  }
+  #saved-jobs .main-body {
+    width: 95%;
+  }
+  #saved-jobs .global-long-width {
+    width: 80%;
+  }
+}
+@media (max-width: 767.98px) {
+  #saved-jobs .container {
+    max-width: 540px;
+  }
+  #saved-jobs .main-body {
+    width: 100%;
+  }
+}

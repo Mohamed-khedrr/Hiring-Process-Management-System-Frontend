@@ -1,0 +1,196 @@
+<div class="all-experience-cart">
+  <form [formGroup]="experienceForm"
+    class="experience-info global-rounde shadow-lg bg-white p-16 flex flex-col gap-10 ">
+    <div class=" educational-level bg-white flex flex-col gap-8">
+      <div class="text">
+        <label class="global-section-label" for="job-type">What is your Experience?</label>
+      </div>
+
+
+      <!-- ============================================================================================= -->
+      <!-- Education List -->
+      <ng-container *ngFor="let item of experienceList">
+
+        <div class="selected-education-container flex flex-col gap-8">
+          <div class="flex items-center justify-between ">
+            <div class=" ">
+              <h5 class="field-header">{{item.name}} </h5>
+            </div>
+            @if(item?.id){
+            <div class="buttons flex items-center gap-6 ">
+              <div class=""><button class="btn flex justify-center items-center gap-3"
+                  (click)="scrollToEditForm(item)">Edit <img class="icon"
+                    src="../../../../../../assets/imgs/edit (1).svg" alt="" width="20" height="20"></button></div>
+              <div class=""><button class="btn flex justify-center items-center gap-3"
+                  (click)="deleteExperience(item?.id || '')">Delete <img class="icon"
+                    src="../../../../../../assets/imgs/trash-new.svg" alt="" width="20" height="20"></button></div>
+            </div>
+            }
+
+          </div>
+          <div class="">
+            <p class="text">{{item.place}}</p>
+          </div>
+          <div class="">
+            <p class="text">{{item.startYear}} -
+              {{item.endYear}} ({{calcNumberOfYears(item.startMonth , item.startYear, item.endMonth ,
+              item.endYear)}} )</p>
+          </div>
+        </div>
+      </ng-container>
+      <!-- ============================================================================================= -->
+      <!-- Education Loading -->
+      <!-- @if(isExperienceFormLoading){
+      <div class="selected-education-container flex flex-col gap-8">
+        <div class="flex items-center justify-between ">
+          <div class=" ">
+            <h5 class=" loader-min-h  bg-n-300 loader-big-w "> </h5>
+          </div>
+          <div class="buttons flex items-center gap-6 ">
+            <div class="loader-min-w loader-min-h bg-n-300"></div>
+            <div class="loader-min-w loader-min-h bg-n-300"></div>
+
+          </div>
+        </div>
+        <div class="">
+          <p class="text bg-n-300 loader-min-h"></p>
+        </div>
+        <div class="">
+          <p class="text bg-n-300 loader-min-h"></p>
+        </div>
+        <div class="">
+          <p class="text bg-n-300 loader-min-h"></p>
+        </div>
+      </div>
+      } -->
+
+      <!-- <div *ngIf="!isFormVisible && yearsOfExperinceValue != '0'" class="add-form-container"> -->
+      <div *ngIf="!isFormVisible" class="add-form-container">
+        <button class="global-button " id="add-experience-btn" (click)="displayExperienceForm()">
+          Add Experience <span> +</span></button>
+      </div>
+
+      <!-- ===================================================================== -->
+
+      <div class="experience-container" *ngIf="isFormVisible">
+
+        <div class=" degree-details bg-white  flex flex-col gap-10 justify-start" id="experience-form-start">
+          <div class=" degree-inputs flex flex-col gap-8 ">
+            <div class="field-of-study  flex flex-col gap-3">
+              <label class="global-small-label degree-input-label " for="job-title-input">Job Title</label>
+              <input class="global-input" type="text" formControlName="jobTitle" name="jobTitle" id="job-title-input"
+                placeholder="Job Title">
+            </div>
+            <div class="field-of-study  flex flex-col gap-3">
+              <label class="global-small-label degree-input-label " for="company-name-input">Company/Organization
+                Name</label>
+              <input class="global-input" type="text" formControlName="companyName" name="companyName"
+                id="company-name-input" placeholder="Company/Organization Name">
+            </div>
+            <div class="language flex flex-col gap-3  mb-20">
+              <label class="global-small-label degree-input-label " for="job-category-input">Job Category
+              </label>
+              <select class="global-input language-select" id="job-category-input" formControlName="jobCategory"
+                name="jobCategory">
+                <option *ngFor="let cat of jobCategoryList" value="{{cat.name}}"
+                  [selected]="(cat.name == 'Not Specified')? true : false ">
+                  {{cat.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class=" selector ">
+          <app-single-selection-squares [inputOptionsList]="experienceTypeList" [selectedOption]="experienceTypeValue"
+            (selectedOptionChange)="handelSelectedExperienceValue($event)"></app-single-selection-squares>
+        </div>
+      </div>
+      <div *ngIf="isFormVisible" class=" degree-details bg-white  flex flex-col gap-10 justify-start">
+
+        <div class=" degree-inputs flex flex-col gap-8 ">
+          <div class="when-achieve-degree flex flex-col gap-1">
+            <!-- ========================================================= -->
+            <div class="years-slector flex  gap-8 w-full">
+              <div class=" flex w-full gap-8">
+                <div class="language flex-col  gap-1 w-full  ">
+                  <div class="flex flex-col gap-3">
+                    <div class="label">
+                      <label class=" global-small-label" for="Field-of-Study"> Start From</label>
+                    </div>
+                    <select class="global-input language-select" id="degree-start-month" formControlName="startMonth"
+                      name="startMonth">
+                      <option value="0" selected disabled>Start Month</option>
+
+                      <option *ngFor="let month of monthsList" value="{{month}}">
+                        {{month|getMonthName}}
+                      </option>
+                    </select>
+                    <select class="global-input language-select mt-7" id="degree-start-year" formControlName="startYear"
+                      name="startYear">
+                      <option value="0" selected disabled>Start Year</option>
+
+                      <option *ngFor="let year of yearsList" value="{{year}}">
+                        {{year}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="language flex-col  gap-1 w-full  " *ngIf="!stillWorkThereValue">
+                  <div class="flex flex-col gap-3">
+                    <div class="label">
+                      <label class=" global-small-label" for="Field-of-Study">Ending in</label>
+                    </div>
+                    <select formControlName="endMonth" name="endYear" placeholder="End Year"
+                      class="global-input level-select " id="degree-end-month">
+                      <option value="0" selected disabled>End Month</option>
+                      <option *ngFor="let month of monthsList" value="{{month}}">
+                        {{month | getMonthName}}
+                      </option>
+                    </select>
+                    <select formControlName="endYear" name="endYear" placeholder="End Year"
+                      class="global-input level-select mt-7 " id="degree-end-year">
+                      <option value="0" selected disabled>End year</option>
+
+                      <option *ngFor="let year of yearsList" value="{{year}}">
+                        {{year}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ========================================================= -->
+          </div>
+          <div class="flex gap-3">
+            <input class="radio-input" type="checkbox" formControlName="stillWorkThere" [value]="true">
+            <label class="flex  radio-input-label">I still work there</label>
+          </div>
+          <div class="flex flex-col gap-3">
+            <label class="global-small-label degree-input-label ">About Your Experience</label>
+            <textarea class="global-input" type="text" rows="6" formControlName="aboutExperience"></textarea>
+          </div>
+        </div>
+
+        <p class="error-message " [ngClass]="{'hidden' : !experienceForm.invalid || !experienceForm.touched}">
+          Please
+          Complete All Experience
+          Fields</p>
+        <div class="save-form-buttons flex gap-12">
+          @if (!isSaveChangesVisible) {
+          <button [disabled]="experienceForm.invalid" class="global-button" (click)="saveExperienceAndMoreButton()">Save
+            &
+            Add
+            More</button>
+          <button [disabled]="experienceForm.invalid" class="global-button"
+            (click)="saveExperienceButton()">Save</button>
+          }
+          @else {
+          <button [disabled]="experienceForm.invalid" class="global-button " (click)="updateExperience()">Save
+            Changes</button>
+          }
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

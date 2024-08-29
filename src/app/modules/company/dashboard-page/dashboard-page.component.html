@@ -1,0 +1,250 @@
+<section id="dashboard-page" class="border flex flex-col gap-7">
+  <div class="manager-section flex flex-col gap-5">
+    <div class="">
+      <h3 class="heading-label">Manager</h3>
+    </div>
+    <div class="">
+      <p class="global-light-text">Summary</p>
+    </div>
+    <div class="containing-ifo p-9 flex items-center gap-36" *ngIf="isCompany">
+      <div class="active-job  flex flex-col gap-3">
+        <i class="fas fa-briefcase"></i>
+        <p class="global-light-text label flex">Active Jobs</p>
+        <p class="numbers">{{companyStatistics?.companyActiveJobsNumber}}</p>
+      </div>
+      <div class="active-job  flex flex-col gap-3">
+        <i class="fas fa-hourglass-half"></i>
+        <p class="global-light-text label flex items-center justify-center">Pending Invitations</p>
+        <p class="numbers">{{companyStatistics?.pendingInvitations}}</p>
+      </div>
+      <div class="active-job  flex flex-col gap-3">
+        <i class="fas fa-users"></i>
+        <p class="global-light-text label flex">Members</p>
+        <p class="numbers">{{companyStatistics?.companyMembersNumber}}</p>
+      </div>
+    </div>
+    <div class="containing-ifo p-9 flex items-center gap-36" *ngIf="!isCompany">
+      <div class="active-job  flex flex-col gap-3">
+        <i class="fas fa-briefcase"></i>
+        <p class="global-light-text label flex">Active Jobs</p>
+        <p class="numbers">{{recruiterStatistics?.activePostsNumber}}</p>
+      </div>
+      <div class="active-job  flex flex-col gap-3">
+        <i class="fas fa-users"></i>
+        <p class="global-light-text label flex">members</p>
+        <p class="numbers">{{recruiterStatistics?.companyNumberOfMembers}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="containing-active-jobs  flex flex-col gap-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <p class="global-sub-label">Active Jobs</p>
+      </div>
+      <div class=" flex" *ngIf="companyJobPosts">
+        <button class="first-view-more-btn flex items-center justify-center gap-2" type="button"
+          routerLink="/company/job-posts" *ngIf="companyJobPosts.length>4">
+          View All
+          <img src="../../../assets/imgs/arrow-right.svg" alt="">
+        </button>
+      </div>
+    </div>
+    <div class="containing-cards  w-full flex items-center  justify-between  ">
+      <div class="all-cards   items-center  grid  2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  w-full gap-6">
+        <!-- @for (jobPost of companyJobPosts; track jobPost.id) { -->
+        <div class="card flex flex-col gap-6" *ngFor="let jobPost of shownCompanyJobPosts; let i=index">
+          <div class=" flex items-center justify-between border-b-2 pb-6">
+            <div class="">
+              <p class="job-name mt-3 mb-6">{{jobPost.jobTitle}}</p>
+              <p class="Job-Category global-light-text">{{jobPost.industry.industry}}</p>
+            </div>
+            <div class="relative" (mouseleave)="closeDropDown(isJobOpen, i)" (mouseover)="openDropDown(isJobOpen, i)">
+              <div>
+                <button id="dropdownButton" data-dropdown-toggle="dropdown"
+                  class="inline-block text-gray-500 dark:text-gray-400"
+                  type="button">
+                  <img src="../../../assets/imgs/more-horizontal.svg" alt="">
+                </button>
+              </div>
+              <div id="dropdown" class="containing-dropdown absolute right-0   bg-white  rounded-lg shadow-lg w-80 "
+                *ngIf="isJobOpen[i]">
+                <ul class="dropdownlist py-2 " aria-labelledby="dropdownDefaultButton">
+                  <li>
+                    <a [routerLink]="['/company/job-posts/edit', jobPost.id]" class="block px-6 py-2">Edit job</a>
+                  </li>
+                  <li (click)="closeJob(jobPost.id)">
+                    <a class="block px-6 py-2">Close job</a>
+                  </li>
+                  <li (click)="deleteJob(jobPost.id)">
+                    <a class="block px-6 py-2">Delete job</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 pb-2">
+            <div class="app-numbers flex items-center justify-between">
+              <div class="">
+                <p class="flex items-center justify-center gap-2">
+                  <span class="numbers">{{jobPost?.dashboardNumbers?.applied}}</span>
+                  <span class="global-light-text">Applicant</span>
+                </p>
+              </div>
+              <div class="">
+                <p class="flex items-center justify-center gap-2"><span
+                    class="numbers">{{jobPost.dashboardNumbers?.newApps}}</span><span
+                    class="global-light-text">New</span></p>
+              </div>
+              <div class="">
+                <p class="flex items-center justify-center gap-2"><span
+                    class="numbers">{{jobPost.dashboardNumbers?.comments}}</span><span
+                    class="global-light-text">Comment</span></p>
+              </div>
+            </div>
+            <div class="">
+              <!-- <p class=" global-light-text">08 Mar, 2023</p> -->
+              <p class=" global-light-text mt-3">
+                {{
+                (jobPost.createdOn| getDate).getDate().toString().padStart(2, '0') + " "+
+                ((jobPost.createdOn | getDate).getMonth()|getMonthName)+ " "+
+                (jobPost.createdOn | getDate).getFullYear()
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center text-4xl text-gray-800 h-24" *ngIf="!jobPost.recruitersTeam?.length">
+            No Recruiters Added
+          </div>
+          <div class="flex items-center containing-icon" *ngIf="jobPost.recruitersTeam?.length">
+            <div class="icon-1 overflow-clip" *ngFor="let recruiter of jobPost.recruitersTeam">
+              <span
+                class="h-24 w-24 rounded-full overflow-hidden flex justify-center items-center border-white box-border border-2">
+                <img class=" h-full max-w-fit"
+                  [src]="(recruiter.photo|handleFileUrl)||'../../../assets/imgs/Container.svg'">
+              </span>
+              <p class="imgDesc rounded-full flex items-center text-center ">{{recruiter.name}}</p>
+            </div>
+          </div>
+          <div class="w-full mt-1">
+            <button class="btn w-full" [routerLink]="'/job-details/'+jobPost.id">View details</button>
+          </div>
+        </div>
+        <!-- } -->
+      </div>
+      <div class="flex" *ngIf="companyJobPosts&&companyJobPosts.length>4">
+        <button class=" second-view-more-btn flex items-center justify-center gap-2" routerLink="/company/job-posts"
+          type="button">
+          View All
+          <img src="../../../assets/imgs/arrow-right.svg" alt="">
+        </button>
+      </div>
+    </div>
+    <div class="containing-cards  w-full flex items-center  justify-between"
+      *ngIf="!companyJobPosts || companyJobPosts.length == 0">
+      No Jobs Available
+    </div>
+  </div>
+
+  <div #overlay class="overlay"></div>
+  <div #closeJobDialog class="dialog ">
+    <button class="close-btn" (click)="closeDialog(closeJobDialog)"><i class="fas fa-times"></i></button>
+    <img src="../../../../../assets/imgs/Deleted account.png" alt="Image">
+
+    <h2>Are you sure you want to close this job?</h2>
+    <p>Once closed, no one will be able to apply for this job.</p>
+    <div class="buttons flex ">
+      <button (click)="closeDialog(closeJobDialog)">Cancel</button>
+      <button (click)="confirmClose()">Close Job</button>
+    </div>
+  </div>
+  <div #deleteJobDialog class="dialog">
+    <button class="close-btn" (click)="closeDialog(deleteJobDialog)"><i class="fas fa-times"></i></button>
+    <img src="../../../../../assets/imgs/Deleted account.png" alt="Image">
+    <h2>Are you sure you want to delete this job?</h2>
+    <p>Once deleted, this job will be removed permanently and cannot be recovered.</p>
+    <div class="buttons flex">
+      <button (click)="closeDialog(deleteJobDialog)">Cancel</button>
+      <button (click)="confirmDelete()">Delete Job</button>
+    </div>
+  </div>
+  <div #successMessageDialog class="dialog">
+    <button class="close-btn" (click)="closeDialog(successMessageDialog)"><i class="fas fa-times"></i></button>
+    <img src="../../../../../assets/imgs/Deleted account.png" alt="Success Image">
+    <h2>{{successMsg}}</h2>
+    <p>You will no longer see this job in your list.</p>
+    <div class="buttons flex">
+      <button class="main-btn" (click)="closeDialog(successMessageDialog)">Close</button>
+    </div>
+  </div>
+  <div #errorMessageDialog class="dialog">
+    <button class="close-btn" (click)="closeDialog(errorMessageDialog)"><i class="fas fa-times"></i></button>
+    <img src="../../../../../assets/imgs/500 Internal Server Error-amico.png" alt="Error Image">
+    <h2>Error</h2>
+    <p>{{errorMsg}}<br> Please try again later or contact support for assistance.</p>
+    <div class="buttons flex">
+      <button class="main-btn" (click)="closeDialog(errorMessageDialog)">Close</button>
+    </div>
+  </div>
+
+  <div class="containing-suggestion  flex flex-col gap-4">
+    <div class="flex justify-between items-center">
+      <div>
+        <p class="global-sub-label">Suggestions</p>
+      </div>
+    </div>
+    <div *ngIf="jobSeekerLoaded" class="containing-cards  flex flex-col justify-between  items-center  ">
+      <div class="all-cards  grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-6">
+        <div class="card grid flex-col gap-6 " *ngFor="let js of recommendedJobSeekers">
+          <div class="card-header flex flex-col items-center justify-center border-b-2 pb-6">
+            <div class="">
+              <img class="h-60 w-60 rounded-full"
+                [src]="(js.profile_photo|handleFileUrl) ||'../../../assets/imgs/Container.svg'" alt="">
+            </div>
+            <div>
+              <p class="candidate-name">{{js.first_name}} {{js.last_name}}</p>
+            </div>
+            <div>
+              <p class="global-light-text mb-2">{{js.career_level}} {{js.job_title}}</p>
+            </div>
+          </div>
+          <div class="card--body grid">
+            <div class="person-info flex flex-col gap-3 ">
+              <div class="flex items-center gap-3" *ngIf="js.degree">
+                <img src="../../../assets/imgs/teacher.svg" alt="">
+                <p>{{js.degree}} in {{js.field_of_study}}</p>
+              </div>
+              <div class="flex items-center gap-3" *ngIf="js.name">
+                <img src="../../../assets/imgs/briefcase.svg" alt="">
+                <p>{{js.name}} <span class="global-light-text">at</span> {{js.place}}
+                  <span *ngIf="js.start_year" class="global-light-text">({{js.start_year}}-{{js.end_year||'now'}})</span>
+                </p>
+              </div>
+            </div>
+            <div class=" items-center containing-skills flex flex-wrap gap-1">
+              <p class="skill flex items-center justify-center" *ngFor="let skill of js.skills | slice:0:4"># {{skill}}</p>
+            </div>
+            <div class="w-full  self-end h-fit">
+              <button class="btn w-full " [routerLink]="'/job-seeker/profile/'+js.id">View details</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="flex mt-10 mb-10" (click)="getNextPage()" *ngIf="(recommendedJobSeekers&&recommendedJobSeekers.length<100) &&
+       (newRecommendedJobSeekers&&newRecommendedJobSeekers.length==6)">
+        <button class="first-view-more-btn flex items-center justify-center gap-2" type="button">Show More
+          <!-- <img src="../../../assets/imgs/arrow-right.svg" alt=""> -->
+        </button>
+      </div>
+      <div class="flex mt-10 mb-10" (click)="getNextPage()"
+        *ngIf="recommendedJobSeekers.length<100 && newRecommendedJobSeekers.length==6">
+        <button class="second-view-more-btn flex items-center justify-center gap-2" type="button">
+          Show More
+          <!-- <img src="../../../assets/imgs/arrow-right.svg" alt=""> -->
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

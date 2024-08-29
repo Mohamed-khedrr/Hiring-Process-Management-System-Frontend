@@ -1,0 +1,65 @@
+<section id="applicant-assessments">
+    <div class="container ">
+        @if (assessments.length) {
+        <div class="px-10 pt-5 pb-16 bg-white">
+            <div class="py-8 px-16 line-border flex flex-col gap-4" *ngFor="let assessment of assessments">
+                <div class=" ">
+                    <div class=" flex justify-between ">
+                        <div class="">
+                            <p class="main-header">{{assessment.title}} </p>
+                        </div>
+                        <div class="">
+                            <button class="mark-done-btn" 
+                                (click)="makeAssessmentVisitedOrCompleted(assessment.id||'', assessmentStatus.Completed)" 
+                                *ngIf="assessment.status !== 'Completed'&& getDateTime(assessment.availableTill).getTime()>=dateTimeNow">
+                                Mark as done
+                            </button>
+                            <p class="done-text" *ngIf="assessment.status === 'Completed'">Done</p>
+                            <p class="done-text text-red-600" 
+                            *ngIf="assessment.status !== 'Completed' && getDateTime(assessment.availableTill).getTime()<dateTimeNow">Missed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col pb-6 line-bottom-border">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Added by</p></div>
+                            <div class="answer text"><p>{{assessment.createdBy}} at {{getDateTimeAndDay(assessment.createdAt||'')}} </p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Deadline</p></div>
+                            <div class="answer text"><p>{{getDateTimeAndDay(assessment.createdAt||'')}}</p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Duration</p></div>
+                            <div class="answer text"><p>{{assessment.duration}} hours</p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Assessment link</p></div>
+                            <div class="answer text" 
+                            (click)="makeAssessmentVisitedOrCompleted(assessment.id||'', assessmentStatus.Visited)">
+                            <a [href]="assessment.link" target="_blank">{{assessment.link}}</a>
+                        </div>
+                        </div>
+                        <div class="flex gap-28 items-center ">
+                            <div class="question text"><p>Result</p></div>
+                            <div class="answer text" *ngIf="assessment.status === 'Completed'&&!assessment.result"><p>Waiting for result...</p></div>
+                            <div class="answer text" *ngIf="assessment.status !== 'Completed' && getDateTime(assessment.availableTill).getTime()>=dateTimeNow"><p>No Result Yet</p></div>
+                            <div class="answer text" *ngIf="assessment.status !== 'Completed' && getDateTime(assessment.availableTill).getTime()<dateTimeNow"><p>Missed</p></div>
+                            <div class="answer text" *ngIf="assessment.result"><p>{{assessment.result}}</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }@else {
+        <div
+            class="flex flex-col items-center justify-center gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+            <div class=""><img src="../../../../assets/imgs/undraw_businessman_re_mlee 1.svg" alt=""></div>
+            <div class="">
+            <p class="text-under-photo">No Assessments added. </p>
+            </div>
+        </div>
+    }
+    </div>
+</section>

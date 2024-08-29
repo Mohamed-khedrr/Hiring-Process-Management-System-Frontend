@@ -1,0 +1,282 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.setting-page {
+  background-color: $color-n-200;
+
+  .page {
+    .settings-sections {
+      .line-border {
+        border: 1px solid $color-sec-100;
+      }
+      .btn {
+        font-family: $font-family-inter;
+        font-size: $font-b3;
+        font-weight: 500;
+        line-height: $line-height-label;
+        background-color: $color-sec-500;
+        border-radius: 5px;
+        color: white;
+        padding: 15px 16px;
+        border: 1px solid ;
+        transition: 0.6s all;
+        &:hover{
+          background-color: transparent;
+          border-color: $color-sec-500;
+          color: $color-sec-500;
+        }
+      }
+      .heading,
+      .change-password {
+        .main-header,
+        .sub-header {
+          color: $color-n-800;
+          font-family: $font-family-crimson;
+          font-size: $font-h7;
+          font-weight: 700;
+          line-height: $line-height-heading;
+        }
+
+        .heading-body {
+          color: $color-n-600;
+          font-family: $font-family-open-sans;
+          font-size: $font-b3;
+          line-height: $line-height-body;
+        }
+
+        .sub-header {
+          font-size: $font-h8;
+        }
+
+        .input-field {
+          padding: 11px 12px;
+          border: 1px solid $color-n-800;
+          border-radius: 5px;
+          font-family: $font-family-open-sans;
+          font-size: $font-b3;
+          line-height: $line-height-body;
+          &::placeholder {
+            color: $color-n-500;
+          }
+        }
+      }
+      .privacy-option {
+        .checkbox-label {
+          color: $color-n-800;
+          font-family: $font-family-open-sans;
+          font-size: $font-b3;
+          line-height: $line-height-body;
+        }
+        .vip-label {
+          color: $color-n-600;
+          font-size: $font-l3;
+        }
+      }
+      .my-subscription {
+        .checkbox-label {
+          color: $color-n-800;
+          font-family: $font-family-open-sans;
+          font-size: $font-b3;
+          line-height: $line-height-body;
+        }
+      }
+      .delete-account {
+        .btn {
+          background-color: #ea2a2a;
+          border: 1px solid ;
+          transition: 0.6s all;
+          &:hover{
+            background-color: transparent;
+            border:1px solid #ea2a2a;
+            color: #ea2a2a;
+          }
+        }
+      }
+      .checkbox-input {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .settings-sections {
+    max-width: 100%;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .setting-page .page {
+    .settings-sections {
+      // max-width: 75%;
+    }
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .setting-page .page {
+    .settings-sections {
+      // max-width: 85%;
+      .heading,
+      .change-password {
+        .main-header,
+        .sub-header {
+          font-size: $font-h7;
+        }
+
+        .heading-body {
+          font-size: $font-b3;
+        }
+
+        .sub-header {
+          font-size: $font-h9;
+        }
+
+        .input-field {
+          font-size: $font-b3;
+        }
+      }
+      .my-subscription {
+        .checkbox-label {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .setting-page .page {
+    .settings-sections {
+      // max-width: 95%;
+      .heading,
+      .change-password {
+        .main-header,
+        .sub-header {
+          font-size: $font-h7;
+        }
+
+        .heading-body {
+          font-size: $font-b3;
+        }
+
+        .sub-header {
+          font-size: $font-h9;
+        }
+
+        .input-field {
+          padding: 9px 10px;
+          font-size: $font-b3;
+        }
+      }
+      .my-subscription {
+        .checkbox-label {
+          font-size: $font-b3;
+        }
+      }
+      .checkbox-input {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .setting-page .page {
+    .settings-sections {
+      .btn {
+        font-size: $font-l3;
+        padding: 12px 13px;
+      }
+      .heading,
+      .change-password {
+        .main-header,
+        .sub-header {
+          font-size: $font-h8;
+        }
+
+        .heading-body {
+          font-size: $font-l3;
+        }
+
+        .sub-header {
+          font-size: $font-h9;
+        }
+
+        .input-field {
+          padding: 8px 9px;
+          font-size: $font-l3;
+        }
+      }
+      .my-subscription {
+        .checkbox-label {
+          font-size: $font-b3;
+        }
+      }
+      .checkbox-input {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .setting-page .page {
+    .settings-sections {
+      max-width: 95%;
+      .btn {
+        font-size: $font-l3;
+        padding: 10px 11px;
+      }
+      .checkbox-input {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}

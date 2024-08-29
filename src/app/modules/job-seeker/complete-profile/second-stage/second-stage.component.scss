@@ -1,0 +1,414 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.second-page {
+  background-color: $color-n-100;
+  .heading-text {
+    h5 {
+      color: $color-n-800;
+      font-size: $font-h6;
+      font-family: $font-family-crimson;
+      font-weight: 600;
+      line-height: $line-height-heading;
+    }
+
+    p {
+      color: $color-n-600;
+      font-size: $font-l3;
+      font-family: $font-family-open-sans;
+      line-height: $line-height-body;
+    }
+  }
+  .questions{
+    .under-buttons {
+      .skip-save-buttons {
+        padding: 5rem 0 5rem 0;
+      }
+    }
+    .global-rounde {
+      border-radius: 8px;
+    }
+    .global-section-label {
+      color: $color-n-800;
+      font-size: $font-b3;
+      font-family: $font-family-open-sans;
+      line-height: $line-height-body;
+      font-weight: 600;
+      .span-text{
+        color: $color-n-600;
+        font-weight: 400;
+        font-size: $font-l3;
+    }
+    }
+    .global-small-label {
+      font-size: $font-l3;
+      padding-left: 6px;
+      font-family: $font-family-open-sans;
+      font-weight: 400;
+      color: $color-n-800;
+      line-height: $line-height-body;
+    }
+    .global-button {
+      padding: 12px 24px;
+      background-color: $color-sec-300;
+      color: $color-white;
+      font-size: $font-l2;
+      border-radius: 4px;
+      font-family: $font-family-open-sans;
+      font-weight: 700;
+      line-height: $line-height-heading;
+    
+      &:disabled {
+        cursor: default;
+        background-color: $color-sec-100;
+      }
+    }
+    .back-button{
+      background-color:  $color-n-300;
+      color: $color-n-600 ;
+      transition: 1s all;
+      &:hover{
+        background-color: $color-n-400;
+      }
+    }
+    .skip-button{
+      background-color:  transparent;
+      border: 1px solid $color-sec-100;
+      color: $color-sec-100;
+      transition: 1s all;
+      &:hover{
+        background-color: $color-sec-500;
+        color: white;
+      }
+
+    }
+    .global-input {
+      padding: 11px 12px;
+      border-radius: 4px;
+      border: 1px solid $color-n-800;
+      font-size: $font-b3;
+      color: $color-n-800;
+      line-height: $line-height-body;
+    
+      &:focus {
+        outline: none;
+      }
+    
+      &::placeholder {
+        color: $color-n-800;
+      }
+    
+    }
+    #helper-checkbox-text {
+      font-size: $font-l4;
+      font-weight: 400;
+      font-family: $font-family-open-sans;
+      line-height: $line-height-body;
+      color: $color-n-500;
+    }
+    .radio-containing{
+      padding-top: 4.5px;
+    }
+    .radio-input{
+      width: 19px;
+      height: 19px;
+    }
+  }
+}
+
+
+
+
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  .questions {
+    max-width: 80%;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+  .questions {
+    max-width: 90%;
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+  .second-page{
+    .questions {
+      max-width: 100%;
+      .global-button {
+        padding: 12px 20px;
+    }
+    }
+  }
+  
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+  .second-page{
+    .heading-text {
+      h5 {
+        font-size: $font-h6;
+      }
+    }
+    .questions {
+      max-width: 100%;
+      .global-button {
+        font-size:14px ;
+        padding: 12px 16px;
+      }
+    }
+  }
+
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+  .second-page{
+    .heading-text {
+      h5 {
+        font-size: $font-h7;
+      }
+    }
+    .questions {
+      max-width: 100%;
+      .global-button {
+        padding: 12px 14px;
+      }
+      .global-input{
+        font-size:12px ;
+        padding: 11px 8px;
+    }
+    }
+  }
+  
+}
+@media (max-width: 575.98px) {
+  .second-page {
+    .heading-text {
+      max-width: 85%;
+
+      h5 {
+        font-size: $font-h7;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+    .questions {
+      max-width: 92%;
+    }
+  }
+}
+
+
+:host {
+  ::ng-deep .test {
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid $color-n-800;
+    font-family: $font-family-open-sans;
+    font-size: $font-l2;
+    // font-weight: 600;
+    line-height: $line-height-body;
+    width: 100%;
+    outline-color: $color-sec-500;
+    .p-hidden-accessible {
+      padding: 0;
+    }
+
+    .p-checkbox {
+      display: none;
+    }
+
+    .p-multiselect-items-wrapper {
+      border: solid $color-sec-500 2px;
+      margin-top: 5px;
+      border-radius: 1rem;
+    }
+    ul.p-multiselect-items {
+      li.p-ripple.p-multiselect-item,
+      .p-multiselect-empty-message.ng-star-inserted {
+        padding: 5px 10px;
+        font-size: $font-l4;
+        &:hover {
+          background-color: $color-sec-500;
+          color: $color-white;
+          transition: all 0.2s;
+        }
+      }
+    }
+    .p-element.p-icon-wrapper.ng-star-inserted {
+      // background-color: red;
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    .p-multiselect-token.ng-star-inserted {
+      border-radius: 0;
+      padding: 2px 5px;
+      background-color: $color-sec-300;
+      color: $color-white;
+      margin: 0 5px;
+      // background-color: $color-sec-300;
+      // color: $color-white;
+      // padding: 1px 5px;
+      span {
+        font-size: $font-l4;
+        margin-right: 5px;
+      }
+    }
+    .p-ripple.p-element.p-multiselect-close.p-link.p-button-icon-only.ng-star-inserted,
+    .p-icon.p-multiselect-filter-icon {
+      display: none;
+    }
+
+    input {
+      font-size: $font-l3;
+      border-radius: 1rem;
+      padding: 3px 5px;
+      margin-top: 5px;
+    }
+    .p-multiselect-label {
+      width: 100%;
+    }
+  }
+}
+
+:host {
+  ::ng-deep .test {
+    padding: 7px 10px;
+    outline: none;
+    border: 1px solid $color-n-800;
+    font-family: $font-family-open-sans;
+    font-size: $font-l2;
+    // font-weight: 600;
+    line-height: $line-height-body;
+    width: 100%;
+    outline-color: $color-sec-500;
+    .p-hidden-accessible {
+      padding: 0;
+    }
+
+    .p-checkbox {
+      display: none;
+    }
+
+    .p-multiselect-items-wrapper {
+      border: solid $color-sec-500 2px;
+      margin-top: 5px;
+      border-radius: 1rem;
+    }
+    ul.p-multiselect-items {
+      li.p-ripple.p-multiselect-item,
+      .p-multiselect-empty-message.ng-star-inserted {
+        padding: 5px 10px;
+        font-size: $font-l4;
+        &:hover {
+          background-color: $color-sec-500;
+          color: $color-white;
+          transition: all 0.2s;
+        }
+      }
+    }
+    .p-element.p-icon-wrapper.ng-star-inserted {
+      // background-color: red;
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    .p-multiselect-token.ng-star-inserted {
+      border-radius: 0;
+      padding: 2px 5px;
+      background-color: $color-sec-300;
+      color: $color-white;
+      margin: 0 5px;
+      // background-color: $color-sec-300;
+      // color: $color-white;
+      // padding: 1px 5px;
+      span {
+        font-size: $font-l4;
+        margin-right: 5px;
+      }
+    }
+    .p-ripple.p-element.p-multiselect-close.p-link.p-button-icon-only.ng-star-inserted,
+    .p-icon.p-multiselect-filter-icon {
+      display: none;
+    }
+
+    input {
+      font-size: $font-l3;
+      border-radius: 1rem;
+      padding: 3px 5px;
+      margin-top: 5px;
+    }
+    .p-multiselect-label {
+      width: 100%;
+    }
+  }
+}
+
+.under-buttons .skip-save-buttons {
+  .common-btn {
+    color: $color-n-600;
+    font-family: $font-family-open-sans;
+    font-size: $font-b3;
+    font-weight: 600;
+    line-height: $line-height-label;
+    border-radius: 3px;
+  }
+
+  .back-btn {
+    background-color: $color-n-300;
+  }
+  .save-btn {
+    font-weight: 700;
+    color: white;
+    background-color: $color-sec-500;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+      background-color: $color-sec-100;
+    }
+  }
+  .skip-btn {
+    background-color: transparent;
+  }
+}
+.required-field {
+  color: red;
+}

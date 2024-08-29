@@ -1,0 +1,485 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+* {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.error-border {
+  border: 1px solid red;
+}
+
+#sign-in-employer {
+  background-color:$color-n-100;
+
+  .global-small-label {
+    font-family:$font-family-open-sans;
+    font-size:$font-l2 ;
+    font-weight: 400;
+    color: $color-n-800;
+    line-height: $line-height-body;
+  }
+
+  .global-input {
+    padding: 11px 12px;
+    border-radius: 4px;
+    border: 1px solid $color-n-800;
+    font-size: $font-b3;
+    color: $color-n-800;
+    line-height: $line-height-body;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-n-800;
+    }
+  }
+
+  .under-section{
+    .all-left-side {
+      padding-top: 50px;
+      width: 40%;
+      .section-info .text  {
+        color: $color-n-700;
+        font-family: $font-family-crimson;
+        font-size: $font-h6;
+        font-weight: 700;
+        line-height: $line-height-heading;
+      }
+    }
+    .all-right-side {
+      padding: 32px 44px 32px 44px;
+      width: 50.2%;
+      .form{
+        .mobile-number {
+          width: 100%;
+          .mobile-number-container {
+            width: 100%;
+            border: 1px solid $color-n-800;
+            font-size: $font-b3;
+            padding-left: 10px;
+            font-family: $font-family-open-sans ;
+            font-weight: 600;
+            line-height: $line-height-body ;
+            color: $color-n-800;
+            border-radius: 5px;      
+            ._1-px {
+              background-color: #d2d3d3;
+              position: relative;
+              width: 0.5px;
+            }
+
+            .mobile-input-container {
+              width: 67.5%;    
+              input {
+                background-color: $color-n-200;
+              }          
+            }
+            
+          }
+          &:focus {
+            outline: none;
+          }
+      
+          &::placeholder {
+            color: $color-n-800;
+          }
+        }
+        
+
+        .sign-up-and-transform-your-hiring-process {
+          color: $color-n-800;
+          font-family: $font-family-crimson;
+          font-size: $font-h7;
+          font-weight: 700;
+          line-height: $line-height-heading;
+        }
+        .rule {
+          background:$color-n-300;
+          height: 1px;
+        }
+        .s-ign-up-application {
+          input.ng-invalid.ng-touched {
+            border: 1px solid red;
+          }
+
+          .input-label ,.error-message {
+            color: $color-n-800;
+            font-family:$font-family-open-sans;
+            font-size:$font-l2 ;
+            line-height: $line-height-body;
+            font-weight:400;
+          }
+          .input-field {
+            background: $color-n-200;
+            border: 1px solid $color-n-800;
+            font-size:$font-b3 ;
+            border-radius: 4px;
+            height: 44px;
+            padding-left: 10px;
+          }
+          .error-message{
+            color: rgba(255, 0, 0, 0.723);
+            font-size: small;
+            margin-top: 5px;
+          }
+          .password-section{
+            .new-containing{
+              border-radius: 4px;
+              .eye-icon-button {
+                background: $color-n-600;
+                padding: 10px;
+                border-radius: 0px 3px 3px 0px;
+                right: 0.6px;
+                top: 0.8px;
+                bottom: 0.8px;
+              }
+            }
+          }
+
+        }
+
+
+        
+        .sign-up-with-google3{
+          button {
+            background: $color-sec-500;
+            border-radius: 4px ;
+            padding-block: 10px;
+            font-family:$font-family-open-sans;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: $line-height-body;
+
+            &:disabled {
+              opacity: 0.5;
+              &:hover {
+                cursor: default;
+              }
+            }
+          }
+          .error {
+            margin-bottom: 10px;
+            .error-message{
+              font-family:$font-family-open-sans;
+              line-height: $line-height-body;
+              color: rgba(255, 0, 0, 0.723);
+              font-size: large;
+              margin-top: 5px;
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+      .terms-and-condition{
+        color: $color-n-900;
+        font-family: $font-family-open-sans;
+        font-size: $font-l3;
+        font-weight: 400;
+        line-height:$line-height-heading;
+        a {
+          color: #0055d9;
+        }
+      }
+      .last-info-section{
+        .frame-21 .rule2 {
+          height: 1px;
+          background-color: #d2d3d3;
+        }
+        .have-accout-login-link{
+          color:black ;
+          font-family:$font-family-open-sans;
+          font-size: $font-b3;
+          font-weight: 600;
+          line-height:$line-height-body;
+          .ankor {
+            color: #0055d9;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+// media querey
+
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width:960px;
+  }
+  #sign-in-employer{
+    .under-section{
+      .all-left-side{
+        .section-info .text{
+          font-size: 29px;
+        }
+      }
+      .all-right-side{
+        .form{
+          .frame-17{
+            .sign-up-and-transform-your-hiring-process{
+              font-size: 20px;
+            }
+          }
+
+      }
+    }
+  }
+}
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+  #sign-in-employer{
+    .under-section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
+      width: 100%;
+      gap: 48px;
+      .all-left-side{
+        width: 100%;
+        .section-info{
+          .image{
+            display: none;
+          }
+        }
+      }
+      .all-right-side{
+        width: 80%;
+        .form{
+          .frame-17{
+            .sign-up-and-transform-your-hiring-process{
+              font-size: $font-h8;
+            }
+            .s-ign-up-application{
+              .input-label , .error-message{
+                font-size: $font-l3;
+              }
+              .error-message{
+                font-size: x-small;
+              }
+              .input-field{
+                font-size:$font-b4 ;
+                height: 40px;
+              }
+            }
+          }
+          .sign-up-with-google3{
+            button{
+              font-size: $font-l4;
+            }
+            .error-message{
+              font-size: x-small;
+
+            }
+          }
+        }
+        .terms-and-condition{
+          font-size: $font-l4;
+        }
+        .last-info-section{
+          .have-accout-login-link{
+            font-size:$font-l3 ;
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+  #sign-in-employer{
+    .under-section{
+
+      .all-right-side{
+        width: 100%;
+        .form{
+          .frame-17{
+            .sign-up-and-transform-your-hiring-process{
+              font-size: $font-h11;
+            }
+            .s-ign-up-application{
+              .input-label , .error-message{
+                font-size: $font-l4;
+              }
+              .error-message{
+                font-size: x-small;
+              }
+              .input-field{
+                font-size:$font-b4 ;
+              }
+            }
+          }
+          .sign-up-with-google3{
+            button{
+              font-size: $font-l4;
+            }
+            .error-message{
+              font-size: x-small;
+            }
+          }
+        }
+        .terms-and-condition{
+          font-size: $font-l4;
+        }
+        .last-info-section{
+          .have-accout-login-link{
+            font-size:$font-l4 ;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  #sign-in-employer{
+    .under-section{
+      .all-left-side{
+        width: 90%;
+        .section-info .text{
+          font-size:26px ;
+        }
+      }
+      .all-right-side{
+        padding: 24px 24px 32px 24px;
+        width: 90%;
+        .form{
+          .frame-17{
+            .sign-up-and-transform-your-hiring-process{
+              font-size: $font-h11;
+            }
+            .s-ign-up-application{
+              .input-label , .error-message{
+                font-size: 12px;
+              }
+              .input-field{
+                height: 40px;
+              }
+            }
+          }
+          .sign-up-with-google3{
+            .error-message{
+              font-size: 12px;
+            }
+          }
+
+        }
+        .terms-and-condition{
+          font-size: 10.5px;
+        }
+      }
+    }
+  }
+
+}
+
+.indusries{
+  width: 100%;
+}
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+select {
+  height: 45px;
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  background: #f5f9fa;
+  font-size: 14px;
+}
+option:hover {
+  background-color: $color-sec-300;
+}
+option:first-child {
+  color: #A1B3B6;
+}
+select:hover {
+  background-color: #f0f0f0;
+}
+
+:host ::ng-deep {
+  .country-code-container {
+    .p-element.p-inputwrapper.p-inputwrapper-filled {
+      display: flex;
+      align-items: center;
+    }
+    .frame-icon,
+    .ng-star-inserted {
+      border: none;
+      outline: none;
+    }
+    ul.p-dropdown-items {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .ng-star-inserted {
+      font-size: 15px;
+      background-color: $color-n-200;
+    }
+  }
+}

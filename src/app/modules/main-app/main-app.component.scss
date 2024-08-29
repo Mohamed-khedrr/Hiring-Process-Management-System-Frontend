@@ -1,0 +1,36 @@
+@import "../../scss/variables";
+@import "../../scss/_typography.scss";
+
+.main-container {
+  // overflow-x: hidden;
+}
+.side-container {
+  background-color: $color-n-800;
+  max-width: 50rem;
+  & > * {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    transition: all 0.5s;
+    @media (max-width: $breakpoint-medium) {
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.nav-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.content-body {
+  min-height: 100%;
+  height: 100%;
+}
+
+.main-content{
+  height: 100%;
+  overflow-y: scroll;
+}

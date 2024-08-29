@@ -1,0 +1,212 @@
+<nav class="nav-container bg-white flex justify-between px-20 py-10 items-center">
+  <!-- Left Section -->
+  <section class="left-section flex items-center">
+    <h3 class="page-name hide-sm ">Profile</h3>
+    <button class="menu-bar show-flex-sm justify-center items-center" (click)="openSideBar()">
+      <img src="assets\imgs\company\menu.svg" alt="">
+    </button>
+  </section>
+  <!-- Center Section -->
+  <section class="center-section flex justify-center  "> 
+    <form class="w-full hide-sm ">
+      <div class="search-bar search-container">
+        <label for="search-input" (click)="search(searchControl.value)" class="search-icon flex items-center">
+          <img src="assets\imgs\company\search.svg" alt="search icon">
+        </label>
+        <div class="input-container flex items-center ">
+          <input (keydown)="onKeydown($event)" [formControl]="searchControl" autocomplete="on" id="search-input" class="w-full" placeholder="Search Candidates..." type="text">
+        </div>
+        <ng-container *ngIf="showSearchDropdown">
+          <div *ngIf="suggestions$ | async as suggestions" [ngClass]="{'suggestions-container': true, 'no-border': suggestions.length === 0}">
+            <div *ngFor="let suggestion of suggestions" (click)="search(suggestion)" class="suggestion">
+              {{ suggestion }}
+            </div>
+          </div> 
+        </ng-container>
+      </div>
+    </form>
+    <div class="logo flex justify-center items-center show-flex-sm">
+      <img src="assets\imgs\onbording\LOGO.svg" alt="">
+      
+    </div>
+  </section>
+  <section class="right-section flex items-center gap-12">
+  
+    <!-- Notification Section -->
+    <div class="notification flex items-center hide-sm relative">
+      <img (click)="getNotifications()" src="assets/imgs/company/square-bell.svg" alt="" (click)="toggleNotificationVisibility()">
+      <span *ngIf="notificationsCount>0" class="notification-count">{{notificationsCount}}</span>
+      <div class="drop-down shadow-xl z-10 notification-drop-down" [class.hide-drop-down]="!isNotificationVisible">
+        <div class="notification-list">
+          <div class="drop-down-header">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4>Notifications</h4>
+              </div>
+              <div class="mark-all flex">
+                <a (click)="markAllAsRead()">
+                   Mark all as read
+                </a>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!isNotificationLoading && notificationList.length >0" class="list"> 
+            <div  *ngFor="let item of notificationList" [ngClass]="{'read': !item.read}" class="notification-item">
+              <div (click)="markRead(item)" class="flex items justify-center">
+                <div class="icon">
+                  <i class="fas fa-bell"></i>
+                </div>
+                <div class="notification-body flex flex-column">
+                  <h5 class="title">{{item.title}}</h5>
+                  <p class="body">{{item.body}}</p>
+                  <p class="body w-100  flex justify-start gap-3"><i class="fa-regular fa-clock"></i>{{item.createdOn | timeDiff}}</p>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div *ngIf="isNotificationLoading" class="animation-list">
+            <div class="loading-animation border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+              <div class="animate-pulse flex space-x-4">
+                <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+                <div class="flex-1 space-y-6 py-1">
+                  <div class="grid grid-cols-6 gap-4">
+                    <div class="h-4 bg-slate-700 rounded col-span-3"></div> 
+                  </div>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-slate-700 rounded"></div>
+                    <div class="h-3 bg-slate-700 rounded"></div>
+                  </div>
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="h-2 bg-slate-700 rounded col-span-1"></div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="loading-animation border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+              <div class="animate-pulse flex space-x-4">
+                <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+                <div class="flex-1 space-y-6 py-1">
+                  <div class="grid grid-cols-6 gap-4">
+                    <div class="h-4 bg-slate-700 rounded col-span-3"></div> 
+                  </div>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-slate-700 rounded"></div>
+                    <div class="h-3 bg-slate-700 rounded"></div>
+                  </div>
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="h-2 bg-slate-700 rounded col-span-1"></div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="loading-animation border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+              <div class="animate-pulse flex space-x-4">
+                <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+                <div class="flex-1 space-y-6 py-1">
+                  <div class="grid grid-cols-6 gap-4">
+                    <div class="h-4 bg-slate-700 rounded col-span-3"></div> 
+                  </div>
+                  <div class="space-y-2">
+                    <div class="h-3 bg-slate-700 rounded"></div>
+                    <div class="h-3 bg-slate-700 rounded"></div>
+                  </div>
+                  <div class="grid grid-cols-3 gap-4">
+                    <div class="h-2 bg-slate-700 rounded col-span-1"></div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="!isNotificationLoading && notificationList.length <1" class="empty-list">
+            <div class="image">
+              <img src="assets/imgs/no-notification.png" alt="">
+            </div>
+            <h4 class="mb-3">There are no notifications.</h4>
+          </div>
+          <div *ngIf="notificationPage && !notificationPage.last" class="drop-down-footer">
+            <div class="flex items-center justify-center">
+              <p class="view-more text-center w-100">
+                <a (click)="loadMore()">View More</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Account Details Section -->
+    <div class="account-details">
+      <div class="flex items-center gap-5 relative">
+        <figure class="flex justify-center items-center gap-8 relative cursor-pointer user-nav-info"
+          (click)="toggleDropDownVisibility()">
+          <div class="profile-image flex justify-center  items-center overflow-hidden">
+            <img [src]="(profileImageUrl | handleFileUrl) || ('assets/imgs/Avatar.svg')" alt="profile image ">
+          </div>
+          <figcaption class="personal-data hide-sm ">
+            <p>{{handleNavUserName() | shortenString : 20}}</p>
+          </figcaption>
+        </figure>
+        <button class="drop-down-arrow flex items-center hide-sm  " [class.up-arrow]="isDropDownVisible"
+          (click)="toggleDropDownVisibility()">
+          <img src="assets\imgs\onbording\chevron-down.svg" alt="">
+        </button>
+        
+        <div class="drop-down shadow-xl z-10 " [class.hide-drop-down]="!isDropDownVisible">
+          <div>
+            <a class="flex gap-5 min-w-max info  drop-item" (click)="closeDropDown()"
+              [routerLink]="'/company/' + (isCompany ? 'profile': 'recruiter-settings') ">
+              <div class="photo-icon-container">
+                <img [src]="(profileImageUrl | handleFileUrl) || ('assets/imgs/Avatar.svg')"
+                  class="border cursor-pointer w-fit flex justify-center items-center photo-icon  rounded-full" alt="">
+              </div>
+              <div class="grid drop-down-personal-data ">
+                <p class="name">{{handleNavUserName() | shortenString}}</p>
+                @if (!isCompany && recruiterCompanyBasicInfo.companyName) {
+                <p class="company">{{recruiterCompanyBasicInfo.companyName| shortenString : 20}}</p>
+                }
+                <p class="email">{{userEmail | shortenString : 25}}</p>
+              </div>
+            </a>
+            @if (!isCompany && recruiterCompanyBasicInfo.companyId) {
+            <a [routerLink]="['/company/profile/',recruiterCompanyBasicInfo.companyId]" routerLinkActive="true"
+              (click)="closeDropDown()" class="setting-info grid  drop-item">
+              <figure class="flex items-center gap-6 container">
+                <p><img src="assets\imgs\company\settings-dark_light.svg" alt=""></p>
+                <figcaption>Company</figcaption>
+              </figure>
+            </a>
+            }
+            @else {
+            <a routerLink="/company/company-settings" class="setting-info grid  drop-item" (click)="closeDropDown()">
+              <figure class="flex items-center gap-6 container">
+                <p><img src="assets\imgs\company\settings-dark_light.svg" alt=""></p>
+                <figcaption>Account Setting</figcaption>
+              </figure>
+            </a>
+            }
+            <div class="help-info grid gap-1">
+              <a href="" (click)="closeDropDown()">
+                <figure class="flex items-center gap-6 drop-item">
+                  <p>
+                    <img src="assets\imgs\company\help-dark_light.svg" alt="">
+                  </p>
+                  <figcaption>Help Center</figcaption>
+                </figure>
+              </a>
+              <a href="" (click)="logout()">
+                <figure class="flex items-center gap-6 drop-item">
+                  <p>
+                    <img class="logout-img" src="assets\imgs\company\logout-dark_light.svg " alt="">
+                  </p>
+                  <figcaption>Logout</figcaption>
+                </figure>
+              </a>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </section>
+ 
+
+</nav>

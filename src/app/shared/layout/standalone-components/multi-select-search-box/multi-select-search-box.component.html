@@ -1,0 +1,9 @@
+<div class="skill-input  ">
+
+  <div class=" input-selection ">
+    <p-multiSelect [showClear]="false" [ngModelOptions]="{standalone: true}" styleClass="test" [showToggleAll]="false"
+      [options]="optionsList" [(ngModel)]="selectedOptionsList" placeholder="e.g., Digital Marketing  "
+      optionLabel="name" display="chip" [showClear]="false" [maxSelectedLabels]="100" (onChange)="handleSelection()"
+      (onFilter)="handleFilteredValue($event)"></p-multiSelect>
+  </div>
+</div>

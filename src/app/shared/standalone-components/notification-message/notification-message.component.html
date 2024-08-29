@@ -1,0 +1,21 @@
+<div *ngIf="isVisible"
+     class="wrapper">
+  <div class="toast"
+       [ngClass]="{'success': type === 'success', 'error': type === 'error'}">
+    <div class="container-1">
+      <div *ngIf="type==='success'">
+        <img src="../../../../../assets/imgs/icons8-done-48.png"
+             alt="">
+      </div>
+      <div *ngIf="type==='error'">
+        <img src="../../../../../assets/imgs/icons8-error-48.png"
+             alt="">
+      </div>
+    </div>
+    <div class="container-2">
+      <p>{{header}}</p>
+      <p>{{message}}</p>
+    </div>
+    <!-- <button (click)="close()">&times;</button> -->
+  </div>
+</div>

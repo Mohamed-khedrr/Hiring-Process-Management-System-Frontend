@@ -1,0 +1,161 @@
+<div class="recruiter-register   ">
+  <app-navbar [logs]="false" [navSimple]="true" [isJobSeeker]="true" [contact]="false"
+    [employerJobSeekerBtn]="false"></app-navbar>
+  <div class="container">
+    <div class="all-containing  mx-auto flex flex-col gap-10">
+      <div class="employer-register px-12 py-8 bg-white line-border">
+        <h6>Employer Registration</h6>
+      </div>
+      <div class="profile-photo px-10 py-5 bg-white line-border">
+        <div class="photo-icon py-16 flex flex-col justify-center items-center gap-10">
+          <span id="icon-btn" class="icon-btn flex justify-center items-center ">
+            <i *ngIf="!recruiterPhotoUrl" class="icon fa-regular fa-user p-10">
+            </i>
+            <img *ngIf="recruiterPhotoUrl" [src]="recruiterPhotoUrl" alt="">
+          </span>
+          <input class="hidden" id="profile-photo-input" type="file" (change)="uploadProfileImage($event)"
+            accept="image/*">
+          <p *ngIf="photoErrorMsg!=''" class="error-message">{{photoErrorMsg}}</p>
+          <label for="profile-photo-input" class="global-button cursor-pointer flex justify-center items-center btn">
+            ADD PROFIE PHOTO
+          </label>
+        </div>
+      </div>
+      <div class="registeration-form px-12 pt-8 pb-20 bg-white line-border">
+        <form [formGroup]="recruiterInfo" class="flex flex-col justify-center items-start gap-7">
+          <div class="add-name flex flex-col gap-3 justify-center  w-full ">
+            <div class="">
+              <label class="label">Name</label>
+            </div>
+            <div class="inputs grid md:grid-cols-2 sm:grid-cols-1 gap-8">
+              <div class="first-name">
+                <input type="text" formControlName="firstName" class=" input-field border w-full outline-none"
+                  name="first-name" placeholder="First Name">
+                <div class="error">
+                  <p *ngIf="firstName.touched && firstName.hasError('required')" class="error-message ">
+                    First Name is required
+                  </p>
+                </div>
+              </div>
+              <div class="last-name">
+                <input type="text" formControlName="lastName" class=" input-field border w-full outline-none"
+                  name="last-name" placeholder="Last Name">
+                <div class="error">
+                  <p *ngIf="lastName.touched && lastName.hasError('required')" class="error-message ">
+                    Last Name is required
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-number flex flex-col gap-3 justify-center global-width">
+            <div class="">
+              <label class="label">Phone number</label>
+            </div>
+            <div class="mobile-number-container h-24 flex items-center justify-center gap-5">
+              <div class="country-code-container">
+                <p-dropdown [options]="countriesCode" [(ngModel)]="selectedCountyCode" [filter]="true"
+                  optionLabel="name" [showClear]="false" [ngModelOptions]="{standalone: true}" placeholder="Code"
+                  (onBlur)="updateCountryCode()">
+                  <ng-template pTemplate="selectedItem">
+                    <div class="flex gap-1 items-center text-5xl" *ngIf="selectedCountyCode">
+                      <!-- Seleced Image with higher Quality -->
+                      <img src="https://flagsapi.com/{{selectedCountyCode.iso}}/flat/64.png"
+                        [class]="'flag flag-' + selectedCountyCode.name" style="width: 25px" />
+                      <div class="mr-12 text-3xl flex items-center ">+{{ selectedCountyCode.phoneCode }}</div>
+                    </div>
+                  </ng-template>
+                  <ng-template let-country pTemplate="item">
+                    <div class="flex  gap-1 items-center">
+                      <!-- Lower Quality Images -->
+                      <img src="https://flagsapi.com/{{country.iso}}/flat/24.png" [class]="'flag flag-' + country"
+                        style="width: 25px" />
+                      <div class="text-3xl ">+{{ country.phoneCode }}</div>
+                    </div>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+              <!-- ====================== -->
+
+              <div class="_1-px w-1 h-12"></div>
+              <div class="w-full h-full">
+                <input class="w-full focus:outline-0 h-full pl-3 rounded-2xl" (blur)="checkIfMobileUsed()"
+                  formControlName="phoneNumber" name="mobileNumber" type="text">
+              </div>
+            </div>
+            <div class="error">
+              <p *ngIf="phoneNumber.touched && (phoneNumber.hasError('required')||
+                            selectedCountyCode==null)" class="error-message ">
+                Mobile Number is required
+              </p>
+              <p *ngIf="phoneNumber.hasError('exist')" class=" error-message ">
+                Phone Number is already exists.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="add-password flex flex-col gap-3 justify-center  global-width  ">
+            <div class=""><label class="label">Password</label></div>
+            <div class=" w-full new-containing ">
+              <input name="password" formControlName="password" [type]='passwordType'
+                class=" input-field outline-none w-full">
+              <div class="eye-icon">
+                <button class="eye-icon-button  flex items-start absolute " type="button" (click)="togglePassword()">
+                  <svg class="eye-pass" xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20"
+                    fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.5 2.58337C7.1952 2.58337 4.17932 4.42738 2.11944 7.4904C1.63392 8.21024 1.41663 9.12722 1.41663 10C1.41663 10.8727 1.63382 11.7894 2.11911 12.5092C4.17899 15.5725 7.19502 17.4167 10.5 17.4167C13.8047 17.4167 16.8206 15.5727 18.8805 12.5097C19.366 11.7898 19.5833 10.8729 19.5833 10C19.5833 9.12742 19.3661 8.21066 18.8808 7.4909C16.8209 4.42758 13.8049 2.58337 10.5 2.58337ZM18.8808 7.4909L18.8801 7.48991L18.2586 7.90931L18.8808 7.4909ZM18.8805 12.5097L18.8801 12.5102L18.2586 12.0908L18.8808 12.5092L18.8805 12.5097ZM2.11911 12.5092L2.74149 12.0907L2.11978 12.5102L2.11911 12.5092ZM2.11944 7.4904L2.11978 7.48991L2.74149 7.90941L2.11911 7.4909L2.11944 7.4904ZM3.36386 8.32791C5.20451 5.59063 7.79229 4.08337 10.5 4.08337C13.2076 4.08337 15.7954 5.59063 17.6361 8.32791L17.6367 8.3289C17.9174 8.74495 18.0833 9.3504 18.0833 10C18.0833 10.6497 17.9174 11.2551 17.6367 11.6712L17.6361 11.6722C15.7954 14.4094 13.2076 15.9167 10.5 15.9167C7.79229 15.9167 5.20451 14.4094 3.36386 11.6722L3.3632 11.6712C3.08247 11.2551 2.91663 10.6497 2.91663 10C2.91663 9.3504 3.08247 8.74495 3.3632 8.3289L3.36386 8.32791ZM7.91663 10C7.91663 8.57068 9.0706 7.41671 10.5 7.41671C11.9293 7.41671 13.0833 8.57068 13.0833 10C13.0833 11.4294 11.9293 12.5834 10.5 12.5834C9.0706 12.5834 7.91663 11.4294 7.91663 10ZM10.5 5.91671C8.24217 5.91671 6.41663 7.74225 6.41663 10C6.41663 12.2578 8.24217 14.0834 10.5 14.0834C12.7577 14.0834 14.5833 12.2578 14.5833 10C14.5833 7.74225 12.7577 5.91671 10.5 5.91671Z"
+                      fill="white" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="error">
+              <p *ngIf="password.hasError('required') && password.touched" class="error-message">
+                Valid password is required
+              </p>
+              <p *ngIf="password.hasError('minlength') && password.touched" class="error-message">
+                Password must be 8 characters or more
+              </p>
+              <p *ngIf="password.hasError('maxlength') && password.touched" class="error-message">
+                Password must be less than or equal to 20 characters
+              </p>
+            </div>
+          </div>
+          <div class="confirm-pass add-password flex flex-col gap-3 justify-center  global-width  ">
+            <div class=""><label class="label">Confirm password</label></div>
+            <div class=" w-full new-containing ">
+              <input name="confirm-password" formControlName="confirmPass" [type]='passwordType'
+                class=" input-field outline-none w-full">
+              <div class="eye-icon">
+                <button class="eye-icon-button  flex items-start absolute " type="button" (click)="togglePassword()">
+                  <svg class="eye-pass" xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20"
+                    fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.5 2.58337C7.1952 2.58337 4.17932 4.42738 2.11944 7.4904C1.63392 8.21024 1.41663 9.12722 1.41663 10C1.41663 10.8727 1.63382 11.7894 2.11911 12.5092C4.17899 15.5725 7.19502 17.4167 10.5 17.4167C13.8047 17.4167 16.8206 15.5727 18.8805 12.5097C19.366 11.7898 19.5833 10.8729 19.5833 10C19.5833 9.12742 19.3661 8.21066 18.8808 7.4909C16.8209 4.42758 13.8049 2.58337 10.5 2.58337ZM18.8808 7.4909L18.8801 7.48991L18.2586 7.90931L18.8808 7.4909ZM18.8805 12.5097L18.8801 12.5102L18.2586 12.0908L18.8808 12.5092L18.8805 12.5097ZM2.11911 12.5092L2.74149 12.0907L2.11978 12.5102L2.11911 12.5092ZM2.11944 7.4904L2.11978 7.48991L2.74149 7.90941L2.11911 7.4909L2.11944 7.4904ZM3.36386 8.32791C5.20451 5.59063 7.79229 4.08337 10.5 4.08337C13.2076 4.08337 15.7954 5.59063 17.6361 8.32791L17.6367 8.3289C17.9174 8.74495 18.0833 9.3504 18.0833 10C18.0833 10.6497 17.9174 11.2551 17.6367 11.6712L17.6361 11.6722C15.7954 14.4094 13.2076 15.9167 10.5 15.9167C7.79229 15.9167 5.20451 14.4094 3.36386 11.6722L3.3632 11.6712C3.08247 11.2551 2.91663 10.6497 2.91663 10C2.91663 9.3504 3.08247 8.74495 3.3632 8.3289L3.36386 8.32791ZM7.91663 10C7.91663 8.57068 9.0706 7.41671 10.5 7.41671C11.9293 7.41671 13.0833 8.57068 13.0833 10C13.0833 11.4294 11.9293 12.5834 10.5 12.5834C9.0706 12.5834 7.91663 11.4294 7.91663 10ZM10.5 5.91671C8.24217 5.91671 6.41663 7.74225 6.41663 10C6.41663 12.2578 8.24217 14.0834 10.5 14.0834C12.7577 14.0834 14.5833 12.2578 14.5833 10C14.5833 7.74225 12.7577 5.91671 10.5 5.91671Z"
+                      fill="white" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="error">
+              <p *ngIf="password.value !== confirmPass.value && confirmPass.touched" class="error-message">
+                Confirmed Password don't match the entered Password
+              </p>
+            </div>
+          </div>
+          <div class="sign-upbtn pt-8">
+            <div class="error">
+              <p *ngIf="errorMsg" class="error-message">
+                {{errorMsg}}
+              </p>
+            </div>
+            <button type="submit" class="btn flex items-center justify-center"
+              [disabled]="recruiterInfo.invalid || !recruiterPhotoUrl" (click)="registerRecruiter()">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

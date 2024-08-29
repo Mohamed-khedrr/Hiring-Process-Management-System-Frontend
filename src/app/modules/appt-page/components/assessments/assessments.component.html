@@ -1,0 +1,88 @@
+<section id="applicant-assessments">
+  <div class="container ">
+    @for (asses of allAssessments; track $index;) {
+    <div class="px-10 pt-5 pb-16 bg-white">
+      <div class="py-8 px-16 line-border flex flex-col gap-4">
+        <div class="flex justify-between">
+          <div class=" flex gap-4">
+            <div class="">
+              <p class="main-header">{{asses.title}} </p>
+            </div>
+            <div class="">
+              <p class="ass-type items-center justify-center">{{asses.status}}</p>
+            </div>
+
+          </div>
+          <div class="p-3 hover:bg-gray-300 hover:cursor-pointer rounded-2xl" (click)="SendAssessmentToEditFrom(asses)">
+            <button>
+              <img src="../../../../../assets/imgs/edit-3 (1).svg" alt=""></button>
+          </div>
+        </div>
+        <div class="flex flex-col pb-6 line-bottom-border">
+          <div class="flex flex-col gap-4">
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Added by</p>
+              </div>
+              <div class="answer text">
+                <p>{{asses.createdBy}} at {{asses.createdAt | date : 'EEEE, dd MMMM yyyy'}} </p>
+              </div>
+            </div>
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Deadline</p>
+              </div>
+              <div class="answer text">
+                @if (asses.availableTill) {
+                <p>
+                  {{getDate(asses.availableTill)|date:'EEEE, dd MMMM yyyy'}}
+                </p>
+                }@else {
+                <p>Not Set</p>
+                }
+              </div>
+            </div>
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Duration</p>
+              </div>
+              <div class="answer text">
+                <p>{{asses.duration}}</p>
+              </div>
+            </div>
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Assessment link</p>
+              </div>
+              <div class="answer text">
+                <p>{{asses.link}}</p>
+              </div>
+            </div>
+            <div class="flex gap-28 items-center ">
+              <div class="question text">
+                <p>Result</p>
+              </div>
+              <div class="answer text">
+                @if (asses.result) {
+                <p>{{asses.result}}</p>
+                }@else {
+                <p>No result</p>
+                }
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    }
+    <div class="bg-white  px-16" *ngIf="!allAssessments?.length">
+      <div class="flex gap-5 py-10   justify-center items-center">
+          <div class="">
+              <p class="no-more-text">No activates to show.</p>
+          </div>
+      </div>
+  </div>
+  </div>
+</section>

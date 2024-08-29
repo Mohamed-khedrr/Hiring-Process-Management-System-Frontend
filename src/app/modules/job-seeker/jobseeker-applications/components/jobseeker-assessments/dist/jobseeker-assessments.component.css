@@ -1,0 +1,106 @@
+#applicant-assessments .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#applicant-assessments .line-border {
+  border: 0.5px solid #C6D2D5;
+}
+#applicant-assessments .main-header {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  color: #033f47;
+}
+#applicant-assessments .ass-type {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 4px;
+  line-height: 18px;
+  border-radius: 3px;
+  color: #033f47;
+  background-color: #c6d2d5;
+}
+#applicant-assessments .text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  color: #033f47;
+}
+#applicant-assessments .answer {
+  color: #033F47;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+  color: #2f5d64;
+}
+#applicant-assessments .global-input {
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #a1b3b6;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+  width: 150px;
+}
+#applicant-assessments .global-input:focus {
+  outline: none;
+}
+#applicant-assessments .global-input::placeholder {
+  color: #a1b3b6;
+}
+#applicant-assessments .mark-done-btn {
+  background-color: #559389;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: 0.4s ease-in-out all;
+}
+#applicant-assessments .mark-done-btn:hover {
+  color: #559389;
+  background-color: transparent;
+  border: 1px solid #559389;
+}
+#applicant-assessments .done-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #559389;
+}
+@media (min-width: 1400px) {
+  #applicant-assessments .container {
+    max-width: 1400px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #applicant-assessments .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 1199.98px) {
+  #applicant-assessments .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 991.98px) {
+  #applicant-assessments .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 767.98px) {
+  #applicant-assessments .container {
+    max-width: 540px;
+  }
+}

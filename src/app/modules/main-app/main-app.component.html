@@ -1,0 +1,29 @@
+@if(isLoggedIn){
+<div class="main-container flex h-full">
+  @if (!isJobSeeker) {
+  <div class="side-container text-7xl">
+    <app-company-sidebar (sideClosed)="closeSideBar()" [recruiterCompanyId]="recruiterCompanyId"
+      [ngStyle]="{ 'left': isSideVisible ? '0' : '-100%' }"></app-company-sidebar>
+  </div>
+  }
+
+  <div class="main-content w-full">
+    <div class="nav-container text-7xl  w-full">
+      @if (!isJobSeeker) {
+      <app-company-nav (sideOpened)="openSideBar()"
+        (recruiterCompanyIdChange)="changeRecruiterCompanyId($event)"></app-company-nav>
+      }
+      @else {
+      <!-- JOBSEEKR HEADER -->
+      <app-navbar [employerJobSeekerBtn]="false" [logs]="false" [isLoggedIn]="true" [profileImage]="true"></app-navbar>
+      }
+    </div>
+    <div class="content-body text-7xl">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+}
+@else{
+<router-outlet></router-outlet>
+}

@@ -1,0 +1,565 @@
+<section *ngIf="isLoaded" class="company-view pt-32">
+  <div class="container">
+    <div class="all-containing m-auto flex flex-col gap-14 ">
+      <div class="intro-section  line-border bg-white">
+        <div #coverImageDiv [style.background-image]="'url(' +( company.basicInfoDto.coverImage | handleFileUrl) + ')'"
+          class="photo-cover cover-bg  flex flex-col justify-center items-center gap-10 ">
+          @if (isProfileOwner) {
+          <ng-container>
+            <div class="containing-cover-text flex flex-col justify-center items-center ">
+              <label for="file-input"
+                class="bttn custom-2 custom-file-upload flex flex-col justify-center items-center">
+                <button class="add-btn flex justify-center items-center gap-10 ">
+                  Add Cover Photo
+                  <span>
+                    <img class="add-btn-icon" src="../../../assets/imgs/company/arrow-up-circle.svg" alt="">
+                  </span>
+                  <input id="file-input" type="file" (change)="onCoverSelected($event,coverImageDiv)"
+                    accept="image/*" />
+                </button>
+                <p class="add-cover-text">Adding a cover photo makes your brand distinguish</p>
+              </label>
+            </div>
+          </ng-container>
+          }
+          <div #profile
+            class="change-profile-photo hide flex flex-col justify-center items-center gap-16 p-16 shadow-xl border bg-white w-2/5">
+            @if(isProfileOwner){
+            <label for="file-input" class="bttn app-tooltip p-0 rounded-full upload-image-icon custom-file-upload">
+              <p class="app-light-tooltip-text">Upload image</p>
+              <div class="">
+                <img #profileImage class="profile-icon p-0" src="../../../assets/imgs/company/user (1).svg" alt="">
+              </div>
+              <input id="file-input" type="file" (change)="onProfileImageSelected($event,profileImage)"
+                accept="image/*" />
+            </label>
+            <div *ngIf="profileImageError" class="erorr-message">
+              File size exceeds limit, Max size for image 2MB
+            </div>
+            <div class=" flex items-center justify-center gap-5">
+              <button (click)="uploadProfileImage(profile)" type="button" class=" bttn rounded-full">SAVE</button>
+              <button (click)="cencel(profile,profileImage)" class=" bttn cancel-btn rounded-full">CANCEL</button>
+            </div>
+            }
+          </div>
+        </div>
+        <div class="company-info flex flex-col ">
+          <div class="comp-profile-photo px-20 py-8  flex items-center justify-end ">
+            <div class="photo">
+              <div class="profile-box">
+                <img class="profile-image"
+                  [src]="company.basicInfoDto.profileImage ?( company.basicInfoDto.profileImage | handleFileUrl) : '../../../assets/imgs/company/Avatar.svg'"
+                  alt="">
+              </div>
+              @if (isProfileOwner) {
+              <div class="edit-profile-image" (click)="show(profile)">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </div>
+              }
+            </div>
+            @if (isProfileOwner) {
+            <div (click)="editBasicsInfo(basics)" class="edit-photo">
+              <div class="app-tooltip">
+                <button class=" btn flex gap-2 px-3 rounded-md">
+                  <img class="pin-edit-icon" src="../../../assets/imgs/company/edit-3.svg" alt="">
+                </button>
+                <p class="app-light-tooltip-text">Edit</p>
+              </div>
+            </div>
+            }
+          </div>
+          <div class="comp-info px-20 py-8  flex flex-col items-start justify-start "
+            [style]="isProfileOwner? '': 'margin-top:3rem ;'">
+            <div class="comp-name">
+              <p>{{company.basicInfoDto.name}}</p>
+            </div>
+            <div class=" flex flex-col items-start gap-2">
+              <div class="comp-tagline">
+                <ng-container *ngIf="!company.basicInfoDto.tagline">
+                  <div class="tagline flex gap-5">
+                    <p class="mr-2">Company Tagline</p>
+                    <a *ngIf="isProfileOwner" class="text pointer" (click)="editBasicsInfo(basics)">add +</a>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="company.basicInfoDto.tagline">
+                  <div class="tagline">
+                    <p>{{company.basicInfoDto.tagline}}</p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="comp-industry-location flex flex-col gap-1">
+                <div class="flex gap-2">
+                  <div class="app-tooltip">
+                    {{company.basicInfoDto.industry}}
+                    <p class="app-light-tooltip-text">Industry</p>
+                  </div>
+                  <p>.</p>
+                  <div class="app-tooltip">
+                    {{company.basicInfoDto.subscribersNumber}} Subscribers
+                    <p class="app-light-tooltip-text">Subscribers Number</p>
+                  </div>
+                  <p>.</p>
+                  <div class="app-tooltip">
+                    {{company.basicInfoDto.companySize}}
+                    <p class="app-light-tooltip-text">Company Size</p>
+                  </div>
+                </div>
+                <div class=" flex items-center justify-start gap-3">
+                  <img src="../../../assets/imgs/company/map-pin.svg" alt="">
+                  <ng-container *ngIf="!company.basicInfoDto.mainBranchLocation">
+                    <p>Location</p>
+                    <a *ngIf="isViewProfile" class="text ml-3 pointer" (click)="editBasicsInfo(basics)">add +</a>
+                  </ng-container>
+                  <ng-container *ngIf="company.basicInfoDto.mainBranchLocation">
+                    <p>{{company.basicInfoDto.mainBranchLocation.state}},
+                      {{company.basicInfoDto.mainBranchLocation.country}}</p>
+                  </ng-container>
+                </div>
+                <ng-container *ngIf="company.basicInfoDto.rank">
+                  <div class="app-tooltip flex items-center justify-start gap-3">
+                    <img src="../../../assets/imgs/company/award.svg" alt="">
+                    <p>Rank on HirexHire</p>
+                    <p class="app-light-tooltip-text top">{{company.basicInfoDto.name}} is Top Company</p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="subscribe-view-btn flex items-center justify-center gap-5  pt-4">
+                @if (isProfileOwner) {
+                <button [disabled]="!company.isComplete" type="button"
+                  class="btn vip-btn rounded-full bg-transparent view-button">View as</button>
+                }
+              </div>
+            </div>
+          </div>
+          <ng-container>
+            <!-- this div is hidden and appear when change intro -->
+            <div #basics (submit)="updateBasicsInfo(basics)"
+              class="change-intro hide p-14 flex flex-col bg-white shadow-xl gap-10">
+              <div *ngIf="isViewProfile">
+                <div class=" border-b-2">
+                  <h5 class="header pb-3">Edit Intro</h5>
+                </div>
+                <div class="inputs">
+                  <form [formGroup]="basicsInfoEditForm" class="flex flex-col gap-4 justify-center items-start"
+                    action="">
+                    <div class="flex flex-col gap-2 w-full">
+                      <p class="title">Tagline</p>
+                      <input class="input-field w-full" formControlName="tagline" type="text"
+                        placeholder="the used tagline. if no tagline leave empty">
+                    </div>
+                    <div class="flex flex-col gap-2 w-full">
+                      <p class="title">Industry</p>
+                      <select class="w-full input-field  " formControlName="industry">
+                        <option [disabled]="true" [selected]="true">Select Industry</option>
+                        <option *ngFor="let ind of industries" class="  " [value]="ind.industry" selected>
+                          {{ind.industry}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="flex flex-col gap-2 w-full">
+                      <p class="title">Number of employees</p>
+                      <select formControlName="companySize" class="companySize w-full input-field">
+                        <option [disabled]="true" [selected]="true">Select Number of employees</option>
+                        <option value="E1to10">1-10 Employees</option>
+                        <option value="E11to50">11-50 Employees</option>
+                        <option value="E51to100">51-100 Employees</option>
+                        <option value="E101to250">101-250 Employees</option>
+                        <option value="E251to500">251-500 Employees</option>
+                        <option value="E501to750">501-750 Employees</option>
+                        <option value="E751to1000">751-1k Employees</option>
+                        <option value="E1001to2000">1k-2k Employees</option>
+                        <option value="E2001to5000">2k-5k Employees</option>
+                        <option value="E5001to10000">5k-10k Employees</option>
+                        <option value="Egt10000">More than 10k Employees</option>
+                      </select>
+                    </div>
+                    <div class="location   flex flex-col gap-1" formGroupName="mainBranchLocation">
+                      <div class="location-label">
+                        <label class="global-small-label title" for="location">Location<span
+                            *ngIf=" getFirstFormInput('country')?.errors?.['required'] "
+                            class="required-field">*</span></label>
+                      </div>
+                      <div class="location-iputs  w-full grid grid-cols-3 gap-8">
+                        <select class="global-input w-full input-field" name="country" id="location"
+                          formControlName="country" (change)="loadStates()">
+                          <option value="" disabled hidden selected>Country</option>
+                          <option [selected]="cont.iso2==country" *ngFor="let cont of countries" value="{{cont.name}}">
+                            {{cont.name}}</option>
+                        </select>
+                        <select class="global-input  w-full input-field" formControlName="state" name="state" id=""
+                          (change)="loadCities()">
+                          <option value="" disabled hidden selected>State</option>
+                          <option *ngFor="let stt of states" value="{{stt.name}}">{{stt.name}}
+                          </option>
+
+                        </select>
+                        <select class="global-input  w-full input-field" name="city" formControlName="city" id="">
+                          <option value="" disabled hidden selected>Area</option>
+                          <option *ngFor="let cit of cities" value="{{cit.name}}">{{cit.name}}
+                          </option>
+                        </select>
+                        <div class="flex flex-col gap-2 w-full">
+                          <p class="title">Street</p>
+                          <input class="input-field w-full" formControlName="street" type="text">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center justify-end gap-4 w-full pt-6">
+                      <button type="submit" class="bttn flex items-center justify-center  rounded-full">Save</button>
+                      <button (click)="hide(basics)"
+                        class="bttn flex items-center justify-center  rounded-full">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="under-sections flex flex-col gap-14   pb-28">
+        <div class="about-section  line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-10">
+          <div class="first-row  flex items-center justify-between ">
+            <div>
+              <h5 class="section-header ">About</h5>
+            </div>
+            <div (click)="editAboutInfo(about)">
+              @if(isProfileOwner){
+
+              <div class="app-tooltip">
+                <div class="app-tooltip">
+                  <button class=" btn flex gap-2 px-3 rounded-md">
+                    <img class="pin-edit-icon" src="../../../assets/imgs/company/edit-3.svg" alt="">
+                  </button>
+                  <p class="app-light-tooltip-text">Edit</p>
+                </div>
+                <p class="app-light-tooltip-text">Edit</p>
+              </div>
+              }
+            </div>
+          </div>
+          <ng-container>
+            <div class="second-row text">
+              <div class="app-tooltip">
+                <p *ngIf="company.aboutInfoDto?.about">
+                  {{company.aboutInfoDto?.about}}
+                </p>
+                <p class="app-light-tooltip-text medium">About Company</p>
+              </div>
+              <ng-container *ngIf="isViewProfile && !company.aboutInfoDto?.about">
+                <div class="empty-about">
+                  <div class="about-img ">
+                    <img class="spcial" src="../../../assets/imgs/company/Document add.svg" alt="">
+                  </div>
+                  @if (isProfileOwner) {
+                  <p>Adding a brief description of your company helps convey your vision and message</p>
+                  <button type="button" (click)="editAboutInfo(about)">Add Description</button>
+                  }
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+          <div class="third-row">
+            <div class=" flex items-center justify-start gap-3">
+              <div class="title">Website </div>
+              @if (isProfileOwner) {
+
+              <a *ngIf="!company.aboutInfoDto?.website" class="text ml-3 pointer" (click)="editAboutInfo(about)">add
+                +</a>
+              }
+            </div>
+            <div class="app-tooltip">
+              <div class="text"><a [href]="company.aboutInfoDto?.website">{{company.aboutInfoDto?.website}}</a></div>
+              <p class="app-light-tooltip-text medium">Visit Website</p>
+            </div>
+          </div>
+          <div class="third-row">
+
+            <div class=" flex items-center justify-start gap-3">
+              <div class="title">Founded</div>
+              @if (isProfileOwner) {
+
+              <a *ngIf="!company.aboutInfoDto?.website" class="text ml-3 pointer" (click)="editAboutInfo(about)">add
+                +</a>
+              }
+            </div>
+            <div class="app-tooltip">
+              <div class="text">{{company.aboutInfoDto?.foundingDate | date:'mediumDate'}}</div>
+            </div>
+          </div>
+          <div class="third-row">
+            <div class=" flex items-center justify-start gap-3">
+              <div class="title">Company Size </div>
+              @if (isProfileOwner) {
+
+              <a *ngIf="!company.aboutInfoDto?.website" class="text ml-3 pointer" (click)="editAboutInfo(about)">add
+                +</a>
+              }
+            </div>
+            <div class="app-tooltip">
+              <div class="text">{{company.basicInfoDto.companySize}}</div>
+            </div>
+          </div>
+          <div class="six-row">
+            <ng-container *ngIf="company.aboutInfoDto?.socialLinks">
+              <div class=" flex items-center justify-start gap-3">
+                <div class="title">Social Media</div>
+                @if (isProfileOwner) {
+                <a *ngIf="!company.aboutInfoDto?.website" class="text ml-3 pointer" (click)="editAboutInfo(about)">add
+                  +</a>
+                }
+              </div>
+              <div class=" social-icons socia-icons-links pb-4 mt-4">
+                <div *ngFor="let i of  company.aboutInfoDto?.socialLinks" class="benefit-card social-icon">
+                  <a [href]="i.link" class="social-link app-tooltip">
+                    <i [class]="i.icon.icon"></i>
+                    <span class="app-light-tooltip-text">{{i.icon.platform}}</span>
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="!isViewProfile" id="saved-jobs "
+          class="job-section  line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-16">
+          <div class="above-part-section flex flex-col gap-3">
+            <div class="first-row  flex items-center justify-between ">
+              <div>
+                <h5 class="section-header ">jobs</h5>
+              </div>
+            </div>
+            <div *ngIf="!company.jobPosts || company.jobPosts.content.length<1" class="second-row text">
+              <div class="empty-about text-center">
+                <div class="about-img">
+                  <img src="../../../../../assets/imgs/company/Notebook-bro 1.svg" alt="">
+                </div>
+                <h2 class="section-header mb-2 ">Sorry, no job openings at the moment.</h2>
+                <p class="text">We open new jobs from time to time, so please check again soon!</p>
+              </div>
+            </div>
+            <div *ngIf="company.jobPosts && company.jobPosts.content.length>0" class="second-row">
+              <div *ngFor="let jobPost of company.jobPosts.content"
+                class="main-body border-2 mt-5 m-auto bg-white  rounded-2xl px-16 py-8 flex flex-col gap-4">
+                <div class="flex items-center justify-between ">
+                  <div class="flex flex-col items-start gap-2">
+                    <div class="flex items-center gap-4">
+                      <p class="job-title">{{jobPost.jobTitle}}</p>
+                      <p class="exp-level">{{jobPost.minExperienceYears}}-<span
+                          *ngIf="jobPost.maxExperienceYears>0">{{jobPost.maxExperienceYears}}</span> Year</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <p class="company-name">{{jobPost.company}}</p>
+                      <p class="company-name">-</p>
+                      <p class="company-location">{{jobPost.location}}</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                      <p class="company-location">{{jobPost.employmentType}}</p>
+                      <p class="company-name">-</p>
+                      <p class="company-location">{{jobPost.jobType}}</p>
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <img class="h-36 w-36" [src]="(jobPost.companyImageUrl | handleFileUrl)||'../../../assets/imgs/saved-jobs-avatar.svg'" alt="">
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <p class="category">{{jobPost.industry}}</p>
+                </div>
+                <div class=" pb-10 border-b-2 flex flex-col gap-6">
+                  <div class="global-long-width grid md:grid-cols-8 grid-cols-4 gap-4" *ngIf="jobPost.skills.length">
+                    <p class="Keyword flex items-center justify-center"*ngFor="let skill of jobPost.skills">#skill</p>
+                  </div>
+                </div>
+                <div><button class="unsave-btn flex items-center justify-center gap-3" type="button"><i
+                      class="bookmark fa-solid fa-bookmark"></i>Unsave</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-container>
+          <div #about class="change-about hide border p-14 flex flex-col bg-white shadow-xl gap-10">
+            <div *ngIf="isViewProfile">
+              <div class="border-b-2">
+                <h5 class="header pb-3">Edit About</h5>
+              </div>
+              <div class="inputs">
+                <form (ngSubmit)="updateAboutInfo(about)" [formGroup]="aboutUpdateFrom"
+                  class="flex flex-col gap-8 justify-center items-start">
+                  <div class="flex flex-col gap-2 w-full">
+                    <p class="title pt-5">About</p>
+                    <textarea class="input-field" formControlName="about" cols="30" rows="6"
+                      placeholder="Turpis natoque eros eu vivamus ac commodo phasellus. Aenean pellentesque nulla lorem nibh egestas turpis dolor mauris augue. Nulla sit morbi sed rhoncus neque. Vel enim morbi nibh sem. Placerat faucibus fermentum praesent suspendisse tincidunt. Non adipiscing quam integer lacinia morbi quisque. "></textarea>
+                  </div>
+                  <div class="flex flex-col  gap-2 w-full">
+                    <p class="title">Foundation Date <i class="fa-solid fa-globe"></i></p>
+                    <input type="date" formControlName="foundingDate"
+                      class="input-field appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white">
+                  </div>
+                  <div class="flex flex-col gap-2 w-full">
+                    <p class="title">Website <i class="fa-solid fa-globe"></i></p>
+                    <input class="input-field" formControlName="website" type="text"
+                      placeholder="the used Website. if no website leave empty ">
+                  </div>
+                </form>
+                <div #socilaItems class=" Online-presence w-full flex flex-col gap-2 ">
+                  <div *ngIf="isViewProfile">
+                    <h4 class="social-title mt-5">Social Platfrom Review</h4>
+                  </div>
+                  <div class="flex flex-col gap-4">
+                    <div class="item-review">
+                      <div class=" social-icons">
+                        <div *ngFor="let i of updatedCompanySocialLinks" class="benefit-card social-icon">
+                          <a [href]="i.link" class="social-link app-tooltip">
+                            <i [class]="i.icon.icon"></i>
+                            <span class="app-light-tooltip-text">{{i.icon.platform}}</span>
+                          </a>
+                          <p (click)="deleteIcon(i)" class="delete-icon">×</p>
+                        </div>
+                        <p *ngIf="updatedCompanySocialLinks && updatedCompanySocialLinks.length<1" class="empty-head">
+                          ADD
+                          SOCIAL LINKS</p>
+                      </div>
+                    </div>
+                    <div class=" grid md:grid-cols-3  grid-cols-2 items-center  gap-3 w-full">
+                      <div class="w-full md:col-span-1 col-span-2">
+                        <label class="title" for="">Platfrom</label>
+                        <select [(ngModel)]="selectedIcon" class="w-full input-field" name="country">
+                          <option disabled [ngValue]="" selected>Select Platform</option>
+                          <option *ngFor="let i of icons" [ngValue]="i">
+                            <span>{{ i.platform }}</span>
+                          </option>
+                        </select>
+                      </div>
+                      <div class="w-full md:col-span-2 col-span-2">
+                        <label class="title" for="">Link</label>
+                        <input class="input-field w-full " type="text" placeholder="Enter your link">
+                        <p class="link-error-message error hide">Link is required </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-end gap-4 w-full pt-6">
+                  <button (click)="addItem(socilaItems)"
+                    class="bttn flex items-center justify-center  rounded-full">Add</button>
+                </div>
+                <div class="flex items-center justify-end gap-4 w-full pt-6">
+                  <button (click)="updateAboutInfo(about)" type="submit"
+                    class="bttn flex items-center justify-center  rounded-full">Save</button>
+                  <button (click)="hide(about)"
+                    class="bttn flex items-center justify-center  rounded-full">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div
+          *ngIf="isViewProfile || (company.aboutInfoDto?.companyBenefits && company.aboutInfoDto.companyBenefits.length>0)"
+          class="benefit-section about-section  line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-10">
+          <div class="first-row  flex items-center justify-between ">
+            <div>
+              <h5 class="section-header ">Name OF Company Group Benefits</h5>
+            </div>
+            @if (isProfileOwner) {
+            <div (click)="editBenefits(benefits)">
+              <div class="app-tooltip">
+                <div class="app-tooltip">
+                  <button class=" btn flex gap-2 px-3 rounded-md">
+                    <img class="pin-edit-icon" src="../../../assets/imgs/company/edit-3.svg" alt="">
+                  </button>
+                  <p class="app-light-tooltip-text">Edit</p>
+                </div>
+                <p class="app-light-tooltip-text">Edit</p>
+              </div>
+            </div>
+            }
+          </div>
+          <div class="second-row text">
+            <ng-container
+              *ngIf="company.aboutInfoDto?.companyBenefits && company.aboutInfoDto.companyBenefits.length>1">
+              <div class="second-row text">
+                <div id="benefits-section">
+                  <div *ngFor="let b of company.aboutInfoDto?.companyBenefits" class="benefit-card app-tooltip">
+                    <i [class]="b.icon"></i>
+                    <p>{{b.benefit}}</p>
+                    <p class="app-light-tooltip-text">Discover benefits</p>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container
+              *ngIf="isViewProfile && company.aboutInfoDto?.companyBenefits && company.aboutInfoDto.companyBenefits.length<1">
+              <div class="empty-about">
+                <div class="about-img ">
+                  <img class="spcial" src="../../../assets/imgs/company/Document add.svg" alt="">
+                </div>
+                <p>No Benefits Added</p>
+                <button *ngIf="isViewProfile" type="button" (click)="editBenefits(benefits)">Add Benfits</button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <ng-container>
+          <div #benefits class="change-about hide border p-14 flex flex-col bg-white shadow-xl gap-10">
+            <div *ngIf="isViewProfile">
+              <div class=" border-b-2">
+                <h5 class="header pb-3">Edit Benefits</h5>
+              </div>
+              <div class="inputs">
+                <form class="flex flex-col gap-8 justify-center items-start">
+                  <div class=" Online-presence w-full flex flex-col gap-2 ">
+                    <div>
+                      <h4 class="social-title mt-5">Benefits Review</h4>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                      <div class="item-review">
+                        <div class="social-icons">
+                          <div *ngFor="let b of updatedCompanyBenefits" class="benefit-card social-icon">
+                            <p class="social-link app-tooltip">
+                              <i [class]="b.icon"></i>
+                              <span class="app-light-tooltip-text">{{b.benefit}}</span>
+                            </p>
+                            <p (click)='deleteBenefit(b)' class="delete-icon">×</p>
+                          </div>
+                          <p *ngIf="updatedCompanyBenefits && updatedCompanyBenefits.length<1" class="empty-head">ADD
+                            COMPANY BENEFITS</p>
+                        </div>
+                      </div>
+                      <div class=" grid md:grid-cols-3  grid-cols-2 items-center  gap-3 w-full">
+                        <div class="w-full md:col-span-1 col-span-2">
+                          <label class="title" for="">Benefit</label>
+                          <select [(ngModel)]="selectedBenefit" class="w-full input-field" name="country">
+                            <option [disabled]="true" [value]="null">Add Benefit</option>
+                            <option *ngFor="let i of benefitsList" [ngValue]="i">
+                              <span>{{ i.benefit }}</span>
+                            </option>
+                          </select>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-end gap-4 w-full pt-6">
+                    <button (click)="addBenefit()" class="bttn flex items-center justify-center  rounded-full">Add
+                      Benefit</button>
+                  </div>
+                  <div class="flex items-center justify-end gap-4 w-full pt-6">
+                    <button (click)="updateBenefits(benefits)"
+                      class="bttn flex items-center justify-center  rounded-full">Save</button>
+                    <button (click)="hide(benefits)"
+                      class="bttn flex items-center justify-center  rounded-full">Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isViewProfile" #overlay class="overlay hide">
+  </div>
+  <notification-message [messageHeader]="imageErrMsgHeader" [message]="imageErrMsg" [type]="messageType"
+    [visable]="showMessage">
+  </notification-message>
+</section>

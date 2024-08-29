@@ -1,0 +1,27 @@
+@import url("../scss/updates.scss");
+@import "../../../scss/variables";
+@import "../../../scss/typography"; 
+
+.search-filtering-words {
+  .filtering-words-btn {
+    .btn {
+      padding: 6px 16px;
+      font-family: $font-family-open-sans;
+      font-weight: 600;
+      font-size: $font-b3 ;
+      line-height: 24px;
+      color: $color-n-800;
+      border: 1px solid $color-n-500;
+      transition: 0.6s all;
+
+      &:hover,
+      &:focus,
+      &.active {
+        background-color: $color-n-800;
+        color: white;
+        font-weight: 700;
+        border-color: $color-n-800;
+      }
+    }
+  }
+}

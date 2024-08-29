@@ -1,0 +1,122 @@
+<div class="first-page">
+    <div class="all-certificate-cart ">
+        <form class="certificate-info global-rounde shadow-lg  bg-white p-16 flex flex-col gap-10 " [formGroup]="certificateForm">
+            <div class="bg-white flex flex-col ">
+                <div class=" flex flex-col gap-10">
+                    <div class="global-section-label">
+                        <label for="job-type"> License & certificates :</label>
+                    </div>
+                    <ng-container *ngFor="let item of certificateList">
+                        <div class="selected-certificate-container flex flex-col gap-2">
+                            <div class="flex items-center justify-between ">
+                                <div class=" ">
+                                    <h5 class="field-header">{{item.title}} </h5>
+                                </div>
+                                @if(item?.id){
+                                <div class="buttons flex items-center gap-6 ">
+                                    <div class=""><button class="btn flex justify-center items-center gap-3"
+                                        (click)="scrollToEditForm(item)">Edit <img class="icon"
+                                        src="../../../../../../assets/imgs/edit (1).svg" alt="" width="20" height="20"></button></div>
+                                    <div class=""><button class="btn flex justify-center items-center gap-3"
+                                        (click)="deleteCertificate(item?.id || '')">Delete <img class="icon"
+                                        src="../../../../../../assets/imgs/trash-new.svg" alt="" width="20" height="20"></button></div>
+                                </div>
+                                }
+                            </div>
+                            <div class="">
+                                <p class="text">{{item.organization}}</p>
+                            </div>
+                            <div class="">
+                                <p class="text">{{item.month|getMonthName}} {{item.year}}</p>
+                            </div>
+                            
+                        </div>
+                    </ng-container>
+                    <!-- ============================================================================================= -->
+                    <!-- Certificate Loading -->
+                    @if(isCertificateListLoading){
+                    <div class="selected-certificate-container flex flex-col gap-8">
+                        <div class="flex items-center justify-between ">
+                            <div class=" ">
+                            <h5 class=" loader-min-h  bg-n-300 loader-big-w "> </h5>
+                            </div>
+                            <div class="buttons flex items-center gap-6 ">
+                            <div class="loader-min-w loader-min-h bg-n-300"></div>
+                            <div class="loader-min-w loader-min-h bg-n-300"></div>
+                
+                            </div>
+                        </div>
+                        <div class="">
+                            <p class="text bg-n-300 loader-min-h"></p>
+                        </div>
+                        <div class="">
+                            <p class="text bg-n-300 loader-min-h"></p>
+                        </div>
+                        <div class="">
+                            <p class="text bg-n-300 loader-min-h"></p>
+                        </div>
+                    </div>
+                    }
+            
+            
+                    <div [ngClass]="{hidden: isFormVisible}" class="add-form-container">
+                        <button class="global-button " id="add-cert-btn" (click)="displayCertificateForm()">
+                            Add Certificate <span> +</span></button>
+                    </div>
+                </div>
+                <div [ngClass]="{hidden: !isFormVisible}" class="flex flex-col gap-8">
+                    <div class="mt-12 ">
+                        <label class="global-section-label" for="Field-of-Study"> Certificate Details</label>
+                    </div>
+                    <div class=" flex flex-col gap-3" id="certificate-form-start">
+                        <div class=" "><label class="global-small-label" for="">Field</label></div>
+                        <div class=""><input formControlName="title" class="global-input global-half-width" type="text"></div>
+                    </div>
+                    <div class=" flex flex-col gap-3">
+                        <div class=" "><label class="global-small-label" for="">Organization </label></div>
+                        <div class=""><input formControlName="org" class="global-input global-half-width" type="text"></div>
+                    </div>
+                    <div class=" flex flex-col gap-3 global-half-width">
+                        <div class=" "><label class="global-small-label" for="">When did you achieve it?</label>
+                        </div>
+                        <div class="grid  grid-cols-2 gap-x-10">
+                            <div class="">
+                                <select class="w-full global-input" name="" id="" formControlName="month">
+                                    <option value="" selected hidden disabled>Month</option>
+                                    <option *ngFor="let month of monthsList" value="{{month}}">
+                                        {{month|getMonthName}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="">
+                                <select class="w-full global-input" name="" id="" formControlName="year">
+                                    <option value="" selected hidden disabled>Year</option>
+                                    <option *ngFor="let year of yearsList" value="{{year}}">
+                                        {{year}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="save-form-buttons flex gap-12">
+                        <ng-container *ngIf="!isSaveChangesVisible">
+                            <button [disabled]="certificateForm.invalid" class="global-button "
+                              (click)="saveCertificateAndMoreButton()">Save
+                              &
+                              Add
+                              More</button>
+                            <button [disabled]="certificateForm.invalid" class="global-button "
+                              (click)="saveCertificate()">Save</button>
+                          </ng-container>
+                          <ng-container *ngIf="isSaveChangesVisible">
+                            <button [disabled]="certificateForm.invalid" class="global-button " (click)="updateCertificate()">Save
+                              Changes</button>
+                          </ng-container>
+                    </div>
+
+                </div>
+                
+            </div>
+        </form>
+    </div>
+</div>

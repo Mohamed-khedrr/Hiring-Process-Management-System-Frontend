@@ -1,0 +1,10 @@
+<div class="multi-selection">
+  <div class=" job-suggested  grid  lg:grid-cols-4   grid-cols-2  gap-12">
+    <ng-container *ngFor="let option of OptionsList">
+      <input [checked]=" selectedOptionsList.includes(option)" class="hidden" type="checkbox" id="type-{{option}}"
+        name="jobsTypesUserInterestedIn" [value]="option" (change)="handleSelectedValues(option)">
+      <label for="type-{{option}}" class=" btn flex items-center justify-center vip ">{{option}} &plus;</label>
+    </ng-container>
+  
+  </div>
+</div>

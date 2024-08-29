@@ -1,0 +1,92 @@
+<app-navbar [logs]="true" [navSimple]="false" [isJobSeeker]="true" [contact]="false"
+  [jobSeekerOrEmployerLink]="'/home/employer'"></app-navbar>
+<!-- Home Page -->
+<div id="intro" class="w-full flex flex-col items-center ">
+  <div class="nav-and-searsh flex flex-col items-center  self-stretch ">
+
+    <div class="text-and-search flex flex-col items-center w-full gap-16 ">
+      <div class="text flex justify-center items-center flex-col gap-8 ">
+        <div class="hero-title">
+          <h2 class="text-white">Discover Your Path to Career Success. </h2>
+        </div>
+        <div class="hero-body text-center">
+          <p>Start your job search journey and open a gateway to a world of opportunities and possibilities </p>
+        </div>
+      </div>
+      <div class="searsh-bar flex justify-center w-5/6">
+        <div class="containing bg-white  flex items-center gap-8 w-4/5">
+          <div class="searsh-icon">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M3.41663 15.3333C3.41663 8.7519 8.7519 3.41663 15.3333 3.41663C21.9147 3.41663 27.25 8.7519 27.25 15.3333C27.25 21.9147 21.9147 27.25 15.3333 27.25C8.7519 27.25 3.41663 21.9147 3.41663 15.3333ZM15.3333 1.91663C7.92347 1.91663 1.91663 7.92347 1.91663 15.3333C1.91663 22.7431 7.92347 28.75 15.3333 28.75C22.7431 28.75 28.75 22.7431 28.75 15.3333C28.75 7.92347 22.7431 1.91663 15.3333 1.91663ZM28.4415 27.986C28.63 28.3991 28.7337 29.0529 28.2351 29.5396C27.996 29.7767 27.6918 29.9163 27.3585 29.9351C27.0366 29.9532 26.7402 29.8565 26.4938 29.7172C26.0103 29.4438 25.608 28.9479 25.325 28.3678L25.3249 28.3677C25.1763 28.063 25.0616 27.7484 25.0348 27.4515C25.0091 27.168 25.0574 26.6791 25.5177 26.408C25.9065 26.1789 26.3271 26.279 26.5636 26.3619C26.8405 26.4588 27.1347 26.6273 27.4335 26.8385L27.4338 26.8387C27.8775 27.1527 28.244 27.5532 28.4415 27.986Z"
+                fill="#A1B3B6" />
+            </svg>
+          </div>
+          <div class="searsh-input w-full">
+            <div class="input-container flex items-center ">
+              <input (keydown)="onKeydown($event)" [formControl]="searchControl" autocomplete="on" id="search-input" class="w-full" placeholder="Search Candidates..." type="text">
+              <div class="searsh-button">
+                <button (click)="search()" class="flex justify-center items-center text "><span>Search</span> </button>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="searsh-image">
+    <img src="assets\imgs\onbording\Job hunt-cuate (1).svg" alt="">
+  </div>
+</div>
+
+
+<div class="container-new flex items-center justify-center">
+  <div class="feature flex justify-center items-center flex-col">
+    <div class="text text-center text-white">
+      <p>AS SEEN ON</p>
+    </div>
+    <div class="image">
+      <ul class="flex items-end">
+        <li>
+          <img src="assets\imgs\onbording\techcrunch.svg" alt="" />
+        </li>
+        <li>
+          <img src="assets\imgs\onbording\business-insider.svg" alt="" />
+        </li>
+        <li>
+          <img src="assets\imgs\onbording\the-new-york-times.svg" alt="" />
+        </li>
+        <li><img src="assets\imgs\onbording\forbes.svg" alt="" /></li>
+        <li>
+          <img src="assets\imgs\onbording\usa-today.svg" alt="" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section-feature flex flex-col items-center w-full">
+  <div class="feature-heading self-stretch flex flex-col gap-3 text-center m-auto">
+    <h5 class="title">Your Journey Starts Here</h5>
+    <p class="text text-center">Whether you're a seasoned professional or just starting, find roles that align with your
+      career trajectory. </p>
+  </div>
+
+
+  <div class="all-carts">
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Resume-bro.svg" cartTitle="Elevate Your Profile" cartBody="Craft a compelling profile that stands out to potential employers. Showcase your skills,
+    experiences, and aspirations, giving recruiters a glimpse into your unique professional story."></app-home-cart>
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Usability testing-pana.svg"
+      cartTitle="Seamlessly Apply, Seamlessly Connect" cartBody="    Streamline your applications with ease. Apply to  multiple positions effortlessly, and keep track of
+      your applications and interactions, all within our  user-friendly platform."
+      [cartReversed]="true"></app-home-cart>
+
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Site Stats-rafiki.svg"
+      cartTitle="Tailored Recommendations, Personalized Experience" cartBody="  Receive job recommendations curated just for you.  Our smart algorithm ensures you're presented with
+       roles that match your expertise and career goals."></app-home-cart>
+
+  </div>
+</div>
+
+<app-home-footer></app-home-footer>

@@ -1,0 +1,20 @@
+<div class="undelete-container flex flex-col min-h-screen ">
+    <!-- ============ Nav ============ -->
+    <app-navbar [logs]="false" [navSimple]="true" [isJobSeeker]="true" [contact]="false"
+      [employerJobSeekerBtn]="false"></app-navbar>
+    <!-- ============  ============ -->
+  
+    <div class="undelete-page flex justify-center items-center flex-col text-center self-center">
+      <div class="img-container">
+        <img class="" [src]="imgSrc" alt="Error Image">
+      </div>
+      <h2 class="heading">{{heading}}</h2>
+      <p class="message">{{message1}} <br> {{message2}} {{message3}}</p>
+      <div class="buttons flex items-center">        
+        <a (click)="undeleteAccount()" routerLinkActive="router-link-active"
+          class="undelete-btn flex items-center">Undelete Account</a>
+        <a (click)="logout()" routerLinkActive="router-link-active"
+          class="logout-btn flex items-center">Log Out</a>
+      </div>
+    </div>
+  </div>

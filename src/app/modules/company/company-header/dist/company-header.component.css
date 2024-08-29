@@ -1,0 +1,62 @@
+@import url("../../job-seeker/standalone/job-seeker-profile-header/job-seeker-profile-header.component.scss");
+.container {
+  margin: 0 auto;
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+@media (min-width: 576px) {
+  .container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.pc-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 992px) {
+  .pc-icons {
+    display: none;
+  }
+}
+
+.notification-icons {
+  padding: 0;
+  display: inline-block;
+  font-size: 18px;
+  padding-right: 15px;
+  padding-left: 0 !important;
+}
+
+@media (max-width: 992px) {
+  .mobile-links i a {
+    font-size: 14px;
+  }
+}
+
+.mobile-links a:hover {
+  color: black;
+}
+
+@media (min-width: 992px) {
+  .container .nav-bar {
+    justify-content: space-between;
+  }
+}
+.container .nav-bar ul.profile-links {
+  display: none;
+}
+@media (min-width: 992px) {
+  .container .nav-bar ul.profile-links {
+    display: flex;
+    min-width: 80%;
+  }
+}

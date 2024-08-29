@@ -1,0 +1,113 @@
+@import "../../../../scss/_variables.scss";
+@import "../../../../scss/_typography.scss";
+
+.assessment-form {
+  color: $color-n-800;
+  background-color: $color-white;
+  max-width: 50rem;
+  padding-bottom: 5rem;
+  max-height: 90vh ;
+  overflow-y: scroll ;
+
+  .form-header {
+    font-size: $font-h7;
+    font-weight: 700;
+    font-family: $font-family-crimson;
+    background-color: $color-n-100;
+    margin-bottom: 3rem;
+    padding: 2rem 4rem;
+  }
+  .input-container  {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    margin-top: 2rem;
+    font-size: $font-b3;
+    display: block;
+    width: 100% ;
+
+    * {
+      display: block;
+    }
+    .label {
+      font-size: $font-b3;
+      font-weight: 600;
+      font-family: $font-family-open-sans;
+      margin-left: 1px;
+      margin-bottom: 1rem;
+    }
+    input , select  {
+      border: solid 1px $color-n-500;
+      outline: none;
+      border-radius: 0.7rem;
+      padding: 1rem;
+      width: 100%;
+      font-size: $font-b3;
+      &:focus {
+        border-color: $color-n-700;
+      }
+    }
+  }
+  .btn-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    .btn {
+      display: inline;
+      font-size: $font-b3;
+      font-weight: 500;
+      margin-top: 3rem;
+      margin-right: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 0.7rem;
+      transition: all 0.3s;
+
+      &.btn-submit {
+        background-color: $color-sec-500;
+        color: $color-white;
+        &:hover {
+          background-color: darken($color-sec-500, 5%);
+        }
+
+        &:disabled{
+          background-color: $color-n-400;
+        }
+      }
+      &.btn-discard {
+        color: #ea2a2a;
+        &:hover {
+          background-color: darken(#fff, 10%);
+        }
+      }
+    }
+  }
+}
+
+ :host ::ng-deep{
+.p-calendar{
+  width: 100% ;
+
+   #calendar-12h{
+    border: solid 1px $color-n-500;
+    outline: none;
+    border-radius: 0.7rem;
+    padding: 1rem;
+    width: 100%;
+    font-size: $font-b3;
+    &:focus {
+      border: solid 1px $color-n-700;
+      box-shadow: none ;
+      outline: none ;
+    }
+    }
+
+    table.p-datepicker-calendar {
+      font-size: $font-b4 ;
+    }
+    div.ng-star-inserte , div.p-datepicker-header{
+      *{
+        font-size:$font-b3 ;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+ }
+ }

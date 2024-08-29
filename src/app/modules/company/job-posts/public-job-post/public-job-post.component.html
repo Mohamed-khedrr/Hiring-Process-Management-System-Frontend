@@ -1,0 +1,69 @@
+<section id="saved-jobs" class="py-14">
+    <div class="container  flex flex-col gap-10">
+        <div class="active-saved-jobs flex flex-col gap-8">
+            <div class="main-header bg-white shadow-md  py-6 ps-16"><h6>Jobs</h6></div>
+            <div *ngFor="let jobPost of jobPostsPage.content" class="main-body m-auto bg-white shadow-md rounded-2xl px-16 py-8 flex flex-col gap-4">
+                <div class="flex items-center justify-between ">
+                    <div class="flex flex-col items-start gap-2">
+                        <div class="flex items-center gap-4">
+                            <p class="job-title">{{jobPost.jobTitle}}</p>
+                            <p class="exp-level">{{jobPost.minExperienceYears}}-<span *ngIf="jobPost.maxExperienceYears>0">{{jobPost.maxExperienceYears}}</span> Year</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <p class="company-name">{{jobPost.company}}</p>
+                            <p class="company-name">-</p>
+                            <p class="company-location">{{jobPost.location}}</p> 
+                        </div>
+                        <div class="flex items-center gap-4"> 
+                            <p class="company-location">{{jobPost.employmentType}}</p>
+                            <p class="company-name">-</p>
+                            <p class="company-location">{{jobPost.jobType}}</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <img *ngIf="!jobPost.companyImageUrl" src="../../../assets/imgs/saved-jobs-avatar.svg" alt="">
+                        <img *ngIf="jobPost.companyImageUrl" [src]="jobPost.companyImageUrl | handleFileUrl" alt="">
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <p class="category">{{jobPost.industry}}</p> 
+                </div>
+                <div  class=" pb-10 border-b-2 flex flex-col gap-6">
+                    <div class="global-long-width grid md:grid-cols-8 grid-cols-4 gap-4">
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                    </div>
+                    <div class="global-long-width grid md:grid-cols-8 grid-cols-4 gap-4">
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                        <p class="Keyword flex items-center justify-center">#Keyword</p>
+                    </div>
+                </div>
+                <div ><button class="unsave-btn flex items-center justify-center gap-3" type="button"><i class="bookmark fa-solid fa-bookmark"></i>Unsave</button></div>
+            </div>
+        @if (jobPostsPage.content.length <1){
+            <div class="second-row   shadow-md text">
+                <div class="empty-about text-center">
+                  <div class="about-img">
+                    <img src="../../../../../assets/imgs/company/Notebook-bro 1.svg"
+                         alt="">
+                  </div>
+                  <h2 class="section-header mb-2 ">Sorry, no job openings at the moment.</h2>
+                  <p class="text">We open new jobs from time to time, so please check again soon!</p>
+                </div>
+              </div>
+        }
+        </div> 
+    </div>
+</section>

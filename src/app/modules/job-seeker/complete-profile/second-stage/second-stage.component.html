@@ -1,0 +1,181 @@
+<!-- <app-navbar [logs]="false" [employerJobSeekerBtn]="false" [profileImage]="true"> </app-navbar> -->
+
+<app-stage-counter></app-stage-counter>
+
+<section class="second-page">
+  <div class=" container  ">
+
+    <div class="heading-text  mx-auto  flex flex-col gap-1 justify-center items-center	">
+      <h5>Career Interests </h5>
+      <p class="text-center">Providing this information enables us to recommend better opportunities to you.</p>
+
+    </div>
+
+
+    <form action="" [formGroup]="secondStageForm">
+
+      <div class="questions mt-16 flex flex-col gap-9  mx-auto">
+
+        <div class="current-level global-rounde shadow-lg bg-white p-16 flex flex-col gap-8">
+
+          <div class="text">
+            <label class="global-section-label">What is your current career level? <span
+                *ngIf="getSecondFormInput('careerLevel')?.errors?.['required']" class="required-field">*</span></label>
+          </div>
+          <div class=" selector ">
+            <app-single-selection-squares [selectedOption]="careerLevel" [inputOptionsList]="carrerLevels"
+              (selectedOptionChange)="handleSelectedCareerLevel($event)"></app-single-selection-squares>
+
+          </div>
+        </div>
+
+
+        <div class="types-of-jobs global-rounde shadow-lg bg-white p-16 flex flex-col gap-8">
+          <div class="text">
+            <label class="global-section-label">What type(s) of jobs would you like us to suggest for you? <span
+                *ngIf="selectedJobsTypes.length != 0" class="required-field">*</span>
+              <span class="span-text"> (you can choose
+                more than one)</span></label>
+          </div>
+          <div class=" selector grid  lg:grid-cols-4  grid-cols-2  gap-12">
+
+            <!-- <ng-container *ngFor="let jobType of jobTypes">
+              <input [checked]=" retrievedData?.jobsTypesUserInterestedIn?.includes(jobType.value)" class="hidden"
+                type="checkbox" id="type-{{jobType.value}}" name="jobsTypesUserInterestedIn" value="{{jobType.value}}"
+                (change)="checkBoxToggleCheck(jobType)">
+              <label for="type-{{jobType.value}}" class=" btn ">{{jobType.name}} &plus;</label>
+            </ng-container> -->
+
+          </div>
+          <app-multi-selection-squares [selectedOptionsList]="retrievedData?.jobsTypesUserInterestedIn || []"
+            [OptionsList]="jobTypes" (selectChange)="handleSelectedJobsTypes($event)"></app-multi-selection-squares>
+
+        </div>
+
+        <div class="job-categories global-rounde shadow-lg bg-white p-16 flex flex-col gap-8 ">
+          <div class="text">
+            <label class="global-section-label">What job categories are you interested in? <span
+                *ngIf="selectedCategories?.length == 0" class="required-field">*</span> <span class="span-text">(add 1
+                or more)</span></label>
+          </div>
+          <!-- <div class=" input-selection ">
+            <p-multiSelect [showClear]="true" [ngModelOptions]="{standalone: true}" styleClass="test"
+              [showToggleAll]="false" [options]="jobCatergories" [(ngModel)]="selectedCategories" placeholder="Select "
+              optionLabel="name" display="chip" [showClear]="false" [maxSelectedLabels]="100"
+              (onFilter)="searchJobs($event)"></p-multiSelect>
+          </div> -->
+
+          <app-multi-select-search-box [optionsList]="jobCatergories" [intialSelectedOptions]="selectedCategories || []"
+            (filter)="searchJobs($event)"
+            (selectChange)="handleSelectedCategories($event)"></app-multi-select-search-box>
+        </div>
+
+
+        <div class="job-search-status global-rounde shadow-lg bg-white p-16 flex flex-col gap-8">
+          <div class="text">
+            <label class="global-section-label">What is your job search status? <span
+                *ngIf="getSecondFormInput('jobStatus')?.errors?.['required']" class="required-field">*</span> </label>
+          </div>
+          <div class=" selector  text-center">
+
+            <app-single-selection-squares [selectedOption]="jobStatus" [inputOptionsList]="jobStatusList"
+              (selectedOptionChange)="handleSelectedJobStatus($event)"></app-single-selection-squares>
+
+          </div>
+        </div>
+
+        <div class="sugges-companie global-rounde shadow-lg bg-white p-16 flex flex-col gap-3 ">
+          <div class="text">
+            <label class="global-section-label" for="sugges-account">Suggest my account to companies? <span
+                *ngIf="getSecondFormInput('openToSuggest')?.errors?.['required']" class="required-field">*</span>
+            </label>
+          </div>
+          <div class="sugges-companies-chooise flex justify-start items-center gap-11">
+
+            <div class="flex  items-center ">
+              <input id="sugges-account-yes" type="radio" [value]="true" formControlName="openToSuggest"
+                class="radio-input bg-white ">
+              <label for="sugges-account-yes" class="ms-2 global-small-label ">Yes</label>
+            </div>
+            <div class="flex items-center  ">
+              <input id="sugges-account-no" type="radio" [value]="false" formControlName="openToSuggest"
+                class="radio-input    bg-white">
+              <label for="sugges-account-no" class="ms-2 global-small-label ">No</label>
+            </div>
+
+          </div>
+        </div>
+        <div class="make-profile-public global-rounde shadow-lg bg-white p-16 flex flex-col gap-3  ">
+          <div class="text">
+            <label class="global-section-label">Make my profile public? <span
+                *ngIf="getSecondFormInput('searchable')?.errors?.['required']" class="required-field">*</span></label>
+          </div>
+          <div class="make-profile-chooise flex justify-start items-center gap-11">
+
+            <div class="flex  items-center ">
+              <input id="make-profile-public-yes" type="radio" [value]="true" formControlName="searchable"
+                class="radio-input bg-white ">
+              <label for="make-profile-public-yes" class="global-small-label ">Yes</label>
+            </div>
+            <div class="flex items-center  ">
+              <input id="make-profile-public-no" type="radio" [value]="false" formControlName="searchable"
+                class="radio-input    bg-white">
+              <label for="make-profile-public-no" class="global-small-label ">No</label>
+            </div>
+
+          </div>
+        </div>
+        <div class="salary global-rounde shadow-lg bg-white p-16 flex flex-col gap-8" id="salary-start">
+          <div class="text">
+            <label class="global-section-label">What is the minimum salary you would accept? <span
+                class="span-text">(per
+                year)</span></label>
+          </div>
+          <div class=" salary-value grid  md:grid-cols-2 grid-cols-1  gap-12">
+            <input class="global-input" type="number" name="salary" id="salary-number" placeholder="Minimum Salary"
+              formControlName="minimumSalaryValue">
+            <select value="{{minimumSalaryCurrency}}" class="global-input " type="text" name="currency"
+              placeholder="Currency" id="salary-currency" formControlName="minimumSalaryCurrency">
+              <option class="" value="" selected disabled> currency</option>
+              <option class="flex justify-between" *ngFor="let item of currencies " value="{{item.code}}">
+                <span>{{item.code}} - {{item.name}}</span>
+                <span>({{item.symbol}})</span>
+              </option>
+            </select>
+
+            <!-- <input type="text" name="per-month" placeholder="Per month" id="salary"> -->
+          </div>
+          <div class="pt-10">
+
+            <div class="flex items-start bg-slate-50">
+              <div class="flex items-center radio-containing">
+                <input id="helper-checkbox" type="checkbox" formControlName="showMinimumSalary" [value]="true"
+                  class="radio-input bg-gray-100 rounded ">
+              </div>
+              <div class="ms-4 text-sm">
+                <label for="helper-checkbox" class="global-section-label ">Hide your answer from companies?</label>
+                <p id="helper-checkbox-text" class="">In this case we’ll only use your answer for your recommendations.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="under-buttons flex flex-col gap-10 justify-start">
+          <div class="skip-save-buttons  flex justify-between">
+            <div class="">
+              <button class=" global-button back-button" type="button" (click)="goBackPrivStage()">Back</button>
+            </div>
+            <div class="other-buttons flex justify-center items-center gap-3">
+              <button class="global-button skip-button " type="button" routerLink="/job-seeker/jobs/explore">Skip and search job</button>
+              <button class="global-button "
+                [disabled]="secondStageForm.invalid || selectedJobTypes.length == 0 || !jobStatus || !careerLevel"
+                type="button" (click)="saveData()">Save and
+                continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

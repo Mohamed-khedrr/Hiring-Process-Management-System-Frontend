@@ -1,0 +1,170 @@
+#job-details {
+  background-color: #f5f9fa;
+}
+#job-details .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#job-details .line-border {
+  border: 1px solid #E2E8E9;
+}
+#job-details .containing-all-details {
+  width: 85%;
+}
+#job-details .heading, #job-details .numbers {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27.5px;
+  color: #033f47;
+}
+#job-details .job-title-info .global-properties {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #033f47;
+}
+#job-details .job-title-info .padding-around {
+  padding: 2px 0px;
+  background-color: #f5f9fa;
+  border-radius: 2px;
+  color: #033f47;
+}
+#job-details .job-title-info .company-name {
+  font-weight: 600;
+}
+#job-details .job-title-info .company-location {
+  color: #627d81;
+}
+#job-details .job-title-info .posted-time {
+  color: #2f5d64;
+}
+#job-details .text-under-number {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #627d81;
+}
+#job-details .job-details-card .question, #job-details .job-details-card .skills-and-tools-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+#job-details .job-details-card .answer {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+#job-details .job-details-card .skills-and-tools-title {
+  color: #033f47;
+}
+#job-details .job-details-card .containing-skill {
+  padding: 6px 16px;
+  border-radius: 16px;
+  color: white;
+  background-color: #80aea7;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+#job-details .global-button {
+  padding: 12px 24px;
+  background-color: #2b786c;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+  border: 1px solid #2b786c;
+  transition: 0.4s all;
+}
+#job-details .global-button:hover {
+  background-color: transparent;
+  color: #2b786c;
+}
+#job-details ul li {
+  list-style: inside;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 17.5px;
+  color: #033f47;
+}
+#job-details .archive-btn {
+  padding: 9px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #e2e8e9;
+  transition: 0.4s all;
+}
+#job-details .archive-btn:hover {
+  background-color: transparent;
+  border-color: #2b786c;
+}
+#job-details .global-input {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #a1b3b6;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+#job-details .global-input:focus {
+  outline: none;
+}
+#job-details .global-input::placeholder {
+  color: #627d81;
+}
+#job-details .skills-and-tools {
+  width: 90%;
+}
+@media (min-width: 1400px) {
+  #job-details .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #job-details .container {
+    max-width: 1140px;
+  }
+  #job-details .containing-all-details {
+    width: 100%;
+  }
+}
+@media (max-width: 1199.98px) {
+  #job-details .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1023.99px) {
+  #job-details .vip {
+    border-left: 0px;
+  }
+}
+@media (max-width: 991.98px) {
+  #job-details .container {
+    max-width: 720px;
+  }
+  #job-details .vip {
+    border-left: 0px;
+  }
+}
+@media (max-width: 767.98px) {
+  #job-details .container {
+    max-width: 540px;
+  }
+  #job-details .global-input {
+    font-size: 14px;
+    padding: 11px 8px;
+  }
+  #job-details .skills-and-tools {
+    width: 100%;
+  }
+}

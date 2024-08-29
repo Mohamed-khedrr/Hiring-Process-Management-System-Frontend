@@ -1,0 +1,283 @@
+@import "../../scss/variables";
+@import "../../scss/typography";
+
+.loading {
+  background-color: $color-n-300;
+}
+.hidden {
+  display: none;
+}
+
+section {
+  background-color: #f8f8f1;
+  font-size: 16px;
+  color: #033f47;
+  font-family: $font-family-open-sans;
+  .container {
+    @media (min-width: 1024px) {
+      padding: 60px 0 60px;
+      border-bottom: 1px solid #d2d3d3;
+    }
+  }
+  @media (max-width: $breakpoint-small) {
+    font-size: 14px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  @media (min-width: 640px) {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.profile-box {
+  width: 100%;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid #033f47;
+  padding: 20px;
+  margin-bottom: 20px;
+  h4 {
+    font-weight: 600;
+  }
+  p.muted {
+    color: #627d81;
+  }
+}
+
+.section-header {
+  font-family: $font-family-open-sans;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+  h3 {
+    font-size: 28px;
+    font-weight: 600;
+    font-family: $font-family-crimson;
+    @media (max-width: $breakpoint-small) {
+      font-size: 24px;
+    }
+  }
+  .edit-button {
+    background-color: #c6d2d5;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 3px 10px;
+    color: #627d81;
+    cursor: pointer;
+    &:hover {
+      color: #526669;
+    }
+    @media (max-width: $breakpoint-small) {
+      font-size: 12px;
+    }
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+.r-border {
+  @media (min-width: 1024px) {
+    border-right: 1px solid #d2d3d3;
+    padding-right: 45px;
+  }
+}
+
+.l-border {
+  @media (min-width: 1024px) {
+    border-left: 1px solid #d2d3d3;
+    padding-left: 45px;
+  }
+}
+
+.t-border {
+  @media (max-width: 1024px) {
+    border-top: 1px solid #d2d3d3;
+    padding-top: 60px;
+  }
+}
+
+.b-border {
+  @media (max-width: 1024px) {
+    border-bottom: 1px solid #d2d3d3;
+    padding-bottom: 60px;
+  }
+}
+
+.p-top {
+  @media (max-width: 1024px) {
+    padding-top: 60px;
+  }
+}
+
+.p-bottom {
+  @media (max-width: 1024px) {
+    padding-bottom: 60px;
+  }
+}
+
+.p-right {
+  @media (min-width: 1024px) {
+    padding-right: 45px;
+  }
+}
+
+.p-left {
+  @media (min-width: 1024px) {
+    padding-left: 45px;
+  }
+}
+
+.language-certifications {
+  width: 100%;
+  @media (min-width: 1024px) {
+    max-width: 35%;
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    @media (min-width: 1024px) {
+      display: block;
+    }
+    .profile-box {
+      @media (max-width: 1024px) {
+        flex-grow: 1;
+        width: max-content;
+      }
+    }
+  }
+}
+
+.general-info {
+  @media (min-width: 1024px) {
+    padding: 20px 0;
+  }
+  .container {
+    .img-about-container {
+      .user-image {
+        margin-bottom: 20px;
+        img {
+          margin: 0 auto;
+          height: 200px;
+          width: 200px;
+          border-radius: 100%;
+        }
+      }
+    }
+    .info {
+      min-width: 50%;
+      display: grid;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      .name-age {
+        .name {
+          font-size: 22px;
+          font-weight: 600;
+        }
+      }
+      .job-status {
+        .status-button {
+          padding: 5px 15px;
+          border-radius: 20px;
+          color: white;
+          background-color: #627d81;
+          width: fit-content;
+        }
+      }
+      .job-preferal {
+        .job-preferal-list {
+          gap: 10px;
+          margin-top: 10px;
+          li {
+            p {
+              color: #fff;
+              background-color: #80aea7;
+              padding: 5px 15px;
+              border-radius: 20px;
+              @media (max-width: $breakpoint-small) {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+      .job-preferal-hashes {
+        .hashes {
+          gap: 10px;
+          margin-top: 10px;
+          li {
+          }
+        }
+      }
+      .salary {
+        .head {
+        }
+      }
+      .social {
+        .links {
+          margin-top: 10px;
+          li {
+            a {
+              i {
+                font-size: 26px;
+                color: #2b786c;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.about-edu {
+  height: max-content;
+  .container {
+    .about {
+      width: 100%;
+    }
+    .edu {
+      width: 100%;
+      .content {
+        .edu-box {
+          display: grid;
+          gap: 5px;
+          margin-bottom: 20px;
+          .univ-degree {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .univ {
+              font-weight: 500;
+            }
+            .date {
+              color: #627d81;
+            }
+          }
+          .grade {
+            color: #627d81;
+          }
+        }
+      }
+    }
+  }
+}

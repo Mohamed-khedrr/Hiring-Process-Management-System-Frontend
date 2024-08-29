@@ -1,0 +1,96 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+.cart {
+  width: 65%;
+  padding: 7rem 4%;
+  gap: 9rem;
+
+  @media screen and (max-width: 1370px) {
+    width: 75%;
+  }
+  @media screen and (max-width: $breakpoint-extra-large) {
+    width: 85%;
+  }
+  @media screen and (max-width: $breakpoint-large) {
+    width: 90%;
+  }
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+    width: 80%;
+    border-radius: 1.5rem;
+    background-color: $color-n-100;
+  }
+  @media screen and (max-width: $breakpoint-small) {
+    flex-direction: column;
+    width: 85%;
+    border-radius: 1.5rem;
+  }
+
+  .cart-image {
+    // justify-content: end;
+    @media screen and (max-width: $breakpoint-medium) {
+      width: 70%;
+    }
+  }
+  .cart-info {
+    gap: 1.2rem;
+    @media screen and (max-width: $breakpoint-medium) {
+      width: 100%;
+      text-align: center;
+    }
+
+    .title {
+      color: $color-n-800;
+      font-family: "Crimson Text";
+      font-size: $font-h6;
+      font-style: normal;
+      font-weight: 700;
+      line-height: $line-height-heading;
+      align-self: stretch;
+      @media screen and (max-width: $breakpoint-medium) {
+        font-size: $font-h8;
+      }
+    }
+    .body {
+      color: $color-n-700;
+      /* Body/16px/Regular */
+      font-family: Open Sans;
+      font-size: $font-b3;
+      font-style: normal;
+      font-weight: 400;
+      line-height: $line-height-body;
+      @media screen and (max-width: $breakpoint-medium) {
+        font-size: $font-b4;
+      }
+    }
+  }
+}
+
+.cart.cart-reversed {
+  flex-direction: row-reverse;
+  background-color: $color-white;
+  @media screen and (max-width: $breakpoint-medium) {
+    flex-direction: column;
+  }
+  .cart-image {
+    justify-content: start;
+  }
+  .cart-info {
+    align-items: end;
+  }
+}
+
+.my-container {
+  display: flex;
+  justify-content: center;
+  background-color: $color-n-100;
+  margin: auto;
+
+  @media screen and (max-width: $breakpoint-medium) {
+    background-color: $color-white;
+  }
+}
+
+.my-container.reversed {
+  background-color: $color-white;
+}

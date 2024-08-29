@@ -1,0 +1,480 @@
+section {
+  background-color: #f8f8f1;
+  font-size: 16px;
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+}
+section .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 1024px) {
+  section .container {
+    border-bottom: 1px solid #D2D3D3;
+    padding-block: 6rem;
+  }
+}
+@media (max-width: 576px) {
+  section {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (max-width: 575.98px) {
+  .container {
+    max-width: 95%;
+  }
+}
+.profile-box {
+  width: 100%;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid #033f47;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.profile-box h4 {
+  font-weight: 600;
+}
+.profile-box p.muted {
+  color: #627d81;
+}
+
+.section-header {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+.section-header h3 {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Crimson Text", serif;
+}
+@media (max-width: 576px) {
+  .section-header h3 {
+    font-size: 24px;
+  }
+}
+
+.edit-button {
+  background-color: #c6d2d5;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  padding: 3px 10px;
+  color: #627d81;
+  cursor: pointer;
+}
+.edit-button:hover {
+  color: #526669;
+}
+@media (max-width: 576px) {
+  .edit-button {
+    font-size: 12px;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .r-border {
+    border-right: 1px solid #d2d3d3;
+    padding-right: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .l-border {
+    border-left: 1px solid #d2d3d3;
+    padding-left: 45px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .t-border {
+    border-top: 1px solid #d2d3d3;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .b-border {
+    border-bottom: 1px solid #d2d3d3;
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .p-top {
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .p-bottom {
+    padding-bottom: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .p-right {
+    padding-right: 45px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .p-left {
+    padding-left: 45px;
+  }
+}
+
+.language-certifications {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .language-certifications {
+    max-width: 35%;
+  }
+}
+.language-certifications .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+@media (min-width: 1024px) {
+  .language-certifications .content {
+    display: block;
+  }
+}
+@media (max-width: 1024px) {
+  .language-certifications .content .profile-box {
+    flex-grow: 1;
+    width: max-content;
+  }
+}
+
+@media (min-width: 1024px) {
+  .general-info {
+    padding: 20px 0;
+  }
+}
+.general-info .container .img-about-container .user-image {
+  margin-bottom: 20px;
+}
+.general-info .container .img-about-container .user-image img {
+  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
+.general-info .container .info {
+  min-width: 50%;
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.general-info .container .info .name-age .name {
+  font-size: 22px;
+  font-weight: 600;
+}
+.general-info .container .info .job-status .status-button {
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+  background-color: #627d81;
+  width: fit-content;
+}
+.general-info .container .info .job-preferal .job-preferal-list {
+  gap: 10px;
+  margin-top: 10px;
+}
+.general-info .container .info .job-preferal .job-preferal-list li p {
+  color: #fff;
+  background-color: #80aea7;
+  padding: 5px 15px;
+  border-radius: 20px;
+  transition: 0.4s all ease-in-out;
+}
+.general-info .container .info .job-preferal .job-preferal-list li p:hover {
+  background-color: #2b786c;
+}
+@media (max-width: 576px) {
+  .general-info .container .info .job-preferal .job-preferal-list li p {
+    font-size: 12px;
+  }
+}
+.general-info .container .info .job-preferal-hashes .hashes {
+  gap: 10px;
+  margin-top: 10px;
+}
+.general-info .container .info .social .links {
+  margin-top: 10px;
+}
+.general-info .container .info .social .links li a i {
+  font-size: 26px;
+  color: #2b786c;
+}
+
+.about-edu {
+  height: max-content;
+}
+.about-edu .container .about {
+  width: 100%;
+}
+.about-edu .container .edu {
+  width: 100%;
+}
+.about-edu .container .edu .content .edu-box {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+.about-edu .container .edu .content .edu-box .univ-degree {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.about-edu .container .edu .content .edu-box .univ-degree .univ {
+  font-weight: 500;
+}
+.about-edu .container .edu .content .edu-box .univ-degree .date {
+  color: #627d81;
+}
+.about-edu .container .edu .content .edu-box .grade {
+  color: #627d81;
+}
+
+.exp-language .container .experience {
+  width: 100%;
+}
+.exp-language .container .experience .profile-box .job-title {
+  padding: 10px 0;
+  border-bottom: 1px solid #d2d3d3;
+}
+.exp-language .container .experience .profile-box .job-details {
+  padding: 15px 0;
+  width: 100%;
+}
+@media (max-width: 576px) {
+  .exp-language .container .experience .profile-box .job-details {
+    flex-direction: column;
+  }
+}
+.exp-language .container .experience .profile-box .job-details .company-details {
+  width: 35%;
+}
+@media (max-width: 576px) {
+  .exp-language .container .experience .profile-box .job-details .company-details {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+}
+.exp-language .container .experience .profile-box .discription {
+  width: 60%;
+  padding-left: 20px;
+  border-left: 1px solid #d2d3d3;
+}
+@media (max-width: 576px) {
+  .exp-language .container .experience .profile-box .discription {
+    width: 100%;
+    padding: 0;
+    border: none;
+  }
+}
+
+.cv-viewer .resume-container {
+  width: 100%;
+}
+.cv-viewer .resume-container .viewer object {
+  width: 100%;
+  margin: auto;
+}
+
+.project-sample {
+  padding-bottom: 30px;
+}
+.project-sample .container {
+  border: none;
+}
+.project-sample .container .projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: fit-content;
+  gap: 25px;
+}
+.project-sample .container .projects .project-card {
+  width: 300px;
+  height: 460px;
+  border-radius: 8px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+.project-sample .container .projects .project-card:hover .project-image .top-icons,
+.project-sample .container .projects .project-card:hover .project-image .center-icons,
+.project-sample .container .projects .project-card:hover .project-image .hover-background {
+  visibility: visible;
+  opacity: 1;
+}
+.project-sample .container .projects .project-card .project-image {
+  width: 100%;
+  background: #eee;
+  height: 60%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 10px;
+  position: relative;
+  color: #033f47;
+}
+.project-sample .container .projects .project-card .project-image .top-icons {
+  padding: 20px;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+.project-sample .container .projects .project-card .project-image .center-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  min-width: 80px;
+  z-index: 100;
+  top: 50%;
+  right: calc(50% - 40px);
+}
+.project-sample .container .projects .project-card .project-image .hover-background {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 99;
+  background: #00000042;
+}
+.project-sample .container .projects .project-card .project-image .top-icons,
+.project-sample .container .projects .project-card .project-image .center-icons,
+.project-sample .container .projects .project-card .project-image .hover-background {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s;
+}
+.project-sample .container .projects .project-card .project-image .top-icons i,
+.project-sample .container .projects .project-card .project-image .center-icons i,
+.project-sample .container .projects .project-card .project-image .hover-background i {
+  cursor: pointer;
+  font-size: 18px;
+}
+.project-sample .container .projects .project-card .project-image:hover {
+  overflow: hidden;
+}
+.project-sample .container .projects .project-card .project-image:hover .sample-img {
+  transform: scale(1.1);
+  transition: 0.4s all;
+}
+.project-sample .container .projects .project-card .project-info {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  min-height: 40%;
+  height: fit-content;
+  padding: 20px;
+  background: white;
+}
+.project-sample .container .projects .project-card .project-info .project-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.project-sample .container .projects .project-card .project-info .project-discription {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #033f47;
+}
+footer p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #eee;
+}
+
+.loading {
+  background-color: #e2e8e9;
+}
+
+.hidden {
+  display: none;
+}
+
+.show-more-experience button {
+  padding: 5px 10px;
+  background-color: #80aea7;
+}
+
+.empyt-message {
+  font-size: 20px;
+  min-height: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .empyt-message {
+    font-size: 16px;
+    min-height: 20rem;
+  }
+}
+@media (max-width: 576px) {
+  .empyt-message {
+    font-size: 16px;
+  }
+}
+
+:host ::ng-deep .owl-item {
+  max-width: 400px;
+}

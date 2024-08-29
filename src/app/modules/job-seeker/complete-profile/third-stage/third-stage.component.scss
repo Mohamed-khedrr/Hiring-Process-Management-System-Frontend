@@ -1,0 +1,408 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+.third-page {
+  background-color: $color-ac-100;
+  .error-message {
+    color: rgba(255, 0, 0, 0.723);
+    font-size: small;
+    margin-top: 5px;
+  }
+  .heading-text {
+    h5 {
+      color: $color-n-800;
+      font-size: $font-h6;
+      font-family: $font-family-crimson;
+      font-weight: 600;
+      line-height: $line-height-heading;
+    }
+
+    p {
+      color: $color-n-600;
+      font-size: $font-l3;
+      font-family: $font-family-open-sans;
+      line-height: $line-height-body;
+    }
+  }
+
+  .questions {
+    .under-buttons {
+      .skip-save-buttons {
+        padding: 5rem 0 5rem 0;
+      }
+    }
+    .global-rounde {
+      border-radius: 8px;
+    }
+    .global-section-label {
+      color: $color-n-800;
+      font-size: $font-l2;
+      font-family: $font-family-open-sans;
+      line-height: $line-height-body;
+      font-weight: 600;
+    }
+    .global-small-label {
+      font-size: $font-l3;
+      font-family: $font-family-open-sans;
+      font-weight: 400;
+      color: $color-n-800;
+      line-height: $line-height-body;
+    }
+    .global-input {
+      padding: 11px 12px;
+      border-radius: 4px;
+      border: 1px solid $color-n-800;
+      font-size: $font-b3;
+      color: $color-n-800;
+      line-height: $line-height-body;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $color-n-800;
+      }
+    }
+    .global-half-width {
+      width: 50%;
+    }
+    .global-button {
+      padding: 12px 24px;
+      background-color: $color-sec-300;
+      color: $color-white;
+      font-size: $font-l2;
+      border-radius: 4px;
+      font-family: $font-family-open-sans;
+      font-weight: 700;
+      line-height: $line-height-heading;
+    }
+    .back-button {
+      background-color: $color-n-300;
+      color: $color-n-600;
+      transition: 0.5s all;
+      &:hover {
+        background-color: $color-n-400;
+      }
+    }
+    .span-text {
+      color: $color-n-600;
+      font-weight: 400;
+      font-size: $font-l3;
+    }
+    .start-button {
+      background-color: $color-sec-100;
+      transition: 0.5s all;
+      &:hover {
+        background-color: $color-sec-500;
+      }
+      &:disabled {
+        cursor: default;
+        background-color: $color-sec-100;
+      }
+    }
+    .upload-cv-button {
+      .cv-uploded-success {
+        padding: 20px 16px;
+        color: white;
+        font-size: $font-b3;
+        background-color: $color-sec-100;
+        font-weight: 100;
+        font-family: $font-family-open-sans;
+        line-height: $line-height-label;
+        border-radius: 3px;
+        border: 1px solid black;
+      }
+    }
+  }
+
+  // upload cv=====================
+  .questions .upload-cv-button label,
+  .questions .samples-button label {
+    padding: 8px 16px;
+    color: white;
+    font-size: $font-b3;
+    background-color: $color-sec-100;
+    font-weight: 600;
+    font-family: $font-family-open-sans;
+    line-height: $line-height-label;
+    border-radius: 3px;
+  }
+}
+.dialog-overlayer {
+  .internal-container {
+    padding: 4rem 6rem;
+    border-radius: 4px;
+  }
+  .header {
+    font-size: $font-h9;
+    font-family: $font-family-open-sans;
+    font-weight: 600;
+    line-height: $line-height-body;
+    color: $color-n-700;
+  }
+  .text {
+    font-size: $font-l3;
+    font-family: $font-family-open-sans;
+    line-height: $line-height-body;
+    color: $color-n-600;
+  }
+  .input-field {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid $color-n-800;
+    font-size: $font-l3;
+    color: $color-n-700;
+    line-height: $line-height-body;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-n-700;
+    }
+  }
+  .btn {
+    padding: 10px 24px;
+    background-color: $color-sec-100;
+    color: $color-white;
+    font-size: $font-l3;
+    border-radius: 4px;
+    font-family: $font-family-open-sans;
+    font-weight: 700;
+    line-height: 17.5px;
+  }
+  .file-input {
+    border-radius: 4px;
+    font-size: $font-l3;
+    color: $color-n-700;
+    border: 1px solid $color-n-800;
+  }
+  .error-message {
+    color: rgba(255, 0, 0, 0.723);
+    font-size: small;
+    margin-top: 5px;
+  }
+}
+
+// =============================
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  .questions {
+    max-width: 80%;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+  .questions {
+    max-width: 90%;
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+  .third-page {
+    .questions {
+      max-width: 100%;
+      .global-button {
+        padding: 12px 20px;
+      }
+    }
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+  .third-page {
+    .heading-text {
+      h5 {
+        font-size: $font-h6;
+      }
+    }
+    .questions {
+      max-width: 100%;
+      .global-button {
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+    }
+  }
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+  .third-page {
+    .heading-text {
+      h5 {
+        font-size: $font-h7;
+      }
+    }
+    .questions {
+      max-width: 100%;
+      .global-button {
+        padding: 12px 14px;
+      }
+      .global-input {
+        font-size: 14px;
+        padding: 11px 8px;
+      }
+    }
+  }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .third-page {
+    .heading-text {
+      max-width: 92%;
+
+      h5 {
+        font-size: $font-h7;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+    .questions {
+      max-width: 92%;
+    }
+  }
+}
+
+.education-ontainer {
+  background-color: $color-n-200;
+  padding: 1.5rem 3rem;
+  font-family: $font-family-open-sans;
+  margin: 2rem 0;
+  border: 1px solid $color-n-500;
+
+  .education-item {
+    &__field {
+      font-size: $font-l2;
+      color: $color-n-800;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    &__institution,
+    &__date,
+    &__grade {
+      font-size: $font-l3;
+      color: $color-n-600;
+      margin-bottom: 00.5rem;
+    }
+  }
+}
+
+.sample-container {
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    .sample-overlayer {
+      top: 0;
+    }
+  }
+  .sample-overlayer {
+    transition: top 0.2s;
+    background-color: rgba($color-white, 0.5);
+    position: absolute;
+    top: 105%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.add-form-container,
+.save-form-buttons {
+  .add-form-button,
+  .more,
+  .save {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-family: "Open Sans";
+    font-weight: 600;
+    line-height: 150%;
+    background-color: $color-sec-100;
+    transition: all 0.2s;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-sec-500;
+    }
+
+    &:focus {
+      background-color: $color-sec-500;
+    }
+
+    &:disabled {
+      &:hover {
+        background-color: $color-sec-100;
+        cursor: default;
+      }
+    }
+
+    span {
+      font-size: $font-l1;
+      margin-left: 10px;
+    }
+  }
+}
+
+.validation-alert {
+  color: red;
+  font-size: $font-l4;
+}
+
+// Styling Multi Selection Component
+
+// Styling The Dialog
+.dialog-overlayer {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+:host {
+  ::ng-deep {
+    .internal-container {
+      background-color: $color-white;
+      font-size: $font-b3;
+      // padding: 10rem;
+    }
+  }
+}

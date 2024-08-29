@@ -1,0 +1,100 @@
+<app-navbar [logs]="true" [navSimple]="false" [isJobSeeker]="false" [contact]="false"
+  [jobSeekerOrEmployerLink]="'/home/job-seeker'"></app-navbar>
+
+<header id="section-intro" class="section-intro flex flex-col gap-20 items-start w-full ">
+  <div class="hero  gap-72 flex justify-center items-center">
+    <div class="hero-text   gap-24 flex items-start flex-col">
+      <div class="hero-main-text  gap-12  flex flex-col items-start">
+        <div class="hero-title  ">
+          <h3>
+            Your all-in-one solution for revolutionizing your hiring process!
+          </h3>
+        </div>
+        <div class="hero-body">
+          <p>
+            Say goodbye to scattered processes and hello to seamless
+            recruitment from start to finish.
+          </p>
+        </div>
+      </div>
+      <div class="cta-button">
+        <button class="flex justify-center content-center text-center">
+          <a routerLink="/auth/registration/employer">Start hiring now</a>
+        </button>
+      </div>
+    </div>
+    <div class="hero-image  ">
+      <img class="w-full" src="assets\imgs\onbording\Hero illustration.svg" alt="" />
+    </div>
+  </div>
+</header>
+<div class="container-new flex items-center justify-center">
+  <div class="feature gap-12  flex justify-center items-center flex-col">
+    <div class="text">
+      <p>AS SEEN ON</p>
+    </div>
+    <div class="image">
+      <ul class="flex items-end">
+        <li>
+          <img src="assets\imgs\onbording\techcrunch.svg" alt="" />
+        </li>
+        <li>
+          <img src="assets\imgs\onbording\business-insider.svg" alt="" />
+        </li>
+        <li>
+          <img src="assets\imgs\onbording\the-new-york-times.svg" alt="" />
+        </li>
+        <li><img src="assets\imgs\onbording\forbes.svg" alt="" /></li>
+        <li>
+          <img src="assets\imgs\onbording\usa-today.svg" alt="" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="section-feature flex flex-col items-center w-full">
+  <div class="feature-title self-stretch m-auto text-center">
+    <h4>
+      Manage your entire process, <br />
+      from sourcing to employee onboarding <br />
+      and management
+    </h4>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- Carts Section -->
+  <div class="all-carts flex flex-col w-full">
+
+
+    <!-- Home Cart Component -->
+    <app-home-cart imgSrc="assets\imgs\onbording\Profiling-rafiki(1).svg" cartTitle="Access a Wealth of Talent"
+      cartBody="Tap into our extensive candidate database
+      brimming with top-tier talent, ready to propel your
+      team forward."></app-home-cart>
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Telework-rafiki.svg" cartTitle="Seamless Team Synergy" cartBody="Foster a culture of collaboration. Empower your
+        hiring team to work harmoniously, making
+        impactful decisions together." [cartReversed]="true"></app-home-cart>
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Profiling-bro.svg" cartTitle="Holistic Dashboard" cartBody="Gain a panoramic view of applicants and their
+     journey. Easily engage, filter, and manage
+     candidates' progression through
+     our dynamic dashboard." [cartReversed]="false"></app-home-cart>
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Working remotely-bro.svg" cartTitle="Communication Hub" cartBody="  Stay connected effortlessly. Engage candidates
+      directly within the platform, ensuring a constant
+      and effective exchange." [cartReversed]="true"></app-home-cart>
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Online test-rafiki.svg" cartTitle="Assessment Made Simple" cartBody="      Effortlessly evaluate potential. Utilize our
+     assessment tools for a comprehensive
+     candidate evaluation." [cartReversed]="false"></app-home-cart>
+
+    <app-home-cart imgSrc="assets\imgs\onbording\Confirmed attendance-bro 1.svg" cartTitle="Access a Wealth of Talent"
+      cartBody="    Simplify your scheduling woes. Manage interviews
+     and crucial dates with ease, all centralized within
+     our user-friendly platform." [cartReversed]="true"></app-home-cart>
+
+
+  </div>
+</div>
+<app-home-footer></app-home-footer>

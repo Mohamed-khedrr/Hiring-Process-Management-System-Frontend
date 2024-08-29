@@ -1,0 +1,647 @@
+<section class="job-post-first-page pt-10 pb-20">
+  <div class="container flex flex-col justify-center gap-10 ">
+    <div class="header flex ml-10 flex-col gap-6">
+      <div class="haeder-label ">
+        <h5><span *ngIf="isDraft">[Draft]</span>  {{jobTitle.value == '' ? 'Job Title':jobTitle.value}}</h5>
+      </div>
+      <div class=" flex items-center gap-8">
+        <div class="first-border">
+          <button class="btn vip-btn active">Job Info </button>
+        </div>
+        <div (click)="goToAdvanced()">
+          <button [disabled]="!edit" [class.btn-disabled]="!edit" class="btn">Application Form </button>
+        </div>
+      </div>
+    </div>
+    <div class="all-requierd-form-info bg-white mx-auto border-spacing-2">
+      <form [formGroup]="initJobPostForm"
+            (ngSubmit)="saveAndContinue()">
+        <div class="job-details">
+          <div class="label px-10 py-10">
+            <p class="global-section-label">Job Details</p>
+          </div>
+          <div class="px-10 py-16">
+            <div class="job-title flex flex-col gap-3 global-half-width">
+              <div class="global-small-label">Job Title</div>
+              <div class="w-full">
+                <input #jobTitle
+                       [class.error]="initJobPostForm.get('jobTitle')?.errors && initJobPostForm.get('jobTitle')?.touched"
+                       formControlName="jobTitle"
+                       class="w-full global-input"
+                       type="text"
+                       placeholder="Post title">
+                <div *ngIf="initJobPostForm.get('jobTitle')?.errors && initJobPostForm.get('jobTitle')?.touched"
+                     class="error-message">
+                  <div *ngIf="initJobPostForm.get('jobTitle')?.hasError('required')">
+                    Job title is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-full py-10">
+              <div class="w-full job-title flex flex-col gap-1">
+                <div class="global-small-label">Workplace</div>
+                <div class="ml-4 mt-4 grid md:grid-cols-3 grid-cols-1 gap-8 w-full">
+                  <div class="flex items-start gap-2">
+                    <div class="flex items-start justify-center pt-3">
+                      <input class="radio-input rounded items-start"
+                             type="radio"
+                             formControlName="jobType"
+                             value="ON_SITE">
+                    </div>
+                    <div class="flex flex-col w-full">
+                      <label class="global-radio-label"
+                             for="">On Site</label>
+                      <p class="global-radio-label under-radio-label w-full">Employees work from an office</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <div class="flex items-start justify-center pt-3">
+                      <input class="radio-input rounded items-start"
+                             type="radio"
+                             formControlName="jobType"
+                             value="HYBRID">
+                    </div>
+                    <div class="flex flex-col w-full">
+                      <label class="global-radio-label"
+                             for="">Hybrid</label>
+                      <p class="global-radio-label under-radio-label w-full">Employees work from both office and home </p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-2">
+                    <div class="flex items-start justify-center pt-3">
+                      <input class="radio-input rounded items-start"
+                             type="radio"
+                             formControlName="jobType"
+                             value="REMOTE">
+                    </div>
+                    <div class="flex flex-col w-full">
+                      <label class="global-radio-label"
+                             for="">Remote</label>
+                      <p class="global-radio-label under-radio-label w-full">Employees work from home</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="initJobPostForm.get('jobType')?.errors && initJobPostForm.get('jobType')?.touched">
+                  <div *ngIf="initJobPostForm.get('jobType')?.hasError('required')"
+                       class="error-message">Employment type is required.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="Employment-details w-full">
+          <div class="">
+            <div class="label px-10 py-10">
+              <p class="global-section-label">Employment details</p>
+            </div>
+          </div>
+          <div class="px-10 py-10 flex flex-col gap-10">
+            <div class=" grid md:grid-cols-4 grid-cols-2 gap-8 items-start">
+              <div class="flex flex-col gap-2 col-span-2 ">
+                <div class="">
+                  <label class="global-small-label"
+                         for="">Employment Type</label>
+                </div>
+                <div class="input">
+                  <select class="global-input w-full"
+                          [class.error]="initJobPostForm.get('employmentType')?.errors && initJobPostForm.get('employmentType')?.touched"
+                          formControlName="employmentType">
+                    <option value=""
+                            class=""
+                            selected
+                            disabled>Choose an Employment Type</option>
+                    <option value="PART_TIME">Part Time</option>
+                    <option value="FULL_TIME">Full Time</option>
+                    <option value="COMMISSION">Commission</option>
+                    <option value="SELF_EMPLOYED">Self Employed</option>
+                    <option value="TEMPORARY">Temporary</option>
+                    <option value="CASUAL">Casual</option>
+                    <option value="CONTRACT">Contract</option>
+                    <option value="FREELANCE">Freelance</option>
+                    <option value="INTERNSHIP">Internship</option>
+                  </select>
+                  <div *ngIf="initJobPostForm.get('employmentType')?.errors && initJobPostForm.get('employmentType')?.touched">
+                    <div *ngIf="initJobPostForm.get('employmentType')?.hasError('required')"
+                         class="error-message">Employment type is required.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 col-span-2 ">
+                <div class="">
+                  <label class="global-small-label">Experience</label>
+                </div>
+                <div class="input grid sm:grid-cols-2 grid-cols-1 gap-8">
+                  <select class="global-input w-full" formControlName="minExperienceYears">
+                    <option value="" disabled selected>Start from</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+                  <select class="global-input w-full" formControlName="maxExperienceYears"
+                  [class.error]="initJobPostForm.errors?.['experienceRange'] && (initJobPostForm.get('minExperienceYears')?.touched)"
+                  >
+                    <option value="" disabled selected>Up to</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="+10">+10</option>
+                  </select>
+                </div>
+                <div *ngIf="initJobPostForm.errors?.['experienceRange'] && (initJobPostForm.get('minExperienceYears')?.touched)">
+                  <div class="error-message">Max Experience Years should be greater than Min Experience Years.</div>
+                </div>
+              </div>
+
+            </div>
+            <div class=" grid sm:grid-cols-2 gap-8 items-center">
+              <div class="flex flex-col gap-2  ">
+                <div class="">
+                  <label class="global-small-label"
+                         for="">Industry</label>
+                </div>
+                <div class="input">
+                  <select class="global-input w-full mb-2"
+                          [class.error]="initJobPostForm.get('industryId')?.errors && initJobPostForm.get('industryId')?.touched"
+                          formControlName="industryId">
+                    <option class=""
+                            value=""
+                            selected
+                            disabled>Choose an Industry</option>
+                    <option selected>Choose an Industry</option>
+                    <option *ngFor="let i of industries"
+                            value="{{i.id}}">{{i.industry}}</option>
+                  </select>
+                </div>
+                <div *ngIf="initJobPostForm.get('industryId')?.invalid && initJobPostForm.get('industryId')?.touched">
+                  <div *ngIf="initJobPostForm.get('industryId')?.hasError('required')"
+                       class="error-message">Industry is required.</div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2  ">
+                <div class="">
+                  <label class="global-small-label">Job Category</label>
+                </div>
+                <div class="">
+                  <select class="global-input w-full mb-2"
+                          [class.error]="initJobPostForm.get('jobName')?.errors && initJobPostForm.get('jobName')?.touched"
+                          formControlName="jobName">
+                    <option class=""
+                            value=""
+                            selected
+                            disabled>Choose a Job Name</option>
+                    <option *ngFor="let i of jobCatergories"
+                            value="{{i.name}}">{{i.name}}</option>
+                  </select>
+                </div>
+                <div *ngIf="initJobPostForm.get('jobName')?.invalid && initJobPostForm.get('jobName')?.touched">
+                  <div *ngIf="initJobPostForm.get('jobName')?.hasError('required')"
+                       class="error-message">Job Name is required.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skills-section">
+          <div class="">
+            <div class="label px-10 py-10">
+              <p class="global-section-label">Skills</p>
+            </div>
+          </div>
+          <div class="skills-info shadow-lg global-rounde  bg-white p-16 flex flex-col gap-8">
+            <div class="text">
+              <label class="global-small-label " for="skills">What skills, tools and technologies jobseeker should have?</label>
+            </div>
+            <!-- =============================================================================== -->
+            <!-- =============================================================================== -->
+            <app-multi-select-search-box [optionsList]="skillsList" [intialSelectedOptions]="selectedSkills"
+              (selectChange)="handleSelectedSkills($event)" (filter)="filterSkills($event)"></app-multi-select-search-box>
+            <!-- =============================================================================== -->
+            <!-- =============================================================================== -->
+          </div>
+        </div>
+        <div class="salary-details w-full">
+          <div class="">
+            <div class="label px-10 py-10">
+              <p class="global-section-label">Annual Salary</p>
+            </div>
+          </div>
+          <div class="px-10 py-10 flex flex-col gap-10">
+            <div class=" grid md:grid-cols-4 gap-8 items-start"> 
+              <div class="flex flex-col gap-2  ">
+                <div class="">
+                  <label class="global-small-label">From</label>
+                </div>
+                <div class="input">
+                  <input class="global-input w-full"
+                         type="number"
+                         value="0"
+                         formControlName="minSalary"
+                         placeholder="0">
+                </div>
+                <div *ngIf="initJobPostForm.get('minSalary')?.invalid && initJobPostForm.get('minSalary')?.touched">
+                  <div *ngIf="initJobPostForm.get('minSalary')?.hasError('min')"
+                       class="error-message">Industry is required.</div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2  ">
+                <div class="">
+                  <label class="global-small-label"
+                         for="">To</label>
+                </div>
+                <div class="input mb-1">
+                  <input class="global-input w-full"
+                  [class.error]="initJobPostForm.errors?.['salaryRange'] &&  initJobPostForm.get('minSalary')?.touched"
+                         type="number"
+                         value="0"
+                         formControlName="maxSalary"
+                         placeholder="0">
+                </div>
+                <div *ngIf="initJobPostForm.get('minSalary')?.touched">
+                  <div *ngIf="initJobPostForm.errors?.['salaryRange']"
+                       class="error-message">Max Salary should be greater than Min Salary.</div>
+                </div> 
+              </div>
+              <div class="flex flex-col gap-2 col-span-2 ">
+                <div class="">
+                  <label class="global-small-label">Currencies</label>
+                </div>
+                <div class="input">
+                  <select class="global-input w-full"
+                          formControlName="currency">
+                    <option class=""
+                            value=""
+                            selected
+                            disabled> currency</option>
+                    <option class="flex justify-between"
+                            *ngFor="let item of currencies "
+                            value="{{item.code}}">
+                      <span>{{item.code}} - {{item.name}}</span>
+                      <span>({{item.symbol}})</span>
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="description-details w-full">
+          <div class="">
+            <div class="label px-10 py-10">
+              <p class="global-section-label">Description</p>
+            </div>
+          </div>
+          <div class="px-10 py-10 flex flex-col gap-10">
+            <div class="all-Description-info py-8 px-12 flex flex-col gap-6">
+              <div class="description-container flex flex-col gap-4">
+                <div class="">
+                  <label class="common-label title"
+                         for="">Description</label>
+                </div>
+                <div class="">
+                  <div class="w-full mb-4   textarea-border">
+                    <div class="flex items-center justify-between px-5 py-4  dark:border-gray-600 border-b">
+                      <div class="flex flex-wrap items-center  divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
+                        <div class="flex items-center gap-5 space-x-1 rtl:space-x-reverse sm:pe-4 sm:ps-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-bold.svg"
+                                 alt="">
+                            <span class="sr-only">Attach file</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-italic.svg"
+                                 alt="">
+                            <span class="sr-only">Embed map</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-underline.svg"
+                                 alt="">
+                            <span class="sr-only">Upload image</span>
+                          </button>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-5 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4 ">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-left.svg"
+                                 alt="">
+                            <span class="sr-only">Format code</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-center.svg"
+                                 alt="">
+                            <span class="sr-only">Add emoji</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-right.svg"
+                                 alt="">
+                            <span class="sr-only">Add list</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-justify.svg"
+                                 alt="">
+                            <span class="sr-only">Settings</span>
+                          </button>
+
+                        </div>
+                        <div class="flex flex-wrap items-center gap-5 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/list-bullet.svg"
+                                 alt="">
+                            <span class="sr-only">Timeline</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/list-number.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+
+
+                        </div>
+                        <div class="flex flex-wrap items-center gap-10 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/image-circle.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/attachment.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="px-4 py-2 bg-white rounded-b-2xl ">
+                      <textarea formControlName="description"
+                                d="editor"
+                                rows="10"
+                                class="global-input block w-full px-0 text-sm "
+                                placeholder="Enter the job description here"
+                                required></textarea>
+
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="initJobPostForm.get('description')?.invalid && initJobPostForm.get('description')?.touched">
+                  <div *ngIf="initJobPostForm.get('description')?.hasError('required')"
+                       class="error-message">Description is required.</div>
+                </div>
+              </div>
+              <div class="Requirements-container flex flex-col gap-4">
+                <div class="">
+                  <label class="common-label title"
+                         for="">Requirements</label>
+                </div>
+                <div class="">
+                  <div class="w-full mb-4   textarea-border">
+                    <div class="flex items-center justify-between px-5 py-4  dark:border-gray-600 border-b">
+                      <div class="flex flex-wrap items-center  divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
+                        <div class="flex items-center gap-5 space-x-1 rtl:space-x-reverse sm:pe-4 sm:ps-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-bold.svg"
+                                 alt="">
+                            <span class="sr-only">Attach file</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-italic.svg"
+                                 alt="">
+                            <span class="sr-only">Embed map</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-underline.svg"
+                                 alt="">
+                            <span class="sr-only">Upload image</span>
+                          </button>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-5 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4 ">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-left.svg"
+                                 alt="">
+                            <span class="sr-only">Format code</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-center.svg"
+                                 alt="">
+                            <span class="sr-only">Add emoji</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-right.svg"
+                                 alt="">
+                            <span class="sr-only">Add list</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-justify.svg"
+                                 alt="">
+                            <span class="sr-only">Settings</span>
+                          </button>
+
+                        </div>
+                        <div class="flex flex-wrap items-center gap-5 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/list-bullet.svg"
+                                 alt="">
+                            <span class="sr-only">Timeline</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/list-number.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+
+
+                        </div>
+                        <div class="flex flex-wrap items-center gap-10 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/image-circle.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/attachment.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="px-4 py-2 bg-white rounded-b-2xl">
+                      <textarea d="editor"
+                                rows="10"
+                                formControlName="requirements"
+                                class="global-input block w-full px-0 text-sm"
+                                placeholder="Enter the job requirements here"
+                                required></textarea>
+
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="initJobPostForm.get('requirements')?.invalid && initJobPostForm.get('requirements')?.touched">
+                  <div *ngIf="initJobPostForm.get('requirements')?.hasError('required')"
+                       class="error-message">Requirements is required.</div>
+                </div>
+              </div>
+              <div class="Benefits-container flex flex-col gap-4">
+                <div class="">
+                  <label class="common-label title"
+                         for="">Benefits</label>
+                </div>
+                <div class="">
+                  <div class="w-full mb-4   textarea-border">
+                    <div class="flex items-center justify-between px-5 py-4  dark:border-gray-600 border-b">
+                      <div class="flex flex-wrap items-center  divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse dark:divide-gray-600">
+                        <div class="flex items-center gap-5 space-x-1 rtl:space-x-reverse sm:pe-4 sm:ps-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-bold.svg"
+                                 alt="">
+                            <span class="sr-only">Attach file</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-italic.svg"
+                                 alt="">
+                            <span class="sr-only">Embed map</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/text-underline.svg"
+                                 alt="">
+                            <span class="sr-only">Upload image</span>
+                          </button>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-5 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4 ">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-left.svg"
+                                 alt="">
+                            <span class="sr-only">Format code</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-center.svg"
+                                 alt="">
+                            <span class="sr-only">Add emoji</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-right.svg"
+                                 alt="">
+                            <span class="sr-only">Add list</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/align-justify.svg"
+                                 alt="">
+                            <span class="sr-only">Settings</span>
+                          </button>
+
+                        </div>
+                        <div class="flex flex-wrap items-center gap-5 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/list-bullet.svg"
+                                 alt="">
+                            <span class="sr-only">Timeline</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/list-number.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+
+
+                        </div>
+                        <div class="flex flex-wrap items-center gap-10 space-x-1 rtl:space-x-reverse sm:ps-4 sm:pe-4">
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/image-circle.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+                          <button type="button"
+                                  class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                            <img src="../../../../assets/textaea-icon/attachment.svg"
+                                 alt="">
+                            <span class="sr-only">Download</span>
+                          </button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="px-4 py-2 bg-white rounded-b-2xl">
+                      <textarea d="editor"
+                                formControlName="benefits"
+                                rows="10"
+                                class="global-input block w-full px-0 text-sm"
+                                placeholder="Enter the benefits here"
+                                ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="under-buttons flex flex-col gap-10 justify-start">
+          <div class="skip-save-buttons px-10 py-10  flex justify-between">
+            <div class="other-buttons flex justify-center items-center gap-8">
+              <button (click)="saveAndContinue()"
+                      class="global-button Save-Continue-btn"
+                      type="button">Save & Continue</button>
+              <button (click)="cancel()"
+                      class="global-button cancel-button"
+                      type="button">Cancel</button>
+            </div>
+            <div class="">
+              <button (click)="deleteJob()" class=" global-button delete-button"
+                      type="button">Delete job</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

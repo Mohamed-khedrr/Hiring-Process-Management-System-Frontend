@@ -1,0 +1,447 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+* {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* all page */
+
+
+
+#signin-jobseeker {
+  background-color: #f8f8f1;
+  .under-section  {
+    .all-left-side{
+      padding-top: 50px;
+      width: 40%;
+      .section-info {
+        .text {
+          color: $color-n-700;
+          font-family: $font-family-crimson;
+          font-size: $font-h6;
+          font-weight: 700;
+          line-height: $line-height-heading;
+        }
+      }
+    }
+    .all-right-side{
+      padding: 32px 44px 32px 44px;
+      width: 50%;
+      .form{
+        .frame-17{
+          .google-section{
+            .sign-up-and-elevate-your-career{
+              color: $color-n-800;
+              font-family: $font-family-crimson;
+              font-size: $font-h7;
+              font-weight: 700;
+              line-height: $line-height-heading;
+            }
+            .sign-social-links {
+              .google-section2{
+                .google-logo {
+                  width: 10%;
+                  border: 1px solid $color-sec-500 ;
+                  padding: 10.5px;
+                
+                }
+                
+                .google-link {
+                  width: 90%;
+                  padding-block: 10.5px;
+                  background-color: $color-sec-300 ;
+                  .google-link-text{
+                    color: white;
+                    font-family: $font-family-open-sans;
+                    font-size:$font-b3;
+                    font-weight: 600;
+                    line-height: $line-height-body;
+                  }
+                }
+              }
+              .rule {
+                .line {
+                  background-color: #D2D3D3;
+                  width: 48.2%;
+                  height: 1px;
+                }
+              
+                .text {
+                  color: $color-n-800;
+              
+                  font-family: $font-family-open-sans;
+                  font-size: $font-l3;
+                  line-height: $line-height-label;
+                }
+              }
+
+
+            }
+          }
+          .s-ign-up-application {
+            input.ng-invalid.ng-touched {
+              border: 1px solid red;
+            }
+            .input-label ,.error-message {
+              color: $color-n-800;
+              font-family:$font-family-open-sans;
+              font-size:$font-l2 ;
+              line-height: $line-height-body;
+              font-weight:400;
+            }
+            .error-message{
+              color: rgba(255, 0, 0, 0.723);
+              font-size: small;
+              margin-top: 5px;
+            }
+            .input-field {
+              background: $color-n-200;
+              border: 1px solid $color-n-800;
+              font-size:$font-b3 ;
+              border-radius: 4px;
+              height: 44px;
+              padding-left: 10px;
+            }
+            .password-section{
+              .new-containing{
+                border-radius: 4px;
+                .eye-icon-button {
+                  background: $color-n-600;
+                  padding: 10px;
+                  border-radius: 0px 3px 3px 0px;
+                  right: 0.6px;
+                  top: 0.8px;
+                  bottom: 0.8px;
+                }
+              }
+            }
+            
+          }
+        }
+        .sign-up-with-google3{
+          .error {
+            .error-message {
+              margin-bottom: 10px;
+            }
+          }
+          button {
+            background: $color-sec-500;
+            border-radius: 4px ;
+            padding-block: 10px;
+            font-family:$font-family-open-sans;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: $line-height-body;
+          
+            &:disabled {
+              opacity: 0.5;
+              &:hover {
+                cursor: default;
+              }
+            }
+          }
+        }
+      }
+      .terms-and-condition{
+        color: $color-n-900;
+        font-family: $font-family-open-sans;
+        font-size: $font-l3;
+        font-weight: 400;
+        line-height:$line-height-heading;
+        a {
+          color: #0055d9;
+        }
+      }
+      .last-info-section{
+        .frame-21 .rule2 {
+          height: 1px;
+          background-color: #d2d3d3;
+        }
+        .have-accout-login-link{
+          color:black ;
+          font-family:$font-family-open-sans;
+          font-size: $font-b3;
+          font-weight: 600;
+          line-height:$line-height-body;
+          .ankor {
+            color: #0055d9;
+          }
+        }
+      }
+    }
+  }
+  .error-message{
+    color: rgba(255, 0, 0, 0.723);
+    font-size: large;
+    margin-top: 5px;
+  }
+}
+
+
+// media querey
+
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+  #signin-jobseeker{
+    .under-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
+      width: 100%;
+      gap: 48px;
+      .all-left-side{
+        width: 100%;
+        .section-info{
+          .image{
+            display: none;
+          }
+        }
+      }
+      .all-right-side{
+        width: 80%;
+        .form{
+          .frame-17{
+            .google-section{
+              .sign-up-and-elevate-your-career{
+                font-size: $font-h8;
+              }
+              .sign-social-links{
+                .google-section2{
+                  .google-logo{
+                    padding: 10.5px;
+                  }
+                  .google-link{
+                    padding: 11px;
+                    .google-link-text{
+                      font-size: $font-l3;
+                    }
+                  }
+                  
+                  .vip3{
+                    padding:11.8px ;
+                  }
+                  .vip2{
+                    padding: 11.3px;
+                    
+                  }
+                  .vip{
+                    padding: 12px;
+                  }
+                }
+                
+              }
+            }
+            .s-ign-up-application{
+              .input-label , .error-message{
+                font-size: $font-l3;
+              }
+              .error-message{
+                font-size: x-small;
+              }
+              .input-field{
+                font-size:$font-b4 ;
+                height: 40px;
+
+              }
+            }
+            
+          }
+          .sign-up-with-google3{
+            button{
+              font-size: $font-l3;
+            }
+          }
+        }
+        .terms-and-condition{
+          font-size: $font-l4;
+        }
+        .last-info-section{
+          .have-accout-login-link{
+            font-size:$font-l3 ;
+          }
+        }
+
+      }
+      
+      
+    }
+    
+  }
+
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+  #signin-jobseeker{
+    .under-section {
+      .all-right-side{
+        width: 100%;
+        .form{
+          .frame-17{
+            .google-section{
+              .sign-up-and-elevate-your-career{
+                font-size: $font-h11;
+              }
+              .sign-social-links{
+                .google-section2{
+                  .google-logo{
+                    padding: 9px;
+                  }
+                  .google-link{
+                    padding: 10px;
+                    .google-link-text{
+                      font-size: $font-l4;
+                    }
+                  }
+                  .vip3{
+                    padding:11.8px ;
+                  }
+                  .vip2{
+                    padding: 9.8px;
+                    
+                  }
+                  .vip{
+                    // padding: 12px;
+                  }
+                }
+                .rule .text{
+                  font-size: 10.5px;
+              }
+              }
+            }
+            .s-ign-up-application{
+              .input-label{
+                font-size: $font-l4;
+              }
+              .input-field{
+                font-size:$font-b4 ;
+              }
+            }
+            
+          }
+          .sign-up-with-google3{
+            button{
+              font-size: $font-l4;
+            }
+          }
+        }
+        .terms-and-condition{
+          font-size: $font-l4;
+        }
+        .last-info-section{
+          .have-accout-login-link{
+            font-size:$font-l4 ;
+          }
+        }
+
+      }
+      
+      
+    }
+    
+  }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+  #signin-jobseeker{
+    .under-section {
+      .all-left-side{
+        width: 90%;
+        .section-info .text{
+          font-size:31px ;
+        }
+
+      }
+      .all-right-side{
+        padding: 24px 24px 32px 24px;
+        width: 90%;
+        .form{
+          .frame-17{
+            .google-section{
+              .sign-social-links{
+                .google-section2{
+                  .google-logo{
+                    padding: 9px ;
+                    
+                  }
+                  .vip3{
+                    padding:11.8px ;
+                  }
+                  .vip-xsm{
+                    padding: 9.2px;
+                  }
+
+                }
+              }
+            }
+            .s-ign-up-application{
+              font-size: 12px;
+            }
+            
+          }
+        }
+        .terms-and-condition{
+          font-size: 10.5px;
+        }
+
+      }
+      
+      
+    }
+    
+  }
+}

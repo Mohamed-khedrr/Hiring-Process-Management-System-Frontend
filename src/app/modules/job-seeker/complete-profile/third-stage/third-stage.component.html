@@ -1,0 +1,146 @@
+<!-- <app-navbar [logs]="false" [employerJobSeekerBtn]="false" [profileImage]="true"> </app-navbar> -->
+
+<app-stage-counter></app-stage-counter>
+
+<div class="third-page">
+  <div class=" container ">
+
+    <div class="heading-text  mx-auto  flex flex-col gap-1 justify-center items-center	">
+      <h5>Professional Information</h5>
+      <p class="text-center">Share your professional background with companies.</p>
+
+    </div>
+
+    <form action="" [formGroup]="professionalInformationForm">
+      <div class="questions mt-16 flex flex-col gap-9  mx-auto">
+        <div class=" year-of-experience shadow-lg global-rounde  bg-white p-16 flex flex-col gap-8">
+          <div class="text">
+            <label class="global-section-label " for=" experience">How many years of experience do you have? </label>
+          </div>
+          <div class=" input-selection ">
+            <select id="experience" class=" global-input  w-full" formControlName="yearsOfExperince">
+              <option *ngFor="let item of yearsOfExperinceList" class="input-selection-option " value="{{item.value}}">
+                {{item.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- =================================================================================== -->
+        <ng-container *ngIf="yearsOfExperinceValue != '0' ">
+          <app-job-seeker-experience-form></app-job-seeker-experience-form>
+        </ng-container>
+        <!-- =================================================================================== -->
+
+        <app-job-seeker-language-form></app-job-seeker-language-form>
+        <div class="skills-info shadow-lg global-rounde  bg-white p-16 flex flex-col gap-8">
+          <div class="text">
+            <label class="global-section-label " for="skills">What skills, tools, technologies, and fields of experience
+              do you have?</label>
+          </div>
+          <!-- =============================================================================== -->
+          <!-- =============================================================================== -->
+          <app-multi-select-search-box [optionsList]="skillsList" [intialSelectedOptions]="selectedSkills"
+            (selectChange)="handleSelectedSkills($event)" (filter)="filterSkills($event)"></app-multi-select-search-box>
+          <!-- =============================================================================== -->
+          <!-- =============================================================================== -->
+
+
+
+        </div>
+        <div class="upload-cv shadow-lg global-rounde  bg-white p-16 flex flex-col gap-8">
+          <div class="text">
+            <label class="global-section-label ">Upload your CV <span class="span-text"> (Maximum size is 5MB)</span>
+            </label>
+          </div>
+          <div class="upload-cv-button bg-sec-100 text-white text-3xl py-7  ">
+            <div *ngIf="isCvUploded" class="cv-uploded-success flex justify-between px-3 ">
+              <p>CV uploded successfully</p>
+              <button (click)="removeCv()"><i class="fa-regular fa-trash-can" style="font-size: large;"></i></button>
+            </div>
+            <div>
+              <input type="file" class="hidden" name="cv" id="uploadCv" (change)="uploadCV($event)" accept=".pdf">
+              <label *ngIf="!isCvUploded" for="uploadCv" type="button"
+                class="bg-green-500 flex justify-center items-center gap-3 cursor-pointer"> <span><svg
+                    xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M5.0482 5.44854C8.33511 2.16163 13.6643 2.16163 16.9511 5.44854L16.9516 5.44903C20.2381 8.73599 20.2379 14.0648 16.9512 17.3515C13.6642 20.6384 8.33509 20.6384 5.0482 17.3515C1.76128 14.0646 1.76128 8.73544 5.04819 5.44855L5.0482 5.44854ZM18.0118 18.4122C21.8845 14.5395 21.8845 8.26059 18.0118 4.38789C14.1391 0.515179 7.86024 0.515181 3.98754 4.38788C0.114831 8.26057 0.114833 14.5395 3.98754 18.4122C7.86022 22.2849 14.1391 22.2849 18.0118 18.4122ZM13.2193 10.097C13.5122 10.3899 13.9871 10.3899 14.28 10.097C14.5729 9.80413 14.5729 9.32925 14.28 9.03636L11.53 6.28636C11.2371 5.99347 10.7622 5.99347 10.4693 6.28636L7.71934 9.03636C7.42645 9.32925 7.42645 9.80413 7.71934 10.097C8.01224 10.3899 8.48711 10.3899 8.78 10.097L10.2497 8.62735L10.2497 13.2334C10.2497 13.6476 10.5855 13.9834 10.9997 13.9834C11.4139 13.9834 11.7497 13.6476 11.7497 13.2334L11.7497 8.62735L13.2193 10.097ZM7.50029 15.525C7.50029 15.1108 7.83608 14.775 8.25029 14.775H13.7503C14.1645 14.775 14.5003 15.1108 14.5003 15.525C14.5003 15.9392 14.1645 16.275 13.7503 16.275H8.25029C7.83608 16.275 7.50029 15.9392 7.50029 15.525Z"
+                      fill="white" />
+                  </svg></span> Upload CV</label>
+            </div>
+            <p *ngIf="cvErrorMessage!=''" class="error-message text-black">{{cvErrorMessage}}</p>
+          </div>
+        </div>
+        <div class="samples-your-work shadow-lg global-rounde  bg-white p-16 flex flex-col gap-8"
+          id="work-sampels-list">
+          <div class="text flex flex-col gap-2  justify-start">
+            <label class="global-section-label " for="">Samples of your work<span class="span-text"> (Up to 12 files
+                -optional-)</span> </label>
+            <p><span class="span-text">Supported files: .jpg, .png, .gif or .jpeg with max size of 5MB per file.</span>
+            </p>
+          </div>
+          <div class="samples-button  ">
+            <label class="global-section-label " for="work-samples-input" type="button" (click)="showDialog()"
+              class="bg-green-500 flex justify-center items-center gap-3 cursor-pointer">
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23" viewBox="0 0 22 23" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M5.0482 5.44854C8.33511 2.16163 13.6643 2.16163 16.9511 5.44854L16.9516 5.44903C20.2381 8.73599 20.2379 14.0648 16.9512 17.3515C13.6642 20.6384 8.33509 20.6384 5.0482 17.3515C1.76128 14.0646 1.76128 8.73544 5.04819 5.44855L5.0482 5.44854ZM18.0118 18.4122C21.8845 14.5395 21.8845 8.26059 18.0118 4.38789C14.1391 0.515179 7.86024 0.515181 3.98754 4.38788C0.114831 8.26057 0.114833 14.5395 3.98754 18.4122C7.86022 22.2849 14.1391 22.2849 18.0118 18.4122ZM13.2193 10.097C13.5122 10.3899 13.9871 10.3899 14.28 10.097C14.5729 9.80413 14.5729 9.32925 14.28 9.03636L11.53 6.28636C11.2371 5.99347 10.7622 5.99347 10.4693 6.28636L7.71934 9.03636C7.42645 9.32925 7.42645 9.80413 7.71934 10.097C8.01224 10.3899 8.48711 10.3899 8.78 10.097L10.2497 8.62735L10.2497 13.2334C10.2497 13.6476 10.5855 13.9834 10.9997 13.9834C11.4139 13.9834 11.7497 13.6476 11.7497 13.2334L11.7497 8.62735L13.2193 10.097ZM7.50029 15.525C7.50029 15.1108 7.83608 14.775 8.25029 14.775H13.7503C14.1645 14.775 14.5003 15.1108 14.5003 15.525C14.5003 15.9392 14.1645 16.275 13.7503 16.275H8.25029C7.83608 16.275 7.50029 15.9392 7.50029 15.525Z"
+                    fill="white" />
+                </svg></span> Add Files</label>
+          </div>
+          <div class="all-samples-container flex gap-6 flex-wrap   px-4">
+            <div *ngFor="let sample of workSamplesList"
+              class="sample-container bg-slate-500  w-48 h-48 bg-no-repeat bg-cover bg-center "
+              [ngStyle]="{ 'background-image': 'url(\''+ (sample.photo|handleFileUrl) +'\')'   }">
+              {{sample.title}}
+              <div class="sample-overlayer flex justify-end items-start">
+                <button class="trash-btn m-4" (click)="deleteSample(sample.id)">
+                  <img src="assets\imgs\trash (1).svg" alt="Trash Icon">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="under-buttons flex flex-col gap-10 justify-start">
+          <div class="skip-save-buttons flex justify-between">
+            <div class="">
+              <button class=" global-button  back-button" type="button" (click)="goBackPrivStage()">Back</button>
+            </div>
+            <div class="other-buttons flex justify-center items-center gap-3">
+              <button class="global-button   start-button " type="button" (click)="saveThirdStageData()">Get
+                Started</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div [ngClass]="{'hidden' : !SampleFormVisible}" class="dialog-overlayer flex justify-center items-center">
+  <div class="internal-container ">
+    <div class="heading-container text-center mb-7">
+      <div class="text-center  flex items-center justify-center mb-7"><img src="../../../../../assets/imgs/file.svg"
+          alt=""></div>
+      <p class="header">Add Sample</p>
+      <p class="text">max size 5MB for each file</p>
+    </div>
+    <form [formGroup]="workSampleForm" class="bg-white  flex flex-col gap-4">
+      <!-- <input class="" type="file"  name="sampleFileInput" (change)="getSampleFile($event)"> -->
+      <input
+        class="relative file-input  m-0 block w-full min-w-0 flex-auto cursor-pointer  border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] font-normal leading-[2.15] text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-blue-300 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem]  focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
+        id="formFileLg" type="file" name="sampleFileInput" (change)="getSampleFile($event)" accept="image/*"
+        formControlName="samplePhoto">
+      <p *ngIf="sampleErrorMessage!=''" class="error-message">{{sampleErrorMessage}}</p>
+      <input class="input-field" formControlName="sampleLink" type="text" placeholder="Add link file (optional)">
+      <input class="input-field" formControlName="sampleTitle" type="text"
+        placeholder="Add Title to the file (optional)">
+      <input class="input-field" formControlName="sampleDescription" type="text"
+        placeholder="Add description to the file (optional)">
+      <div class="flex justify-around mt-4">
+        <button class="btn" (click)="saveSample()">Submit</button>
+        <button class="btn" (click)="closeDialog()">Close</button>
+      </div>
+    </form>
+  </div>
+</div>

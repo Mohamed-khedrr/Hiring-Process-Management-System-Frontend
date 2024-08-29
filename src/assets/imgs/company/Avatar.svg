@@ -1,0 +1,15 @@
+<svg width="142" height="143" viewBox="0 0 142 143" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.825195" width="141" height="141" fill="white"/>
+<rect x="0.5" y="0.825195" width="141" height="141" stroke="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.0117 109.124H117.456V111.839H25.0117V109.124Z" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.207 109.123V80.6701L40.7147 76.5378V109.123" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40.7148 76.5378L47.7987 80.6701V109.123" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M47.7969 80.6702V45.0149L57.4781 38.1672V73.7044H61.2561V109.124" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M57.4805 38.1672L71.1759 45.0149L71.2939 72.7599H77.6694V109.124" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M77.668 72.7598V28.604L88.4118 20.8118L104.705 28.4859V85.0385H112.261V109.123" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M79.3203 76.0656V29.9027L88.4112 23.4092V76.0656H79.3203Z" stroke="#033F47" stroke-width="0.998819" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M30.2065 109.124H25.0117V111.839H117.456V109.124H112.261H77.6682H61.2573H47.798H40.7142H30.2065Z" fill="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M77.668 72.7598V109.123H112.261V85.0385H104.705V28.4859L88.4118 20.8118L77.668 28.604V72.7598ZM88.4118 76.0656H79.3209V29.9027L88.4118 23.4092V76.0656Z" fill="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M77.6694 109.124V72.7599H71.2939L71.1759 45.0149L57.4805 38.1672V73.7044H61.2585V109.124H77.6694Z" fill="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M47.7987 109.123V80.6701L40.7148 76.5378V109.123H47.7987Z" fill="#033F47"/>
+</svg>

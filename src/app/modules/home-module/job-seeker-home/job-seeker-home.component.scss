@@ -1,0 +1,377 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+* {
+  box-sizing: border-box;
+}
+
+#intro {
+
+  background-color: $color-n-800;
+  padding: 56px 56px 144px 56px;
+
+  .nav-and-searsh .text-and-search .text {
+    .hero-title h2 {
+      font-family: $font-family-crimson;
+      font-size: $font-h3;
+      font-weight: 700;
+      line-height: 105%;
+    }
+
+    .hero-body p {
+      color: $color-n-300;
+      font-family: $font-family-open-sans;
+      font-size: $font-b2;
+      font-weight: 400;
+      line-height: $line-height-body;
+    }
+  }
+
+  .containing {
+    padding: 12px 24px;
+
+    .searsh-icon .icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .searsh-input .input-feild {
+      padding: 5px;
+      color: $color-n-800;
+      font-family: $font-family-open-sans;
+      font-size: $font-b2;
+      font-weight: 400;
+      line-height: $line-height-body;
+    }
+
+    .searsh-button button {
+      padding: 12px 32px;
+      background-color: $color-p-500;
+      color: $color-n-800;
+      font-family: $font-family-open-sans;
+      font-size: $font-l2;
+      font-weight: 700;
+      line-height: $line-height-label;
+    }
+  }
+}
+
+
+/* sponsor section */
+
+// =======================================================================================
+// =======================================================================================
+
+.container-new {
+  // margin-top: -75px;
+  width: 100%;
+  margin-bottom: -50px;
+  z-index: 99;
+
+  .feature {
+    width: 82%;
+    background-color: $color-sec-500;
+    padding: 24px 0 56px;
+    gap: 3rem;
+
+    ul {
+      padding: 0px 4rem;
+      gap: 6rem;
+    }
+
+    .text {
+      font-family: $font-family-open-sans;
+      font-size: $font-b3;
+      font-weight: 700;
+      line-height: $line-height-label;
+      letter-spacing: 2.24px;
+
+    }
+  }
+}
+
+/* section feature */
+.section-feature {
+  padding: 104px 0px 144px 0px;
+  gap: 64px;
+  background-color: #ffffff;
+
+  .feature-heading {
+    padding-top: 3rem;
+
+    .title {
+      color: $color-n-800;
+      font-family: $font-family-crimson;
+      font-size: $font-h5;
+      font-weight: 700;
+      line-height: 110%;
+    }
+
+    .text {
+      color: $color-n-600 ;
+      font-family: $font-family-open-sans ;
+      font-size: $font-b2;
+      font-weight: 400;
+      line-height: $line-height-body ;
+    }
+
+  }
+
+  .feature-description {
+    font-size: $font-b2;
+    font-weight: 400;
+    color: $color-n-600;
+    font-family: $font-family-open-sans;
+    margin-top: 1.5rem;
+    line-height: 35px;
+
+    @media screen and (max-width: $breakpoint-medium) {
+      margin-top: 2.5rem;
+      line-height: 21px;
+      font-size: $font-b3;
+    }
+  }
+}
+
+// media querey
+
+// applies to xx-large
+@media (min-width: 1400px) {
+
+  .container-new {
+    max-width: 100% !important;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container-new {
+    .feature {
+      padding: 24px 0 48px;
+    }
+  }
+
+  .section-feature {
+    padding: 56px 0 130px 0;
+
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  #intro {
+    padding: 56px 45px 110px 45px;
+
+    .nav-and-searsh .text-and-search .text {
+      padding-inline: 32px;
+
+      .hero-title h2 {
+        font-size: $font-h4;
+        text-align: center;
+        line-height: 115%;
+      }
+
+      .hero-body p {
+        padding-inline: 30px;
+        font-size: $font-b2;
+      }
+    }
+
+    .containing {
+      width: 83.3%;
+      padding: 8px 16px 8px 16px;
+
+      .searsh-icon .icon {
+        width: 25px;
+        height: 25px;
+
+      }
+
+      .searsh-input .input-feild {
+        font-size: $font-b2 ;
+      }
+    }
+  }
+
+  .container-new {
+    .feature {
+      padding: 24px 0 40px 0;
+    }
+  }
+
+  .section-feature {
+    padding: 56px 0 115px 0;
+
+    .feature-heading {
+      padding-inline: 34px;
+    }
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  #intro {
+    padding: 56px 35px 80px 35px;
+
+    .nav-and-searsh .text-and-search .text {
+      .hero-title h2 {
+        font-size: $font-h5;
+      }
+
+      .hero-body p {
+        font-size: $font-b3;
+      }
+    }
+
+    .containing {
+      width: 90%;
+
+      .searsh-input .input-feild {
+        font-size: $font-b3 ;
+      }
+    }
+  }
+
+  .container-new {
+    .feature {
+      width: 100%;
+      padding: 24px 0 32px;
+      font-size: $font-b4;
+    }
+  }
+
+  .section-feature {
+    padding: 56px 0 95px 0;
+
+    .feature-heading {
+      padding-inline: 34px;
+
+      .title {
+        font-size: $font-h6;
+      }
+
+      .text {
+        font-size: $font-l2;
+        padding-inline: 45px;
+      }
+    }
+  }
+}
+
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  #intro {
+    padding: 56px 24px 40px 24px;
+
+    .nav-and-searsh .text-and-search .text {
+      padding-inline: 32px;
+
+      .hero-title h2 {
+        font-size: $font-h6;
+      }
+
+      .hero-body p {
+        font-size: $font-l3;
+      }
+    }
+
+    .containing {
+      width: 98%;
+      padding: 3px 10px 3px 16px;
+
+      .searsh-button button {
+        display: none;
+      }
+
+      .searsh-icon .icon {
+        width: 16px;
+        height: 16px;
+
+      }
+    }
+  }
+
+  .container-new {
+    margin-top: 0;
+
+    .feature {
+      width: 100%;
+      padding: 24px 0 24px 0;
+
+      .text {
+        font-size: $font-b5;
+      }
+    }
+  }
+
+  .section-feature {
+    padding: 56px 0 80px 0;
+
+    .feature-heading {
+      padding-inline: 34px;
+
+      .title {
+        font-size: $font-h7;
+      }
+
+      .text {
+        font-size: $font-l3;
+        padding-inline: 45px;
+      }
+    }
+  }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {}
+
+#search-input {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+}
+
+.search-container {
+  position: relative;
+}
+
+
+.suggestions-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: white;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+.suggestions-container.no-border {
+  border: none;
+}
+
+.suggestion {
+  font-size: 16px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+
+.section-feature {
+  padding: 56px 0 0 0;
+}
+
+#intro {
+  padding: 0;
+  padding-top: 100px;
+}

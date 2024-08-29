@@ -1,0 +1,88 @@
+<section class="setting-page ">
+  <div class=" container ">
+    <div class="page">
+      <notification-message *ngIf="notificationHeader || notificationMessege" messageHeader={{notificationHeader}}
+        message={{notificationMessege}}></notification-message>
+      <div class="settings-sections pt-28 pb-28  flex flex-col gap-14  mx-auto ">
+        <div class="change-pass-section line-border  bg-white px-36 py-20 flex flex-col gap-16">
+          <div class="heading">
+            <h5 class="main-header">Account Security</h5>
+            <p class="heading-body">change your password or email for your security needs.</p>
+          </div>
+          <div class="change-password flex flex-col gap-12 items-start">
+            <div class="">
+              <h6 class="sub-header">Change Password</h6>
+            </div>
+            <form [formGroup]="changePasswordForm" class="password-inputs w-full flex flex-col gap-16">
+              <div class="input-fields-section flex flex-col gap-12 ">
+                <div class="current-password w-full grid md:grid-cols-2 sm:grid-cols-1 gap-7">
+                  <input class="input-field focus:outline-none " type="text" placeholder="Current Password" required
+                    name="current-pass" formControlName="oldPassword">
+                  <!-- <input class="input-field focus:outline-none hidden" type="text" placeholder="Current Password" required name="current-pass"> -->
+                </div>
+                <div class="new-password-section  grid md:grid-cols-2 sm:grid-cols-1 gap-7">
+                  <input class="input-field focus:outline-none" type="text" placeholder="New Password"
+                    formControlName="newPassword">
+                  <input class="input-field focus:outline-none" type="text" placeholder="Confirm New Password"
+                    formControlName="confirmedNewPassword">
+                </div>
+              </div>
+              <div class="save-pass-button">
+                <button class="btn flex justify-center items-center" (click)="changePassword()" type="submit">Save New
+                  password</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <form [formGroup]="privateForm" name="" class="second-part   flex flex-col gap-16">
+          <div class="account-privacy bg-white line-border  px-36 py-20 flex flex-col gap-12">
+            <div class="heading flex flex-col gap-2">
+              <h5 class="main-header">Account Privacy</h5>
+              <p class="heading-body">Decide whether your profile is private or not</p>
+            </div>
+            <div class="privacy-option flex justify-start items-center gap-8">
+              <input formControlName="isPrivateOFform" (change)="setPrivateStatus()"
+                class="checkbox-input vipcheckbox-input" type="checkbox" id="privacy-option" name="privacy-option">
+              <label class="flex flex-col gap-3" for="privacy-option">
+                <p class="checkbox-label">Make my profile private</p>
+                <p class="checkbox-label vip-label">By activating this option your profile will be private</p>
+              </label>
+
+            </div>
+          </div>
+          <div class="my-subscription line-border  bg-white px-36 py-20 flex flex-col gap-12">
+            <div class="heading flex flex-col gap-2">
+              <h5 class="main-header">My subscription</h5>
+              <p class="heading-body">You will receive emails about latest jobs for depends on your preferences. </p>
+            </div>
+            <div class="recieve-email-jobs flex justify-start items-center gap-8">
+              <input formControlName="receiveJobAlertsOfForm" class=" checkbox-input" type="checkbox" id="email-jobs"
+                name="email-jobs">
+              <label class="" for="email-jobs">
+                <p class="checkbox-label">Receive emails about new jobs</p>
+              </label>
+
+            </div>
+            <div class="recieve-email-offers flex justify-start items-center gap-8">
+              <input formControlName="receiveNotificationsOfForm" class=" checkbox-input vipcheckbox-input "
+                type="checkbox" id="email-offers" name="email-offers">
+              <label class="" for="email-offers">
+                <p class="checkbox-label">Receive emails about profile alert and offers</p>
+              </label>
+            </div>
+            <div class="save-changes-btn"><button class="btn" (click)="setSubscriptionStatus()" type="submit">Save
+                Changes</button></div>
+          </div>
+        </form>
+        <div class="delete-account line-border   bg-white px-36 py-20 flex flex-col gap-12">
+          <div class="heading flex flex-col gap-6">
+            <h5 class="main-header">Delete Account</h5>
+            <p class="heading-body">Here you can preeminently delete your account </p>
+          </div>
+          <div class="delete-btn"><button class="btn" type="reset" (click)="deleteAccount()">DELETE MY ACCOUNT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,127 @@
+@import "../../../../../scss/variables";
+@import "../../../../../scss/typography";
+
+#applicant-interview {
+
+    .text-under-photo {
+        font-family: $font-family-open-sans;
+        font-size: $font-b3;
+        line-height: 20px;
+        color: $color-n-800;
+    }
+    
+    // responsive container
+    .container {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0.5);
+        padding-left: calc(var(--bs-gutter-x) * 0.5);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .line-border {
+        border: 0.5px solid #C6D2D5;
+    }
+
+    .main-header {
+        font-family: $font-family-open-sans ;
+        font-weight: 700;
+        font-size: $font-b3 ;
+        line-height: 21px;
+        color: $color-n-800 ;
+    }
+
+    .ass-type {
+        font-family: $font-family-open-sans ;
+        font-weight: 700;
+        font-size: 12px;
+        padding: 2px 4px;
+        line-height: 18px;
+        border-radius: 3px;
+        color: $color-n-800 ;
+        background-color: $color-n-400 ;
+    }
+
+    .text {
+        font-family: $font-family-open-sans ;
+        font-size: $font-b4 ;
+        line-height: 24px;
+        color: $color-n-800 ;
+    }
+
+    .answer {
+        color: #033F47;
+        font-weight: 600;
+        font-size: $font-b4 ;
+        line-height: 24px;
+        color: $color-n-700 ;
+    }
+
+    .global-input {
+        padding: 5px 8px;
+        border-radius: 4px;
+        border: 1px solid $color-n-500;
+        font-size: $font-b3;
+        color: $color-n-800;
+        line-height: $line-height-body;
+        width: 150px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $color-n-500;
+        }
+    }
+
+    .mark-done-btn {
+        font-family: $font-family-open-sans;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-sec-300;
+        border: 1px solid transparent;
+        transition: 0.4s ease-in-out all;
+    }
+
+    // applies to xx-large
+    @media (min-width: 1400px) {
+        .container {
+            max-width: 1400px;
+        }
+    }
+
+    // applies to x-large devices (large desktops, less than 1400px)
+    @media (max-width: 1399.98px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+    //  applies to large devices (desktops, less than 1200px)
+    @media (max-width: 1199.98px) {
+        .container {
+            max-width: 960px;
+        }
+
+    }
+
+    // applies to medium devices (tablets, less than 992px)
+    @media (max-width: 991.98px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+
+    //  applies to small devices (landscape phones, less than 768px)
+    @media (max-width: 767.98px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+
+}

@@ -1,0 +1,56 @@
+<section id="saved-jobs" class="py-14">
+  <div class="container  flex flex-col gap-10">
+    <div class="active-saved-jobs flex flex-col gap-8">
+      <div class="main-header bg-white shadow-md  py-6 ps-16">
+        <h6>Explore your best fit Jobs</h6>
+      </div>
+      <div *ngFor="let jobPost of jobPosts"
+        class="main-body m-auto bg-white shadow-md rounded-2xl px-16 py-8 flex flex-col gap-4">
+        <div [routerLink]="'/job-details/'+jobPost.id">
+          <div class="flex items-center justify-between ">
+            <div class="flex flex-col items-start gap-2">
+              <div class="flex items-center gap-4">
+                <p class="job-title">{{jobPost.job_title}}</p>
+                <p class="exp-level">{{jobPost.min_experience_years}}-<span
+                    *ngIf="jobPost.max_experience_years>0">{{jobPost.max_experience_years}}</span> Year</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <p class="company-name">{{jobPost.company_name}}</p>
+                <p class="company-name">-</p>
+                <p class="company-location">{{jobPost.city}} {{jobPost.country}}</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <p class="company-location">{{jobPost.employment_type}}</p>
+                <p class="company-name">-</p>
+                <p class="company-location">{{jobPost.job_type}}</p>
+              </div>
+            </div>
+            <div
+              class="flex justify-center items-center h-52 w-52 overflow-hidden border-slate-600 border-2 border-opacity-10">
+              <img class=" h-full max-w-fit"
+                [src]="(jobPost.logo | handleFileUrl) ||'../../../assets/imgs/saved-jobs-avatar.svg'" alt="">
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <p class="category">{{jobPost.name}}</p>
+          </div>
+          <div class="global-long-width flex flex-wrap items-center mt-2 gap-4">
+            <p *ngFor="let skill of jobPost.skills " class="Keyword flex items-center justify-center">#{{skill}}</p>
+          </div>
+        </div>
+        <div>
+          <button (click)="toggleJobs(jobPost.id)" [class.active]="jobPost.saved == 1"
+            class="unsave-btn flex items-center justify-center gap-3" type="button">
+            <i class="bookmark fa-solid fa-bookmark "></i>
+            <span *ngIf="jobPost.saved">Unsave</span><span *ngIf="!jobPost.saved"> Save</span>
+          </button>
+        </div>
+      </div>
+      <div class="show-more m-auto rounded-2xl bg-white py-6 ps-16" *ngIf="jobPostsPage && jobPostsPage.length>=5&&jobPosts.length<100"
+        (click)="getNext()">
+        <button>Show More</button>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<div class="my-container" [class.reversed]="cartReversed">
+  <div class="cart flex justify-center items-center m-auto " [class.cart-reversed]="cartReversed">
+    <div class="cart-image w-2/4 flex">
+      <!-- <img src="assets\imgs\onbording\Profiling-rafiki(1).svg" alt="" /> -->
+      <img class="w-full" [src]="imgSrc">
+    </div>
+    <div class="cart-info flex flex-col justify-center w-2/4">
+      <div class="title">
+        <!-- <h5>Access a Wealth of Talent</h5> -->
+        <h5>{{cartTitle}}</h5>
+      </div>
+      <div class="body">
+        <!-- <p>
+          Tap into our extensive candidate database
+          brimming with top-tier talent, ready to propel your
+          team forward.
+        </p> -->
+        <p>{{cartBody}}</p>
+      </div>
+    </div>
+  </div>
+</div>

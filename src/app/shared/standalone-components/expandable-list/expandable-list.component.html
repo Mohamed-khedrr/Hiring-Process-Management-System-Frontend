@@ -1,0 +1,38 @@
+<div class="flex flex-wrap items-center mt-5 justify-start ps-6 gap-12">
+  <div class="flex items-center gap-4" *ngFor="let item of items.slice(0, initialCount); let i = index">
+    <input 
+      class="checkbox-input" 
+      type="checkbox" 
+      [formControl]="formControl"
+      [id]="item.value ? item.value : item" 
+      [value]="item.value ? item.value : item" 
+      [checked]="item.value ? item.value === selectedItem : item === selectedItem"  
+      (change)="onCheckChange(item.value ? item.value : item)" 
+    >
+    <div class="flex items-center">
+      <label [for]="item.value ? item.value : item" class="chooise-filter-label">{{ item.text ? item.text : item }}</label>
+    </div>
+  </div>
+</div>
+<div [@expandCollapse]="isCollapsed ? 'collapsed' : 'expanded'">
+  <div class="flex flex-wrap items-center mt-8 justify-start ps-6 gap-12">
+    <div class="flex items-center gap-4" *ngFor="let item of items.slice(initialCount)">
+      <input 
+        class="checkbox-input" 
+        type="checkbox" 
+        [formControl]="formControl"
+        [id]="item.value ? item.value : item" 
+        [value]="item.value ? item.value : item" 
+        [checked]="item.value ? item.value === selectedItem : item === selectedItem"  
+        (change)="onCheckChange(item.value ? item.value : item)" 
+      >
+      <div class="flex items-center">
+        <label [for]="item.value ? item.value : item" class="chooise-filter-label">{{ item.text ? item.text : item }}</label>
+      </div>
+    </div>
+  </div>
+</div>
+<button *ngIf="items.length>initialCount" class="btn-link" type="button" (click)="toggleCollapse()">
+  {{ isCollapsed ? 'Show More' : 'Show Less' }}
+  <i class="fas" [ngClass]="{'fa-chevron-down': isCollapsed, 'fa-chevron-up': !isCollapsed}"></i>
+</button>

@@ -1,0 +1,421 @@
+<section class="job-seeker-profile-container">
+  <section class="general-info ">
+    <div class="container p-top flex flex-col lg:flex-row justify-center items-center">
+      <div class="img-about-container p-top r-border b-border">
+        <div class="user-image ">
+          <img [src]="(selectedProfileImageUrl|handleFileUrl) ||'../../../../assets/imgs/Avatar_l.svg'" alt="">
+        </div>
+        <div class="about b-right">
+          <div class="section-header">
+            <h3>About:</h3>
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editBasicInfo()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+          <div class="content">
+            <p>{{profileData?.about}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="info p-top p-left b-border">
+        <div class="flex justify-between">
+          <div class="name-age flex flex-row gap-2">
+            <h5 class="name">{{profileData?.firstName + ' '+ profileData?.lastName+' '}}</h5>
+            <p class="age m-auto">({{calculateAge(profileData?.birthDate|| '')}} years)</p>
+          </div>
+          @if (isProfileOwner) {
+          <div class="edit-button" (click)="editBasicInfo()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+          }
+        </div>
+        <div class="user-level">
+          <p>{{profileData?.careerLevel}}</p>
+        </div>
+        <div class="location flex flex-wrap items-center justify-between">
+          <div class="address">
+            <p>{{profileData?.livesIn?.country}} / {{profileData?.livesIn?.state}} /
+              {{profileData?.livesIn?.city}}
+            </p>
+          </div>
+          <div class="ready-to-address">
+            <p>({{profileData?.readyToRelocate ? 'Ready to locate': 'not ready to locate'}})</p>
+          </div>
+        </div>
+        <ng-container *ngIf="profileData?.jobsUserInterestedIn?.length != 0">
+          <div class="job-status">
+            <p class="status-button">
+              {{profileData?.jobStatus||'No Status provided'}}
+            </p>
+          </div>
+          <div class="job-preferal grid justify-start gap-3">
+            <p class="font-semibold">Job preferal</p>
+            <ul class="job-preferal-list flex flex-wrap justify-start gap-2 items-center">
+              <li *ngFor="let type of profileData?.jobsUserInterestedIn">
+                <p>{{type}}</p>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="profileData?.skills?.length != 0 ">
+          <div class="job-preferal job-preferal-hashes grid justify-start gap-3">
+            <p class="font-semibold">Skills</p>
+            <ul class="job-preferal-list hashes flex justify-start items-start flex-wrap">
+              <li *ngFor="let item of profileData?.skills">
+                <p>{{item}}</p>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+        <div class="salary flex items-center">
+          <p class="head pr-3 font-semibold">Minimum salary:</p>
+          <p class="">{{profileData?.minimumSalaryValue}} {{profileData?.minimumSalaryCurrency}}
+            @if(profileData?.minimumSalaryValue){
+            (per year)
+            }@else {
+            @if (isProfileOwner) {
+          <div class="edit-button ms-10" (click)="editLanguages()">Add Salary<i class="fa-regular fa-square-plus "></i>
+          </div>
+          }
+          }
+          </p>
+        </div>
+        <div class="social grid gap-4">
+          <p class="font-semibold">Social presence</p>
+          @if (profileData?.facebookLink || profileData?.githubLink || profileData?.linkedinLink) {
+          <ul class="links flex gap-7 flex-wrap">
+            <!-- <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-slack"></i></a></li> -->
+            <li *ngIf="profileData?.facebookLink"><a [href]="profileData?.facebookLink "><i
+                  class="fa-brands fa-facebook"></i></a></li>
+            <li *ngIf="profileData?.linkedinLink"><a [href]="profileData?.linkedinLink"><i
+                  class="fa-brands fa-linkedin"></i></a></li>
+            <li *ngIf="profileData?.githubLink"><a [href]="profileData?.githubLink"><i
+                  class="fa-brands fa-github"></i></a></li>
+            <!-- <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-gitlab"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-figma"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-discord"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-behance"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-square-pinterest"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-stack-overflow"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-dribbble"></i></a></li> -->
+          </ul>
+          }@else {
+          <p>None.</p>
+          }
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="about-edu ">
+    <div class="container  flex flex-col  lg:flex-row justify-between items-start">
+
+      @if (userEducationList?.length != 0) {
+      <div class="edu b-border r-border p-top">
+        <div class="section-header">
+          <h3>Education:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="addEducation()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="addEducation()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+
+        <div class="content">
+          <div *ngFor="let item of userEducationList" class="profile-box edu-box">
+            <h4 class="degree">
+              {{item.degree}} in {{item.fieldOfStudy}}
+            </h4>
+            <div class="univ-degree">
+              <p class="univ">
+                {{item.institution}}
+              </p>
+              <p class="date">
+                (
+                {{(item.start | getDate)?.getFullYear()}} -
+                {{(item.end | getDate)?.getFullYear()}}
+                )
+              </p>
+            </div>
+            <div class="grade">
+              <p>{{item.grade}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      }@else {
+      <div class="edu b-border r-border p-top">
+        <div class="section-header">
+          <h3>Education:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="addEducation()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="addEducation()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <p class="empyt-message text-center">
+          No Education Added
+        </p>
+      </div>
+      }
+
+      @if(certficatesList){
+      <div class="certifcation language-certifications p-bottom p-top p-left">
+        <div class="section-header">
+          <h3>Certificates:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editCertificates()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="editCertificates()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <div class="content">
+          <ng-container *ngFor="let item of certficatesList">
+            <div class="profile-box">
+              <h4>{{item.title}}</h4>
+              <p>{{item.organization}}</p>
+              <p class="muted">Obtained at {{item.month|getMonthName}} {{item.year}} </p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      }@else{
+      <div class="certifcation language-certifications p-bottom p-top p-left">
+        <div class="section-header">
+          <h3>Certificates:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editCertificates()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="editCertificates()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <p class="empyt-message text-center">
+          No Certificates Added
+        </p>
+      </div>
+      }
+    </div>
+  </section>
+  <section class="exp-language ">
+    <div class="container flex flex-col lg:flex-row justify-between items-start ">
+      @if (userLanguages?.length != 0) {
+
+      <div class="language order-2 lg:order-1 language-certifications p-right b-border t-border">
+        <div class="section-header">
+          <h3>Languages:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editLanguages()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="editLanguages()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <div class="content">
+          <div *ngFor="let item of userLanguages" class="profile-box user-languages">
+            <h4>{{item.languageName}}</h4>
+            <p>{{item.languageLevel}}</p>
+          </div>
+        </div>
+      </div>
+      }@else {
+      <div class="language order-2 lg:order-1 language-certifications p-right b-border t-border">
+        <div class="section-header">
+          <h3>Languages:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editLanguages()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="editLanguages()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <p class="empyt-message text-center">
+          No Languages Added
+        </p>
+      </div>
+      }
+      @if(userExperienceList?.length != 0){
+
+      <div class="experience t-border order-1 lg:order-2 p-top p-bottom  p-left l-border">
+        <div class="section-header">
+          <h3>Experiences:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editExperience()">Add<i class="fa-regular fa-square-plus"></i></div>
+            <div class="edit-button" (click)="editExperience()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <div class="content">
+          <ng-container *ngFor="let item of minimizedExperienceList">
+            <div class="profile-box">
+              <div class="job-title">
+                <h4>{{item.jobCategory}}</h4>
+              </div>
+              <div class="job-details flex">
+                <div class="company-details b-right grid gap-3">
+                  <div>
+                    <h4 class="head">
+                      Company:
+                    </h4>
+                    <p class="body">{{item.place}}</p>
+                  </div>
+                  <div>
+                    <h4 class="head">Period</h4>
+                    <p class="body">{{item.startMonth | getMonthName}} {{item.startYear}} - {{item.endMonth |
+                      getMonthName}} {{item.endYear}} </p>
+                  </div>
+                </div>
+                <div class="discription">
+                  <h4 class="head">
+                    Discription:
+                  </h4>
+                  <div class="body">
+                    {{item.about}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="userExperienceList && minimizedExperienceList ">
+            <div class="flex justify-center text-white show-more-experience">
+              <button *ngIf="userExperienceList.length > 2 && minimizedExperienceList?.length === 2 "
+                class="bg-slate-600" (click)="controlExperienceNumber('full')">Show More</button>
+              <button *ngIf=" minimizedExperienceList!.length > 2 " class="bg-slate-600"
+                (click)="controlExperienceNumber('min')">Show Less</button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      }@else {
+      <div class="experience t-border order-1 lg:order-2 p-top p-bottom  p-left l-border">
+        <div class="section-header">
+          <h3>Experience</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editExperience()">Add<i class="fa-regular fa-square-plus"></i></div>
+            }
+          </div>
+        </div>
+        <p class="empyt-message text-center">
+          No Experiences Added
+        </p>
+      </div>
+      }
+    </div>
+  </section>
+  <section class="cv-viewer">
+    <div class="p-top p-bottom container flex flex-col lg:flex-row justify-between items-center ">
+      @if(CV){
+      <div class="resume-container p-top p-bottom">
+        <div class="section-header flex">
+          <h3>Resume</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <!-- <div class="edit-button">Add<i class="fa-regular fa-square-plus"></i></div> -->
+            <div class="edit-button" (click)="editExperience()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+            }
+          </div>
+        </div>
+        <div class="viewer" id="viewer" style="display: flex; justify-content: center; align-items: center;">
+          <pdf-viewer [src]="CV|handleFileUrl" [render-text]="true" [fit-to-page]="true"
+            style="width: 900px; height: 500px;"></pdf-viewer>
+          <!-- <object data='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf#toolbar=0'
+              type="application/pdf" width="500" height="678">
+              <iframe src='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf#toolbar=0' width="500"
+              height="678">
+              <p>This browser does not support PDF!</p>
+            </iframe>
+            </object> -->
+        </div>
+      </div>
+      }@else {
+      <div class="resume-container p-top p-bottom">
+        <div class="section-header">
+          <h3>Resume:</h3>
+          <div class="flex gap-3">
+            @if (isProfileOwner) {
+            <div class="edit-button" (click)="editExperience()">Add<i class="fa-regular fa-square-plus"></i></div>
+            }
+          </div>
+        </div>
+        <p class="empyt-message text-center">
+          No Resume Added
+        </p>
+      </div>
+      }
+    </div>
+
+  </section>
+
+  <section class="project-sample ">
+    <div class="container">
+      @if (userWorkSamples?.length != 0) {
+      <div class="section-header t-border">
+        <h3>Work Samples</h3>
+        <div class="flex gap-3">
+          @if (isProfileOwner) {
+          <div class="edit-button" (click)="editWorkSamples()">Add<i class="fa-regular fa-square-plus"></i></div>
+          <div class="edit-button" (click)="editWorkSamples()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+          }
+        </div>
+      </div>
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let item of userWorkSamples">
+          <div class="projects ">
+            <div class="project-card shadow-xl">
+              <div class="project-image">
+                <img [src]="item.photo | handleFileUrl" class="sample-img h-full" alt="Work Sample Image">
+                <div class="top-icons">
+                  <i class="fa-solid fa-trash-can"></i>
+                </div>
+                <div class="center-icons">
+                  <i class="eye-icon fa-regular fa-eye text-white"></i>
+                  <a class="text-white" [href]="item?.link"><i class="fa-solid fa-link"></i></a>
+
+                </div>
+                <div class="hover-background">
+
+                </div>
+              </div>
+              <div class="project-info">
+                <h4 class="project-title">
+                  {{item?.title}}
+                </h4>
+                <p class="project-discription">
+                  {{item?.description}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+      }@else {
+      <div class="section-header t-border">
+        <h3>Work Samples</h3>
+        <div class="flex gap-3">
+          @if (isProfileOwner) {
+          <div class="edit-button" (click)="editWorkSamples()">Add<i class="fa-regular fa-square-plus"></i></div>
+          <div class="edit-button" (click)="editWorkSamples()">Edit<i class="fa-regular fa-pen-to-square"></i></div>
+          }
+        </div>
+      </div>
+      <p class="empyt-message text-center">
+        No Samples Added
+      </p>
+      }
+
+    </div>
+  </section>
+
+
+  <footer class="" id="test">
+    <p>Copyright © 2024 by HIRExHIRE, Inc. All rights reserved.</p>
+  </footer>
+</section>

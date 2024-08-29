@@ -1,0 +1,162 @@
+/* navbar */
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#login-page {
+  background-color: #f8f8f1;
+  padding-bottom: 71px;
+  height: 100vh;
+}
+#login-page .frame-18 {
+  padding: 32px 44px;
+  width: 50%;
+}
+#login-page .frame-18 .frame-17 .welcome-back {
+  color: #033f47;
+  font-family: "Crimson Text", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 115%;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .all-inputs .input input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .all-inputs .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: small;
+  margin-top: 5px;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .input-label,
+#login-page .frame-18 .frame-17 .s-ign-up-application .error-message {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .input-field {
+  background: #f5f9fa;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 44px;
+  padding-left: 10px;
+  color: #033f47;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .password-section .new-containing {
+  border-radius: 4px;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .password-section .new-containing .eye-icon-button {
+  background: #627d81;
+  padding: 10px;
+  border-radius: 0px 3px 3px 0px;
+  right: 0.6px;
+  top: 0.8px;
+  bottom: 0.8px;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .sign-up-with-google2 button {
+  background: #2b786c;
+  color: white;
+  border-radius: 4px;
+  padding-block: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .sign-up-with-google2 button:disabled {
+  opacity: 0.5;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .sign-up-with-google2 button:disabled:hover {
+  cursor: default;
+}
+#login-page .frame-18 .frame-17 .s-ign-up-application .sign-up-with-google2 .error .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: large;
+  margin-bottom: 10px;
+}
+#login-page .frame-18 .frame-17 .terms-and-condition {
+  color: #1f2223;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 115%;
+}
+#login-page .frame-18 .frame-17 .terms-and-condition a {
+  color: #0055d9;
+}
+#login-page .frame-18 .frame-17 .last-info-section .frame-21 .rule2 {
+  height: 1px;
+  background-color: #d2d3d3;
+}
+#login-page .frame-18 .frame-17 .last-info-section .have-accout-login-link {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+#login-page .frame-18 .frame-17 .last-info-section .have-accout-login-link .ankor {
+  color: #0055d9;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  #login-page .frame-18 {
+    width: 75%;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  #login-page .frame-18 {
+    width: 85%;
+  }
+}
+@media (max-width: 575.98px) {
+  #login-page .frame-18 {
+    width: 90%;
+  }
+}

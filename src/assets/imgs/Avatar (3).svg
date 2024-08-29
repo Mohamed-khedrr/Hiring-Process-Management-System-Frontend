@@ -1,0 +1,14 @@
+<svg width="59" height="58" viewBox="0 0 59 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="56.8716" height="56.0005" transform="translate(1.12836 1.1582)" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.12836 55.4883H58V57.1588H1.12836V55.4883Z" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.32428 55.4879V37.9833L10.7886 35.4412V55.4879" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.7885 35.4412L15.1465 37.9833V55.4879" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.1464 37.9836V16.0484L21.1023 11.8357V33.6982H23.4266V55.4881" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.1024 11.8357L29.5278 16.0484L29.6004 33.1172H33.5226V55.4881" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M33.5226 33.1167V5.95198L40.1322 1.1582L50.1556 5.87935V40.6705H54.8041V55.4877" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M34.5395 35.1502V6.75067L40.1322 2.75586V35.1502H34.5395Z" stroke="#033F47" stroke-width="0.614475" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4.32421 55.4883H1.12836V57.1588H58V55.4883H54.8041H33.5227H23.4267H15.1465H10.7885H4.32421Z" fill="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.5226 33.1167V55.4877H54.8041V40.6705H50.1556V5.87935L40.1322 1.1582L33.5226 5.95198V33.1167ZM40.1322 35.1504H34.5395V6.75094L40.1322 2.75613V35.1504Z" fill="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.5226 55.4881V33.1172H29.6004L29.5278 16.0484L21.1024 11.8357V33.6982H23.4266V55.4881H33.5226Z" fill="#033F47"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.1465 55.4879V37.9833L10.7885 35.4412V55.4879H15.1465Z" fill="#033F47"/>
+</svg>

@@ -1,0 +1,151 @@
+@import "../../../scss/_variables.scss";
+@import "../../../scss/_typography.scss";
+
+.hide-in-samll-secreens {
+  @media (max-width: $breakpoint-medium) {
+    display: none;
+  }
+}
+
+.show-block-in-samll-screens {
+  display: none;
+
+  @media (max-width: $breakpoint-medium) {
+    display: block;
+  }
+}
+
+.side-container {
+  background-color: $color-n-800;
+  gap: 6rem;
+  color: white;
+  width: max-content;
+  text-align: start;
+  height: 100vh;
+  overflow-y: auto;
+  font-family: $font-family-open-sans;
+  padding: 5rem 2rem;
+
+  @media (max-width: $breakpoint-medium) {
+    gap: 5rem;
+    padding-top: 8rem;
+    padding-right: 7rem;
+  }
+
+  .close-btn {
+    // position: absolute;
+    top: 2rem;
+    right: 3rem;
+  }
+
+  .logo-container {
+    img {
+      max-width: 15rem;
+
+      @media (max-width: $breakpoint-medium) {
+        display: none;
+      }
+    }
+  }
+
+  .sidebar-section {
+    padding-left: 2rem;
+    padding-right: 5rem;
+
+    @media (max-width: $breakpoint-medium) {
+      padding-bottom: 5rem;
+
+      &:not(:last-child) {
+        border-bottom: solid 1px $color-white;
+      }
+    }
+
+    .side-bar_section-header {
+      font-size: $font-b4;
+      margin-bottom: 4rem;
+
+      @media (max-width: $breakpoint-medium) {
+        margin-bottom: 4rem;
+        font-size: $font-b4;
+      }
+    }
+
+    a,
+    li {
+      font-size: $font-b4;
+      gap: 2rem;
+      margin-top: 1rem;
+      color: #e2e8e9;
+      transition: color 0.3s;
+
+      @media (max-width: $breakpoint-medium) {
+        // margin-top: 2rem;
+        font-size: $font-b4;
+        // gap: 1.5rem;
+      }
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+
+    .active-members {
+
+      li,
+      a {
+        color: white;
+      }
+    }
+  }
+
+  .active-members {
+    .member-img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: $color-white;
+      border: 2px $color-white solid;
+
+      img {
+        height: 100%;
+        max-width: fit-content;
+      }
+    }
+  }
+
+  .logout-img {
+    margin-left: 3px;
+  }
+
+  .search-bar {
+    position: relative;
+    display: none;
+
+    @media (max-width: 767.98px) {
+      display: block;
+
+    }
+
+    .search-icon {
+      position: absolute;
+      padding: 0 1.5rem;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .input-container {
+      input {
+        border: solid $color-n-400 1px;
+        outline: none;
+        padding: 1.5rem;
+        padding-left: 7rem;
+        border-radius: 1rem;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: $font-family-open-sans;
+        color: $color-n-700;
+      }
+    }
+  }
+}

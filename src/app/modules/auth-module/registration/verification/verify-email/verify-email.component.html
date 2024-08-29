@@ -1,0 +1,19 @@
+<div class="verify-container flex flex-col min-h-screen ">
+  <!-- ============ Nav ============ -->
+  <app-navbar [logs]="false" [navSimple]="true" [isJobSeeker]="true" [contact]="false"
+    [employerJobSeekerBtn]="false"></app-navbar>
+  <!-- ============  ============ -->
+
+  <div class="verify-page flex justify-center items-center flex-col text-center self-center">
+    <div class="img-container">
+      <img class="" [src]="imgSrc" alt="Error Image">
+    </div>
+    <h2 class="heading">{{heading}}</h2>
+    <p class="message">{{message1}} <strong>{{email}}</strong> {{message2}} <br> {{message3}}</p>
+    <div class="buttons flex items-center">
+      <p class="question-btn">Didn't get any Email?</p>
+      <a routerLink="/auth/registration/verify-email" (click)="resendEmail()" routerLinkActive="router-link-active"
+        class="resend-btn flex items-center">Resend Email</a>
+    </div>
+  </div>
+</div>

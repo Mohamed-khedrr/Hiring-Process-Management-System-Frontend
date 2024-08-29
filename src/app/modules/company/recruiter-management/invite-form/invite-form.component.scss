@@ -1,0 +1,193 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+.recruiter-register {
+    background-color: $color-n-100 ;
+    padding-top: 40px;
+    .all-containing {
+        width: 80%;
+        height: fit-content;
+        .line-border {
+            border: 1px solid $color-n-500;
+            border-radius: 8px;
+        }
+
+        .btn {
+            padding: 7px 20px;
+            background-color: $color-sec-500;
+            font-family: $font-family-open-sans ;
+            font-weight: 700;
+            font-size: $font-b3 ;
+            line-height: $line-height-body ;
+            color: white;
+            border-radius: 8px;
+        }
+        .vip-btn{
+            background-color: transparent;
+            color:$color-n-600 ;
+        }
+        .add-team-memb , .member-information {
+            font-family: $font-family-crimson ;
+            font-weight: 700;
+            font-size: $font-h7;
+            line-height: $line-height-heading;
+            color: $color-n-800 ;
+        }
+
+        .registeration-form {
+            .global-width{
+                width: 60%;
+            }
+            .label {
+                font-family: $font-family-open-sans ;
+                font-weight: 600;
+                font-size: $font-b3 ;
+                line-height: $line-height-body ;
+                color: $color-n-800;
+            }
+
+            .error-message {
+                color: rgba(255, 0, 0, 0.723);
+                font-size: small;
+                margin-top: 5px;
+            }
+
+            .input-field {
+                padding: 10px;
+                font-family: $font-family-open-sans ;
+                font-size: $font-b3 ;
+                line-height: $line-height-body ;
+                color: $color-n-500;
+                border-radius: 5px;
+                border: 1px solid $color-n-500;
+            }
+            .error {
+                .error-message{
+                  color: rgba(255, 0, 0, 0.723);
+                  font-size: large;
+                  margin-bottom: 10px;
+                }
+            }
+        }
+    }
+    .footer{
+        padding-block: 20px;
+        background-color: $color-n-800;
+        .text{
+            font-family: $font-family-open-sans ;
+            font-size:14px ;
+            line-height:$line-height-label ;
+            color:$color-p-500;
+        }
+    }
+}
+
+.container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// applies to xx-large
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+    .container {
+        max-width: 1140px;
+    }
+    .recruiter-register{
+        .all-containing{
+            width: 90%;
+            .registeration-form{
+                .global-width{
+                    width: 75%;
+                }
+            }
+        }
+    }
+
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+    .container {
+        max-width: 960px;
+    }
+    .recruiter-register{
+        .all-containing{
+            width: 90%;
+            .registeration-form{
+                .global-width{
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .recruiter-register{
+        .all-containing{
+            width: 100%;
+            .registeration-form{
+                .global-width{
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    .container {
+        max-width: 540px;
+    }
+    .recruiter-register{
+        .all-containing{
+            width: 100%;
+            .add-team-memb , .member-information{
+                font-size: $font-h8;
+            }
+            .registeration-form{
+                .global-width{
+                    width: 100%;
+                }
+                .input-field{
+                    padding-block: 8px;
+                    font-size:$font-l3 ;
+                }
+            }
+        }
+    }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .recruiter-register{
+        .all-containing{
+            width: 95%;
+            .registeration-form{
+                .input-field{
+                    padding-block: 7px;
+                }
+            }
+        }
+    }
+}

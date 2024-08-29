@@ -1,0 +1,58 @@
+<div class="all-language-cart">
+  <form [formGroup]="languagesForm" (ngSubmit)="validateLanguage()"
+    class="language-info global-rounde shadow-lg bg-white p-16 flex flex-col gap-8">
+    <div class="text">
+      <label class="global-section-label " for="">What languages do you know? <span class="span-text">(you can add more
+          than one)</span></label>
+    </div>
+    <div class="language-slector flex  gap-8 w-full" id="languages-list">
+      <div class="grid md:grid-cols-2 grid-cols-1 w-full gap-8 items-center">
+        <div class="language flex flex-col gap-3 w-full ">
+          <label class="global-small-label" for="language">Language</label>
+          <select class="global-input  language-select  " formControlName="language" name="language" id="language"
+            (change)="checkIsLanguageExist()">
+            <option *ngFor="let lang of allLanguages" value="{{lang.value}}">
+              {{lang.value}}
+            </option>
+          </select>
+        </div>
+        <div class="level flex flex-col gap-3 w-full">
+          <label class="global-small-label" for="level">Level</label>
+          <select class="global-input  level-select " formControlName="level" name="level" id="level"
+            (change)="checkIsLanguageExist()">
+            <option *ngFor="let level of languagesLevels" value="{{level.name}}">
+              {{level.name}}
+            </option>
+          </select>
+        </div>
+        <p *ngIf="isLanguageExist" class="text-red-500 text-lg -mt-7">Language Already exists</p>
+      </div>
+    </div>
+    <div class="add-button flex   items-end  w-fit">
+      <button class="global-button  " [disabled]="languagesForm.invalid || isLanguageExist" type="submit">Add</button>
+    </div>
+
+
+
+    <div class="language-info bg-white  flex flex-col gap-8">
+      <div class="text">
+      </div>
+      <ng-container *ngFor="let lang of selectedLanguages">
+        <div class="language-slector flex  gap-8 w-full border-2 rounded-lg   ">
+          <div class="flex w-full gap-8 px-3 py-4">
+            <div class="language flex flex-col gap-1 items-center justify-center  px-10 text-3xl">
+              <label class="sup-label" for="language">{{lang.languageName}} - {{lang.languageLevel}}</label>
+              <div class=" language-select  " id="language"></div>
+            </div>
+          </div>
+          <div class="flex gap-5 pl-10">
+            <button class="btn flex justify-center items-center gap-3" type="button" (click)="deletelanguage(lang)">
+              <img class="icon" src="../../../../../../assets/imgs/trash-new.svg" alt="" width="20"
+                height="20"></button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </form>
+</div>

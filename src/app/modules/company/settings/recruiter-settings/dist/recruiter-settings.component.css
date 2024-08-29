@@ -1,0 +1,253 @@
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.setting-page {
+  background-color: #f5f9fa;
+}
+.setting-page .page .settings-sections .btn {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  background-color: #2b786c;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 16px;
+  border: 1px solid;
+  transition: 0.6s all;
+}
+.setting-page .page .settings-sections .btn:hover {
+  background-color: transparent;
+  border-color: #2b786c;
+  color: #2b786c;
+}
+.setting-page .page .settings-sections .heading .main-header,
+.setting-page .page .settings-sections .change-password .main-header, .setting-page .page .settings-sections .recruiter-info .main-header {
+  color: #033f47;
+  font-family: "Crimson Text", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 115%;
+}
+.setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .sub-header, .setting-page .page .settings-sections .recruiter-info .sub-header {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 115%;
+}
+.setting-page .page .settings-sections .heading .heading-body,
+.setting-page .page .settings-sections .change-password .heading-body, .setting-page .page .settings-sections .recruiter-info .heading-body {
+  color: #627d81;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+}
+.setting-page .page .settings-sections .heading .input-field,
+.setting-page .page .settings-sections .change-password .input-field, .setting-page .page .settings-sections .recruiter-info .input-field {
+  padding: 11px 12px;
+  border: 1px solid #033f47;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+}
+.setting-page .page .settings-sections .heading .input-field::placeholder,
+.setting-page .page .settings-sections .change-password .input-field::placeholder, .setting-page .page .settings-sections .recruiter-info .input-field::placeholder {
+  color: #a1b3b6;
+}
+.setting-page .page .settings-sections .heading .name-input-field,
+.setting-page .page .settings-sections .change-password .name-input-field, .setting-page .page .settings-sections .recruiter-info .name-input-field {
+  padding: 6px 8px;
+}
+.setting-page .page .settings-sections .heading .name-input-field::placeholder,
+.setting-page .page .settings-sections .change-password .name-input-field::placeholder, .setting-page .page .settings-sections .recruiter-info .name-input-field::placeholder {
+  color: #033F47;
+}
+.setting-page .page .settings-sections .privacy-option .checkbox-label {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+}
+.setting-page .page .settings-sections .privacy-option .vip-label {
+  color: #627d81;
+  font-size: 14px;
+}
+.setting-page .page .settings-sections .my-subscription .checkbox-label {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+}
+.setting-page .page .settings-sections .delete-account .btn {
+  background-color: #ea2a2a;
+  border: 1px solid;
+  transition: 0.6s all;
+}
+.setting-page .page .settings-sections .delete-account .btn:hover {
+  background-color: transparent;
+  border: 1px solid #ea2a2a;
+  color: #ea2a2a;
+}
+.setting-page .page .settings-sections .upload-btn, .setting-page .page .settings-sections .remove-btn {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 125%;
+  background-color: #2b786c;
+  border-radius: 6px;
+  color: white;
+  padding: 8px 16px;
+}
+.setting-page .page .settings-sections .remove-btn {
+  padding: 6px 16px;
+  background-color: #EA2A2AAB;
+}
+.setting-page .page .settings-sections .checkbox-input {
+  width: 22px;
+  height: 22px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .names-container {
+    width: 65%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .names-container {
+    width: 80%;
+  }
+
+  .setting-page .page .settings-sections .heading .main-header,
+.setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .main-header,
+.setting-page .page .settings-sections .change-password .sub-header {
+    font-size: 24px;
+  }
+  .setting-page .page .settings-sections .heading .heading-body,
+.setting-page .page .settings-sections .change-password .heading-body {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .sub-header {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .heading .input-field,
+.setting-page .page .settings-sections .change-password .input-field {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .my-subscription .checkbox-label {
+    font-size: 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .names-container {
+    width: 100%;
+  }
+
+  .setting-page .page .settings-sections .heading .main-header,
+.setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .main-header,
+.setting-page .page .settings-sections .change-password .sub-header {
+    font-size: 24px;
+  }
+  .setting-page .page .settings-sections .heading .heading-body,
+.setting-page .page .settings-sections .change-password .heading-body {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .sub-header {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .heading .input-field,
+.setting-page .page .settings-sections .change-password .input-field {
+    padding: 9px 10px;
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .my-subscription .checkbox-label {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .checkbox-input {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .setting-page .page .settings-sections .btn {
+    font-size: 14px;
+    padding: 12px 13px;
+  }
+  .setting-page .page .settings-sections .heading .main-header,
+.setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .main-header,
+.setting-page .page .settings-sections .change-password .sub-header {
+    font-size: 20px;
+  }
+  .setting-page .page .settings-sections .heading .heading-body,
+.setting-page .page .settings-sections .change-password .heading-body {
+    font-size: 14px;
+  }
+  .setting-page .page .settings-sections .heading .sub-header,
+.setting-page .page .settings-sections .change-password .sub-header {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .heading .input-field,
+.setting-page .page .settings-sections .change-password .input-field {
+    padding: 8px 9px;
+    font-size: 14px;
+  }
+  .setting-page .page .settings-sections .my-subscription .checkbox-label {
+    font-size: 16px;
+  }
+  .setting-page .page .settings-sections .checkbox-input {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .setting-page .page .settings-sections {
+    max-width: 95%;
+  }
+  .setting-page .page .settings-sections .btn {
+    font-size: 14px;
+    padding: 10px 11px;
+  }
+  .setting-page .page .settings-sections .checkbox-input {
+    width: 16px;
+    height: 16px;
+  }
+}

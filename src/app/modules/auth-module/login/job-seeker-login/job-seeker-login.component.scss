@@ -1,0 +1,293 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+/* form section */
+* {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.login-job-seeker {
+  background-color: $color-n-100;
+  height: 100vh;
+
+  .frame-18 {
+    padding: 32px 44px;
+
+    .frame-17 {
+      .welcome-back {
+        color: $color-n-800;
+        font-family: $font-family-crimson;
+        font-size: $font-h7;
+        font-weight: 700;
+        line-height: $line-height-heading;
+      }
+
+      .sign-social-links {
+        .google-section2 {
+          .google-logo {
+            width: 10%;
+            border: 1px solid $color-sec-500;
+            padding: 10.5px;
+
+            svg {
+              width: 18px;
+              height: 22px;
+            }
+          }
+
+          .google-link {
+            width: 90%;
+            padding-block: 10.5px;
+            background-color: $color-sec-300;
+
+            .google-link-text {
+              color: white;
+              font-family: $font-family-open-sans;
+              font-size: $font-b3;
+              font-weight: 600;
+              line-height: $line-height-body;
+            }
+          }
+        }
+
+        .rule {
+          .line {
+            background-color: #d2d3d3;
+            width: 47.5%;
+            height: 1px;
+          }
+
+          .text {
+            color: $color-n-800;
+
+            font-family: $font-family-open-sans;
+            font-size: $font-l3;
+            line-height: $line-height-label;
+          }
+        }
+      }
+    }
+
+    .s-ign-in-upplication {
+      .input-label {
+        color: $color-n-800;
+        font-family: $font-family-open-sans;
+        font-size: $font-l2;
+        line-height: $line-height-body;
+        font-weight: 400;
+      }
+
+      .error-message {
+        color: rgba(255, 0, 0, 0.723);
+        font-size: small;
+        margin-top: 5px;
+      }
+
+      .input-field {
+        background: $color-n-200;
+        border: 1px solid $color-n-800;
+        font-size: $font-b3;
+        border-radius: 4px;
+        height: 44px;
+        padding-left: 10px;
+      }
+
+      .password-section {
+        .new-containing {
+          border-radius: 4px;
+
+          .eye-icon-button {
+            background: $color-n-600;
+            padding: 10px;
+            border-radius: 0px 3px 3px 0px;
+            right: 0.6px;
+            top: 0.8px;
+            bottom: 0.8px;
+          }
+        }
+      }
+
+      .sign-in-with-google3 {
+        .error {
+          .error-message {
+            color: rgba(255, 0, 0, 0.723);
+            font-size: large;
+            margin-bottom: 10px;
+          }
+        }
+
+        button {
+          background: $color-sec-500;
+          color: white;
+          border-radius: 4px;
+          padding-block: 10px;
+          font-family: $font-family-open-sans;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: $line-height-body;
+
+          &:disabled {
+            opacity: 0.5;
+
+            &:hover {
+              cursor: default;
+            }
+          }
+        }
+      }
+    }
+
+    .under-form-part {
+      .terms-and-condition {
+        color: $color-n-900;
+        font-family: $font-family-open-sans;
+        font-size: $font-l3;
+        font-weight: 400;
+        line-height: $line-height-heading;
+
+        a {
+          color: #0055d9;
+        }
+      }
+
+      .last-info-section {
+        .frame-21 .rule2 {
+          height: 1px;
+          background-color: #d2d3d3;
+        }
+
+        .have-accout-login-link {
+          color: black;
+          font-family: $font-family-open-sans;
+          font-size: $font-b3;
+          font-weight: 600;
+          line-height: $line-height-body;
+
+          .ankor {
+            color: #0055d9;
+          }
+        }
+      }
+    }
+  }
+}
+
+// media querey
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .login-job-seeker {
+    .frame-18 {
+      width: 75%;
+
+      .frame-17 {
+        .sign-social-links {
+          .google-section2 {
+            .google-logo {
+              svg {
+                height: 22.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .login-job-seeker {
+    .frame-18 {
+      padding: 32px 34px;
+      width: 95%;
+
+      .frame-17 {
+        .sign-social-links {
+          .google-section2 {
+            .google-logo {
+              .vip-svg {
+                height: 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .login-job-seeker {
+    .frame-18 {
+      padding: 32px 24px;
+      width: 90%;
+
+      .frame-17 {
+        .sign-social-links {
+          .google-section2 {
+            .google-logo {
+              .vip-svg {
+                height: 22.5px;
+              }
+
+              // .vip-svg{
+              //   height: 22px;
+              // }
+            }
+          }
+        }
+      }
+    }
+  }
+}

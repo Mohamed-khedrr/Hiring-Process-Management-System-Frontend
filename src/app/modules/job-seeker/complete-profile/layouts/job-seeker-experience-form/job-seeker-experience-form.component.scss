@@ -1,0 +1,152 @@
+@import "../../../../../scss/variables";
+@import "../../../../../scss/typography";
+
+.bg-n-300 {
+  background-color: $color-n-300;
+}
+.loader-min-h {
+  min-height: 4rem;
+}
+.loader-min-w {
+  min-width: 10rem;
+}
+.loader-big-w {
+  width: 50rem;
+  @media (max-width: $breakpoint-small) {
+    width: 10rem;
+  }
+}
+
+.all-experience-cart {
+  .global-rounde {
+    border-radius: 8px;
+  }
+
+  .experience-info {
+    .selected-education-container {
+      padding: 15px;
+      background-color: #eff6ff;
+      border: 1px solid $color-sec-500;
+      border-radius: 8px;
+      .field-header {
+        color: $color-n-700;
+        font-size: $font-h9;
+        font-family: $font-family-open-sans;
+        line-height: $line-height-body;
+        font-weight: 600;
+      }
+      .btn {
+        padding: 7px 7px;
+        background-color: $color-n-300;
+        color: $color-n-600;
+        font-size: $font-l2;
+        border-radius: 3px;
+        font-family: $font-family-open-sans;
+        font-weight: 700;
+        line-height: $line-height-heading;
+        transition: 0.4s all;
+        &:hover {
+          background-color: $color-n-400;
+          border-radius: 6px;
+        }
+      }
+      .text {
+        color: $color-n-600;
+        font-size: $font-h9;
+        font-family: $font-family-open-sans;
+        line-height: $line-height-body;
+      }
+    }
+    .global-section-label {
+      color: $color-n-800;
+      font-size: $font-l2;
+      font-family: $font-family-open-sans;
+      line-height: $line-height-body;
+      font-weight: 600;
+    }
+
+    .global-small-label {
+      font-size: $font-l3;
+      font-family: $font-family-open-sans;
+      font-weight: 400;
+      color: $color-n-800;
+      line-height: $line-height-body;
+    }
+
+    .global-input {
+      padding: 11px 12px;
+      border-radius: 4px;
+      border: 1px solid $color-n-800;
+      font-size: $font-b3;
+      color: $color-n-800;
+      line-height: $line-height-body;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $color-n-800;
+      }
+    }
+
+    .global-button {
+      padding: 12px 24px;
+      background-color: $color-sec-300;
+      color: $color-white;
+      font-size: $font-l2;
+      border-radius: 4px;
+      font-family: $font-family-open-sans;
+      font-weight: 700;
+      line-height: $line-height-heading;
+    }
+
+    .error-message {
+      font-family: $font-family-open-sans;
+      color: rgba(255, 0, 0, 0.651);
+      font-size: $font-l3;
+    }
+
+    .radio-input {
+      width: 19px;
+      height: 19px;
+    }
+
+    .radio-input-label {
+      font-family: $font-family-inter;
+      font-size: 14px;
+      line-height: $line-height-body;
+      color: $color-n-800;
+    }
+  }
+
+  @media (max-width: 1199.98px) {
+    .experience-info {
+      .global-button {
+        padding: 12px 20px;
+      }
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .experience-info {
+      .global-button {
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .experience-info {
+      .global-button {
+        padding: 12px 14px;
+      }
+
+      .global-input {
+        font-size: 12px;
+        padding: 11px 8px;
+      }
+    }
+  }
+}

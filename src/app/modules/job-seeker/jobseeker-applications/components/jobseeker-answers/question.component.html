@@ -1,0 +1,54 @@
+<section id="jobseeker-hiring-process-questions">
+    <div class="">
+        <div class="flex flex-col gap-12">
+            @if (answers.length) {
+            <div class=" flex flex-col gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+                @for (answer of answers; track $index) {
+                <div>
+                <!-- Text Free Question -->
+                @if (answers[$index].questionType != "TRUE_OR_FALSE" ) {
+                <div class="w-full flex flex-col gap-6 my-10">
+                    <div class=""><label class="textarea-title"
+                        [for]="'textarea'+$index">{{answers[$index].question}}</label></div>
+                    <div class=" w-full">
+                    <textarea class="w-full global-input resize-none" readonly [id]="'textarea'+$index"
+                        cols="30" rows="4" [placeholder]="answers[$index].questionAnswer"></textarea>
+                    </div>
+                </div>
+                }
+                @else{
+                <!-- True Or False Question -->
+                <div class="w-full flex flex-col gap-6 my-10">
+                    <div>
+                    <p class="input-radio-title">{{answers[$index].question}}</p>
+                    </div>
+                    <div class="flex  gap-20">
+                    <div class="flex items-center gap-5">
+                        <input [checked]="answers[$index].questionAnswer === 'Yes'" [id]="'textarea'+$index+'1'" type="radio" value="Yes"
+                        class="radio-input">
+                        <label [for]="'textarea'+$index+'1'" class="smal-label">Yes</label>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <input [checked]="answers[$index].questionAnswer === 'No'" [id]="'textarea'+$index+'2'" type="radio"
+                        value="No" class="radio-input">
+                        <label [for]="'textarea'+$index+'2'" class="smal-label">No</label>
+                    </div>
+                    </div>
+                </div>
+                }
+                </div>
+                }
+            </div>
+            }@else {
+            <div
+                class="flex flex-col items-center justify-center gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+                <div class=""><img src="../../../../assets/imgs/undraw_businessman_re_mlee 1.svg" alt=""></div>
+                <div class="">
+                <p class="text-under-photo">No questions added. </p>
+                </div>
+            </div>
+            }
+        </div>
+        
+    </div>
+</section>

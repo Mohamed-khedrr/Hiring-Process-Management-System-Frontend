@@ -1,0 +1,17 @@
+<div class="verified-container flex flex-col min-h-screen ">
+  <!-- ============ Nav ============ -->
+  <app-navbar [logs]="false" [navSimple]="true" [isJobSeeker]="true" [contact]="false"
+    [employerJobSeekerBtn]="false"></app-navbar>
+  <!-- ============  ============ -->
+
+  <div class="verified-page flex justify-center items-center flex-col text-center self-center">
+    <div class="img-container">
+      <img class="" [src]="imgSrc" alt="Error Image">
+    </div>
+    <h2 class="heading">{{heading}}</h2>
+    <div class="buttons flex items-center">
+      <a (click)="toLogin()"
+        class="continue-btn flex items-center">Continue</a>
+    </div>
+  </div>
+</div>

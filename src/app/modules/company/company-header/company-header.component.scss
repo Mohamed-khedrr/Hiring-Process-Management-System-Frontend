@@ -1,0 +1,61 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+.container {
+  margin: 0 auto;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  @media (min-width: $breakpoint-small) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.pc-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+.notification-icons {
+  padding: 0;
+  display: inline-block;
+  font-size: 18px;
+  padding-right: 15px;
+  padding-left: 0 !important;
+}
+
+.mobile-links {
+  i {
+    a {
+      @media (max-width: 992px) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.mobile-links a:hover {
+  color: black;
+}
+
+.container {
+  .nav-bar {
+    @media (min-width: $breakpoint-large) {
+      justify-content: space-between;
+    }
+    ul.profile-links {
+      display: none;
+      @media (min-width: $breakpoint-large) {
+        display: flex;
+        min-width: 80%;
+      }
+    }
+  }
+}

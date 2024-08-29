@@ -1,0 +1,623 @@
+<section *ngIf="!isLoading && jobData" id="applicant-page" class="pt-8 scrollbar">
+  <div class="container  flex flex-col gap-7">
+    <div class="page-header mt-5 rounded-xl flex flex-col gap-4 items-start bg bg-white shadow-md py-6 px-24">
+      <div class="flex gap-5 items-center">
+        <div>
+          <h6 class="job-title ">{{jobData.jobTitle}}</h6>
+        </div>
+        <div class="p-4 rounded-xl"><button type="button"><i class="edit-icon fa-regular fa-pen-to-square"
+              [routerLink]="'/company/job-posts/edit/'+jobData.id"></i></button></div>
+      </div>
+      <div (click)="changeStatus($event)"
+        class="containing-job-type grid xl:grid-cols-7 hide-in-phone-screen lg:grid-cols-4 md:grid-cols-4 grid-cols-2 animate-loop-scroll scroll-smooth md:scroll-auto justify-center gap-4 mx-auto">
+        <button class="flex gap-3 active global-button items-center justify-center bg" 
+          (click)="getAppsForJob()" data-type="APPLIED">Applied 
+          <span
+          class="span-text">{{jobData.numberPerStatus.applied}}</span></button>
+        <button class="flex gap-3 global-button items-center justify-center" data-type="DISQUALIFIED">Disqualified <span
+            class="span-text">{{jobData.numberPerStatus.disqualified}}</span></button>
+        <button class="flex gap-3 global-button items-center justify-center" data-type="PHONE_SCREEN">Phone Screen <span
+            class="span-text">{{jobData.numberPerStatus.phoneScreen}}</span></button>
+        <button class="flex gap-3 global-button items-center justify-center" data-type="ASSESSMENT">Assessment <span
+            class="span-text">{{jobData.numberPerStatus.assessment}}</span></button>
+        <button class="flex gap-3 global-button items-center justify-center" data-type="INTERVIEW">Interview <span
+            class="span-text">{{jobData.numberPerStatus.interview}}</span></button>
+        <button class="flex gap-3 global-button items-center justify-center" data-type="OFFER">Offer <span
+            class="span-text">{{jobData.numberPerStatus.offer}}</span></button>
+        <button class="flex gap-3 global-button items-center justify-center" data-type="HIRED">Hired <span
+            class="span-text">{{jobData.numberPerStatus.hired}}</span></button>
+      </div>
+
+    </div>
+    <div class="contaning-all-left-narrow-divs">
+      <div class="py-10 containing-narrow-left " (click)="makeShowSmallLeftScrollbarTrue()"  *ngIf="!showSmallLeftScrollbar">
+        <button><img src="../../../assets/imgs/Line arrow-left.svg" alt=""></button>
+      </div>
+      <!-- this div will appear and disappear with click on left narrow btn -->
+      <div class="flex flex-col gap-4 all-candidates">
+        <div class="bg-white shadow-md containing-title-selector gap-6  flex flex-col show-in-phone-screen ">
+          <div class="title">
+            <h6>{{jobData.jobTitle}}</h6>
+          </div>
+          <div class="w-full">
+            <select class="selector global-input w-full" (change)="changeStatusForSelect($event)" name="status" id="">
+              <option value="DISQUALIFIED">Disqualified {{jobData.numberPerStatus.disqualified}} </option>
+              <option value="APPLIED" selected>Applied {{jobData.numberPerStatus.applied}} </option>
+              <option value="PHONE_SCREEN">Phone Screen {{jobData.numberPerStatus.phoneScreen}} </option>
+              <option value="ASSESSMENT">Assessment {{jobData.numberPerStatus.assessment}} </option>
+              <option value="INTERVIEW">Interview {{jobData.numberPerStatus.interview}} </option>
+              <option value="HIRED">Hired {{jobData.numberPerStatus.hired}} </option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- <div class="left-scrollbar-div    bg-white shadow-md  flex flex-col">
+                    <div class="candidate-card py-8 px-16 global-bottom-border flex gap-12 ">
+                        <div class=""> <img src="../../../assets/imgs/candidate-avatar.svg " alt=""></div>
+                        <div class=" flex flex-col gap-2">
+                            <div class="">
+                                <p class="name">Full Name</p>
+                            </div>
+                            <p class="level-specialization ">Level and specialization</p>
+                            <p class="university">University or organization (time of study)</p>
+                            <div class="">
+                                <button class="location global-button  flex gap-4 items-center"><i
+                                        class="fa-solid fa-location-dot"></i> <span>Location</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="candidate-card py-8 px-16 global-bottom-border flex gap-12 ">
+                        <div class=""> <img src="../../../assets/imgs/candidate-avatar.svg " alt=""></div>
+                        <div class=" flex flex-col gap-2">
+                            <div class="">
+                                <p class="name">Full Name</p>
+                            </div>
+                            <p class="level-specialization ">Level and specialization</p>
+                            <p class="university">University or organization (time of study)</p>
+                            <div class="">
+                                <button class="location global-button  flex gap-4 items-center"><i
+                                        class="fa-solid fa-location-dot"></i> <span>Location</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="candidate-card py-8 px-16 global-bottom-border flex gap-12 ">
+                        <div class=""> <img src="../../../assets/imgs/candidate-avatar.svg " alt=""></div>
+                        <div class=" flex flex-col gap-2">
+                            <div class="">
+                                <p class="name">Full Name</p>
+                            </div>
+                            <p class="level-specialization ">Level and specialization</p>
+                            <p class="university">University or organization (time of study)</p>
+                            <div class="">
+                                <button class="location global-button  flex gap-4 items-center"><i
+                                        class="fa-solid fa-location-dot"></i> <span>Location</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="candidate-card py-8 px-16 global-bottom-border   flex gap-12 ">
+                        <div class=""> <img src="../../../assets/imgs/candidate-avatar.svg " alt=""></div>
+                        <div class=" flex flex-col gap-2">
+                            <div class="">
+                                <p class="name">Full Name</p>
+                            </div>
+                            <p class="level-specialization ">Level and specialization</p>
+                            <p class="university">University or organization (time of study)</p>
+                            <div class="">
+                                <button class="location global-button  flex gap-4 items-center"><i
+                                        class="fa-solid fa-location-dot"></i> <span>Location</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="candidate-card py-8 px-16   flex gap-12 ">
+                        <div class=""> <img src="../../../assets/imgs/candidate-avatar.svg " alt=""></div>
+                        <div class=" flex flex-col gap-2">
+                            <div class="">
+                                <p class="name">Full Name</p>
+                            </div>
+                            <p class="level-specialization ">Level and specialization</p>
+                            <p class="university">University or organization (time of study)</p>
+                            <div class="">
+                                <button class="location global-button  flex gap-4 items-center"><i
+                                        class="fa-solid fa-location-dot"></i> <span>Location</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+      </div>
+    </div>
+    <div class="under-page flex gap-7 mt-6">
+      <div #applicantDialog class="left-scrollbar-div bg-white shadow-md rounded-xl flex flex-col">
+        @for (app of displayedJobApplication; track $index) {
+        <div *ngIf="displayedJobApplication.length>0" (click)="setApplicationId(app.id, app.applicantId)"
+          [routerLink]="['/app-page/'+jobId+'/application/'+app.id]"
+          class="candidate-card py-8 px-16 global-bottom-border flex gap-12 left-card">
+          <div class="w-24 h-24 flex justify-center items-center rounded-full overflow-hidden">
+            <img class="h-full w-auto max-w-fit"
+              [src]="(app.profilePhoto?(app.profilePhoto|handleFileUrl) : '../../../assets/imgs/Avatar_l.svg')" alt="">
+          </div>
+          <div class=" flex flex-col gap-2">
+            <div class="">
+              <a 
+                class="name">{{(app.applicantFirstName
+                +
+                "
+                " +
+                app.applicantLastName)
+                }}</a>
+
+
+              <!-- <a (click)="navigateToProfile(app.applicantId)" class="name hover:text-red-400">
+                {{ app.applicantFirstName + ' ' + app.applicantLastName }}
+              </a> -->
+            </div>
+            @if (app.applicantCareerLevel && app.applicantJobTitle) {
+            <p class="level-specialization ">{{app.applicantCareerLevel + " " + (app.applicantJobTitle)}}</p>
+            }
+            @for (education of app.applicantEducations; track $index) {
+            <p class="university">
+              {{education.fieldOfStudy}}
+              {{" (" +
+              getDate(education.start)?.getFullYear() +"-" +
+              getDate(education.end)?.getFullYear()
+              + ")"
+              }}
+            </p>
+            }
+            <div class="">
+              <button class="location global-button  flex gap-4 items-center"><i class="fa-solid fa-location-dot"></i>
+                <span>{{app.applicantLocation.city}} {{app.applicantLocation.country}}</span></button>
+            </div>
+          </div>
+        </div>
+
+        }
+        <div *ngIf="displayedJobApplication.length < 1" class="no-data-card">
+          <div class="card-content">
+            <h3>No Data Found</h3>
+            <p>Sorry, we couldn't find any job applications matching your criteria. Please try adjusting your filters or
+              check back later.</p>
+          </div>
+        </div>
+      </div>
+      <div #applicantDialog class="left-scrollbar-div left-scrollbar-div-small hidden bg-white shadow-md rounded-xl flex flex-col" *ngIf="showSmallLeftScrollbar">
+        @for (app of displayedJobApplication; track $index) {
+        <div *ngIf="displayedJobApplication.length>0" (click)="setApplicationId(app.id, app.applicantId)"
+          [routerLink]="['/app-page/'+jobId+'/application/'+app.id]"
+          class="candidate-card py-8 px-16 global-bottom-border flex gap-12 left-card">
+          <div class="w-24 h-24 flex justify-center items-center rounded-full overflow-hidden">
+            <img class="h-full w-auto max-w-fit"
+              [src]="(app.profilePhoto?(app.profilePhoto|handleFileUrl) : '../../../assets/imgs/Avatar_l.svg')" alt="">
+          </div>
+          <div class=" flex flex-col gap-2">
+            <div class="">
+              <a 
+                class="name">{{(app.applicantFirstName
+                +
+                "
+                " +
+                app.applicantLastName)
+                }}</a>
+
+
+              <!-- <a (click)="navigateToProfile(app.applicantId)" class="name hover:text-red-400">
+                {{ app.applicantFirstName + ' ' + app.applicantLastName }}
+              </a> -->
+            </div>
+            @if (app.applicantCareerLevel && app.applicantJobTitle) {
+            <p class="level-specialization ">{{app.applicantCareerLevel + " " + (app.applicantJobTitle)}}</p>
+            }
+            @for (education of app.applicantEducations; track $index) {
+            <p class="university">
+              {{education.fieldOfStudy}}
+              {{" (" +
+              getDate(education.start)?.getFullYear() +"-" +
+              getDate(education.end)?.getFullYear()
+              + ")"
+              }}
+            </p>
+            }
+            <div class="">
+              <button class="location global-button  flex gap-4 items-center"><i class="fa-solid fa-location-dot"></i>
+                <span>{{app.applicantLocation.city}} {{app.applicantLocation.country}}</span></button>
+            </div>
+          </div>
+        </div>
+
+        }
+        <div *ngIf="displayedJobApplication.length < 1" class="no-data-card">
+          <div class="card-content">
+            <h3>No Data Found</h3>
+            <p>Sorry, we couldn't find any job applications matching your criteria. Please try adjusting your filters or
+              check back later.</p>
+          </div>
+        </div>
+      </div>
+      <div (click)="showDialog(icon)" class="logout-icon bg-red-500 rounded-lg flex items-center">
+        <button type="button" class="p-5 bg-white rounded-lg shadow-2xl">
+          <i #icon class="fa-solid fa-arrow-right-from-bracket"></i></button>
+      </div>
+      @if (appId) {
+      <div class="right-div   flex gap-12 flex-col  rounded-xl" *ngIf="!showSmallLeftScrollbar">
+        <div class=" flex gap justify-end">
+          <div class="indicator-with-app  px-12 py-8 rounded-2xl bg-white shadow-md flex  justify-between">
+            <div class="cnotaining-indicat-icon flex gap-12">
+              <div class=""><button (click)="setCommentToEdit({type:AppCommentType.Normal})"
+                  class="icon-btn rounded-lg "><i class=" indicator-icon fa-regular fa-message"></i></button></div>
+              <!-- <div class=""><button class="icon-btn rounded-lg"><i
+                    class="indicator-icon fa-regular fa-comment"></i></button></div>
+              <div class=""><button class="icon-btn rounded-lg"><i
+                    class="indicator-icon fa-solid fa-calendar-days"></i></button></div> -->
+              <div class=""><button (click)="setCommentToEdit({type : AppCommentType.Elevation})"
+                  class="icon-btn  rounded-lg"><i class="indicator-icon fa-regular fa-thumbs-up"></i></button></div>
+              <div class=""><button (click)="setCommentToEdit({type: AppCommentType.Downgrade})"
+                  class="icon-btn  rounded-lg"><i class="indicator-icon fa-regular fa-thumbs-down"></i></button></div>
+              <div class=""><button (click)="setInterviewToEdit(null)" class="icon-btn  rounded-lg"><i
+                    class="indicator-icon fa-solid fa-video"></i></button></div>
+              <div class=""><button (click)="setAssessmentToEdit(null)" class="icon-btn  rounded-lg"><i
+                    class="indicator-icon fa-solid fa-list-check"></i></button></div>
+              <div class=""><button (click)="setOfferToEdit(null)" class="icon-btn rounded-lg"><i
+                    class="indicator-icon fa-regular fa-comments"></i></button></div>
+            </div>
+            <div class=" cnotaining-indicat-btn flex gap-12">
+              <div class="">
+                <div #moveDropDownList class="relative inline-block text-left">
+                  <div>
+                    <button type="button"
+                      class="global-button move-btn items-center inline-flex  justify-center gap-x-1.5 rounded-md shadow-sm w-max"
+                      id="menu-button" aria-expanded="true" aria-haspopup="true" (click)="toggleDropDownVisibilty()">
+                      Move to
+                      <img src="../../../assets/imgs/arrow-down.svg" alt="">
+                    </button>
+                  </div>
+                  <div [class.hide-drop-down]="!isDropDownVisible"
+                    class=" drop-down absolute  right-0 z-10 w-56 mt-2  origin-top-right rounded-md bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="" role="none">
+                      <ul class="">
+                        <li class=""><a class="flex px-4 py-5"
+                            (click)="moveApplicationTo(ApplicationStatus.PHONE_SCREEN)">Phone
+                            Screen</a>
+                        </li>
+                        <li class=""><a class="flex px-4 py-5"
+                            (click)="moveApplicationTo(ApplicationStatus.ASSESSMENT)">Assessment</a></li>
+                        <li class=""><a class="flex px-4 py-5"
+                            (click)="moveApplicationTo(ApplicationStatus.INTERVIEW)">Interview</a></li>
+                        <li class=""><a class="flex px-4 py-5"
+                            (click)="moveApplicationTo(ApplicationStatus.OFFER)">Offer</a></li>
+                        <li class=""><a class="flex px-4 py-5"
+                            (click)="moveApplicationTo(ApplicationStatus.HIRED)">Hired</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <button (click)="moveApplicationTo(ApplicationStatus.DISQUALIFIED)"
+                  class="global-button dis-btn">Disqualify</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div
+            class="candidate-card relative  py-8 px-16 global-bottom-border flex gap-12 bg-white shadow-md rounded-xl ">
+            <aside class="form-sliding-container shadow-lg" [ngClass]="{'hide-container':!sideFromContainerVisible}">
+              <!-- =================================== -->
+              @if (!isFormDestroyed) {
+              @switch (currentPage) {
+              @case (ApplicationPages.ASSESSMENTS) {
+              <app-assessments-form [applicationId]="appId" [oldAssessment]="assessmentToEdit"
+                (hideFromEvent)="closeSideFromContainer()"></app-assessments-form>
+              }
+              @case (ApplicationPages.INTERVIEWS) {
+              <app-interview-form [applicationId]="appId" [oldInterview]="interviewToEdit"
+                (hideFromEvent)="closeSideFromContainer()"></app-interview-form>
+              }
+              @case (ApplicationPages.OFFER) {
+              @if (offerDataToEdit?.formType == OfferForms.COMMENT) {
+              <app-comment-form [applicationId]="appId" [commentType]="FormCommentType.OFFER"
+                [offerId]="offerDataToEdit?.offerId || ''" [oldComment]="offerDataToEdit.data"
+                (hideFromEvent)="closeSideFromContainer()"></app-comment-form>
+              }
+              @else {
+              <app-offer-form [applicationId]="appId" [oldOffer]="offerDataToEdit?.data"
+                (hideFromEvent)="closeSideFromContainer()"></app-offer-form>
+              }
+              }
+              @case (ApplicationPages.COMMENTS) {
+              <app-comment-form [applicationId]="appId" [commentType]="FormCommentType.NORMAL"
+                [oldComment]="appCommentToEdit" (hideFromEvent)="closeSideFromContainer()"></app-comment-form>
+              }
+              }
+              }
+              <!-- =================================== -->
+
+            </aside>
+            <div
+              class="containing-candidate-avatar flex justify-center items-center rounded-full overflow-clip h-40 w-44 border hover:bordr">
+              <img class="h-full w-auto max-w-fit"
+                [src]="(applicantProfile?.profilePhoto?(applicantProfile?.profilePhoto|handleFileUrl) : '../../../assets/imgs/Avatar_l.svg')"
+                alt="">
+            </div>
+            <div class=" flex flex-col gap-2 w-full">
+              <div class=" cnotaining-indicat-btn flex gap-12 justify-end">
+                <div class="">
+                  <div #moveDropDownList class="relative inline-block text-left">
+                    <div>
+                      <button type="button" (click)="toggleDropDownVisibilty()" 
+                        class="global-button move-btn items-center inline-flex  justify-center gap-x-1.5 rounded-md shadow-sm w-max"
+                        id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        Move to
+                        <img src="../../../assets/imgs/arrow-down.svg" alt="">
+                      </button>
+                    </div>
+                    <div [class.hide-drop-down]="!isDropDownVisible"
+                      class=" drop-down absolute  right-0 z-10 w-56 mt-2  origin-top-right rounded-md bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                      role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                      <div class="" role="none">
+                        <ul class="">
+                          <li class=""><a class="flex px-4 py-5"
+                              (click)="moveApplicationTo(ApplicationStatus.PHONE_SCREEN)">Phone
+                              Screen</a>
+                          </li>
+                          <li class=""><a class="flex px-4 py-5"
+                              (click)="moveApplicationTo(ApplicationStatus.ASSESSMENT)">Assessment</a></li>
+                          <li class=""><a class="flex px-4 py-5"
+                              (click)="moveApplicationTo(ApplicationStatus.INTERVIEW)">Interview</a></li>
+                          <li class=""><a class="flex px-4 py-5"
+                              (click)="moveApplicationTo(ApplicationStatus.OFFER)">Offer</a></li>
+                          <li class=""><a class="flex px-4 py-5"
+                              (click)="moveApplicationTo(ApplicationStatus.HIRED)">Hired</a></li>
+                        </ul>
+                      </div>
+                    </div>                    
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <p class="name">{{applicantProfile?.firstName + " " + applicantProfile?.lastName}}</p>
+              </div>
+              <p class="level-specialization ">
+                {{(applicantProfile?.careerLevel?applicantProfile?.careerLevel:"") + " "+
+                (applicantProfile?.jobTitle?applicantProfile?.jobTitle:"")}} </p>
+
+              @for (education of applicantProfile?.educations; track $index) {
+              <p class="university">
+                {{education.fieldOfStudy}}
+                {{" (" +
+                getDate(education.start)?.getFullYear() +"-" +
+                getDate(education.end)?.getFullYear()
+                + ")"
+                }}
+              </p>
+              }
+              <div class="">
+                <button class="location global-button  flex gap-4 items-center"><i class="fa-solid fa-location-dot"></i>
+                  <span>Location</span></button>
+              </div>
+              <div class="containing-skills flex flex-wrap w-full pt-8  gap-6">
+                @for (skill of applicantProfile?.skills; track $index) {
+                <div class="span-field flex items-center justify-center rounded-full text-center">
+                  <p>{{skill}}</p>
+                </div>
+                }
+              </div>
+              <div class="indicator-with-app mid-indicator-with-app  py-8 rounded-2xl   flex  items-center gap-12">
+                <div class="cnotaining-indicat-icon flex gap-12">
+                  <div class=""><button class="icon-btn  hover:bg-gray-300 rounded-lg "><i
+                        class=" indicator-icon fa-regular fa-message"></i></button></div>
+                  <div class=""><button class="icon-btn hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-regular fa-comment"></i></button></div>
+                  <div class=""><button class="icon-btn  hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-solid fa-calendar-days"></i></button></div>
+                  <div class=""><button class="icon-btn hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-regular fa-thumbs-up"></i></button></div>
+                  <div class=""><button class="icon-btn hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-regular fa-thumbs-down"></i></button></div>
+                  <div class=""><button class="icon-btn hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-solid fa-video"></i></button></div>
+                  <div class=""><button class="icon-btn hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-solid fa-list-check"></i></button></div>
+                  <div class=""><button class="icon-btn hover:bg-gray-300 rounded-lg"><i
+                        class="indicator-icon fa-regular fa-comments"></i></button></div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        @if (appId) {
+        <div class=" flex flex-col bg-white shadow-md rounded-xl gap-5 ">
+          <div class="indicator-header w-full  py-10 px-20 rounded-xl rounded-b-none">
+            <ul class=" grid lg:grid-cols-6 grid-cols-3  gap-16">
+              <li><a class="global-button hover:cursor-pointer"
+                  [ngClass]="{'active' : currentPage === ApplicationPages.PROFILE}"
+                  (click)="displayApplicationPage(ApplicationPages.PROFILE)">Profile</a></li>
+              <li><a class="global-button hover:cursor-pointer"
+                  [ngClass]="{'active' : currentPage === ApplicationPages.TIME_LINE}"
+                  (click)="displayApplicationPage(ApplicationPages.TIME_LINE)">Timeline</a>
+              </li>
+              <li><a class="global-button hover:cursor-pointer"
+                  [ngClass]="{'active' : currentPage === ApplicationPages.COMMENTS}"
+                  (click)="displayApplicationPage(ApplicationPages.COMMENTS)">Comments</a></li>
+              <li><a class="global-button hover:cursor-pointer"
+                  [ngClass]="{'active' : currentPage === ApplicationPages.ASSESSMENTS}"
+                  (click)="displayApplicationPage(ApplicationPages.ASSESSMENTS)">Assessments</a></li>
+              <li><a class="global-button hover:cursor-pointer"
+                  [ngClass]="{'active' : currentPage === ApplicationPages.INTERVIEWS}"
+                  (click)="displayApplicationPage(ApplicationPages.INTERVIEWS)">Interviews</a>
+              </li>
+              <li><a class="global-button hover:cursor-pointer"
+                  [ngClass]="{'active' : currentPage === ApplicationPages.OFFER}"
+                  (click)="displayApplicationPage(ApplicationPages.OFFER)">Offer</a></li>
+            </ul>
+          </div>
+
+          <div class="">
+            @switch (currentPage) {
+            @case (ApplicationPages.PROFILE) {
+            @if (applicantProfile) {
+            <!-- <app-job-seeker-profile [profileData]="applicantProfile" [userId]="appId"></app-job-seeker-profile> -->
+            <app-profile [profileData]="applicantProfile" [applicationId]="appId"></app-profile>
+            }
+            }
+            @case (ApplicationPages.ASSESSMENTS) {
+            <app-assessments [isFormDestroyed]="isFormDestroyed" (editAssessment)="setAssessmentToEdit($event)"
+              [applicationId]="appId"></app-assessments>
+            }
+            @case (ApplicationPages.TIME_LINE) {
+            <app-timeline [applicationId]="appId"></app-timeline>
+            }
+            @case (ApplicationPages.INTERVIEWS) {
+            <app-interview [isFormDestroyed]="isFormDestroyed" (editInterview)="setInterviewToEdit($event)"
+              [applicationId]="appId"></app-interview>
+            }
+            @case (ApplicationPages.OFFER) {
+            <app-offer [isFormDestroyed]="isFormDestroyed" (editOfferEvent)="setOfferToEdit($event)"
+              [applicationId]="appId"></app-offer>
+            }
+            @case (ApplicationPages.COMMENTS) {
+            <app-comments [isFormDestroyed]="isFormDestroyed" (editCommentEvent)="setOfferToEdit($event)"
+              [applicationId]="appId"></app-comments>
+            }
+            }
+
+
+          </div>
+        </div>
+        }
+        <div class="all-pop-up hidden">
+          <div class="add-comment flex  bg-white flex-col shadow-xl ">
+            <div class="title">
+              <h6>Add comment</h6>
+            </div>
+            <div class=" containing-remaning w-full flex flex-col gap-4">
+              <div class="">
+                <textarea cols="" rows="5" class="global-input w-full" name="" id=""
+                  placeholder="Write your comment here"></textarea>
+              </div>
+              <div class=" flex gap-8">
+                <button class="global-button">Submit</button>
+                <button class="global-button">Discard</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="add-assessment flex  bg-white flex-col shadow-xl ">
+            <div class="title">
+              <h6>Add assessment</h6>
+            </div>
+            <div class=" containing-remaning w-full flex flex-col gap-4">
+              <div class="flex flex-col gap-7">
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Assessment title</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Assessment deadline</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Duration</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Assessment link</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+              </div>
+              <div class=" flex gap-8">
+                <button class="global-button">Submit</button>
+                <button class="global-button">Discard</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="add-interview flex   bg-white flex-col shadow-xl ">
+            <div class="title">
+              <h6>Add interview</h6>
+            </div>
+            <div class=" containing-remaning w-full flex flex-col gap-4">
+              <div class="flex flex-col gap-7">
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Interview title</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Start time</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">End time</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Interview link</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+              </div>
+              <div class=" flex gap-8">
+                <button class="global-button">Submit</button>
+                <button class="global-button">Discard</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="add-interview flex  bg-white flex-col shadow-xl ">
+            <div class="title">
+              <h6>Add interview</h6>
+            </div>
+            <div class=" containing-remaning w-full flex flex-col gap-4">
+              <div class="flex flex-col gap-7">
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Deadline</p>
+                  </div>
+                  <div class="">
+                    <input
+                      class="relative select-file global-input  m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border file:bg-transparent border-solid border-secondary-500 bg-transparent bg-clip-padding px-3  text-base font-normal text-surface transition duration-300 ease-in-out file:-mx-4   file:-my-[9px] file:me-3 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-e file:border-solid file:border-inherit  file:px-3  file:py-[0.32rem] file:text-surface focus:border-primary focus:text-gray-700 focus:shadow-inset focus:outline-none dark:border-white/70 dark:text-white  file:dark:text-white"
+                      type="file" id="formFile" />
+                  </div>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <div class="">
+                    <p class="smal-label">Deadline</p>
+                  </div>
+                  <div class=""><input class="global-input w-full" type="text"></div>
+                </div>
+              </div>
+              <div class=" flex gap-8">
+                <button class="global-button">Submit</button>
+                <button class="global-button">Discard</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      }
+    </div>
+
+  </div>
+</section>

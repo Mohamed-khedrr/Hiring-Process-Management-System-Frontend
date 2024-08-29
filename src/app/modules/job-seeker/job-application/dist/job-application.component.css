@@ -1,0 +1,120 @@
+#job-application {
+  background-color: #f5f9fa;
+}
+#job-application .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#job-application .line-border {
+  border: 1px solid #E2E8E9;
+}
+#job-application .heading {
+  font-family: "Crimson Text", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 27.5px;
+  color: #033f47;
+}
+#job-application .global-button {
+  padding: 12px 24px;
+  background-color: #2b786c;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+  border: 1px solid #2b786c;
+  transition: 0.4s all;
+}
+#job-application .global-button:hover {
+  background-color: transparent;
+  color: #2b786c;
+}
+#job-application .vip-btn {
+  border: 0px;
+  font-weight: 600;
+  background-color: #80aea7;
+}
+#job-application .vip-btn:hover {
+  background-color: #2b786c;
+  color: white;
+}
+#job-application .global-input {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #a1b3b6;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+#job-application .global-input:focus {
+  outline: none;
+}
+#job-application .global-input::placeholder {
+  color: #627d81;
+}
+#job-application .textarea-title,
+#job-application .input-radio-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 125%;
+  color: #033f47;
+}
+#job-application .smal-label {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #033f47;
+}
+#job-application .radio-input {
+  width: 18px;
+  height: 18px;
+}
+#job-application .text-under-photo {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #033f47;
+}
+@media (min-width: 1400px) {
+  #job-application .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #job-application .container {
+    max-width: 1140px;
+  }
+  #job-application .containing-all-details {
+    width: 100%;
+  }
+}
+@media (max-width: 1199.98px) {
+  #job-application .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 991.98px) {
+  #job-application .container {
+    max-width: 720px;
+  }
+  #job-application .containing-under-btns {
+    padding-inline: 10px;
+  }
+}
+@media (max-width: 767.98px) {
+  #job-application .container {
+    max-width: 540px;
+  }
+  #job-application .global-input {
+    font-size: 14px;
+    padding: 11px 8px;
+  }
+}

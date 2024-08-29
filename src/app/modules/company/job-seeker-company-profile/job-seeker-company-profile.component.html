@@ -1,0 +1,274 @@
+<section *ngIf="isLoaded" class="company-view pt-32">
+  <div class="container">
+    <div class="all-containing m-auto flex flex-col gap-14 ">
+      <div class="intro-section  line-border bg-white">
+        <div [style.background-image]="'url(' +( company.basicInfoDto.coverImage | handleFileUrl) + ')'"
+          class="photo-cover cover-bg  flex flex-col justify-center items-center gap-10 ">
+        </div>
+        <div class="company-info flex flex-col ">
+          <div class="comp-profile-photo px-20 py-8  flex items-center justify-end ">
+            <div class="photo">
+              <img class="profile-image"
+                [src]="company.basicInfoDto.profileImage ?( company.basicInfoDto.profileImage | handleFileUrl) : '../../../assets/imgs/company/Avatar.svg'"
+                alt="">
+            </div>
+          </div>
+          <div class="comp-info px-16  py-8  flex flex-col items-start justify-start ">
+            <div class="comp-name">
+              <p>{{company.basicInfoDto.name}}</p>
+            </div>
+            <div class=" flex flex-col items-start gap-2">
+              <div class="comp-tagline">
+                <div class="tagline">
+                  <p>{{company.basicInfoDto.tagline}}</p>
+                </div>
+              </div>
+              <div class="comp-industry-location flex flex-col gap-1">
+                <div class="flex gap-6">
+                  <div class="app-tooltip">
+                    {{company.basicInfoDto.industry}}
+                    <p class="app-light-tooltip-text">Industry</p>
+                  </div>
+                  <p>.</p>
+                  <div class="app-tooltip">
+                    {{company.basicInfoDto.subscribersNumber}} Subscribers
+                    <p class="app-light-tooltip-text">Subscribers Number</p>
+                  </div>
+                  <p>.</p>
+                  <div class="app-tooltip">
+                    {{company.basicInfoDto.companySize}}
+                    <p class="app-light-tooltip-text">Company Size</p>
+                  </div>
+                </div>
+                <div class=" flex items-center justify-start gap-3">
+                  <img src="../../../assets/imgs/company/map-pin.svg" alt="">
+                  <ng-container *ngIf="company.basicInfoDto.mainBranchLocation">
+                    <p>{{company.basicInfoDto.mainBranchLocation.state}},
+                      {{company.basicInfoDto.mainBranchLocation.country}}</p>
+                  </ng-container>
+                </div>
+                <ng-container *ngIf="company.basicInfoDto.rank">
+                  <div class="app-tooltip flex items-center justify-start gap-3">
+                    <img src="../../../assets/imgs/company/award.svg" alt="">
+                    <p>Rank on HirexHire</p>
+                    <p class="app-light-tooltip-text top">{{company.basicInfoDto.name}} is Top Company</p>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="subscribe-view-btn flex items-center justify-center gap-5  pt-4">
+                <button id="subscribe" type="button" [class.actvie]="company.basicInfoDto.isSubscribe"
+                  class=" subscribe btn flex rounded-full items-center justify-center gap-3">
+                  Subscribe
+                  <span>
+                    <i class="fa-regular fa-bell"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="under-sections flex flex-col gap-14   pb-28">
+        <div class="about-section  line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-10">
+          <div class="first-row  flex items-center justify-between ">
+            <div>
+              <h5 class="section-header ">About</h5>
+            </div>
+          </div>
+          <div class="second-row text">
+            <div class="app-tooltip">
+              <p>
+                {{company.aboutInfoDto.about}}
+              </p>
+              <p class="app-light-tooltip-text medium">About Company</p>
+            </div>
+          </div>
+          <div class="third-row">
+            <div class="title">Website </div>
+            <div class="app-tooltip">
+              <div class="text"><a [href]="company.aboutInfoDto.website">{{company.aboutInfoDto.website}}</a></div>
+              <p class="app-light-tooltip-text medium">Visit Website</p>
+            </div>
+          </div>
+          <div class="third-row">
+            <div class="title">Founded</div>
+            <div class="app-tooltip">
+              <div class="text">{{company.aboutInfoDto.foundingDate | date:'mediumDate'}}</div>
+            </div>
+          </div>
+          <ng-container *ngIf="company.basicInfoDto.companySize">
+            <div class="fifth-row">
+              <div class="title  flex  items-center gap-5">
+                <p>Company size</p>
+              </div>
+              <div class="app-tooltip">
+                <div class="text">{{company.basicInfoDto.companySize}}</div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="company.aboutInfoDto.socialLinks && company.aboutInfoDto.socialLinks.length > 0">
+            <ng-container *ngIf="company.aboutInfoDto.socialLinks">
+              <div class="title">Social Media</div>
+              <div class=" social-icons socia-icons-links pb-4 mt-2">
+                <div *ngFor="let i of  company.aboutInfoDto.socialLinks" class="benefit-card social-icon">
+                  <a [href]="i.link" class="social-link app-tooltip">
+                    <i [class]="i.icon.icon"></i>
+                    <span class="app-light-tooltip-text">{{i.icon.platform}}</span>
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="job-section line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-16">
+          <div class="above-part-section flex flex-col gap-3">
+            <div class="first-row  flex items-center justify-between ">
+              <div>
+                <h5 class="section-header ">jobs</h5>
+              </div>
+            </div>
+            <div class="second-row text">
+              <div class="empty-about text-center">
+                <div class="about-img">
+                  <img src="../../../../../assets/imgs/company/Notebook-bro 1.svg" alt="">
+                </div>
+                <h2 class="section-header mb-2 ">Sorry, no job openings at the moment.</h2>
+                <p class="text">We open new jobs from time to time, so please check again soon!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-container *ngIf="company.aboutInfoDto.companyBenefits && company.aboutInfoDto.companyBenefits.length > 0">
+          <div class="about-section  line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-10">
+            <div class="first-row  flex items-center justify-between ">
+              <div>
+                <h5 class="section-header ">Name OF Company Group Benefits</h5>
+              </div>
+            </div>
+            <div class="second-row text">
+              <div class="second-row text">
+                <div id="benefits-section">
+                  <div *ngFor="let b of company.aboutInfoDto.companyBenefits" class="benefit-card app-tooltip">
+                    <i [class]="b.icon"></i>
+                    <p>{{b.benefit}}</p>
+                    <p class="app-light-tooltip-text">Discover benefits</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div #overlay class="overlay hide">
+  </div>
+</section>
+
+<div *ngIf="!isLoaded" class="profile-loader">
+  <header class="profile-header">
+    <div class="container flex justify-between items-center">
+      <div class="logo animate-pulse">
+      </div>
+      <div class="nav-bar">
+        <ul class="profile-links  justify-start items-center">
+          <li><a class="animate-pulse" routerLink=""></a></li>
+          <li><a class="animate-pulse" routerLink=""></a></li>
+          <li><a class="animate-pulse" routerLink=""></a></li>
+          <li><a class="animate-pulse" routerLink=""></a></li>
+        </ul>
+        <div class="profile-image flex">
+          <span class="icon animate-pulse"></span>
+          <span class="icon animate-pulse"></span>
+          <span class="icon animate-pulse"></span>
+          <div class="animate-pulse"></div>
+          <span class="animate-pulse"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="company-view pt-32">
+    <div class="container">
+      <div class="all-containing m-auto flex flex-col gap-14 ">
+        <div class="intro-section  line-border bg-white">
+          <div class="photo-cover   flex flex-col justify-center items-center gap-10 ">
+            <div class="add-btn ">
+            </div>
+            <div class="add-cover-text">
+            </div>
+          </div>
+          <div class="company-info flex flex-col ">
+            <div class="comp-profile-photo  px-16 py-8  flex items-center justify-end ">
+              <div class="photo  flex items-center justify-center shadow-inner line-border">
+                <span class="loader"></span>
+              </div>
+
+              <div class="edit-photo animate-pulse  pin-edit-icon  "></div>
+            </div>
+            <div class="comp-info px-16 py-8  flex flex-col items-start justify-start gap-4 ">
+              <div class="comp-name name animate-pulse ">
+              </div>
+              <div class=" flex flex-col  w-full animate-pulse   gap-3">
+                <div class="comp-tagline">
+                  <div class="tagline "></div>
+                </div>
+                <div class="comp-industry-location flex flex-col gap-3">
+                  <div class="industry-info"></div>
+                  <div class=" flex items-center justify-start gap-3 location">
+                  </div>
+                  <div class=" flex items-center justify-start gap-3 rank-hire">
+                  </div>
+                </div>
+                <div class=" flex items-center  gap-5 ps-4 pt-4">
+                  <div class="subscribe-view-btn flex rounded-full items-center justify-center gap-3"></div>
+                  <div class="subscribe-view-btn rounded-full bg-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="under-sections  flex flex-col gap-14   pb-28">
+          <div class="about-section  line-border shadow-l  bg-white px-20 py-8 flex flex-col gap-10">
+            <div class="first-row animate-pulse  flex items-center justify-between ">
+              <div class="section-header ">
+              </div>
+              <div class="edit-button">
+              </div>
+            </div>
+            <div class="second-row animate-pulse  w-full flex flex-col gap-4">
+              <div class="w-full text "></div>
+              <div class="w-full text"></div>
+              <div class="w-full text"></div>
+              <div class="w-full text"></div>
+              <div class="w-full text"></div>
+              <div class="w-full text vip-text"></div>
+              <div class="w-full text vip-text"></div>
+              <div class="w-full text vip-text"></div>
+              <div class="w-full text vip-text"></div>
+              <div class="w-full text vip-text"></div>
+              <div class="w-full text vip-text"></div>
+              <div class="w-full text vip-text"></div>
+            </div>
+            <div class="third-row animate-pulse flex flex-col gap-5">
+              <div class="title"></div>
+              <div class="text"></div>
+            </div>
+            <div class="fourth-row animate-pulse flex flex-col gap-5">
+              <div class="title"></div>
+              <div class="text"></div>
+            </div>
+            <div class="fifth-row animate-pulse flex flex-col gap-5">
+              <div class="title"></div>
+              <div class="text"></div>
+            </div>
+            <div class="six-row animate-pulse flex items-center  gap-4">
+              <div class="social-icon "></div>
+              <div class="social-icon "></div>
+              <div class="social-icon "></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

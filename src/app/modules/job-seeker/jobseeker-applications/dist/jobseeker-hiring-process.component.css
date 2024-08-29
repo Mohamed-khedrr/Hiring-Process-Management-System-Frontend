@@ -1,0 +1,477 @@
+#applicant-page {
+  background-color: #f5f9fa;
+  min-height: 100vh;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  #applicant-page .hide-in-phone-screen {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  #applicant-page .show-in-phone-screen {
+    display: none;
+  }
+}
+#applicant-page .text-under-photo {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #033f47;
+}
+#applicant-page .page-header .job-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 48px;
+  color: #033f47;
+}
+#applicant-page .page-header .edit-icon {
+  color: #033f47;
+  font-size: 25px;
+}
+#applicant-page .contaning-all-left-narrow-divs .containing-title-selector {
+  padding: 16px 32px 16px 32px;
+}
+#applicant-page .contaning-all-left-narrow-divs .containing-title-selector .title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  color: #033f47;
+}
+#applicant-page .contaning-all-left-narrow-divs .containing-title-selector .selector {
+  background-color: #033f47;
+  color: white;
+}
+#applicant-page .containing-narrow-left {
+  display: none;
+}
+#applicant-page .global-button {
+  padding: 6px 16px 6px 16px;
+  background-color: transparent;
+  color: #033f47;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 115%;
+  transition: 0.2s all;
+}
+#applicant-page .global-button:hover {
+  background-color: #2f5d64;
+  color: white;
+}
+#applicant-page .under-page ::-webkit-scrollbar {
+  width: 5px;
+  height: 2px;
+}
+#applicant-page .under-page ::-webkit-scrollbar-track {
+  background: #f1f4f9;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#applicant-page .under-page ::-webkit-scrollbar-thumb {
+  background: linear-gradient(#2b786c, #80aea7);
+  border-top-right-radius: 15px;
+}
+#applicant-page .under-page .left-scrollbar-div {
+  display: none;
+  width: 35%;
+  overflow-y: scroll;
+}
+#applicant-page .under-page .left-scrollbar-div-large-screen {
+  height: 75vh;
+  overflow-y: scroll;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .name,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .name,
+#applicant-page .under-page .right-div .candidate-card .name,
+#applicant-page .under-page .right-div-empty .candidate-card .name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .bold-name,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .bold-name,
+#applicant-page .under-page .right-div .candidate-card .bold-name,
+#applicant-page .under-page .right-div-empty .candidate-card .bold-name {
+  font-weight: 700;
+  font-size: 18px;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .location-line,
+#applicant-page .under-page .left-scrollbar-div .candidate-card .university,
+#applicant-page .under-page .left-scrollbar-div .candidate-card .posted-time,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .location-line,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .university,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .posted-time,
+#applicant-page .under-page .right-div .candidate-card .location-line,
+#applicant-page .under-page .right-div .candidate-card .university,
+#applicant-page .under-page .right-div .candidate-card .posted-time,
+#applicant-page .under-page .right-div-empty .candidate-card .location-line,
+#applicant-page .under-page .right-div-empty .candidate-card .university,
+#applicant-page .under-page .right-div-empty .candidate-card .posted-time {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #2f5d64;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .location,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .location,
+#applicant-page .under-page .right-div .candidate-card .location,
+#applicant-page .under-page .right-div-empty .candidate-card .location {
+  background-color: #e2e8e9;
+  color: #033f47;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: 0.4s all;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .location:hover,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .location:hover,
+#applicant-page .under-page .right-div .candidate-card .location:hover,
+#applicant-page .under-page .right-div-empty .candidate-card .location:hover {
+  background-color: #559389;
+  color: white;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .status,
+#applicant-page .under-page .left-scrollbar-div .candidate-card .status-num,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .status,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .status-num,
+#applicant-page .under-page .right-div .candidate-card .status,
+#applicant-page .under-page .right-div .candidate-card .status-num,
+#applicant-page .under-page .right-div-empty .candidate-card .status,
+#applicant-page .under-page .right-div-empty .candidate-card .status-num {
+  background-color: #559389;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 3px 2px;
+  border-radius: 2px;
+  font-weight: 700;
+  color: white;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .status-num,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .status-num,
+#applicant-page .under-page .right-div .candidate-card .status-num,
+#applicant-page .under-page .right-div-empty .candidate-card .status-num {
+  font-family: "Crimson Text", serif;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background-color: #2b786c;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .wethdraw-btn,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .wethdraw-btn,
+#applicant-page .under-page .right-div .candidate-card .wethdraw-btn,
+#applicant-page .under-page .right-div-empty .candidate-card .wethdraw-btn {
+  background-color: #ea2a2a;
+  color: white;
+  border: 1px solid transparent;
+  transition: 0.4s ease-in-out all;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .wethdraw-btn:hover,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .wethdraw-btn:hover,
+#applicant-page .under-page .right-div .candidate-card .wethdraw-btn:hover,
+#applicant-page .under-page .right-div-empty .candidate-card .wethdraw-btn:hover {
+  color: #ea2a2a;
+  border-color: #ea2a2a;
+  background-color: transparent;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .job-info .numbers,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .job-info .numbers,
+#applicant-page .under-page .right-div .candidate-card .job-info .numbers,
+#applicant-page .under-page .right-div-empty .candidate-card .job-info .numbers {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  color: #033f47;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .job-info .title,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .job-info .title,
+#applicant-page .under-page .right-div .candidate-card .job-info .title,
+#applicant-page .under-page .right-div-empty .candidate-card .job-info .title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #627d81;
+}
+@media (max-width: 767.98px) {
+  #applicant-page .under-page .left-scrollbar-div .candidate-card .job-info .vip,
+#applicant-page .under-page .left-scrollbar-div-large-screen .candidate-card .job-info .vip,
+#applicant-page .under-page .right-div .candidate-card .job-info .vip,
+#applicant-page .under-page .right-div-empty .candidate-card .job-info .vip {
+    border-left: 0px;
+  }
+}
+#applicant-page .under-page .right-div,
+#applicant-page .under-page .right-div-empty {
+  width: 65%;
+  overflow-y: visible;
+}
+#applicant-page .under-page .right-div .indicator-header,
+#applicant-page .under-page .right-div-empty .indicator-header {
+  background-color: #f8f8f1;
+  position: relative;
+  width: 100%;
+  overflow-y: visible;
+}
+#applicant-page .under-page .right-div .indicator-header .parts li,
+#applicant-page .under-page .right-div-empty .indicator-header .parts li {
+  cursor: pointer;
+}
+#applicant-page .under-page .right-div .indicator-header .add-comment-btn,
+#applicant-page .under-page .right-div-empty .indicator-header .add-comment-btn {
+  background-color: #559389;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  border: 1px solid transparent;
+  transition: 0.4s ease-in-out all;
+}
+#applicant-page .under-page .right-div .indicator-header .add-comment-btn:hover,
+#applicant-page .under-page .right-div-empty .indicator-header .add-comment-btn:hover {
+  color: #559389;
+  background-color: transparent;
+  border: 1px solid #559389;
+}
+#applicant-page .under-page .right-div .add-comment,
+#applicant-page .under-page .right-div-empty .add-comment {
+  position: absolute;
+  right: 0;
+  height: fit-content;
+  top: 9%;
+  z-index: 1999;
+  width: 50%;
+}
+#applicant-page .under-page .right-div .add-comment .title,
+#applicant-page .under-page .right-div-empty .add-comment .title {
+  padding: 8px 24px;
+  background-color: #f8f8f1;
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #033f47;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning,
+#applicant-page .under-page .right-div-empty .add-comment .containing-remaning {
+  padding-top: 24px;
+  padding-inline: 24px;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning .global-input,
+#applicant-page .under-page .right-div-empty .add-comment .containing-remaning .global-input {
+  border: 1px solid #627d81;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning .global-input ::placeholder,
+#applicant-page .under-page .right-div-empty .add-comment .containing-remaning .global-input ::placeholder {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #627d81;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning .global-button,
+#applicant-page .under-page .right-div-empty .add-comment .containing-remaning .global-button {
+  background-color: #2b786c;
+  color: white;
+}
+#applicant-page .under-page .right-div .add-comment .smal-label,
+#applicant-page .under-page .right-div-empty .add-comment .smal-label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #033f47;
+}
+#applicant-page .under-page .right-div-empty {
+  background-color: white;
+  height: inherit;
+}
+#applicant-page .global-light-border {
+  border: 0.25px solid #a1b3b6;
+}
+#applicant-page .global-bottom-border {
+  border-bottom: 0.25px solid #a1b3b6;
+}
+#applicant-page .clicked-btn {
+  padding: 6px 16px 6px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 115%;
+  transition: 0.2s all;
+  background-color: #559389;
+  color: white;
+}
+#applicant-page .clicked-btn:hover {
+  background-color: #2f5d64;
+  color: white;
+}
+#applicant-page .global-input {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #a1b3b6;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+#applicant-page .global-input:focus {
+  outline: none;
+}
+#applicant-page .global-input::placeholder {
+  color: #627d81;
+}
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  #applicant-page {
+    min-height: 100%;
+  }
+  #applicant-page .page-header .job-title {
+    font-size: 20px;
+  }
+  #applicant-page .page-header .edit-icon {
+    font-size: 18px;
+  }
+  #applicant-page .page-header .containing-job-type {
+    width: 100%;
+  }
+  #applicant-page .containing-narrow-left {
+    display: block;
+  }
+  #applicant-page .under-page {
+    flex-direction: column;
+  }
+  #applicant-page .under-page .left-scrollbar-div-large-screen {
+    display: none;
+  }
+  #applicant-page .under-page .left-scrollbar-div {
+    display: block;
+    width: 100%;
+  }
+  #applicant-page .under-page .right-div-empty {
+    display: none;
+  }
+  #applicant-page .under-page .right-div {
+    width: 100%;
+    min-height: fit-content;
+    height: 100%;
+  }
+  #applicant-page .under-page .right-div .indicator-header {
+    flex-direction: column;
+    gap: 15px;
+    padding-inline: 10px;
+  }
+  #applicant-page .under-page .right-div .indicator-header .containing-add-comment-btn {
+    justify-content: end;
+    width: 100%;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  #applicant-page {
+    min-height: 100%;
+  }
+  #applicant-page .under-page .right-div .add-comment,
+#applicant-page .under-page .right-div .add-assessment,
+#applicant-page .under-page .right-div .add-interview {
+    top: 13%;
+    width: 60%;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+    gap: 30px;
+  }
+
+  #applicant-page {
+    min-height: 100%;
+  }
+  #applicant-page .under-page .right-div {
+    width: 100%;
+    position: relative;
+    top: 0;
+    align-items: center;
+    height: fit-content;
+  }
+  #applicant-page .under-page .right-div .indicator-header .parts-headers {
+    width: inherit;
+    padding-top: 5px;
+    overflow-x: scroll;
+    min-height: 40px;
+  }
+  #applicant-page .under-page .right-div .indicator-header .parts-headers .parts {
+    display: flex;
+    gap: 4px;
+  }
+  #applicant-page .under-page .right-div .add-comment,
+#applicant-page .under-page .right-div .add-assessment,
+#applicant-page .under-page .right-div .add-interview {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #2b786c;
+    border-radius: 8px;
+  }
+  #applicant-page .under-page .right-div .add-comment .title,
+#applicant-page .under-page .right-div .add-assessment .title,
+#applicant-page .under-page .right-div .add-interview .title {
+    border-radius: 8px 8px 0px 0px;
+  }
+  #applicant-page .under-page .right-div .candidate-card {
+    position: relative;
+  }
+  #applicant-page .under-page .right-div .candidate-card .containing-candidate-avatar {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: -15%;
+    left: 20px;
+    border: 1px solid #2b786c;
+    padding: 2px;
+    background-color: #fff;
+  }
+  #applicant-page .under-page .right-div .candidate-card .containing-candidate-avatar img {
+    width: 100%;
+    height: 100%;
+  }
+  #applicant-page .under-page .right-div .candidate-card .first-div {
+    margin-top: 40px;
+  }
+  #applicant-page .under-page .right-div .candidate-card:last-child {
+    border-bottom: none;
+  }
+  #applicant-page .under-page .logout-icon {
+    display: none;
+  }
+}
+.right-div {
+  height: 100%;
+}

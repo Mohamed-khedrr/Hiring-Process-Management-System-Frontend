@@ -1,0 +1,87 @@
+<!-- Simple Navbar Component -->
+<app-navbar [logs]="false" [navSimple]="true" [isJobSeeker]="false" [contact]="false"
+  [jobSeekerOrEmployerLink]="'/auth/login/job-seeker'"></app-navbar>
+
+
+<!-- login Page -->
+
+<div id="login-page" class="pt-32 ">
+  <div class="container ">
+    <div class="frame-18 w-1/2 m-auto shadow-2xl flex flex-col  bg-white rounded-2xl ">
+      <div class="frame-17 w-full flex flex-col gap-12 ">
+        <div class="google-section w-full flex justify-center items-center">
+          <div class="welcome-back">Welcome Back</div>
+        </div>
+        <div class="s-ign-up-application w-ful flex flex-col ">
+          <form [formGroup]="employerLogin" (ngSubmit)="sendDataToApi()" (keydown.enter)=" sendDataToApi()"
+            class="s-ign-up-application w-full flex flex-col gap-10">
+            <div class="all-inputs flex flex-col gap-8">
+              <div class="input w-full flex flex-col justify-start items-start gap-2">
+                <label class="input-label" for="mail">Email</label>
+                <input formControlName="email" (keydown)="onInputChange()" class="input-field w-full" type="text"
+                  name="email" id="mail" />
+                <p *ngIf="(email.hasError('email')  || email.hasError('required')) && email.touched"
+                  class="text-red-600 error-message text-xs validation-message">
+                  Valid Email is required
+                </p>
+              </div>
+              <div class="password-section flex flex-col gap-2 items-start w-full ">
+                <div class="label">
+                  <label for="pass" class="input-label">Password</label>
+                </div>
+                <div class="new-containing flex flex-col w-full relative ">
+                  <div class="w-full">
+                    <input formControlName="password" (keydown)="onInputChange()"
+                      class="password-input w-full input-field pe-24" maxlength="20" [type]="passwordType"
+                      name="password" id="pass">
+                    <div class="eye-icon">
+                      <button class="eye-icon-button  flex items-start absolute " type="button"
+                        (click)="togglePassword()">
+                        <svg class="eye-pass" xmlns="http://www.w3.org/2000/svg" width="21" height="20"
+                          viewBox="0 0 21 20" fill="none">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M10.5 2.58337C7.1952 2.58337 4.17932 4.42738 2.11944 7.4904C1.63392 8.21024 1.41663 9.12722 1.41663 10C1.41663 10.8727 1.63382 11.7894 2.11911 12.5092C4.17899 15.5725 7.19502 17.4167 10.5 17.4167C13.8047 17.4167 16.8206 15.5727 18.8805 12.5097C19.366 11.7898 19.5833 10.8729 19.5833 10C19.5833 9.12742 19.3661 8.21066 18.8808 7.4909C16.8209 4.42758 13.8049 2.58337 10.5 2.58337ZM18.8808 7.4909L18.8801 7.48991L18.2586 7.90931L18.8808 7.4909ZM18.8805 12.5097L18.8801 12.5102L18.2586 12.0908L18.8808 12.5092L18.8805 12.5097ZM2.11911 12.5092L2.74149 12.0907L2.11978 12.5102L2.11911 12.5092ZM2.11944 7.4904L2.11978 7.48991L2.74149 7.90941L2.11911 7.4909L2.11944 7.4904ZM3.36386 8.32791C5.20451 5.59063 7.79229 4.08337 10.5 4.08337C13.2076 4.08337 15.7954 5.59063 17.6361 8.32791L17.6367 8.3289C17.9174 8.74495 18.0833 9.3504 18.0833 10C18.0833 10.6497 17.9174 11.2551 17.6367 11.6712L17.6361 11.6722C15.7954 14.4094 13.2076 15.9167 10.5 15.9167C7.79229 15.9167 5.20451 14.4094 3.36386 11.6722L3.3632 11.6712C3.08247 11.2551 2.91663 10.6497 2.91663 10C2.91663 9.3504 3.08247 8.74495 3.3632 8.3289L3.36386 8.32791ZM7.91663 10C7.91663 8.57068 9.0706 7.41671 10.5 7.41671C11.9293 7.41671 13.0833 8.57068 13.0833 10C13.0833 11.4294 11.9293 12.5834 10.5 12.5834C9.0706 12.5834 7.91663 11.4294 7.91663 10ZM10.5 5.91671C8.24217 5.91671 6.41663 7.74225 6.41663 10C6.41663 12.2578 8.24217 14.0834 10.5 14.0834C12.7577 14.0834 14.5833 12.2578 14.5833 10C14.5833 7.74225 12.7577 5.91671 10.5 5.91671Z"
+                            fill="white" />
+                        </svg>
+                      </button>
+
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p *ngIf="password.hasError('required') && password.touched" class="error-message">
+                    Valid Password is required
+                  </p>
+                  <p *ngIf="password.hasError('minlength') && password.touched" class="error-message">
+                    Password must be 8 characters or more
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="sign-up-with-google2 w-full">
+              <div class="error">
+                <p *ngIf="errorMsg" class="error-message">
+                  {{errorMsg}}!
+                </p>
+              </div>
+              <button type="submit" class="w-full" [disabled]="employerLogin.invalid">Sign in</button>
+            </div>
+          </form>
+        </div>
+        <div class="terms-and-condition flex justify-center items-center">
+          <p><a href="/auth/change-password/forget">Forget password?</a></p>
+        </div>
+        <div class="last-info-section flex flex-col items-center gap-4 w-full">
+          <div class="frame-21 w-full">
+            <div class="rule2 flex w-full "></div>
+          </div>
+          <div class="have-accout-login-link">
+            <p>Create account? <a class="ankor" routerLink="/auth/registration/employer">Join Now</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

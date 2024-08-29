@@ -1,0 +1,571 @@
+#applicant-page {
+  background-color: #f5f9fa;
+  padding-top: 15px;
+  min-height: 100vh;
+  position: relative;
+}
+@media (max-width: 768px) {
+  #applicant-page .hide-in-phone-screen {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  #applicant-page .show-in-phone-screen {
+    display: none;
+  }
+}
+#applicant-page .logout-icon {
+  font-size: 18px;
+  color: #033f47;
+  border: 1px solid #c6d2d5;
+  position: absolute;
+  top: 7%;
+  left: 5px;
+  z-index: 888;
+  display: none;
+}
+#applicant-page .page-header .job-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  color: #033f47;
+  margin: 0;
+}
+#applicant-page .page-header .edit-icon {
+  color: #033f47;
+  font-size: 25px;
+}
+#applicant-page .page-header .containing-job-type {
+  width: 95%;
+}
+#applicant-page .contaning-all-left-narrow-divs .containing-title-selector {
+  padding: 16px 32px 16px 32px;
+}
+#applicant-page .contaning-all-left-narrow-divs .containing-title-selector .title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  color: #033f47;
+}
+#applicant-page .contaning-all-left-narrow-divs .containing-title-selector .selector {
+  background-color: #033f47;
+  color: white;
+}
+#applicant-page .left-scrollbar-div .candidate-card .name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+}
+#applicant-page .left-scrollbar-div .candidate-card .level-specialization,
+#applicant-page .left-scrollbar-div .candidate-card .university {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #2f5d64;
+}
+#applicant-page .left-scrollbar-div .candidate-card .location {
+  background-color: #e2e8e9;
+  color: #033f47;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: 0.4s all;
+  font-size: 12px;
+}
+#applicant-page .left-scrollbar-div .candidate-card .indicator-with-app {
+  display: none;
+}
+#applicant-page .left-scrollbar-div .candidate-card .cnotaining-indicat-btn {
+  display: none;
+}
+#applicant-page .containing-narrow-left {
+  display: none;
+}
+#applicant-page .under-page .left-scrollbar-div {
+  max-height: 75vh;
+  overflow-y: scroll;
+}
+#applicant-page .under-page .left-scrollbar-div::-webkit-scrollbar {
+  width: 5px;
+}
+#applicant-page .under-page .left-scrollbar-div::-webkit-scrollbar-track {
+  background: #f1f4f9;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#applicant-page .under-page .left-scrollbar-div::-webkit-scrollbar-thumb {
+  background: linear-gradient(#2b786c, #80aea7);
+  border-top-right-radius: 15px;
+}
+#applicant-page .under-page .logout-icon {
+  font-size: 18px;
+  color: #033f47;
+  border: 1px solid #c6d2d5;
+  position: fixed;
+  top: 200px;
+  left: 190px;
+  z-index: 999;
+  display: none;
+}
+#applicant-page .under-page .logout-icon i {
+  transition: 0.3s all;
+}
+#applicant-page .under-page .left-scrollbar-div,
+#applicant-page .under-page .right-div {
+  overflow-x: hidden;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .name,
+#applicant-page .under-page .right-div .candidate-card .name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+  transition: all 0.2s;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .name:hover,
+#applicant-page .under-page .right-div .candidate-card .name:hover {
+  color: #2b786c;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .form-sliding-container,
+#applicant-page .under-page .right-div .candidate-card .form-sliding-container {
+  min-width: 50rem;
+  position: fixed;
+  top: 5rem;
+  right: 0;
+  transition: all 0.2s;
+  overflow: hidden;
+  z-index: 1000;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .form-sliding-container.hide-container,
+#applicant-page .under-page .right-div .candidate-card .form-sliding-container.hide-container {
+  right: -100%;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .level-specialization,
+#applicant-page .under-page .left-scrollbar-div .candidate-card .university,
+#applicant-page .under-page .right-div .candidate-card .level-specialization,
+#applicant-page .under-page .right-div .candidate-card .university {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #2f5d64;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .location,
+#applicant-page .under-page .right-div .candidate-card .location {
+  background-color: #e2e8e9;
+  color: #033f47;
+  padding: 7px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: 0.4s all;
+  font-size: 12px;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .indicator-with-app,
+#applicant-page .under-page .right-div .candidate-card .indicator-with-app {
+  display: none;
+}
+#applicant-page .under-page .left-scrollbar-div .candidate-card .cnotaining-indicat-btn,
+#applicant-page .under-page .right-div .candidate-card .cnotaining-indicat-btn {
+  display: none;
+}
+#applicant-page .under-page .right-div {
+  width: 70%;
+  position: relative;
+}
+#applicant-page .under-page .right-div .indicator-with-app {
+  width: 100%;
+}
+#applicant-page .under-page .right-div .indicator-with-app .indicator-icon {
+  font-size: 20px;
+}
+#applicant-page .under-page .right-div .indicator-with-app .move-btn,
+#applicant-page .under-page .right-div .indicator-with-app .dis-btn {
+  background-color: #559389;
+  color: white;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: 0.4s all;
+}
+#applicant-page .under-page .right-div .indicator-with-app .move-btn:hover,
+#applicant-page .under-page .right-div .indicator-with-app .dis-btn:hover {
+  background-color: transparent;
+  border: 1px solid #559389;
+  color: #559389;
+}
+#applicant-page .under-page .right-div .indicator-with-app .dis-btn {
+  background-color: #ea2a2a;
+}
+#applicant-page .under-page .right-div .indicator-with-app .dis-btn:hover {
+  background-color: transparent;
+  border: 1px solid #ea2a2a;
+  color: #ea2a2a;
+}
+#applicant-page .under-page .right-div .indicator-header {
+  background-color: #f8f8f1;
+}
+#applicant-page .under-page .right-div .add-comment,
+#applicant-page .under-page .right-div .add-assessment,
+#applicant-page .under-page .right-div .add-interview {
+  position: absolute;
+  right: 0;
+  height: 65vh;
+  top: 9%;
+  z-index: 999;
+  width: 50%;
+}
+#applicant-page .under-page .right-div .add-comment .title,
+#applicant-page .under-page .right-div .add-assessment .title,
+#applicant-page .under-page .right-div .add-interview .title {
+  padding: 8px 24px;
+  background-color: #f8f8f1;
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #033f47;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning,
+#applicant-page .under-page .right-div .add-assessment .containing-remaning,
+#applicant-page .under-page .right-div .add-interview .containing-remaning {
+  padding-top: 24px;
+  padding-inline: 24px;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning .global-input,
+#applicant-page .under-page .right-div .add-assessment .containing-remaning .global-input,
+#applicant-page .under-page .right-div .add-interview .containing-remaning .global-input {
+  border: 1px solid #627d81;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning .global-input ::placeholder,
+#applicant-page .under-page .right-div .add-assessment .containing-remaning .global-input ::placeholder,
+#applicant-page .under-page .right-div .add-interview .containing-remaning .global-input ::placeholder {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #627d81;
+}
+#applicant-page .under-page .right-div .add-comment .containing-remaning .global-button,
+#applicant-page .under-page .right-div .add-assessment .containing-remaning .global-button,
+#applicant-page .under-page .right-div .add-interview .containing-remaning .global-button {
+  background-color: #2b786c;
+  color: white;
+}
+#applicant-page .under-page .right-div .add-comment .smal-label,
+#applicant-page .under-page .right-div .add-assessment .smal-label,
+#applicant-page .under-page .right-div .add-interview .smal-label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #033f47;
+}
+#applicant-page .under-page .right-div .cnotaining-indicat-btn .drop-down {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.5s ease-in-out;
+  width: max-content;
+  overflow: hidden;
+}
+#applicant-page .under-page .right-div .cnotaining-indicat-btn .drop-down li:hover {
+  cursor: pointer;
+}
+#applicant-page .under-page .right-div .cnotaining-indicat-btn .hide-drop-down {
+  transition: max-height 0.5s ease-in-out, opacity 0s 0.5s;
+  opacity: 0;
+  max-height: 0;
+}
+#applicant-page .under-page .cnotaining-indicat-btn li {
+  font-size: 16px;
+}
+#applicant-page .under-page .cnotaining-indicat-btn li:hover {
+  background-color: #559389;
+  color: white;
+}
+#applicant-page .under-page .containing-skills .span-field {
+  padding: 4px 8px 4px 8px;
+  background-color: #e2e8e9;
+  color: #033f47;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  line-height: 18px;
+}
+#applicant-page .global-button {
+  padding: 6px 16px 6px 16px;
+  background-color: transparent;
+  color: #033f47;
+  font-size: 16px;
+  border-radius: 8px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 115%;
+  transition: 0.2s all;
+}
+#applicant-page .global-button .span-text {
+  color: #2f5d64;
+  font-weight: 700;
+  transition: 0.2s all;
+}
+#applicant-page .global-button:hover, #applicant-page .global-button.active {
+  background-color: #2f5d64;
+  color: white;
+}
+#applicant-page .global-button:hover .span-text, #applicant-page .global-button.active .span-text {
+  color: white;
+}
+#applicant-page .global-button.active, #applicant-page .global-button.active:hover {
+  background-color: #2f5d64;
+  color: white;
+  font-weight: 700;
+}
+#applicant-page .global-light-border {
+  border: 0.25px solid #a1b3b6;
+}
+#applicant-page .global-bottom-border {
+  border-bottom: 0.25px solid #a1b3b6;
+}
+#applicant-page .global-input {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #a1b3b6;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+#applicant-page .global-input:focus {
+  outline: none;
+}
+#applicant-page .global-input::placeholder {
+  color: #627d81;
+}
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 80vw;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  #applicant-page .page-header .containing-job-type {
+    width: 100%;
+  }
+  #applicant-page .logout-icon {
+    display: block;
+  }
+  #applicant-page .under-page {
+    flex-direction: column;
+  }
+  #applicant-page .under-page .logout-icon {
+    display: block;
+  }
+  #applicant-page .under-page .right-div {
+    width: 100%;
+  }
+  #applicant-page .under-page .right-div .indicator-with-app {
+    width: 100%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  #applicant-page .page-header .job-title {
+    font-size: 20px;
+  }
+  #applicant-page .page-header .edit-icon {
+    font-size: 18px;
+  }
+  #applicant-page .page-header .containing-job-type {
+    width: 100%;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  #applicant-page .under-page .right-div .indicator-with-app {
+    align-items: start;
+    flex-direction: column;
+    gap: 15px;
+  }
+  #applicant-page .under-page .right-div .indicator-with-app .cnotaining-indicat-icon {
+    width: 100%;
+    justify-content: space-between;
+  }
+  #applicant-page .under-page .right-div .indicator-with-app .cnotaining-indicat-btn {
+    width: 100%;
+    justify-content: center;
+    gap: 25px;
+  }
+  #applicant-page .under-page .right-div .add-comment,
+#applicant-page .under-page .right-div .add-assessment,
+#applicant-page .under-page .right-div .add-interview {
+    top: 13%;
+    width: 60%;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+    gap: 30px;
+  }
+
+  #applicant-page .page-header {
+    display: none;
+  }
+  #applicant-page .logout-icon {
+    display: none;
+  }
+  #applicant-page .containing-narrow-left {
+    display: block;
+  }
+  #applicant-page .under-page .right-div .add-comment,
+#applicant-page .under-page .right-div .add-assessment,
+#applicant-page .under-page .right-div .add-interview {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #2b786c;
+    border-radius: 8px;
+  }
+  #applicant-page .under-page .right-div .add-comment .title,
+#applicant-page .under-page .right-div .add-assessment .title,
+#applicant-page .under-page .right-div .add-interview .title {
+    border-radius: 8px 8px 0px 0px;
+  }
+  #applicant-page .under-page .right-div .indicator-with-app {
+    display: none;
+  }
+  #applicant-page .under-page .right-div .mid-indicator-with-app {
+    display: block;
+  }
+  #applicant-page .under-page .right-div .candidate-card {
+    position: relative;
+  }
+  #applicant-page .under-page .right-div .candidate-card .cnotaining-indicat-btn {
+    display: flex;
+  }
+  #applicant-page .under-page .right-div .candidate-card .move-btn {
+    background-color: #559389;
+    color: white;
+  }
+  #applicant-page .under-page .right-div .candidate-card .indicator-with-app {
+    display: block;
+  }
+  #applicant-page .under-page .right-div .candidate-card .move-btn {
+    display: flex;
+  }
+  #applicant-page .under-page .right-div .candidate-card .containing-candidate-avatar {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+  }
+}
+@media (max-width: 1199.98px) and (min-width: 767.98px) {
+  .left-scrollbar-div {
+    position: fixed;
+    top: 240px;
+    transition: 1s all;
+    box-shadow: 0px 0px 10px 1px #3c3c3c38;
+    left: -130px;
+    z-index: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .left-scrollbar-div.show {
+    left: 210px;
+    z-index: 999;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.reverse {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1199.98px) and (min-width: 767.98px) {
+  .left-scrollbar-div {
+    position: fixed;
+    top: 240px;
+    transition: 1s all;
+    box-shadow: 0px 0px 10px 1px #3c3c3c38;
+    left: -130px;
+    z-index: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .left-scrollbar-div.show {
+    left: 210px;
+    z-index: 999;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.reverse {
+  transform: rotate(180deg);
+}
+
+.logout-icon {
+  display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .logout-icon {
+    display: block !important;
+  }
+}
+.no-data-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 16px;
+  max-width: 350px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.card-content {
+  font-family: "Arial", sans-serif;
+}
+
+.no-data-card h3 {
+  margin-top: 0;
+  color: #2f5d64;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.no-data-card p {
+  color: #2f5d64;
+  font-size: 1em;
+}
+
+.indicator-icon {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+.indicator-icon:hover {
+  color: white;
+  background-color: #a1b3b6;
+}

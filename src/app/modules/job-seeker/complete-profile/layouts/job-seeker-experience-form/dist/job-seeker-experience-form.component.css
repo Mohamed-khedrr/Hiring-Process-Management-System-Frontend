@@ -1,0 +1,131 @@
+.bg-n-300 {
+  background-color: #e2e8e9;
+}
+
+.loader-min-h {
+  min-height: 4rem;
+}
+
+.loader-min-w {
+  min-width: 10rem;
+}
+
+.loader-big-w {
+  width: 50rem;
+}
+@media (max-width: 576px) {
+  .loader-big-w {
+    width: 10rem;
+  }
+}
+
+.all-experience-cart .global-rounde {
+  border-radius: 8px;
+}
+.all-experience-cart .experience-info .selected-education-container {
+  padding: 15px;
+  background-color: #eff6ff;
+  border: 1px solid #2b786c;
+  border-radius: 8px;
+}
+.all-experience-cart .experience-info .selected-education-container .field-header {
+  color: #2f5d64;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  font-weight: 600;
+}
+.all-experience-cart .experience-info .selected-education-container .btn {
+  padding: 7px 7px;
+  background-color: #e2e8e9;
+  color: #627d81;
+  font-size: 16px;
+  border-radius: 3px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+  transition: 0.4s all;
+}
+.all-experience-cart .experience-info .selected-education-container .btn:hover {
+  background-color: #c6d2d5;
+  border-radius: 6px;
+}
+.all-experience-cart .experience-info .selected-education-container .text {
+  color: #627d81;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+}
+.all-experience-cart .experience-info .global-section-label {
+  color: #033f47;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  font-weight: 600;
+}
+.all-experience-cart .experience-info .global-small-label {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #033f47;
+  line-height: 150%;
+}
+.all-experience-cart .experience-info .global-input {
+  padding: 11px 12px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+.all-experience-cart .experience-info .global-input:focus {
+  outline: none;
+}
+.all-experience-cart .experience-info .global-input::placeholder {
+  color: #033f47;
+}
+.all-experience-cart .experience-info .global-button {
+  padding: 12px 24px;
+  background-color: #559389;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+}
+.all-experience-cart .experience-info .error-message {
+  font-family: "Open Sans", sans-serif;
+  color: rgba(255, 0, 0, 0.651);
+  font-size: 14px;
+}
+.all-experience-cart .experience-info .radio-input {
+  width: 19px;
+  height: 19px;
+}
+.all-experience-cart .experience-info .radio-input-label {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  color: #033f47;
+}
+@media (max-width: 1199.98px) {
+  .all-experience-cart .experience-info .global-button {
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .all-experience-cart .experience-info .global-button {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 767.98px) {
+  .all-experience-cart .experience-info .global-button {
+    padding: 12px 14px;
+  }
+  .all-experience-cart .experience-info .global-input {
+    font-size: 12px;
+    padding: 11px 8px;
+  }
+}

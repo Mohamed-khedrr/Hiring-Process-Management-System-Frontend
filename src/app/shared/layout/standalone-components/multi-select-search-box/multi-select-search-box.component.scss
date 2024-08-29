@@ -1,0 +1,80 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+:host {
+  ::ng-deep .test {
+    padding: 11px 12px;
+    outline: none;
+    border: 1px solid $color-n-800;
+    font-family: $font-family-open-sans;
+    font-size:$font-b3;
+    // font-weight: 600;
+    line-height: $line-height-body;
+    width: 100%;
+    outline-color: $color-sec-500;
+    .p-hidden-accessible {
+      padding: 0;
+    }
+
+    .p-checkbox {
+      display: none;
+    }
+
+    .p-multiselect-items-wrapper {
+      border: solid $color-sec-500 2px;
+      margin-top: 5px;
+      border-radius: 1rem;
+    }
+    ul.p-multiselect-items {
+      li.p-ripple.p-multiselect-item,
+      .p-multiselect-empty-message.ng-star-inserted {
+        padding: 5px 10px;
+        font-size: $font-l4;
+        &:hover {
+          background-color: $color-sec-500;
+          color: $color-white;
+          transition: all 0.2s;
+        }
+      }
+    }
+    .p-element.p-icon-wrapper.ng-star-inserted {
+      // background-color: red;
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    .p-multiselect-token.ng-star-inserted {
+      border-radius: 2px;
+      padding: 2px 5px;
+      background-color: $color-sec-300;
+      color: $color-white;
+      margin: 0 5px;
+      // background-color: $color-sec-300;
+      // color: $color-white;
+      // padding: 1px 5px;
+      span {
+        font-size: $font-l4;
+        margin-right: 5px;
+      }
+    }
+    .p-ripple.p-element.p-multiselect-close.p-link.p-button-icon-only.ng-star-inserted,
+    .p-icon.p-multiselect-filter-icon {
+      display: none;
+    }
+
+    input {
+      font-size: $font-l3;
+      border-radius: 1rem;
+      padding: 3px 5px;
+      margin-top: 5px;
+    }
+    .p-multiselect-label {
+      width: 100%;
+    }
+    @media (max-width: 767.98px) {
+      font-size:12px ;
+      padding: 11px 8px;
+    }
+  }
+}

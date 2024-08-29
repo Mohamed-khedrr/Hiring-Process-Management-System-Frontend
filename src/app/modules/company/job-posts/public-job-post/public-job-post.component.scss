@@ -1,0 +1,21 @@
+@import url("../../../job-seeker/saved-jobs/saved-jobs.component.scss");
+
+.second-row{ 
+  display: flex;
+  justify-content: center;
+  background: white;
+  padding: 40px;
+  text-align: center;
+  font-size: 14px;
+  @media (min-width:992px) {
+    font-size: 18px;
+  }
+  .about-img{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.main-header , .second-row{
+    border-radius: 4px;
+}

@@ -1,0 +1,231 @@
+<app-navbar *ngIf="!isLogin"></app-navbar>
+<section id="job-filter-search-page" class="py-14">
+    <div class="container  flex flex-col gap-10">
+        <app-filtering-words [activeEle]="'Jobs'"></app-filtering-words>
+        <div class="containing-all-under-part mx-auto flex gap-5 ">
+            <div class="filter-section shadow-sm px-16 py-8 bg-white h-fit ">
+                <div class="title global-line-bottom-border pb-5"><h6>Filter</h6></div>
+            <form [formGroup]="jobsFilterForm">
+                <div class="py-2 flex flex-col gap-5">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center">
+                          <div>
+                            <label class="filter-main-label" for="">Industry</label>
+                          </div>
+                        </div>
+                        <div class="flex items-center justify-start gap-5">
+                          <div class="input d-flex w-100 w-full">
+                            <select formControlName="industry" class="global-input w-full mb-2">
+                              <option class="" value="" selected disabled>Choose an Industry</option>
+                              <option selected>Choose an Industry</option>
+                              <option *ngFor="let i of industries" [value]="i.id">{{i.industry}}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center ">
+                            <div class=""><label class="filter-main-label" for="">Employment type</label></div>
+                        </div> 
+                        <app-expandable-list [items]="employmentTypes" [initialCount]="4" [formControl]="employmentTypeControl" controlType="checkbox"></app-expandable-list>
+                    </div>
+                    <div class=" flex flex-col gap-4">
+                        <div class="flex justify-between items-center">
+                            <div class=""><label class="filter-main-label" for="">Job type</label></div> 
+                        </div>
+                        <app-expandable-list [items]="jobTypes" [initialCount]="4" [formControl]="jobTypeControl"></app-expandable-list>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center ">
+                            <div class=""><label class="filter-main-label" for="">Experience</label></div>
+                        </div>
+                        <app-expandable-list [items]="experienceItems" [initialCount]="4" [formControl]="experienceControl"></app-expandable-list>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center ">
+                            <div class=""><label class="filter-main-label" for="">Education level</label></div> 
+                        </div>  
+                        <app-expandable-list [items]="educationLevels" [initialCount]="4" [formControl]="educationLevelControl"></app-expandable-list>
+                    </div> 
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center ">
+                            <div class=""><label class="filter-main-label" for="">Location</label></div> 
+                        </div>  
+                        <app-expandable-list [items]="countriesList" [initialCount]="8" [formControl]="locationControl"></app-expandable-list>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center my-6">
+                          <div class="">
+                            <label class="filter-main-label" for="">Salary</label>
+                          </div>
+                        </div>
+                        <input id="default-range" type="range" min="0" max="10000" formControlName="minSalary" class="custom-range">
+                        <div class="flex justify-between text-sm">
+                          <span class="text-gray-600 min-salary">0</span>
+                          <span class="text-gray-600 max-salary">10000</span>
+                        </div>
+                      </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between items-center ">
+                            <div class=""><label class="filter-main-label" for="">Currency</label></div> 
+                        </div>  
+                        <app-expandable-list [items]="currencies" [initialCount]="6" [formControl]="currencyControl"></app-expandable-list>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <div *ngIf="!isLoading && !searchPage.empty" class="search-term shadow-sm flex flex-col gap-7"> 
+                <div *ngIf="!searchPage.empty" class="jobs-term bg-white">
+                    <div class="px-14 py-7">
+                        <div class="title">
+                            <h6>Jobs</h6>
+                        </div>
+                        <div  class="job-info">
+                            <div *ngFor="let jobPost of jobsList" class="main-body search-card m-auto bg-white rounded-2xl px-16 py-8 flex flex-col gap-4">
+                                <div (click)="viewDetails(jobPost.id)">
+                                    <div class="flex items-center justify-between ">
+                                        <div class="flex flex-col items-start gap-2">
+                                            <div class="flex items-center gap-4">
+                                                <p class="job-title">{{jobPost.jobTitle}}</p>
+                                                <p class="exp-level">{{jobPost.minExperienceYears}}-<span *ngIf="jobPost.maxExperienceYears>0">{{jobPost.maxExperienceYears}}</span> Year</p>
+                                            </div>
+                                            <div class="flex items-center gap-4">
+                                                <p class="company-name">{{jobPost.company}}</p>
+                                                <p class="company-name">-</p>
+                                                <p class="company-location">{{jobPost.location}}</p> 
+                                            </div>
+                                            <div class="flex items-center gap-4"> 
+                                                <p class="company-location">{{jobPost.employmentType}}</p>
+                                                <p class="company-name">-</p>
+                                                <p class="company-location">{{jobPost.jobType}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <img *ngIf="!jobPost.companyImageUrl" src="../../../assets/imgs/saved-jobs-avatar.svg" alt="">
+                                            <img *ngIf="jobPost.companyImageUrl" [src]="jobPost.companyImageUrl " alt="">
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <p class="category">{{jobPost.industry}}</p> 
+                                    </div>
+                                    <div  class=" pb-10 border-b-2 flex flex-col gap-6">
+                                        <div class="global-long-width flex flex-wrap items-center gap-4">
+                                            <p *ngFor="let skill of jobPost.skills " class="Keyword flex items-center justify-center">#{{skill}}</p>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div>
+                                    <button (click)="saveJobs(jobPost.id)" [class.active]="jobPost.saved" class="unsave-btn flex items-center justify-center gap-3"
+                                      type="button">
+                                      <i class="bookmark fa-solid fa-bookmark "></i>
+                                      <span *ngIf="jobPost.saved">UnSaved</span><span *ngIf="!jobPost.saved"> Save</span>
+                                    </button>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="!searchPage.last" class="flex items-center justify-center global-line-top-border  pt-4 pb-8">
+                        <button class="flex see-all items-center justify-center gap-3"><span (click)="viewMore()">see all</span><img src="../../../../assets/imgs/Line arrow-right.svg" alt=""> </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isLoading" class="loader w-full">
+                <div class="companies-term bg-white shadow-sm global-line-border">
+                  <div class="px-4 py-7">
+                      <div class="title animate-pulse">
+                          <div class="line title-line"></div>
+                      </div>
+                      <div class="companies-info">
+                          <div class="card search-card flex gap-8 global-line-bottom-border p-8">
+                              <div class="card-avatar animate-pulse">
+                                  <div class="image-placeholder p-4"></div>
+                              </div>
+                              <div class="card-info flex flex-col gap-2">
+                                  <div class="flex gap-5 items-center justify-start">
+                                      <div class="company-title animate-pulse">
+                                          <div class="line wide"></div>
+                                      </div>
+                                  </div>
+                                  <div class="text company-tagline animate-pulse">
+                                      <div class="line wide"></div>
+                                  </div>
+                                  <div class="company-subscribes text animate-pulse">
+                                      <div class="line wide"></div>
+                                  </div>
+                                  <div class="animate-pulse">
+                                      <div class="line narrow"></div> 
+                                  </div>
+                                  <div class="company-rank items-center text flex gap-2 animate-pulse"> 
+                                      <div class="line narrow"></div> 
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="companies-info">
+                          <div class="card search-card flex gap-8 global-line-bottom-border p-8">
+                              <div class="card-avatar animate-pulse">
+                                  <div class="image-placeholder p-4"></div>
+                              </div>
+                              <div class="card-info flex flex-col gap-2">
+                                  <div class="flex gap-5 items-center justify-start">
+                                      <div class="company-title animate-pulse">
+                                          <div class="line wide"></div>
+                                      </div>
+                                  </div>
+                                  <div class="text company-tagline animate-pulse">
+                                      <div class="line wide"></div>
+                                  </div>
+                                  <div class="company-subscribes text animate-pulse">
+                                      <div class="line wide"></div>
+                                  </div>
+                                  <div class="animate-pulse">
+                                      <div class="line narrow"></div> 
+                                  </div>
+                                  <div class="company-rank items-center text flex gap-2 animate-pulse"> 
+                                      <div class="line narrow"></div> 
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="companies-info">
+                          <div class="card search-card flex gap-8 global-line-bottom-border p-8">
+                              <div class="card-avatar animate-pulse">
+                                  <div class="image-placeholder p-4"></div>
+                              </div>
+                              <div class="card-info flex flex-col gap-2">
+                                  <div class="flex gap-5 items-center justify-start">
+                                      <div class="company-title animate-pulse">
+                                          <div class="line wide"></div>
+                                      </div>
+                                  </div>
+                                  <div class="text company-tagline animate-pulse">
+                                      <div class="line wide"></div>
+                                  </div>
+                                  <div class="company-subscribes text animate-pulse">
+                                      <div class="line wide"></div>
+                                  </div>
+                                  <div class="animate-pulse">
+                                      <div class="line narrow"></div> 
+                                  </div>
+                                  <div class="company-rank items-center text flex gap-2 animate-pulse"> 
+                                      <div class="line narrow"></div> 
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="flex items-center justify-center global-line-top-border pt-4 pb-8">
+                      <button class="flex see-all items-center justify-center gap-3 animate-pulse">
+                          <span class="line wide"></span>
+                          <div class="image-placeholder small"></div>
+                      </button>
+                  </div>
+              </div>
+            </div>
+            <div *ngIf="!isLoading && searchPage.empty" class="not-found w-full"> 
+            <h5>No results found for your search.</h5>
+            <p>We couldn't find any matches for the keyword "<strong>{{keyword}}</strong>".</p>
+            </div>
+        </div>
+    </div> 
+</section>

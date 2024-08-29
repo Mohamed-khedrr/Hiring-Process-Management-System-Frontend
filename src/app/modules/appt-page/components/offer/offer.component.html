@@ -1,0 +1,83 @@
+<section id="applicant-offer">
+    <div class="container bg-blue-200">
+      @if (applicationOffer) {
+        <div class="px-10 pt-5 pb-16 bg-white">
+            <div class="py-8 px-16 line-border flex flex-col gap-4">
+                <div class="flex justify-between">
+                    <div class=" flex gap-4">
+                        <div>                        <p class="main-header">Offer</p>
+                        </div>
+                        <div>
+                            <p class="ass-type">Delivered</p>
+                            <p class="ass-type hidden">Visited</p>
+                            <p class="ass-type hidden">Missed</p>
+                        </div>
+
+                    </div>
+                    <div (click)="sendOfferToEditFrom(applicationOffer , OfferForms.OFFER)" class="p-3 hover:bg-gray-300 rounded-2xl">
+                      <button>
+                        <img src="../../../../../assets/imgs/edit (1).svg" alt="">
+                      </button>
+                    </div>
+                </div>
+                <div class="flex flex-col pb-6 line-bottom-border gap-8">
+                    <div class="line-border p-4">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex gap-24">
+                                <div class="question text"><p>Added by</p></div>
+                                <div class="answer text"><p>{{applicationOffer.createdBy}} at {{applicationOffer.createdAt | date : 'EEEE, dd MMMM yyyy'}} </p></div>
+                            </div>
+                            <div class="flex gap-24">
+                                <div class="question text"><p>Deadline</p></div>
+                                <div class="answer text"><p>{{applicationOffer.deadlineAt | date : 'EEEE, dd MMMM yyyy'}}</p></div>
+                            </div>
+                            <div class="pdf-box flex w-fit items-center  gap-5">
+                                <div class=""><img src="../../../../../assets/imgs/Group.svg" alt=""></div>
+                                <a [href]="(applicationOffer.documentByCompany | handleFileUrl )" [attr.download]="appOfferService.getFileName(applicationOffer.documentByCompany || '')" >
+
+                                <div class="flex flex-col">
+                                    <div class=""><p class="text">{{appOfferService.getFileName(applicationOffer.documentByCompany || '')}}</p></div>
+                                    <div class=""><p  class="text text-colr">{{companyDocumentSize}} MB</p></div>
+                                </div>
+                              </a>
+                                <div class="">
+                                    <img src="../../../../../assets/imgs/receive-square.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @for (comment of applicationOffer.comments; track $index) {
+                    <div class="line-border p-4">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex gap-24">
+                                <div class="question text"><p>{{comment.createdBy}} Replied at</p></div>
+                                <div class="answer text">
+                                  <p> {{comment.createdAt | date : 'EEEE, dd MMMM yyyy hh:mm a'}}</p>
+                                </div>
+                            </div>
+                            <div class="question text"><p>
+                              {{comment.content}}
+                            </p></div>
+                        </div>
+                    </div>
+                  }
+                    <div class="flex justify-end ">
+                        <div class="  " (click)="sendOfferToEditFrom(null , OfferForms.COMMENT)">
+                          <button class="global-button flex gap-4 items-center justify-center">
+                            <i class="fa-regular fa-envelope"></i><span>Add comment</span></button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      }@else {
+        <div class="bg-white  px-16">
+            <div class="flex gap-5 py-10   justify-center items-center">
+                <div class="">
+                    <p class="no-more-text">No activates to show.</p>
+                </div>
+            </div>
+        </div>
+      }
+    </div>
+</section>

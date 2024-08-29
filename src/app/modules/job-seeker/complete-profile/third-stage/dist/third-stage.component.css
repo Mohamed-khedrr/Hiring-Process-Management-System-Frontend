@@ -1,0 +1,365 @@
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.third-page {
+  background-color: #f8f8f1;
+}
+.third-page .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: small;
+  margin-top: 5px;
+}
+.third-page .heading-text h5 {
+  color: #033f47;
+  font-size: 32px;
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  line-height: 115%;
+}
+.third-page .heading-text p {
+  color: #627d81;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+}
+.third-page .questions .under-buttons .skip-save-buttons {
+  padding: 5rem 0 5rem 0;
+}
+.third-page .questions .global-rounde {
+  border-radius: 8px;
+}
+.third-page .questions .global-section-label {
+  color: #033f47;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  font-weight: 600;
+}
+.third-page .questions .global-small-label {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #033f47;
+  line-height: 150%;
+}
+.third-page .questions .global-input {
+  padding: 11px 12px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+.third-page .questions .global-input:focus {
+  outline: none;
+}
+.third-page .questions .global-input::placeholder {
+  color: #033f47;
+}
+.third-page .questions .global-half-width {
+  width: 50%;
+}
+.third-page .questions .global-button {
+  padding: 12px 24px;
+  background-color: #559389;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+}
+.third-page .questions .back-button {
+  background-color: #e2e8e9;
+  color: #627d81;
+  transition: 0.5s all;
+}
+.third-page .questions .back-button:hover {
+  background-color: #c6d2d5;
+}
+.third-page .questions .span-text {
+  color: #627d81;
+  font-weight: 400;
+  font-size: 14px;
+}
+.third-page .questions .start-button {
+  background-color: #80aea7;
+  transition: 0.5s all;
+}
+.third-page .questions .start-button:hover {
+  background-color: #2b786c;
+}
+.third-page .questions .start-button:disabled {
+  cursor: default;
+  background-color: #80aea7;
+}
+.third-page .questions .upload-cv-button .cv-uploded-success {
+  padding: 20px 16px;
+  color: white;
+  font-size: 16px;
+  background-color: #80aea7;
+  font-weight: 100;
+  font-family: "Open Sans", sans-serif;
+  line-height: 125%;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+.third-page .questions .upload-cv-button label,
+.third-page .questions .samples-button label {
+  padding: 8px 16px;
+  color: white;
+  font-size: 16px;
+  background-color: #80aea7;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  line-height: 125%;
+  border-radius: 3px;
+}
+
+.dialog-overlayer .internal-container {
+  padding: 4rem 6rem;
+  border-radius: 4px;
+}
+.dialog-overlayer .header {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  line-height: 150%;
+  color: #2f5d64;
+}
+.dialog-overlayer .text {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  color: #627d81;
+}
+.dialog-overlayer .input-field {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  font-size: 14px;
+  color: #2f5d64;
+  line-height: 150%;
+}
+.dialog-overlayer .input-field:focus {
+  outline: none;
+}
+.dialog-overlayer .input-field::placeholder {
+  color: #2f5d64;
+}
+.dialog-overlayer .btn {
+  padding: 10px 24px;
+  background-color: #80aea7;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 17.5px;
+}
+.dialog-overlayer .file-input {
+  border-radius: 4px;
+  font-size: 14px;
+  color: #2f5d64;
+  border: 1px solid #033f47;
+}
+.dialog-overlayer .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: small;
+  margin-top: 5px;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .questions {
+    max-width: 80%;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .questions {
+    max-width: 90%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .third-page .questions {
+    max-width: 100%;
+  }
+  .third-page .questions .global-button {
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .third-page .heading-text h5 {
+    font-size: 32px;
+  }
+  .third-page .questions {
+    max-width: 100%;
+  }
+  .third-page .questions .global-button {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .third-page .heading-text h5 {
+    font-size: 24px;
+  }
+  .third-page .questions {
+    max-width: 100%;
+  }
+  .third-page .questions .global-button {
+    padding: 12px 14px;
+  }
+  .third-page .questions .global-input {
+    font-size: 14px;
+    padding: 11px 8px;
+  }
+}
+@media (max-width: 575.98px) {
+  .third-page .heading-text {
+    max-width: 92%;
+  }
+  .third-page .heading-text h5 {
+    font-size: 24px;
+  }
+  .third-page .heading-text p {
+    font-size: 13px;
+  }
+  .third-page .questions {
+    max-width: 92%;
+  }
+}
+.education-ontainer {
+  background-color: #f5f9fa;
+  padding: 1.5rem 3rem;
+  font-family: "Open Sans", sans-serif;
+  margin: 2rem 0;
+  border: 1px solid #a1b3b6;
+}
+.education-ontainer .education-item__field {
+  font-size: 16px;
+  color: #033f47;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.education-ontainer .education-item__institution, .education-ontainer .education-item__date, .education-ontainer .education-item__grade {
+  font-size: 14px;
+  color: #627d81;
+  margin-bottom: 0.5rem;
+}
+
+.sample-container {
+  position: relative;
+  overflow: hidden;
+}
+.sample-container:hover .sample-overlayer {
+  top: 0;
+}
+.sample-container .sample-overlayer {
+  transition: top 0.2s;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 105%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.add-form-container .add-form-button,
+.add-form-container .more,
+.add-form-container .save,
+.save-form-buttons .add-form-button,
+.save-form-buttons .more,
+.save-form-buttons .save {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-family: "Open Sans";
+  font-weight: 600;
+  line-height: 150%;
+  background-color: #80aea7;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.add-form-container .add-form-button:hover,
+.add-form-container .more:hover,
+.add-form-container .save:hover,
+.save-form-buttons .add-form-button:hover,
+.save-form-buttons .more:hover,
+.save-form-buttons .save:hover {
+  background-color: #2b786c;
+}
+.add-form-container .add-form-button:focus,
+.add-form-container .more:focus,
+.add-form-container .save:focus,
+.save-form-buttons .add-form-button:focus,
+.save-form-buttons .more:focus,
+.save-form-buttons .save:focus {
+  background-color: #2b786c;
+}
+.add-form-container .add-form-button:disabled:hover,
+.add-form-container .more:disabled:hover,
+.add-form-container .save:disabled:hover,
+.save-form-buttons .add-form-button:disabled:hover,
+.save-form-buttons .more:disabled:hover,
+.save-form-buttons .save:disabled:hover {
+  background-color: #80aea7;
+  cursor: default;
+}
+.add-form-container .add-form-button span,
+.add-form-container .more span,
+.add-form-container .save span,
+.save-form-buttons .add-form-button span,
+.save-form-buttons .more span,
+.save-form-buttons .save span {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.validation-alert {
+  color: red;
+  font-size: 12px;
+}
+
+.dialog-overlayer {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+:host ::ng-deep .internal-container {
+  background-color: #fff;
+  font-size: 16px;
+}

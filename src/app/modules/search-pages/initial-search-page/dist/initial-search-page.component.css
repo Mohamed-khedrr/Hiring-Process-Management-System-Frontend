@@ -1,0 +1,215 @@
+#initial-search-page {
+  background-color: #f5f9fa;
+}
+#initial-search-page .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#initial-search-page .global-line-bottom-border {
+  border-bottom: 1px solid #C6D2D5;
+}
+#initial-search-page .global-line-top-border {
+  border-top: 1px solid #C6D2D5;
+}
+#initial-search-page .global-line-border {
+  border: 1px solid #C6D2D5;
+  border-radius: 4px;
+}
+#initial-search-page .search-filtering-words .filtering-words-title {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27.5px;
+  color: #1f2223;
+}
+#initial-search-page .search-filtering-words .filtering-words-btn .btn {
+  padding: 6px 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+  border: 1px solid #a1b3b6;
+  transition: 0.6s all;
+}
+#initial-search-page .search-filtering-words .filtering-words-btn .btn:hover, #initial-search-page .search-filtering-words .filtering-words-btn .btn:focus {
+  background-color: #033f47;
+  color: white;
+  font-weight: 700;
+  border-color: #033f47;
+}
+#initial-search-page .search-term .jobs-term .title,
+#initial-search-page .search-term .companies-term .title,
+#initial-search-page .search-term .people-term .title {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27.5px;
+  color: #033f47;
+}
+#initial-search-page .search-term .jobs-term .job-name,
+#initial-search-page .search-term .jobs-term .people-name,
+#initial-search-page .search-term .companies-term .job-name,
+#initial-search-page .search-term .companies-term .people-name,
+#initial-search-page .search-term .people-term .job-name,
+#initial-search-page .search-term .people-term .people-name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+}
+#initial-search-page .search-term .jobs-term .exp-level,
+#initial-search-page .search-term .jobs-term .company-name,
+#initial-search-page .search-term .jobs-term .company-location,
+#initial-search-page .search-term .jobs-term .category,
+#initial-search-page .search-term .jobs-term .keyword,
+#initial-search-page .search-term .jobs-term .see-all,
+#initial-search-page .search-term .companies-term .exp-level,
+#initial-search-page .search-term .companies-term .company-name,
+#initial-search-page .search-term .companies-term .company-location,
+#initial-search-page .search-term .companies-term .category,
+#initial-search-page .search-term .companies-term .keyword,
+#initial-search-page .search-term .companies-term .see-all,
+#initial-search-page .search-term .people-term .exp-level,
+#initial-search-page .search-term .people-term .company-name,
+#initial-search-page .search-term .people-term .company-location,
+#initial-search-page .search-term .people-term .category,
+#initial-search-page .search-term .people-term .keyword,
+#initial-search-page .search-term .people-term .see-all {
+  padding: 0px 2px 0px 2px;
+  background-color: #f5f9fa;
+  border-radius: 2px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #033f47;
+  transition: 0.6s all;
+}
+#initial-search-page .search-term .jobs-term .exp-level:hover,
+#initial-search-page .search-term .jobs-term .company-name:hover,
+#initial-search-page .search-term .jobs-term .company-location:hover,
+#initial-search-page .search-term .jobs-term .category:hover,
+#initial-search-page .search-term .jobs-term .keyword:hover,
+#initial-search-page .search-term .jobs-term .see-all:hover,
+#initial-search-page .search-term .companies-term .exp-level:hover,
+#initial-search-page .search-term .companies-term .company-name:hover,
+#initial-search-page .search-term .companies-term .company-location:hover,
+#initial-search-page .search-term .companies-term .category:hover,
+#initial-search-page .search-term .companies-term .keyword:hover,
+#initial-search-page .search-term .companies-term .see-all:hover,
+#initial-search-page .search-term .people-term .exp-level:hover,
+#initial-search-page .search-term .people-term .company-name:hover,
+#initial-search-page .search-term .people-term .company-location:hover,
+#initial-search-page .search-term .people-term .category:hover,
+#initial-search-page .search-term .people-term .keyword:hover,
+#initial-search-page .search-term .people-term .see-all:hover {
+  background-color: #c6d2d5;
+}
+#initial-search-page .search-term .jobs-term .company-name,
+#initial-search-page .search-term .jobs-term .company-location,
+#initial-search-page .search-term .companies-term .company-name,
+#initial-search-page .search-term .companies-term .company-location,
+#initial-search-page .search-term .people-term .company-name,
+#initial-search-page .search-term .people-term .company-location {
+  padding: 0px 0px 0px 0px;
+  font-weight: 600;
+  background-color: transparent;
+}
+#initial-search-page .search-term .jobs-term .company-name:hover,
+#initial-search-page .search-term .jobs-term .company-location:hover,
+#initial-search-page .search-term .companies-term .company-name:hover,
+#initial-search-page .search-term .companies-term .company-location:hover,
+#initial-search-page .search-term .people-term .company-name:hover,
+#initial-search-page .search-term .people-term .company-location:hover {
+  background-color: transparent;
+}
+#initial-search-page .search-term .jobs-term .see-all,
+#initial-search-page .search-term .companies-term .see-all,
+#initial-search-page .search-term .people-term .see-all {
+  padding: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #627D81;
+  background-color: transparent;
+  transition: 0.6s border-radius;
+}
+#initial-search-page .search-term .jobs-term .see-all:hover,
+#initial-search-page .search-term .companies-term .see-all:hover,
+#initial-search-page .search-term .people-term .see-all:hover {
+  background-color: #e2e8e9;
+  border: 1px solid #2b786c;
+  border-radius: 8px;
+}
+#initial-search-page .search-term .companies-term .company-title,
+#initial-search-page .search-term .people-term .company-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #033f47;
+}
+#initial-search-page .search-term .companies-term .text,
+#initial-search-page .search-term .people-term .text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #627d81;
+}
+#initial-search-page .search-term .companies-term .people-location,
+#initial-search-page .search-term .people-term .people-location {
+  padding: 2px 6px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #033f47;
+  background-color: #e2e8e9;
+  transition: 0.6s all;
+}
+#initial-search-page .search-term .companies-term .people-location:hover,
+#initial-search-page .search-term .people-term .people-location:hover {
+  background-color: #c6d2d5;
+}
+@media (min-width: 1400px) {
+  #initial-search-page .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #initial-search-page .container {
+    max-width: 1140px;
+  }
+  #initial-search-page .search-term {
+    width: 80%;
+  }
+}
+@media (max-width: 1199.98px) {
+  #initial-search-page .container {
+    max-width: 960px;
+  }
+  #initial-search-page .search-term {
+    width: 85%;
+  }
+}
+@media (max-width: 991.98px) {
+  #initial-search-page .container {
+    max-width: 720px;
+  }
+  #initial-search-page .search-term {
+    width: 90%;
+  }
+}
+@media (max-width: 767.98px) {
+  #initial-search-page .container {
+    max-width: 540px;
+  }
+  #initial-search-page .search-term {
+    width: 100%;
+  }
+}

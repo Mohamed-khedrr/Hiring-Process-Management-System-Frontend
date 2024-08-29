@@ -1,0 +1,159 @@
+<section id="job-details" class="pt-20 pb-24">
+  <div class="container ">
+    <div class="containing-all-details mx-auto flex flex-col gap-12">
+      <div class="job-title-card bg-white line-border shadow-md rounded-2xl px-16 py-8  ">
+        <div class="flex flex-col gap-10">
+          <div class="flex flex-col gap-6">
+            <div class="flex items-center justify-between">
+              <div class="job-title-info flex flex-col gap-1">
+                <div class="">
+                  <p class="heading">{{jobPostData?.jobTitle}}</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-start gap-6">
+                    <p class="padding-around global-properties">{{jobPostData?.employmentType}}</p>
+                    <p class="padding-around global-properties">{{jobPostData?.jobType}}</p>
+                  </div>
+                  <div class="flex items-start gap-5">
+                    <p class="global-properties company-name">{{jobPostData?.company}}</p>
+                    <p class="global-properties company-location">{{jobPostData?.companyLocation}}</p>
+                  </div>
+                  <div class="">
+                    <p class="global-properties posted-time">{{calcDatePeriod(jobPostData?.createdOn)}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class=""><img src="../../../../assets/imgs/Avatar (3).svg" alt=""></div>
+            </div>
+            <div class="grid  lg:grid-cols-5 grid-cols-2 gap-y-20 divide-x-2 divide-slate-300  ">
+              <div class=" flex flex-col items-center justify-center">
+                <p class="numbers">{{jobPostData?.publicNumbers?.applied}}</p>
+                <p class="text-under-number">Applied</p>
+              </div>
+              <div class=" flex flex-col items-center justify-center ">
+                <p class="numbers">{{jobPostData?.publicNumbers?.viewed}}</p>
+                <p class="text-under-number">viewed</p>
+              </div>
+              <div class=" flex flex-col items-center justify-center vip ">
+                <p class="numbers">{{jobPostData?.publicNumbers?.inConsideration}}</p>
+                <p class="text-under-number">In consideration</p>
+              </div>
+              <div class=" flex flex-col items-center justify-center">
+                <p class="numbers">{{jobPostData?.publicNumbers?.rejected}}</p>
+                <p class="text-under-number">Not selected</p>
+              </div>
+            </div>
+          </div>
+          <div class="pt-12 border-t-2 flex items-center  gap-8" *ngIf="userRole?.includes('ROLE_JOBSEEKER')">
+
+            <div class="">
+              <button  type="button" *ngIf="!isApplied" [routerLink]="'/job-application/'+postId" class="global-button">Apply For Job</button></div>
+            <!--div class=""><button  [routerLink]="['/job-seeker/job-applications']"  type="button" *ngIf="isApplied" class="global-button">View Applications</button></div-->
+            <div class=""><button type="button" *ngIf="isApplied" class="global-button  hovered">Applied</button></div>
+            <div class="flex items-center">
+              <button (click)="toggleJobs(postId)"  [class.active]="jobPostData?.saved" class="archive-btn items-center">
+                <i class="fa-regular fa-bookmark"></i>
+              </button>
+            </div>
+          </div>
+          <div class="pt-12 border-t-2 flex gap-8" *ngIf="userRole&&!userRole?.includes('ROLE_JOBSEEKER')">
+            <div class=""><button type="button" [routerLink]="'/app-page/'+postId" class="global-button">Show Applications</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="job-details-card bg-white line-border shadow-md rounded-2xl px-16 py-8  flex flex-col gap-8">
+        <div class="">
+          <p class="heading">Job Details</p>
+        </div>
+        <div class=" flex flex-col gap-11">
+          <div class="flex items-center gap-20">
+            <p class="question">Experience Needed: </p>
+            <p class="answer">
+              {{jobPostData?.minExperienceYears}}
+              {{jobPostData?.maxExperienceYears ? (" - "+jobPostData?.maxExperienceYears):""}}
+            </p>
+          </div>
+          <div class="flex items-center gap-20">
+            <p class="question">Career Level:</p>
+            <p class="answer">Not specified</p>
+          </div>
+          <div class="flex items-center gap-20">
+            <p class="question">Education Level:</p>
+            <p class="answer">{{jobPostData?.educationLevel}}</p>
+          </div>
+          <div class="flex items-center gap-20">
+            <p class="question">Salary:</p>
+            <p class="answer">
+              {{jobPostData?.minSalary}}
+              {{jobPostData?.maxSalary ? (" - "+jobPostData?.maxSalary):""}}
+              {{jobPostData?.currency}}
+            </p>
+
+          </div>
+          <div class="flex items-center gap-20 ">
+            <div class="">
+              <p class="question">Job Categories:</p>
+            </div>
+            <div class="grid lg:grid-cols-3 grid-cols-1 divide-x-2 w-4/6  ">
+              <div class="flex items-center justify-center ">
+                <p class="answer">{{jobPostData?.industry?.industry}}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="skills-and-tools w-5/6 flex flex-col gap-4">
+          <div class="">
+            <p class="skills-and-tools-title">Skills & Tools:</p>
+          </div>
+          <div class="text-4xl py-3 pl-10 text-gray-700"
+          *ngIf="!jobPostData?.skills || !jobPostData?.skills?.length">None</div>
+
+          <div class="px-12 flex flex-wrap items-start  gap-4" 
+ 
+
+          *ngIf="jobPostData?.skills && jobPostData?.skills?.length">
+            <p class="containing-skill  flex items-center justify-center " *ngFor=" let skill of jobPostData?.skills"># {{skill}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="job-description-card bg-white line-border shadow-md rounded-2xl px-16 py-8  flex flex-col gap-8">
+        <div class="">
+          <p class="heading">Job Description</p>
+        </div>
+        <div class="">
+          <ul class="list flex flex-col gap-6">
+            <li>{{jobPostData?.description}}</li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="job-recuirements-card bg-white line-border shadow-md rounded-2xl px-16 py-8  flex flex-col gap-8">
+        <div class="">
+          <p class="heading">Job Requirements</p>
+        </div>
+        <div class="">
+          <ul class="list flex flex-col gap-6">
+            <li>{{jobPostData?.requirements}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="job-benfits-card bg-white line-border shadow-md rounded-2xl px-16 py-8  flex flex-col gap-8">
+        <div class="">
+          <p class="heading">Job Benefits</p>
+        </div>
+        <div class="">
+          <ul class="list flex flex-col gap-6">
+            <li>{{jobPostData?.benefits}}</li>
+            <!-- <li>Penatibus scelerisque ullamcorper tellus scelerisque eu velit.</li>
+            <li>Aenean ipsum dui habitasse tincidunt viverra dolor.</li>
+            <li>Eu in ultricies tincidunt amet eros dignissim.</li>
+            <li>Sit sit neque nisl porta volutpat.</li> -->
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,156 @@
+<section id="applicant-profile">
+    <div class="container bg-blue-200">
+        <div class="candidate-details bg-white  flex flex-col gap-6">
+            <div class="main-header py-6 px-20">
+                <p>Candidate Details </p>
+            </div>
+            <div class="py-6 px-20 flex flex-col gap-5">
+                <div class="flex flex-col py-6 line-bottom-border">
+                    <p class="sub-header">About</p>
+                    <p class="text">
+                      {{profileData?.about}}
+                    </p>
+                </div>
+                <div class="flex flex-col pb-6 line-bottom-border">
+                    <div><p class="sub-header">Education</p></div>
+                    <div class="flex flex-col gap-6">
+                      @for (edu of profileData?.educations; track $index) {
+                        <div class="flex gap-24">
+                            <div class="question text"><p>{{edu.fieldOfStudy}}<span class="span-text">at</span> {{edu.institution}}</p></div>
+                            <div class="answer text"><p>{{edu.start | date : 'yyyy'}} - {{edu.end | date:'yyyy'}}</p></div>
+                        </div>
+                      }
+                    </div>
+                </div>
+                <div class="flex flex-col py-6  line-bottom-border">
+                    <div><p class="sub-header">Experience</p></div>
+                    <div class="flex flex-col gap-6">
+                      @for (expr of profileData?.jobExperiences; track $index) {
+                        <div class="flex gap-24">
+                            <div class="question text"><p>{{expr.jobCategory}} <span class="span-text">at</span> {{expr.place}}</p></div>
+                            <div class="answer text"><p>{{expr.startYear}} - {{expr.endYear || "current"}}</p></div>
+                        </div>
+                      }
+                    </div>
+                </div>
+                <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 py-6 gap-6  line-bottom-border">
+                    <div class="">
+                        <div><p class="sub-header">Licenses & certifications:</p></div>
+                        <div class="flex flex-col gap-6">
+                          @for (crt of profileData?.certificates; track $index) {
+                            <div class="flex gap-24">
+                                <div class="question text"><p>{{crt.title}} {{crt.organization?  'from '+crt.organization: ''}}</p></div>
+                                <div class="answer text"><p>{{ crt.year? crt.year: ''}}</p></div>
+                            </div>
+                          }
+                        </div>
+                    </div>
+                    <div class="md:ps-48 ">
+                        <div><p class="sub-header">Language</p></div>
+                        <div class="flex flex-col gap-6">
+                          @for (lang of profileData?.languages; track $index) {
+                            <div class="flex gap-24">
+                                <div class="question text"><p>{{lang.languageName}}</p></div>
+                                <div class="answer text"><p>{{lang.languageLevel}}</p></div>
+                            </div>
+                          }
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col pt-6  ">
+                    <div><p class="sub-header">Resume</p></div>
+                    <div class="resume flex items-center justify-center">
+                        <!-- <iframe class="" style="height:-webkit-fill-available" width="60%" height="" src="https://www.youtube.com/embed/cvFt2Xcuois" frameborder="3px" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+                        </iframe>                     -->
+
+                        <!-- <embed
+	[src]="profileData?.cv  | handleFileUrl"
+	type="application/pdf"
+	width="100%"
+	height="100%"
+/> -->
+
+<pdf-viewer [src]="profileData?.cv |handleFileUrl" [render-text]="true" [fit-to-page]="true"
+style="width: 900px; height: 500px;"></pdf-viewer>
+                    </div>
+                </div>
+                <div class="flex flex-col pb-6  line-bottom-border">
+                    <div><p class="sub-header">Contact details</p></div>
+                    <div class="flex flex-col gap-6">
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Address</p></div>
+                            <div class="answer text"><p>{{profileData?.livesIn?.city}}, {{profileData?.livesIn?.country}}</p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Phone Number</p></div>
+                            <div class="answer text"><p>{{profileData?.mobileNumberCountryCode}}{{profileData?.mobileNumber}}</p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Email</p></div>
+                            <div class="answer text"><p>{{profileData?.username}}</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col py-6  ">
+                    <div><p class="sub-header">Social Prescience</p></div>
+                    <div class="social-icon flex gap-10">
+                        <div class="containing-social-icon p-4 rounded-xl hover:bg-gray-300" *ngIf="profileData?.facebookLink"><a [href]="profileData?.facebookLink"><span><i class="fa-brands fa-facebook"></i></span></a></div>
+                        <div class="containing-social-icon p-4 rounded-xl hover:bg-gray-300" *ngIf="profileData?.linkedinLink"><a [href]="profileData?.linkedinLink"><span><i class="fa-brands fa-linkedin"></i></span></a></div>
+                        <div class="containing-social-icon p-4 rounded-xl hover:bg-gray-300" *ngIf="profileData?.githubLink"><a [href]="profileData?.githubLink"><span><i class="fa-brands fa-github"></i></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="answer-details bg-white  flex flex-col gap-6">
+            <div class="main-header py-6 px-20">
+                <p>Answers </p>
+            </div>
+            @if (answers?.length) {
+                <div class=" flex flex-col gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+                    @for (answer of answers; track $index) {
+                    <div>
+                    <!-- Text Free Question -->
+                    @if (answers[$index].questionType != "TRUE_OR_FALSE" ) {
+                        <div class="py-6 flex flex-col gap-5">
+                            <div class="flex flex-col py-6 line-bottom-border">
+                                <p class="question vip-question">{{answers[$index].question}}</p>
+                                <p class="text py-10">{{answers[$index].questionAnswer}}</p>
+                            </div>
+                        </div>
+                    }
+                    @else{
+                        <!-- True Or False Question -->
+                        <div class="w-full flex flex-col gap-6 my-10">
+                            <div class="flex flex-col items-start py-6 line-bottom-border">
+                                <p class="question vip-question">{{answers[$index].question}}</p>
+                                <div class="flex text-4xl gap-20 py-10">
+                                    <div class="flex items-center gap-5">
+                                        <input [checked]="answers[$index].questionAnswer === 'Yes'" [id]="'textarea'+$index+'1'" type="radio" value="Yes"
+                                        class="radio-input">
+                                        <label [for]="'textarea'+$index+'1'" class="smal-label">Yes</label>
+                                    </div>
+                                    <div class="flex items-center gap-5">
+                                        <input [checked]="answers[$index].questionAnswer === 'No'" [id]="'textarea'+$index+'2'" type="radio"
+                                        value="No" class="radio-input">
+                                        <label [for]="'textarea'+$index+'2'" class="smal-label">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    </div>
+                    }
+            </div>
+            }@else {
+            <div
+                class="flex flex-col items-center justify-center gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+                <div class=""><img src="../../../../assets/imgs/undraw_businessman_re_mlee 1.svg" alt=""></div>
+                <div class="">
+                <p class="text-under-photo">No questions added. </p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

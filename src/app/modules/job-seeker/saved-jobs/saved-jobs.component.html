@@ -1,0 +1,69 @@
+<section id="saved-jobs" class="py-14">
+  <div class="container  flex flex-col gap-10">
+    <div class="active-saved-jobs flex flex-col gap-8">
+      <div class="main-header bg-white shadow-md  py-6 ps-16">
+        <h6>Saved Jobs</h6>
+      </div>
+      <div *ngFor="let jobPost of jobPostsPage.content"
+        class="main-body m-auto bg-white shadow-md rounded-2xl px-16 py-8 flex flex-col gap-4">
+        <div (click)="viewJob(jobPost.id)">
+          <div class="flex items-center justify-between ">
+            <div class="flex flex-col items-start gap-2">
+              <div class="flex items-center gap-4">
+                <p class="job-title">{{jobPost.jobTitle}}</p>
+                <p class="exp-level">{{jobPost.minExperienceYears}}-<span
+                    *ngIf="jobPost.maxExperienceYears>0">{{jobPost.maxExperienceYears}}</span> Year</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <p class="company-name">{{jobPost.company}}</p>
+                <p class="company-name">-</p>
+                <p class="company-location">{{jobPost.location}}</p>
+              </div>
+              <div class="flex items-center gap-4">
+                <p class="company-location">{{jobPost.employmentType}}</p>
+                <p class="company-name">-</p>
+                <p class="company-location">{{jobPost.jobType}}</p>
+              </div>
+            </div>
+            <div class="flex">
+              <img class="h-60 w-60" [src]="(jobPost.companyImageUrl | handleFileUrl) ||'../../../assets/imgs/saved-jobs-avatar.svg'" alt="">
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <p class="category">{{jobPost.industry}}</p>
+          </div>
+          <div  class="mt-3 pb-10 border-b-2 flex flex-col gap-6">
+            <div class="global-long-width flex flex-wrap items-center gap-4">
+                <p *ngFor="let skill of jobPost.skills " class="Keyword flex items-center justify-center">#{{skill}}</p>
+            </div> 
+       
+          </div>
+        </div>
+
+        <div>
+          <button (click)="toggleJobs(jobPost.id)" [class.active]="jobPost.saved" class="unsave-btn flex items-center justify-center gap-3"
+            type="button">
+            <i class="bookmark fa-solid fa-bookmark "></i>
+            <span *ngIf="jobPost.saved">Unsave</span><span *ngIf="!jobPost.saved"> Save</span>
+          </button>
+        </div>
+      </div>
+      @if (jobPostsPage.content.length <1){ 
+        <div class="second-row   shadow-md text">
+            <div class="empty-about text-center">
+              <div class="about-img">
+                <img src="../../../../../assets/imgs/company/Notebook-bro 1.svg" alt="">
+              </div>
+              <h2 class="section-header mb-2 ">Sorry, no job openings at the moment.</h2>
+              <p class="text">We open new jobs from time to time, so please check again soon!</p>
+              <button [routerLink]="['']" class="browse-btn flex items-center justify-center text-white">Browse
+                Jobs</button>
+            </div>
+        </div>
+      }
+  </div>
+  <div *ngIf="jobPostsPage.content.length>=5" class="show-more m-auto rounded-2xl bg-white py-6 ps-16"  (click)="getNext()">
+    <button>Show More</button>
+  </div>
+  </div>
+</section>

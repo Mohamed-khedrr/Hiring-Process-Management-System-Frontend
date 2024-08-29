@@ -1,0 +1,76 @@
+<section id="applicant-interview">
+  <div class="container ">
+    @for (inview of allInterviews; track $index) {
+    <div class="px-10 pt-5 pb-16 bg-white">
+      <div class="py-8 px-16 line-border flex flex-col gap-4">
+        <div class="flex justify-between">
+          <div class=" flex gap-4">
+            <div class="">
+              <p class="main-header">{{inview.title}}</p>
+            </div>
+            <div class="">
+              <form class="flex items-start">
+                <select [value]="inview.status" (change)="changeStatus(inview.id , $event.target)"
+                  class=" ass-type items-center justify-center outline-none bg-transparent" name="" id="">
+                  <option [value]="InterviewStatus.Delivered" disabled>Delivered</option>
+                  <option [value]="InterviewStatus.Attended">Attended </option>
+                  <option [value]="InterviewStatus.Missed">Missed </option>
+                </select>
+              </form>
+            </div>
+          </div>
+          <div (click)="sendInterviewToEditFrom(inview)" class="p-3 hover:bg-gray-300 rounded-2xl">
+            <button>
+              <img src="../../../../../assets/imgs/edit-3 (1).svg" alt="">
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col pb-6 line-bottom-border">
+          <div class="flex flex-col gap-4">
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Added by</p>
+              </div>
+              <!-- <div class="answer text"><p>Abbas Said at Monday, 11 January 2024 </p></div> -->
+              <div class="answer text">
+                <p>{{inview.createdBy}} at {{inview.createdAt | date : 'EEEE, dd MMMM yyyy'}} </p>
+              </div>
+            </div>
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Start time</p>
+              </div>
+              <div class="answer text">
+                <p>{{inview.startTime | date:'EEEE, dd MMMM yyyy At hh:mm' }}</p>
+              </div>
+            </div>
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>End time</p>
+              </div>
+              <div class="answer text">
+                <p>{{inview.endTime | date : 'EEEE, dd MMMM yyyy At hh:mm'}}</p>
+              </div>
+            </div>
+            <div class="flex gap-24">
+              <div class="question text">
+                <p>Interview link</p>
+              </div>
+              <div class="answer text">
+                <p>{{inview.link}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+    <div class="bg-white  px-16" *ngIf="!allInterviews?.length">
+      <div class="flex gap-5 py-10   justify-center items-center">
+          <div class="">
+              <p class="no-more-text">No activates to show.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

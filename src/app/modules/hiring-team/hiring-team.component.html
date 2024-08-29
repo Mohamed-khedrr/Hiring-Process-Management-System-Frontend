@@ -1,0 +1,149 @@
+<div class="hiring-team-page  flex flex-col justify-between  ">
+    <div *ngIf="deleteRecruiterPopUp" class="p-14 flex flex-col bg-white shadow-xl gap-10 delete-pop-up">
+        <div class="header">Delete Recruiter</div>
+        <div class="title">Deleting a recruiter will delete all job posts that they created</div>
+        <div class="warning">This is an inevitable operation</div>
+        <div class="buttons">
+            <button class="button" (click)="deleteRecruiter()">Confirm Delete</button>
+            <button class="button" (click)="cancelPopUpForDeleteRecruiter()">Cancel</button>
+        </div>        
+    </div>
+
+    <div *ngIf="deleteInvitationPopUp" class="p-14 flex flex-col bg-white shadow-xl gap-10 delete-pop-up">
+        <div class="header">Delete Recruiter Invitation</div>
+        <div class="title">Are you sure you want to delete this?</div>
+        <div class="warning">This is an inevitable operation</div>
+        <div class="buttons">
+            <button class="button" (click)="deleteInvitation()">Confirm Delete</button>
+            <button class="button" (click)="cancelPopUpForDeleteInvitation()">Cancel</button>
+        </div>        
+    </div>
+
+    <div class="container flex flex-col gap-14 ">
+        <div class="shadow-lg vip-margin rounded-2xl ">
+            <div class=" containing-header bg-white py-12 ps-20 ">
+                <h6 class="add-team-memb w-full ">Hiring Team Management</h6>
+            </div>
+        </div>
+        <div class="all-under-part flex items-start gap-14">
+            <div class="all-containing-carts shadow-lg flex flex-col rounded-2xl ">
+                <div class="all-carts px-14 pt-12 pb-20 bg-white rounded-2xl flex flex-col ">
+                    <div class=" flex items-center justify-between  pb-6">
+                        <div class="  ">
+                            <h6 class="add-team-memb w-full ">Hiring Team Management</h6>
+                        </div>
+                    </div>
+                    <div class="all-team-members flex flex-col gap-10">
+                        @if (companyRecruiters.length != 0) {
+                            <div class="containing-team-memb rounded-2xl shadow flex flex-col" *ngFor="let member of companyRecruiters; let i = index;">
+                                <div class="team-member flex flex-col" 
+                                data-toggle="recruiter-update">
+                                    <div class="flex items-center gap-10 border-b-2 pb-5">
+                                        <div class="member-photo">
+                                            <span class="span-icon-container flex items-center justify-center rounded-full">
+                                                <img class="icon w-full h-full   rounded-full" [src]="(member.profilePhoto | handleFileUrl) || '../../../assets/imgs/Container (3).svg'" alt="">
+                                            </span>
+                                        </div>
+                                        <div class="memb-info flex  items-center justify-between w-full">
+                                            <div class="member-information">
+                                                <p class="memb-name">{{member.firstName}} {{member.lastName}}</p>
+                                                <p class="memb-job-title">{{member.jobTitle}}</p>
+                                            </div>
+                                            <div class="edit-memb-info flex items-center justify-center gap-6">
+                                                <button class="member-button" (click)="toggleRecruiterData(isUpdateRecruiterOpen, i, member)">Edit Info</button>
+                                                <button class="member-button vip-btn" (click)="popUpDeleteRecruiter(member)">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- update member information -->
+                                    <div class="mt-12" >
+                                        <form [formGroup]="recruiterInfo" action="" class="flex flex-col gap-8" *ngIf="isUpdateRecruiterOpen[i]">
+                                            <div class="">
+                                                <div class=""><label class="global-small-label" for="">Member Email</label></div>
+                                                <div><input class="global-input w-full outline-none" formControlName="email" type="text" placeholder="Used Email"></div>
+                                            </div>
+                                            <div class="">
+                                                <div class=""><label class="global-small-label" for="">Member Title</label></div>
+                                                <div><input class="global-input w-full outline-none" formControlName="jobTitle" type="text" placeholder="Used Email"></div>
+                                            </div>
+                                            <div class=" flex items-center gap-4">
+                                                <button class="global-button" (click)="updateRecruiter(member)">Update</button>
+                                                <button class="global-button cancel-btn" (click)="toggleRecruiterData(isUpdateRecruiterOpen, i, member)">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>                       
+                        } @else {
+                            <div class="p-2 text-center text-5xl">No Members Added </div>
+                        }
+                        
+
+                    </div>
+                </div>
+
+            </div>
+            <div class=" all-invite-memb-form  flex flex-col gap-8 ">
+                <div class=" under-form flex shadow-lg  flex-col p-10 gap-12 bg-white">
+                    <div class=" flex items-center ">
+                        <div class="  ">
+                            <h6 class="add-team-memb w-full ">Invite new member</h6>
+                        </div>
+                    </div>
+                    <div class="">
+                        <form action="" [formGroup]="recruiterData" class="flex flex-col gap-4">
+                            <div class="">
+                                <div class=""><label class="global-small-label" for="">Member Email</label></div>
+                                <div class="input">
+                                    <input formControlName="email" class="global-input w-full" type="text">
+                                    <p *ngIf="(email.hasError('email')  || email.hasError('required')) && email.touched"
+                                        class="text-red-600 error-message validation-message">
+                                        Valid Email is required
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class=""><label class="global-small-label" for="">Member Title</label></div>
+                                <div class="input">
+                                    <input formControlName="jobTitle" class="global-input w-full" type="text">
+                                    <p *ngIf="jobTitle.hasError('required') && jobTitle.touched"
+                                        class="text-red-600 error-message validation-message">
+                                        Job Title is required
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="mt-8 invite-button">
+                                <p *ngIf="inviteMemberError"
+                                    class="text-red-600 error-message validation-message">
+                                    {{inviteMemberError}}
+                                </p>
+                                <button class="global-button" (click)="sendInvitation()">Invite Member</button>                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="under-form flex shadow-lg  flex-col p-10 gap-12 bg-white">
+                    <div class=" flex items-center ">
+                        <div class="  ">
+                            <h6 class="add-team-memb w-full ">Pending Invitations</h6>
+                        </div>
+                    </div>
+                    <div class="">
+                        @if (pendingInvitations.length != 0) {
+                            <form action="" class="flex flex-col gap-8">
+                                <div *ngFor="let invitation of pendingInvitations" class="edit-email flex shadow justify-between p-6 sub-div ">
+                                    <p class="containing-email">{{invitation.recruiterEmail}}</p>
+                                    <button (click)="popUpDeleteInvitation(invitation)">Delete</button>
+                                </div>
+                            </form>
+                        } @else {
+                            <div class="p-2 text-center text-5xl">No pending invitations</div>                            
+                        }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div #overlay class="overlay hide"> </div>    
+</div>

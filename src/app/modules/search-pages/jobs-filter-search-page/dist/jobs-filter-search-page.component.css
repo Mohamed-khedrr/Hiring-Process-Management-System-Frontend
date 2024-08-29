@@ -1,0 +1,218 @@
+#job-filter-search-page {
+  background-color: #f5f9fa;
+}
+#job-filter-search-page .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#job-filter-search-page .global-line-bottom-border {
+  border-bottom: 1px solid #C6D2D5;
+}
+#job-filter-search-page .global-line-top-border {
+  border-top: 1px solid #C6D2D5;
+}
+#job-filter-search-page .global-line-border {
+  border: 1px solid #C6D2D5;
+  border-radius: 4px;
+}
+#job-filter-search-page .search-filtering-words .filtering-words-title {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27.5px;
+  color: #1f2223;
+}
+#job-filter-search-page .search-filtering-words .filtering-words-btn .btn {
+  padding: 6px 16px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+  border: 1px solid #a1b3b6;
+  transition: 0.6s all;
+}
+#job-filter-search-page .search-filtering-words .filtering-words-btn .btn:hover, #job-filter-search-page .search-filtering-words .filtering-words-btn .btn:focus {
+  background-color: #033f47;
+  color: white;
+  font-weight: 700;
+  border-color: #033f47;
+}
+#job-filter-search-page .containing-all-under-part {
+  width: 95%;
+}
+#job-filter-search-page .containing-all-under-part .filter-section {
+  width: 35%;
+}
+#job-filter-search-page .containing-all-under-part .filter-section .title {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27.5px;
+  color: #033f47;
+}
+#job-filter-search-page .containing-all-under-part .filter-section .filter-main-label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+}
+#job-filter-search-page .containing-all-under-part .filter-section .chooise-filter-label {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #2f5d64;
+}
+#job-filter-search-page .containing-all-under-part .filter-section .checkbox-input {
+  width: 16px;
+  height: 16px;
+}
+#job-filter-search-page .containing-all-under-part .search-term {
+  width: 65%;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .title,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .title,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .title {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27.5px;
+  color: #033f47;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .job-name,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .people-name,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .job-name,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .people-name,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .job-name,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .people-name {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #033f47;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .exp-level,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-name,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-location,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .category,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .keyword,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .see-all,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .exp-level,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-name,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-location,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .category,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .keyword,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .see-all,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .exp-level,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-name,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-location,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .category,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .keyword,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .see-all {
+  padding: 0px 2px 0px 2px;
+  background-color: #f5f9fa;
+  border-radius: 2px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  color: #033f47;
+  transition: 0.6s all;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .exp-level:hover,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-name:hover,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-location:hover,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .category:hover,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .keyword:hover,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .see-all:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .exp-level:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-name:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-location:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .category:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .keyword:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .see-all:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .exp-level:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-name:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-location:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .category:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .keyword:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .see-all:hover {
+  background-color: #c6d2d5;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-name,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-location,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-name,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-location,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-name,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-location {
+  padding: 0px 0px 0px 0px;
+  font-weight: 600;
+  background-color: transparent;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-name:hover,
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .company-location:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-name:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .company-location:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-name:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .company-location:hover {
+  background-color: transparent;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .see-all,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .see-all,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .see-all {
+  padding: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #627D81;
+  background-color: transparent;
+  transition: 0.6s border-radius;
+}
+#job-filter-search-page .containing-all-under-part .search-term .jobs-term .see-all:hover,
+#job-filter-search-page .containing-all-under-part .search-term .companies-term .see-all:hover,
+#job-filter-search-page .containing-all-under-part .search-term .people-term .see-all:hover {
+  background-color: #e2e8e9;
+  border: 1px solid #2b786c;
+  border-radius: 8px;
+}
+@media (min-width: 1400px) {
+  #job-filter-search-page .container {
+    max-width: 1320px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #job-filter-search-page .container {
+    max-width: 1140px;
+  }
+  #job-filter-search-page .containing-all-under-part {
+    width: 100%;
+  }
+}
+@media (max-width: 1199.98px) {
+  #job-filter-search-page .container {
+    max-width: 960px;
+  }
+  #job-filter-search-page .containing-all-under-part {
+    flex-direction: column;
+  }
+  #job-filter-search-page .containing-all-under-part .filter-section {
+    width: auto;
+  }
+  #job-filter-search-page .containing-all-under-part .search-term {
+    width: auto;
+  }
+}
+@media (max-width: 991.98px) {
+  #job-filter-search-page .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 767.98px) {
+  #job-filter-search-page .container {
+    max-width: 540px;
+  }
+}

@@ -1,0 +1,341 @@
+* {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.error-border {
+  border: 1px solid red;
+}
+
+#sign-in-employer {
+  background-color: #f8f8f1;
+}
+#sign-in-employer .under-section .all-left-side {
+  padding-top: 50px;
+  width: 40%;
+}
+#sign-in-employer .under-section .all-left-side .section-info .text {
+  color: #2f5d64;
+  font-family: "Crimson Text", serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 115%;
+}
+#sign-in-employer .under-section .all-right-side {
+  padding: 32px 44px 32px 44px;
+  width: 50.2%;
+}
+#sign-in-employer .under-section .all-right-side .form .mobile-container {
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  background: #f5f9fa;
+}
+#sign-in-employer .under-section .all-right-side .form .mobile-container .mobile-input {
+  width: 87.2%;
+}
+#sign-in-employer .under-section .all-right-side .form .mobile-container .mobile-input .mobile-number-input {
+  background: #f5f9fa;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 44px;
+  padding-left: 10px;
+}
+#sign-in-employer .under-section .all-right-side .form .icon-number {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+}
+#sign-in-employer .under-section .all-right-side .form ._24-arrow-down {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  position: relative;
+  overflow: visible;
+}
+#sign-in-employer .under-section .all-right-side .form ._1-px {
+  background-color: #d2d3d3;
+  position: relative;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .sign-up-and-transform-your-hiring-process {
+  color: #033f47;
+  font-family: "Crimson Text", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 115%;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .rule {
+  background: #e2e8e9;
+  height: 1px;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-label, #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-field {
+  background: #f5f9fa;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  border-radius: 4px;
+  height: 44px;
+  padding-left: 10px;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+  color: rgba(255, 0, 0, 0.723);
+  font-size: small;
+  margin-top: 5px;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .password-section .new-containing {
+  border-radius: 4px;
+}
+#sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .password-section .new-containing .eye-icon-button {
+  background: #627d81;
+  padding: 10px;
+  border-radius: 0px 3px 3px 0px;
+  right: 0.6px;
+  top: 0.8px;
+  bottom: 0.8px;
+}
+#sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 button {
+  background: #2b786c;
+  border-radius: 4px;
+  padding-block: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+#sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 button:disabled {
+  opacity: 0.5;
+}
+#sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 button:disabled:hover {
+  cursor: default;
+}
+#sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 .error {
+  margin-bottom: 10px;
+}
+#sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 .error .error-message {
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  color: rgba(255, 0, 0, 0.723);
+  font-size: large;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#sign-in-employer .under-section .all-right-side .terms-and-condition {
+  color: #1f2223;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 115%;
+}
+#sign-in-employer .under-section .all-right-side .terms-and-condition a {
+  color: #0055d9;
+}
+#sign-in-employer .under-section .all-right-side .last-info-section .frame-21 .rule2 {
+  height: 1px;
+  background-color: #d2d3d3;
+}
+#sign-in-employer .under-section .all-right-side .last-info-section .have-accout-login-link {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+#sign-in-employer .under-section .all-right-side .last-info-section .have-accout-login-link .ankor {
+  color: #0055d9;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  #sign-in-employer .under-section .all-left-side .section-info .text {
+    font-size: 29px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .sign-up-and-transform-your-hiring-process {
+    font-size: 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  #sign-in-employer .under-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    gap: 48px;
+  }
+  #sign-in-employer .under-section .all-left-side {
+    width: 100%;
+  }
+  #sign-in-employer .under-section .all-left-side .section-info .image {
+    display: none;
+  }
+  #sign-in-employer .under-section .all-right-side {
+    width: 80%;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .sign-up-and-transform-your-hiring-process {
+    font-size: 20px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-label, #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+    font-size: 14px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+    font-size: x-small;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-field {
+    font-size: 12px;
+    height: 40px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 button {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 .error-message {
+    font-size: x-small;
+  }
+  #sign-in-employer .under-section .all-right-side .terms-and-condition {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .last-info-section .have-accout-login-link {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  #sign-in-employer .under-section .all-right-side {
+    width: 100%;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .sign-up-and-transform-your-hiring-process {
+    font-size: 18px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-label, #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+    font-size: x-small;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-field {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 button {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 .error-message {
+    font-size: x-small;
+  }
+  #sign-in-employer .under-section .all-right-side .terms-and-condition {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .last-info-section .have-accout-login-link {
+    font-size: 12px;
+  }
+}
+@media (max-width: 575.98px) {
+  #sign-in-employer .under-section .all-left-side {
+    width: 90%;
+  }
+  #sign-in-employer .under-section .all-left-side .section-info .text {
+    font-size: 26px;
+  }
+  #sign-in-employer .under-section .all-right-side {
+    padding: 24px 24px 32px 24px;
+    width: 90%;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .sign-up-and-transform-your-hiring-process {
+    font-size: 18px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-label, #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .error-message {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .frame-17 .s-ign-up-application .input-field {
+    height: 40px;
+  }
+  #sign-in-employer .under-section .all-right-side .form .sign-up-with-google3 .error-message {
+    font-size: 12px;
+  }
+  #sign-in-employer .under-section .all-right-side .terms-and-condition {
+    font-size: 10.5px;
+  }
+}
+.indusries {
+  width: 100%;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+select {
+  height: 45px;
+  width: 100%;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  background: #f5f9fa;
+  font-size: 14px;
+}
+
+option:hover {
+  background-color: #559389;
+}
+
+option:first-child {
+  color: #A1B3B6;
+}
+
+select:hover {
+  background-color: #f0f0f0;
+}

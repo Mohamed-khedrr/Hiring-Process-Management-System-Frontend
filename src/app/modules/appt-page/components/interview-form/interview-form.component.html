@@ -1,0 +1,57 @@
+<form [formGroup]="interviewFrom" (ngSubmit)="submitFrom()" class="assessment-form" action="">
+  <div class="form-header">
+    <h3>
+      @if (oldInterview?.id) {
+      <span>Edit</span>
+      }@else{
+      <span>Add</span>
+      }
+      Interview
+    </h3>
+  </div>
+
+
+  <div class="input-container">
+    <label class="label" for="assessment-title">Interview Title</label>
+    <input formControlName="interviewTitle" type="text" id="assessment-title">
+  </div>
+
+  <div class="flex-auto input-container">
+    <label class="label" for="interview-start">Interview Start Time</label>
+    <input formControlName="interviewStart" type="datetime-local" id="interview-start">
+  </div>
+
+  <div class="flex-auto input-container">
+    <label class="label" for="interview-end">Interview End Time</label>
+    <input formControlName="interviewEnd" type="datetime-local" id="interview-end">
+  </div>
+
+  <div class="input-container">
+    <label class="label" for="assessment-link">Interview Link</label>
+    <input type="text" formControlName="interviewLink" id="assessment-link">
+  </div>
+
+  <div class="input-container">
+    <label class="label" for="assessment-tech">Technical Type</label>
+    <select type="text" formControlName="interviewTechnicalType" id="assessment-tech">
+      <option [value]="TechnicalType.Technical">Technical</option>
+      <option [value]="TechnicalType.HR">HR</option>
+    </select>
+  </div>
+
+  <!-- <div class="input-container">
+    <label class="label" for="assessment-status">Interview Status</label>
+    <select type="text" formControlName="interviewStatus" id="assessment-status">
+      <option [value]="InterviewStatus.Delivered">Delivered</option>
+      <option [value]="InterviewStatus.Visited">Visited</option>
+      <option [value]="InterviewStatus.Attended">Completed</option>
+      <option [value]="InterviewStatus.Missed">Missed</option>
+    </select>
+  </div> -->
+
+  <div class="btn-container ">
+    <button class="btn btn-submit" [disabled]="interviewFrom.invalid" type="submit">Submit</button>
+    <button class="btn btn-discard" (click)="hideForm()" type="reset">Discard</button>
+  </div>
+
+</form>

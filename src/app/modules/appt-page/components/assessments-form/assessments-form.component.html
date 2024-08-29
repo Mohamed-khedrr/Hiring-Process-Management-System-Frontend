@@ -1,0 +1,48 @@
+<form [formGroup]="assessmentFrom" (ngSubmit)="submitFrom()" class="assessment-form" action="">
+  <div class="form-header">
+    <h3>
+      @if (oldAssessment?.id) {
+      <span>Edit</span>
+      }@else{
+      <span>Add</span>
+      }
+      Assessment
+    </h3>
+  </div>
+  <div class="input-container">
+    <label class="label" for="assessment-title">Assessment Title</label>
+    <input formControlName="assessmentTitle" type="text" id="assessment-title">
+  </div>
+  <div class="input-container">
+    <label class="label" for="assessment-deadline">Assessment Deadline</label>
+    <input type="date" formControlName="assessmentDeadline" id="assessment-deadline">
+  </div>
+  <div class="input-container">
+    <label class="label" for="assessment-duration">Assessment Duration</label>
+    <input type="text" formControlName="assessmentDuration" id="assessment-duration">
+  </div>
+  <div class="input-container">
+    <label class="label" for="assessment-link">Assessment Link</label>
+    <input type="text" formControlName="assessmentLink" id="assessment-link">
+  </div>
+  <div class="input-container">
+    <label class="label" for="assessment-tech">Technical Type</label>
+    <select type="text" formControlName="assessmentTechnicalType" id="assessment-tech">
+      <option [value]="TechnicalType.Technical">Technical</option>
+      <option [value]="TechnicalType.HR">HR</option>
+    </select>
+  </div>
+  <!-- <div class="input-container">
+    <label class="label" for="assessment-status">Assessment Status</label>
+    <select type="text" formControlName="assessmentStatus" id="assessment-status">
+      <option [value]="AssessmentStatus.Delivered">Delivered</option>
+      <option [value]="AssessmentStatus.Visited">Visited</option>
+      <option [value]="AssessmentStatus.Completed">Completed</option>
+      <option [value]="AssessmentStatus.Missed">Missed</option>
+    </select>
+  </div> -->
+  <div class="btn-container ">
+    <button class="btn btn-submit" [disabled]="assessmentFrom.invalid" type="submit">Submit</button>
+    <button class="btn btn-discard" (click)="hideForm()" type="reset">Discard</button>
+  </div>
+</form>

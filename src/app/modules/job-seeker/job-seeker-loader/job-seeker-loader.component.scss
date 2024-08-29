@@ -1,0 +1,251 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+// responsive container
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.loader-page {
+  background-color: #f8f8f1;
+
+  .page {
+    .blank-header {
+      width: 45%;
+
+      h5 {
+        width: 50%;
+        padding-block: 9px;
+        background-color: $color-n-300;
+      }
+
+      p {
+        width: 100%;
+        padding-block: 9px;
+        background-color: $color-n-300;
+      }
+    }
+
+    .blank-question-section {
+      .question-header {
+        .short-header,
+        .long-header {
+          width: 30%;
+          padding-block: 7px;
+          background-color: $color-n-300;
+        }
+
+        .long-header {
+          width: 76.5%;
+        }
+      }
+
+      .question-selector {
+        .btn {
+          padding-block: 20px;
+          background-color: $color-n-300;
+          border-radius: 5px;
+        }
+      }
+
+      .third-part {
+        .third-question-input {
+          width: 100%;
+          padding-block: 10px;
+          background-color: $color-n-300;
+          border-radius: 5px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .six-part .vip-btn {
+        padding-block: 11px;
+        height: 1px;
+      }
+    }
+  }
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .blank-question-section {
+    max-width: 80%;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .loader-page .page {
+    .blank-header {
+      width: 55%;
+    }
+
+    .blank-question-section {
+      max-width: 90%;
+
+      .question-header {
+        .short-header {
+          width: 45%;
+        }
+      }
+    }
+  }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .loader-page .page {
+    .blank-header {
+      width: 65%;
+      p {
+        padding-block: 7px;
+      }
+      h5 {
+        padding-block: 8px;
+      }
+    }
+
+    .blank-question-section {
+      max-width: 100%;
+
+      .question-header {
+        .short-header {
+          width: 60%;
+        }
+
+        .long-header {
+          width: 83%;
+        }
+      }
+
+      .question-selector {
+        .btn {
+          padding-block: 19px;
+        }
+      }
+    }
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .loader-page .page {
+    .blank-header {
+      width: 75%;
+      p {
+        padding-block: 6px;
+      }
+      h5 {
+        padding-block: 7px;
+      }
+    }
+
+    .blank-question-section {
+      .question-header {
+        .short-header {
+          width: 75%;
+        }
+
+        .long-header {
+          width: 89%;
+        }
+      }
+
+      .question-selector {
+        .btn {
+          padding-block: 18px;
+        }
+      }
+    }
+  }
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .loader-page .page {
+    .blank-header {
+      width: 80%;
+
+      h5 {
+        width: 45%;
+        padding-block: 6px;
+      }
+      p {
+        padding-block: 5px;
+      }
+    }
+
+    .blank-question-section {
+      .question-header {
+        .short-header {
+          width: 81%;
+        }
+
+        .long-header {
+          width: 95%;
+        }
+      }
+
+      .six-part .question-selector {
+        column-gap: 24px;
+      }
+
+      .question-selector {
+        .btn {
+          padding-block: 16px;
+        }
+      }
+    }
+  }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .loader-page .page {
+    .blank-header {
+      h5 {
+        width: 40%;
+      }
+      p {
+        padding-block: 4px;
+      }
+    }
+
+    .blank-question-section {
+      max-width: 92%;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+<section id="applicant-interview">
+    <div class="container ">
+        @if (offer) {
+        <div class="px-10 pt-5 pb-16 bg-white">
+            <div class="py-8 px-16 line-border flex flex-col gap-4">
+                <div class="flex flex-col pb-6 line-bottom-border gap-8">
+                    <div class="offer-buttons flex items-center justify-end gap-4">
+                        <!-- <div class="flex  containing-add-comment-btn  ">
+                            <button (click)="showAddDocumentFromParent()" class="add-comment-btn global-button flex items-center justify-center gap-4"><span>Add Signed document</span><i class="fa-solid fa-file-pdf"></i></button>
+                        </div> -->
+                        <div class="flex items-center justify-end containing-add-comment-btn  ">
+                            <button (click)="showAddCommentFromParent()" 
+                            class="add-comment-btn global-button flex items-center justify-center gap-4">
+                            <span>Add comment</span>
+                            <i class="fa-regular fa-comment-dots"></i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="line-border p-4">
+                        <div class="">
+                            <div class="flex justify-between">
+                                <div class="">
+                                    <div class="flex gap-24">
+                                        <div class="question text">
+                                            <p>Added by</p>
+                                        </div>
+                                        <div class="answer text">
+                                            <p>{{offer.createdBy}} at {{getDateTimeAndDay(offer.createdAt)}} </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-24">
+                                        <div class="question text">
+                                            <p>Deadline</p>
+                                        </div>
+                                        <div class="answer text">
+                                            <p>{{getDateTimeAndDay(offer.deadlineAt)}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="cnotaining-indicat-btn" >
+                                        <div class="relative inline-block text-left">
+                                            <div>
+                                                <button type="button"
+                                                    class="move-btn items-center inline-flex  justify-center gap-x-1.5 rounded-md shadow-sm w-max"
+                                                    [ngClass]="{'rej-btn': offer.status === offerStatus.Rejected, 
+                                                                'global-button': offer.status !== offerStatus.Rejected}"
+                                                    id="menu-button" aria-expanded="true" aria-haspopup="true"
+                                                    (click)="toggleDropDownVisibilty()">
+                                                    {{offer.status||'Move to'}}
+                                                    <img src="../../../assets/imgs/arrow-down.svg" alt="">
+                                                </button>
+                                            </div>
+                                            <div [class.hide-drop-down]="!isDropDownVisible"
+                                                class=" drop-down absolute  right-0 z-10 w-56 mt-2  origin-top-right rounded-md bg-white  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button"
+                                                tabindex="-1">
+                                                <div class="" role="none">
+                                                    <ul class="">
+                                                        <li class="" (click)="showAddDocumentFromParent()">
+                                                            <a class="flex px-4 py-5">Accept</a>
+                                                        </li>
+                                                        <li class="" (click)="editOfferStatus(offerStatus.Rejected)">
+                                                            <a class="flex px-4 py-5">Reject</a>
+                                                        </li>
+                                                        <li class="" (click)="OpenRequestUpdate()">
+                                                            <a class="flex px-4 py-5">Request updates</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hidden"><p class="mark-done-btn">Accepted</p></div>
+                                </div>
+                            </div>
+                            <div class="pdf-box flex w-fit items-center  gap-5" *ngIf="offer.documentByCompany">
+                                <div class=""><img src="../../../../../assets/imgs/Group.svg" alt=""></div>
+                                <div class="flex flex-col">
+                                    <div class="">
+                                        <p class="text">{{offer.documentByCompany.split('\\').slice(-1).pop()}}</p>
+                                    </div>
+                                    <div class="">
+                                        <p class="text text-colr">File size {{offer.sizeOfDocumentByCompany}} MB</p>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    
+                                    <a [href]="offer.documentByCompany|handleFileUrl">
+                                        <img src="../../../../../assets/imgs/receive-square.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line-border p-4" *ngIf="offer.documentByJobSeeker">
+                        <div class="">
+                            <div class="flex justify-between">
+                                <div class="">
+                                    <div class="flex gap-24">
+                                        <div class="question text">
+                                            <p>Added by You</p>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="pdf-box flex w-fit items-center  gap-5">
+                                <div class=""><img src="../../../../../assets/imgs/Group.svg" alt=""></div>
+                                <div class="flex flex-col">
+                                    <div class="">
+                                        <p class="text font-bold">{{offer.documentByJobSeeker.split('\\').slice(-1).pop()}}</p>
+                                    </div>
+                                    <div class="">
+                                        <p class="text text-colr">File size {{offer.sizeOfDocumentByJobSeeker}} MB</p>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <a [href]="offer.documentByJobSeeker|handleFileUrl" target="_blank">
+                                        <img src="../../../../../assets/imgs/receive-square.svg" alt="">
+                                    </a>                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>  
+                    <div class="flex flex-col gap-6" *ngIf="offer.comments">
+                        <div class="line-border" *ngFor="let comment of offer.comments">
+                            <div class="bg-slate-50 p-4" *ngIf="comment.creatorRole.toString() === 'ROLE_JOBSEEKER'">
+                                <div class="flex gap-24">
+                                    <div class="question text"><p>Replied at</p></div>
+                                    <div class="answer text font-bold"><p>{{getDateTimeAndDay(comment.createdAt)}}</p></div>
+                                </div>
+                                <div class="question text-2xl text pl-32 py-5 font-bold"><p>{{comment.content}}</p></div>
+                            </div>
+                            <div class="bg-white p-4" *ngIf="(comment.creatorRole.toString() === 'ROLE_RECRUITER')||
+                                                        (comment.creatorRole.toString() ==='ROLE_COMPANY')">
+                                <div class="flex gap-24">
+                                    <div class="question text"><p>Added by</p></div>
+                                    <div class="answer text"><p>Recruiter at {{getDateTimeAndDay(comment.createdAt)}}</p></div>
+                                </div>
+                                <div class="question text-2xl text pl-32 py-5 font-bold"><p>{{comment.content}}</p></div>
+                            </div>
+                        </div>                        
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    }@else {
+        <div
+            class="flex flex-col items-center justify-center gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+            <div class=""><img src="../../../../assets/imgs/undraw_businessman_re_mlee 1.svg" alt=""></div>
+            <div class="">
+                <p class="text-under-photo">No offer added. </p>
+            </div>
+        </div>
+    }
+    </div>
+</section>

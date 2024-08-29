@@ -1,0 +1,74 @@
+<section id="job-application" class="pt-20 pb-24">
+  <div class="container  ">
+    <div class="containing-all-details w-4/5  mx-auto flex flex-col gap-12">
+      <div class="job-header bg-white line-border shadow-md rounded-md px-20 py-10 flex justify-between items-center ">
+        <div>
+          <h6 class="heading">{{postAppForm.jobTitle}}</h6>
+        </div>
+        <div><button class="global-button" type="button">Return to job details</button></div>
+      </div>
+      <div class="question-title-card  ">
+        <form [formGroup]="applicationForm" (ngSubmit)="submitFrom()">
+          <div class="flex flex-col gap-12">
+            @if (postAppForm.questionDtosList.length) {
+            <div formArrayName="questions"
+              class=" flex flex-col gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+              @for (question of applicationForm.controls.questions.controls; track $index) {
+              <div [formGroupName]="$index">
+                <!-- Text Free Question -->
+                @if (postAppForm.questionDtosList[$index].questionType != "TRUE_OR_FALSE" ) {
+                <div class="w-full flex flex-col gap-6 my-10">
+                  <div class=""><label class="textarea-title"
+                      [for]="'textarea'+$index">{{postAppForm.questionDtosList[$index].question}}</label></div>
+                  <div class=" w-full">
+                    <textarea class="w-full global-input" formControlName="questionAnswer" [id]="'textarea'+$index"
+                      cols="30" rows="4" placeholder="Write your answer here"></textarea>
+                  </div>
+                </div>
+                }
+                @else{
+                <!-- True Or False Question -->
+                <div class="w-full flex flex-col gap-6 my-10">
+                  <div>
+                    <p class="input-radio-title">{{postAppForm.questionDtosList[$index].question}}</p>
+                  </div>
+                  <div class="flex  gap-20">
+                    <div class="flex items-center gap-5">
+                      <input formControlName="questionAnswer" [id]="'textarea'+$index+'1'" type="radio" value="Yes"
+                        class="radio-input">
+                      <label [for]="'textarea'+$index+'1'" class="smal-label">Yes</label>
+                    </div>
+                    <div class="flex items-center gap-5">
+                      <input formControlName="questionAnswer" checked [id]="'textarea'+$index+'2'" type="radio"
+                        value="No" class="radio-input">
+                      <label [for]="'textarea'+$index+'2'" class="smal-label">No</label>
+                    </div>
+                  </div>
+                </div>
+                }
+              </div>
+              }
+            </div>
+            }@else {
+            <div
+              class="flex flex-col items-center justify-center gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+              <div class=""><img src="../../../../assets/imgs/undraw_businessman_re_mlee 1.svg" alt=""></div>
+              <div class="">
+                <p class="text-under-photo">No question added, submit to apply for the job. </p>
+              </div>
+            </div>
+            }
+            <div class="containing-under-btns flex items-center justify-between">
+              <div class=""><button type="reset" class="global-button vip-btn">Cancel</button></div>
+              <div class="flex items-center gap-8">
+                <div class=""><button type="button" class="global-button vip-btn">Save </button></div>
+                <div class=""><button type="submit" class="global-button vip-btn"
+                    [disabled]="applicationForm.invalid">Submit </button></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

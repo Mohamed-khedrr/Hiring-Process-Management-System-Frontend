@@ -1,0 +1,178 @@
+<section id="applicant-timelines">
+    <div class=" container ">
+        <div class="line-border  " *ngFor="let event of timelineEvents">
+            <div class="bg-white  px-16" *ngIf="event.type === EventType.MoveToDisqualified">
+                <div class="flex gap-5 py-8  bottom-line-border">
+                    <div class="pt-7 "><img src="../../../../../assets/imgs/forbidden-2.svg" alt=""></div>
+                    <div class="flex flex-col ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text"><p>Disqualified by <span class="span-text">{{event.creatorName}}</span></p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16" *ngIf="event.type === EventType.MoveToHired">
+                <div class="flex gap-5 py-8  bottom-line-border">
+                    <div class="pt-7 "><img src="../../../../../assets/imgs/medal-star.svg" alt=""></div>
+                    <div class="flex flex-col ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text"><p>Moved to Hired by <span class="span-text">{{event.creatorName}}</span></p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16" *ngIf="event.type === EventType.Offer">
+                <div class="flex gap-5 py-8  bottom-line-border">
+                    <div class="pt-7 "><img src="../../../../../assets/imgs/sms-star.svg" alt=""></div>
+                    <div class="flex flex-col ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text"><p>Offer sent by <span class="span-text">{{event.creatorName}}</span></p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16" *ngIf="event.type === EventType.Move">
+                <div class="flex gap-5 py-8 items-center  bottom-line-border">
+                    <div class=" "><img src="../../../../../assets/imgs/right.svg" alt=""></div>
+                    <div class="flex flex-col ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text">
+                                    <p>Moved to 
+                                        <span *ngIf="event.applicationStatus === ApplicationStatus.OFFER">Offer</span>  
+                                        <span *ngIf="event.applicationStatus === ApplicationStatus.PHONE_SCREEN">Phone Screen</span>  
+                                        <span *ngIf="event.applicationStatus === ApplicationStatus.INTERVIEW">Interview</span>
+                                        <span *ngIf="event.applicationStatus === ApplicationStatus.ASSESSMENT">Assessment</span>
+                                        by  <span class="span-text">{{event.creatorName}}</span>
+                                    </p>
+                                </div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16"  *ngIf="event.type === EventType.Assessment">
+                <div class="flex gap-5 py-8  bottom-line-border">
+                    <div class="pt-7 "><img src="../../../../../assets/imgs/assessment.png" alt=""></div>
+                    <div class="flex flex-col gap-6 ">
+                        <div class="flex gap-4">
+                            <div class="pt-1">
+                                <img class="h-24 w-24 rounded-full" 
+                                [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt="">
+                            </div>
+                            <div class="">
+                                <div class="text"><p><span class="span-text">{{event.creatorName}}</span>  sat an Assessment.</p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                        <div class=" flex flex-col gap-8">
+                            <div class="flex gap-28">
+                                <div class="span-text"><p>Description</p></div>
+                                <div class="text another-text"><p>{{event.content.title}} </p></div>
+                            </div>
+                            <div class="flex gap-36">
+                                <div class="span-text"><p>Deadline</p></div>
+                                <div class="text another-text"><p>{{event.content.availableTill}}</p></div>
+                            </div>
+                            <div class="flex gap-32">
+                                <div class="span-text"><p>Duration</p></div>
+                                <div class="text another-text"><p>{{event.content.duration}}</p></div>
+                            </div>
+                            <div class="flex gap-32">
+                                <div class="span-text"><p>Link</p></div>
+                                <div class="text another-text"><p>{{event.content.link}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16"  *ngIf="event.type === EventType.Interview">
+                <div class="flex gap-5 py-8  bottom-line-border">
+                    <div class="pt-7 "><img src="../../../../../assets/imgs/video.svg" alt=""></div>
+                    <div class="flex flex-col gap-6 ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text"><p><span class="span-text">{{event.creatorName}}</span>sat an Interview.</p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                        <div class=" flex flex-col gap-8">
+                            <div class="flex gap-28">
+                                <div class="span-text"><p>Description</p></div>
+                                <div class="text another-text"><p>{{event.content.title}} </p></div>
+                            </div>
+                            <div class="flex gap-36">
+                                <div class="span-text"><p>Start Time</p></div>
+                                <div class="text another-text"><p>{{event.content.startTime}}</p></div>
+                            </div>
+                            <div class="flex gap-32">
+                                <div class="span-text"><p>End Time</p></div>
+                                <div class="text another-text"><p>{{event.content.endTime}}</p></div>
+                            </div>
+                            <div class="flex gap-32">
+                                <div class="span-text"><p>Link</p></div>
+                                <div class="text another-text"><p>{{event.content.link}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16" *ngIf="event.type === EventType.Move">
+                <div class="flex gap-5 py-8 items-center  bottom-line-border">
+                    <div class=" "><img src="../../../../../assets/imgs/right.svg" alt=""></div>
+                    <div class="flex flex-col ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text"><p>Moved to Hired by <span class="span-text">{{event.creatorName}}</span></p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white  px-16" *ngIf="event.type === EventType.Comment">
+                <div class="flex gap-5 py-8  bottom-line-border">
+                    <div class="pt-7 ">
+                        <img *ngIf="event.content.type === 'Elevation'" src="../../../../../assets/imgs/like.svg" alt="">
+                        <img *ngIf="event.content.type === 'Downgrade'" src="../../../../../assets/imgs/dislike.svg" alt="">
+                        <img *ngIf="event.content.type === 'Normal'" src="../../../../../assets/imgs/message.svg" alt="">
+                    </div>
+                    <div class="flex flex-col ">
+                        <div class="flex gap-4">
+                            <div class="pt-1"><img class="h-24 w-24 rounded-full" [src]="(event.creatorPhoto|handleFileUrl)||'../../../../../assets/imgs/comment-avatar.svg'" alt=""></div>
+                            <div class="">
+                                <div class="text"><p><span class="span-text">{{event.creatorName}}</span> added comment.</p></div>
+                                <div class="text"><p> at {{event.createdAt}}</p></div>
+                            </div>
+                        </div>
+                        <div class="another-text"><p>{{event.content.content}}</p></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="bg-white  px-16" *ngIf="!timelineEvents">
+            <div class="flex gap-5 py-10   justify-center items-center">
+                <div class="">
+                    <p class="no-more-text">No activates to show.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

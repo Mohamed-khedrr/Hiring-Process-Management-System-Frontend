@@ -1,0 +1,342 @@
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.second-page {
+  background-color: #f8f8f1;
+}
+.second-page .heading-text h5 {
+  color: #033f47;
+  font-size: 32px;
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  line-height: 115%;
+}
+.second-page .heading-text p {
+  color: #627d81;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+}
+.second-page .questions .under-buttons .skip-save-buttons {
+  padding: 5rem 0 5rem 0;
+}
+.second-page .questions .global-rounde {
+  border-radius: 8px;
+}
+.second-page .questions .global-section-label {
+  color: #033f47;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  font-weight: 600;
+}
+.second-page .questions .global-section-label .span-text {
+  color: #627d81;
+  font-weight: 400;
+  font-size: 14px;
+}
+.second-page .questions .global-small-label {
+  font-size: 14px;
+  padding-left: 6px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #033f47;
+  line-height: 150%;
+}
+.second-page .questions .global-button {
+  padding: 12px 24px;
+  background-color: #559389;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+}
+.second-page .questions .global-button:disabled {
+  cursor: default;
+  background-color: #80aea7;
+}
+.second-page .questions .back-button {
+  background-color: #e2e8e9;
+  color: #627d81;
+  transition: 1s all;
+}
+.second-page .questions .back-button:hover {
+  background-color: #c6d2d5;
+}
+.second-page .questions .skip-button {
+  background-color: transparent;
+  border: 1px solid #80aea7;
+  color: #80aea7;
+  transition: 1s all;
+}
+.second-page .questions .skip-button:hover {
+  background-color: #2b786c;
+  color: white;
+}
+.second-page .questions .global-input {
+  padding: 11px 12px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+.second-page .questions .global-input:focus {
+  outline: none;
+}
+.second-page .questions .global-input::placeholder {
+  color: #033f47;
+}
+.second-page .questions #helper-checkbox-text {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  color: #a1b3b6;
+}
+.second-page .questions .radio-containing {
+  padding-top: 4.5px;
+}
+.second-page .questions .radio-input {
+  width: 19px;
+  height: 19px;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .questions {
+    max-width: 80%;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .questions {
+    max-width: 90%;
+  }
+}
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .second-page .questions {
+    max-width: 100%;
+  }
+  .second-page .questions .global-button {
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .second-page .heading-text h5 {
+    font-size: 32px;
+  }
+  .second-page .questions {
+    max-width: 100%;
+  }
+  .second-page .questions .global-button {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .second-page .heading-text h5 {
+    font-size: 24px;
+  }
+  .second-page .questions {
+    max-width: 100%;
+  }
+  .second-page .questions .global-button {
+    padding: 12px 14px;
+  }
+  .second-page .questions .global-input {
+    font-size: 12px;
+    padding: 11px 8px;
+  }
+}
+@media (max-width: 575.98px) {
+  .second-page .heading-text {
+    max-width: 85%;
+  }
+  .second-page .heading-text h5 {
+    font-size: 24px;
+  }
+  .second-page .heading-text p {
+    font-size: 13px;
+  }
+  .second-page .questions {
+    max-width: 92%;
+  }
+}
+:host ::ng-deep .test {
+  padding: 7px 10px;
+  outline: none;
+  border: 1px solid #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  width: 100%;
+  outline-color: #2b786c;
+}
+:host ::ng-deep .test .p-hidden-accessible {
+  padding: 0;
+}
+:host ::ng-deep .test .p-checkbox {
+  display: none;
+}
+:host ::ng-deep .test .p-multiselect-items-wrapper {
+  border: solid #2b786c 2px;
+  margin-top: 5px;
+  border-radius: 1rem;
+}
+:host ::ng-deep .test ul.p-multiselect-items li.p-ripple.p-multiselect-item,
+:host ::ng-deep .test ul.p-multiselect-items .p-multiselect-empty-message.ng-star-inserted {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+:host ::ng-deep .test ul.p-multiselect-items li.p-ripple.p-multiselect-item:hover,
+:host ::ng-deep .test ul.p-multiselect-items .p-multiselect-empty-message.ng-star-inserted:hover {
+  background-color: #2b786c;
+  color: #fff;
+  transition: all 0.2s;
+}
+:host ::ng-deep .test .p-element.p-icon-wrapper.ng-star-inserted svg {
+  width: 10px;
+  height: 10px;
+}
+:host ::ng-deep .test .p-multiselect-token.ng-star-inserted {
+  border-radius: 0;
+  padding: 2px 5px;
+  background-color: #559389;
+  color: #fff;
+  margin: 0 5px;
+}
+:host ::ng-deep .test .p-multiselect-token.ng-star-inserted span {
+  font-size: 12px;
+  margin-right: 5px;
+}
+:host ::ng-deep .test .p-ripple.p-element.p-multiselect-close.p-link.p-button-icon-only.ng-star-inserted,
+:host ::ng-deep .test .p-icon.p-multiselect-filter-icon {
+  display: none;
+}
+:host ::ng-deep .test input {
+  font-size: 14px;
+  border-radius: 1rem;
+  padding: 3px 5px;
+  margin-top: 5px;
+}
+:host ::ng-deep .test .p-multiselect-label {
+  width: 100%;
+}
+
+:host ::ng-deep .test {
+  padding: 7px 10px;
+  outline: none;
+  border: 1px solid #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  width: 100%;
+  outline-color: #2b786c;
+}
+:host ::ng-deep .test .p-hidden-accessible {
+  padding: 0;
+}
+:host ::ng-deep .test .p-checkbox {
+  display: none;
+}
+:host ::ng-deep .test .p-multiselect-items-wrapper {
+  border: solid #2b786c 2px;
+  margin-top: 5px;
+  border-radius: 1rem;
+}
+:host ::ng-deep .test ul.p-multiselect-items li.p-ripple.p-multiselect-item,
+:host ::ng-deep .test ul.p-multiselect-items .p-multiselect-empty-message.ng-star-inserted {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+:host ::ng-deep .test ul.p-multiselect-items li.p-ripple.p-multiselect-item:hover,
+:host ::ng-deep .test ul.p-multiselect-items .p-multiselect-empty-message.ng-star-inserted:hover {
+  background-color: #2b786c;
+  color: #fff;
+  transition: all 0.2s;
+}
+:host ::ng-deep .test .p-element.p-icon-wrapper.ng-star-inserted svg {
+  width: 10px;
+  height: 10px;
+}
+:host ::ng-deep .test .p-multiselect-token.ng-star-inserted {
+  border-radius: 0;
+  padding: 2px 5px;
+  background-color: #559389;
+  color: #fff;
+  margin: 0 5px;
+}
+:host ::ng-deep .test .p-multiselect-token.ng-star-inserted span {
+  font-size: 12px;
+  margin-right: 5px;
+}
+:host ::ng-deep .test .p-ripple.p-element.p-multiselect-close.p-link.p-button-icon-only.ng-star-inserted,
+:host ::ng-deep .test .p-icon.p-multiselect-filter-icon {
+  display: none;
+}
+:host ::ng-deep .test input {
+  font-size: 14px;
+  border-radius: 1rem;
+  padding: 3px 5px;
+  margin-top: 5px;
+}
+:host ::ng-deep .test .p-multiselect-label {
+  width: 100%;
+}
+
+.under-buttons .skip-save-buttons .common-btn {
+  color: #627d81;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 125%;
+  border-radius: 3px;
+}
+.under-buttons .skip-save-buttons .back-btn {
+  background-color: #e2e8e9;
+}
+.under-buttons .skip-save-buttons .save-btn {
+  font-weight: 700;
+  color: white;
+  background-color: #2b786c;
+  cursor: pointer;
+}
+.under-buttons .skip-save-buttons .save-btn:disabled {
+  cursor: default;
+  background-color: #80aea7;
+}
+.under-buttons .skip-save-buttons .skip-btn {
+  background-color: transparent;
+}
+
+.required-field {
+  color: red;
+}

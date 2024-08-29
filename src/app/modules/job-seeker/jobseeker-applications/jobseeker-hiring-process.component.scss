@@ -1,0 +1,561 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+
+#applicant-page {
+  background-color: $color-n-200;
+  min-height: 100vh;
+  overflow: hidden;
+
+
+  .hide-in-phone-screen {
+    @media (max-width: $breakpoint-medium) {
+      display: none;
+    }
+  }
+
+  .show-in-phone-screen {
+    @media (min-width: $breakpoint-medium) {
+      display: none;
+    }
+  }
+
+
+  .text-under-photo {
+    font-family: $font-family-open-sans;
+    font-size: $font-b3;
+    line-height: 20px;
+    color: $color-n-800;
+  }
+
+  .page-header {
+    .job-title {
+      font-family: $font-family-open-sans;
+      font-weight: 600;
+      font-size: $font-h7;
+      line-height: 48px;
+      color: $color-n-800;
+    }
+
+    .edit-icon {
+      color: $color-n-800;
+      font-size: 25px;
+    }
+  }
+
+  .contaning-all-left-narrow-divs {
+    .containing-title-selector {
+      padding: 16px 32px 16px 32px;
+
+      .title {
+        font-family: $font-family-open-sans;
+        font-weight: 600;
+        font-size: $font-h6;
+        line-height: 48px;
+        color: $color-n-800;
+      }
+
+      .selector {
+        background-color: $color-n-800;
+        color: white;
+      }
+    }
+  }
+
+
+
+  .containing-narrow-left {
+    display: none;
+  }
+
+  .global-button {
+    padding: 6px 16px 6px 16px;
+    background-color: transparent;
+    color: $color-n-800;
+    font-size: $font-l2;
+    border-radius: 8px;
+    font-family: $font-family-open-sans;
+    line-height: $line-height-heading;
+    transition: 0.2s all;
+
+    &:hover {
+      background-color: $color-n-700;
+      color: white;
+    }
+  }
+
+  .under-page {
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 2px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f4f9;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient($color-sec-500, $color-sec-100);
+      border-top-right-radius: 15px;
+    }
+
+    .left-scrollbar-div {
+      display: none;
+      width: 35%;
+      overflow-y: scroll;
+
+    }
+
+    .left-scrollbar-div-large-screen {
+      height: 75vh;
+      overflow-y: scroll;
+
+
+
+    }
+
+    .left-scrollbar-div,
+    .left-scrollbar-div-large-screen,
+    .right-div,
+    .right-div-empty {
+      .candidate-card {
+        .name {
+          font-family: $font-family-open-sans;
+          font-weight: 600;
+          font-size: $font-b3;
+          line-height: 24px;
+          color: $color-n-800;
+        }
+
+        .bold-name {
+          font-weight: 700;
+          font-size: 18px;
+        }
+
+        .location-line,
+        .university,
+        .posted-time {
+          font-family: $font-family-open-sans;
+          font-size: $font-b4;
+          line-height: 18px;
+          color: $color-n-700;
+        }
+
+        .location {
+          background-color: $color-n-300;
+          color: $color-n-800;
+          padding: 7px 10px;
+          border-radius: 20px;
+          font-weight: 600;
+          transition: 0.4s all;
+
+          &:hover {
+            background-color: $color-sec-300;
+            color: white;
+          }
+        }
+
+        .status,
+        .status-num {
+          background-color: $color-sec-300;
+          font-family: $font-family-open-sans;
+          font-size: 12px;
+          line-height: 12px;
+          padding: 3px 2px;
+          border-radius: 2px;
+          font-weight: 700;
+          color: white;
+        }
+
+        .status-num {
+          font-family: $font-family-crimson;
+          padding: 5px 8px;
+          border-radius: 4px;
+          background-color: $color-sec-500;
+        }
+
+        .wethdraw-btn {
+          background-color: #ea2a2a;
+          color: white;
+          border: 1px solid transparent;
+          transition: 0.4s ease-in-out all;
+
+          &:hover {
+            color: #ea2a2a;
+            border-color: #ea2a2a;
+            background-color: transparent;
+          }
+        }
+
+        .job-info {
+          .numbers {
+            font-family: $font-family-open-sans;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+            color: $color-n-800;
+          }
+
+          .title {
+            font-family: $font-family-open-sans;
+            font-size: 14px;
+            line-height: 21px;
+            color: $color-n-600;
+          }
+
+          .vip {
+            @media (max-width: 767.98px) {
+              border-left: 0px;
+            }
+          }
+        }
+      }
+    }
+
+    .right-div,
+    .right-div-empty {
+      width: 65%;
+      overflow-y: visible;
+
+      .indicator-header {
+        background-color: $color-n-100;
+        position: relative;
+        width: 100%;
+        overflow-y: visible;
+
+        .parts {
+          li {
+            cursor: pointer;
+          }
+        }
+
+        .add-comment-btn {
+          background-color: $color-sec-300;
+          font-family: $font-family-open-sans;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+          color: white;
+          border: 1px solid transparent;
+          transition: 0.4s ease-in-out all;
+
+          &:hover {
+            color: $color-sec-300;
+            background-color: transparent;
+            border: 1px solid $color-sec-300;
+          }
+        }
+      }
+
+      .add-comment {
+        position: absolute;
+        right: 0;
+        height: fit-content;
+        top: 9%;
+        z-index: 1999;
+        width: 50%;
+
+        .title {
+          padding: 8px 24px;
+          background-color: $color-ac-100;
+          font-family: $font-family-crimson;
+          font-weight: 700;
+          font-size: $font-b2;
+          line-height: 27px;
+          color: $color-n-800;
+        }
+
+        .containing-remaning {
+          padding-top: 24px;
+          padding-inline: 24px;
+
+          .global-input {
+            border: 1px solid #627d81;
+
+            ::placeholder {
+              font-family: $font-family-open-sans;
+              font-size: $font-b3;
+              line-height: 24px;
+              color: $color-n-600;
+            }
+          }
+
+          .global-button {
+            background-color: #2b786c;
+            color: white;
+          }
+        }
+
+        .smal-label {
+          font-family: $font-family-open-sans;
+          font-weight: 600;
+          font-size: $font-l3;
+          line-height: 21px;
+          color: $color-n-800;
+        }
+      }
+
+    }
+
+    .right-div-empty {
+      background-color: white;
+      height: inherit;
+    }
+  }
+
+  .global-light-border {
+    border: 0.25px solid #a1b3b6;
+  }
+
+  .global-bottom-border {
+    border-bottom: 0.25px solid #a1b3b6;
+  }
+
+  .clicked-btn {
+    padding: 6px 16px 6px 16px;
+    font-size: $font-l2;
+    border-radius: 8px;
+    font-family: $font-family-open-sans;
+    line-height: $line-height-heading;
+    transition: 0.2s all;
+    background-color: $color-sec-300;
+    color: white;
+
+    &:hover {
+      background-color: $color-n-700;
+      color: white;
+    }
+  }
+
+  .global-input {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid $color-n-500;
+    font-size: $font-b3;
+    color: $color-n-800;
+    line-height: $line-height-body;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $color-n-600;
+    }
+  }
+}
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// applies to xx-large
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+// @media (max-width: 1399.98px) {
+//   .container {
+//     max-width: 1140px;
+//   }
+
+//   #applicant-page {
+//     .page-header {
+//       .containing-job-type {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  #applicant-page {
+    min-height: 100%;
+
+    .page-header {
+      .job-title {
+        font-size: $font-h8;
+      }
+
+      .edit-icon {
+        font-size: 18px;
+      }
+
+      .containing-job-type {
+        width: 100%;
+      }
+    }
+
+    .containing-narrow-left {
+      display: block;
+    }
+
+    .under-page {
+      flex-direction: column;
+
+      .left-scrollbar-div-large-screen {
+        display: none;
+      }
+
+      .left-scrollbar-div {
+        display: block;
+        width: 100%;
+      }
+
+      .right-div-empty {
+        display: none;
+      }
+
+      .right-div {
+        width: 100%;
+        min-height: fit-content;
+        height: 100%;
+
+        .indicator-header {
+          flex-direction: column;
+          gap: 15px;
+          padding-inline: 10px;
+
+          .containing-add-comment-btn {
+            justify-content: end;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  #applicant-page {
+    min-height: 100%;
+
+    .under-page {
+      .right-div {
+
+        .add-comment,
+        .add-assessment,
+        .add-interview {
+          top: 13%;
+          width: 60%;
+        }
+      }
+    }
+  }
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    max-width: 540px;
+    gap: 30px;
+  }
+
+  #applicant-page {
+    // .page-header {
+    //   display: block;
+    // }
+
+    min-height: 100%;
+
+    .under-page {
+      .right-div {
+        width: 100%;
+        position: relative;
+        top: 0;
+        align-items: center;
+        height: fit-content;
+
+        .indicator-header {
+          .parts-headers {
+            width: inherit;
+            padding-top: 5px;
+            overflow-x: scroll;
+            min-height: 40px;
+
+            .parts {
+              display: flex;
+              gap: 4px;
+            }
+          }
+
+        }
+
+        .add-comment,
+        .add-assessment,
+        .add-interview {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          width: 80%;
+          transform: translate(-50%, -50%);
+          border: 1px solid #2b786c;
+          border-radius: 8px;
+
+          .title {
+            border-radius: 8px 8px 0px 0px;
+          }
+        }
+
+        .candidate-card {
+          position: relative;
+
+          .containing-candidate-avatar {
+            width: 75px;
+            height: 75px;
+            position: absolute;
+            top: -15%;
+            left: 20px;
+            border: 1px solid $color-sec-500;
+            padding: 2px;
+            background-color: #fff;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .first-div {
+            margin-top: 40px;
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .logout-icon {
+        display: none;
+      }
+    }
+  }
+}
+
+.right-div {
+  height: 100%;
+}

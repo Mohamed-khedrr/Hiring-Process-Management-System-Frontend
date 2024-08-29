@@ -1,0 +1,79 @@
+.btn {
+  padding: 7px 7px;
+  background-color: #e2e8e9;
+  color: #627d81;
+  font-size: 16px;
+  border-radius: 3px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+  transition: 0.4s all;
+}
+.btn:hover {
+  background-color: #c6d2d5;
+}
+
+.all-language-cart .global-rounde {
+  border-radius: 8px;
+}
+.all-language-cart .language-info .global-section-label {
+  color: #033f47;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  line-height: 150%;
+  font-weight: 600;
+}
+.all-language-cart .language-info .global-section-label .span-text {
+  color: #627d81;
+  font-weight: 400;
+  font-size: 14px;
+}
+.all-language-cart .language-info .global-small-label {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #033f47;
+  line-height: 150%;
+}
+.all-language-cart .language-info .global-input {
+  padding: 11px 12px;
+  border-radius: 4px;
+  border: 1px solid #033f47;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+}
+.all-language-cart .language-info .global-input:focus {
+  outline: none;
+}
+.all-language-cart .language-info .global-input::placeholder {
+  color: #033f47;
+}
+.all-language-cart .language-info .global-button {
+  padding: 13px 24px;
+  background-color: #559389;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 115%;
+  transition: background-color 0.2s;
+}
+.all-language-cart .language-info .global-button:hover {
+  background-color: #2b786c;
+}
+.all-language-cart .language-info .global-button:disabled {
+  background-color: #80aea7;
+}
+.all-language-cart .language-info .language {
+  font-size: 16px;
+  color: #2f5d64;
+}
+
+@media (max-width: 767.98px) {
+  .all-language-cart .language-info .global-input {
+    font-size: 16px;
+    padding: 11px 8px;
+  }
+}

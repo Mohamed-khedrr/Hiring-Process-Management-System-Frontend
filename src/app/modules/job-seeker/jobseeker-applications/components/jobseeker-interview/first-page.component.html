@@ -1,0 +1,49 @@
+<section id="applicant-interview">
+    <div class="container ">
+        @if (interviews.length) {
+        <div class="px-10 pt-5 pb-16 bg-white">
+            <div class="py-8 px-16 line-border flex flex-col gap-4" *ngFor="let interview of interviews">
+                <div class="">
+                    <div class=" flex justify-between">
+                        <div class="">
+                            <p class="main-header">{{interview.title}} </p>
+                        </div>
+                        <div class="">
+                            <p class="mark-done-btn" *ngIf="interview.status === 'Attended'">Attended</p>
+                            <p class="mark-done-btn" *ngIf="interview.status === 'Missed'">Missed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col pb-6 line-bottom-border">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Added by</p></div>
+                            <div class="answer text"><p>{{interview.createdBy}} at {{getDateTimeAndDay(interview.createdAt||'')}} </p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Start time</p></div>
+                            <div class="answer text"><p>{{getDateTimeAndDay(interview.startTime)}}</p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>End time</p></div>
+                            <div class="answer text"><p>{{getDateTimeAndDay(interview.endTime)}}</p></div>
+                        </div>
+                        <div class="flex gap-24">
+                            <div class="question text"><p>Interview link</p></div>
+                            <div class="answer text" (click)="makeInterviewVisited(interview.id||'')"><a [href]="interview.link" target="_blank">{{interview.link}}</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }@else {
+        <div
+            class="flex flex-col items-center justify-center gap-8 bg-white line-border shadow-md rounded-md px-20 py-12  ">
+            <div class=""><img src="../../../../assets/imgs/undraw_businessman_re_mlee 1.svg" alt=""></div>
+            <div class="">
+            <p class="text-under-photo">No Interviews added. </p>
+            </div>
+        </div>
+    }
+    </div>
+</section>

@@ -1,0 +1,85 @@
+#jobseeker-hiring-process-questions .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+#jobseeker-hiring-process-questions .line-border {
+  border: 0.5px solid #C6D2D5;
+}
+#jobseeker-hiring-process-questions .main-header {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  color: #033f47;
+}
+#jobseeker-hiring-process-questions .edit-btn {
+  background-color: #e2e8e9;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 1.5px 6px 1.5px 6px;
+  line-height: 15.5px;
+  color: #627D81;
+  border: 1px solid transparent;
+  transition: 0.4s ease-in-out all;
+}
+#jobseeker-hiring-process-questions .edit-btn:hover {
+  background-color: transparent;
+  border: 1px solid #627D81;
+  color: #627D81;
+}
+#jobseeker-hiring-process-questions .global-input {
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #a1b3b6;
+  font-size: 16px;
+  color: #033f47;
+  line-height: 150%;
+  width: 95%;
+}
+#jobseeker-hiring-process-questions .global-input:focus {
+  outline: none;
+}
+#jobseeker-hiring-process-questions .global-input::placeholder {
+  color: #a1b3b6;
+}
+#jobseeker-hiring-process-questions .input-radio {
+  width: 18px;
+  height: 18px;
+}
+#jobseeker-hiring-process-questions .label {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  color: #033F47;
+}
+@media (min-width: 1400px) {
+  #jobseeker-hiring-process-questions .container {
+    max-width: 1400px;
+  }
+}
+@media (max-width: 1399.98px) {
+  #jobseeker-hiring-process-questions .container {
+    max-width: 1140px;
+  }
+}
+@media (max-width: 1199.98px) {
+  #jobseeker-hiring-process-questions .container {
+    max-width: 960px;
+  }
+}
+@media (max-width: 991.98px) {
+  #jobseeker-hiring-process-questions .container {
+    max-width: 720px;
+  }
+}
+@media (max-width: 767.98px) {
+  #jobseeker-hiring-process-questions .container {
+    max-width: 540px;
+  }
+}

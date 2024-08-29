@@ -1,0 +1,33 @@
+
+ <form [formGroup]="commentForm" (ngSubmit)="submitForm()" class="assessment-form" action="">
+  <div class="form-header">
+    <h3>
+      @if (oldComment?.content) {
+        <span>Edit</span>
+      }@else{
+        <span>Add</span>
+      }
+      @if (commentType == FormCommentType.NORMAL && oldComment?.type ) {
+        @switch (oldComment.type) {
+          @case (AppCommentType.Elevation) {
+            <span> Elevation</span>
+          }
+          @case (AppCommentType.Downgrade) {
+            <span> Downgrade</span>
+          }
+        }
+      }
+      Comment</h3>
+  </div>
+  <div class="input-container">
+    <textarea cols="5" formControlName="comment"id="comment-content" placeholder="Write your comment here"></textarea>
+  </div>
+
+  <div class="btn-container ">
+    <button class="btn btn-submit" [disabled]="commentForm.invalid"  type="submit">Submit</button>
+    <button class="btn btn-discard" (click)="hideForm()" type="reset">Discard</button>
+  </div>
+
+</form>
+
+

@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+
+#intro {
+  background-color: #033f47;
+  padding: 56px 56px 144px 56px;
+}
+#intro .nav-and-searsh .text-and-search .text .hero-title h2 {
+  font-family: "Crimson Text", serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 105%;
+}
+#intro .nav-and-searsh .text-and-search .text .hero-body p {
+  color: #e2e8e9;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+}
+#intro .containing {
+  padding: 12px 24px;
+}
+#intro .containing .searsh-icon .icon {
+  width: 32px;
+  height: 32px;
+}
+#intro .containing .searsh-input .input-feild {
+  padding: 5px;
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+}
+#intro .containing .searsh-button button {
+  padding: 12px 32px;
+  background-color: #e0f780;
+  color: #033f47;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 125%;
+}
+
+/* sponsor section */
+.container-new {
+  width: 100%;
+  margin-bottom: -50px;
+  z-index: 99;
+}
+.container-new .feature {
+  width: 82%;
+  background-color: #2b786c;
+  padding: 24px 0 56px;
+  gap: 3rem;
+}
+.container-new .feature ul {
+  padding: 0px 4rem;
+  gap: 6rem;
+}
+.container-new .feature .text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 125%;
+  letter-spacing: 2.24px;
+}
+
+/* section feature */
+.section-feature {
+  padding: 104px 0px 144px 0px;
+  gap: 64px;
+  background-color: #ffffff;
+}
+.section-feature .feature-heading {
+  padding-top: 3rem;
+}
+.section-feature .feature-heading .title {
+  color: #033f47;
+  font-family: "Crimson Text", serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 110%;
+}
+.section-feature .feature-heading .text {
+  color: #627d81;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+}
+.section-feature .feature-description {
+  font-size: 24px;
+  font-weight: 400;
+  color: #627d81;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 1.5rem;
+  line-height: 35px;
+}
+@media screen and (max-width: 768px) {
+  .section-feature .feature-description {
+    margin-top: 2.5rem;
+    line-height: 21px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container-new {
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 1399.98px) {
+  .container-new .feature {
+    padding: 24px 0 48px;
+  }
+
+  .section-feature {
+    padding: 56px 0 130px 0;
+  }
+}
+@media (max-width: 1199.98px) {
+  #intro {
+    padding: 56px 45px 110px 45px;
+  }
+  #intro .nav-and-searsh .text-and-search .text {
+    padding-inline: 32px;
+  }
+  #intro .nav-and-searsh .text-and-search .text .hero-title h2 {
+    font-size: 48px;
+    text-align: center;
+    line-height: 115%;
+  }
+  #intro .nav-and-searsh .text-and-search .text .hero-body p {
+    padding-inline: 30px;
+    font-size: 24px;
+  }
+  #intro .containing {
+    width: 83.3%;
+    padding: 8px 16px 8px 16px;
+  }
+  #intro .containing .searsh-icon .icon {
+    width: 25px;
+    height: 25px;
+  }
+  #intro .containing .searsh-input .input-feild {
+    font-size: 24px;
+  }
+
+  .container-new .feature {
+    padding: 24px 0 40px 0;
+  }
+
+  .section-feature {
+    padding: 56px 0 115px 0;
+  }
+  .section-feature .feature-heading {
+    padding-inline: 34px;
+  }
+}
+@media (max-width: 991.98px) {
+  #intro {
+    padding: 56px 35px 80px 35px;
+  }
+  #intro .nav-and-searsh .text-and-search .text .hero-title h2 {
+    font-size: 40px;
+  }
+  #intro .nav-and-searsh .text-and-search .text .hero-body p {
+    font-size: 16px;
+  }
+  #intro .containing {
+    width: 90%;
+  }
+  #intro .containing .searsh-input .input-feild {
+    font-size: 16px;
+  }
+
+  .container-new .feature {
+    width: 100%;
+    padding: 24px 0 32px;
+    font-size: 12px;
+  }
+
+  .section-feature {
+    padding: 56px 0 95px 0;
+  }
+  .section-feature .feature-heading {
+    padding-inline: 34px;
+  }
+  .section-feature .feature-heading .title {
+    font-size: 32px;
+  }
+  .section-feature .feature-heading .text {
+    font-size: 16px;
+    padding-inline: 45px;
+  }
+}
+@media (max-width: 767.98px) {
+  #intro {
+    padding: 56px 24px 40px 24px;
+  }
+  #intro .nav-and-searsh .text-and-search .text {
+    padding-inline: 32px;
+  }
+  #intro .nav-and-searsh .text-and-search .text .hero-title h2 {
+    font-size: 32px;
+  }
+  #intro .nav-and-searsh .text-and-search .text .hero-body p {
+    font-size: 14px;
+  }
+  #intro .containing {
+    width: 98%;
+    padding: 3px 10px 3px 16px;
+  }
+  #intro .containing .searsh-button button {
+    display: none;
+  }
+  #intro .containing .searsh-icon .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .container-new {
+    margin-top: 0;
+  }
+  .container-new .feature {
+    width: 100%;
+    padding: 24px 0 24px 0;
+  }
+  .container-new .feature .text {
+    font-size: 8px;
+  }
+
+  .section-feature {
+    padding: 56px 0 80px 0;
+  }
+  .section-feature .feature-heading {
+    padding-inline: 34px;
+  }
+  .section-feature .feature-heading .title {
+    font-size: 24px;
+  }
+  .section-feature .feature-heading .text {
+    font-size: 14px;
+    padding-inline: 45px;
+  }
+}
+#search-input {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 8px 10px;
+}
+
+.search-container {
+  position: relative;
+}
+
+.suggestions-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: white;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+.suggestions-container.no-border {
+  border: none;
+}
+
+.suggestion {
+  font-size: 16px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background-color: #f0f0f0;
+}
+
+.section-feature {
+  padding: 56px 0 0 0;
+}
+
+#intro {
+  padding: 0;
+  padding-top: 100px;
+}

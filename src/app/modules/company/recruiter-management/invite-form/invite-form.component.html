@@ -1,0 +1,45 @@
+<div class="recruiter-register h-[88rem] flex flex-col justify-between ">
+    <div class="container">
+        <div class="all-containing  mx-auto flex flex-col gap-10">
+            <div class="add-team-memb px-12 py-8 bg-white line-border">
+                <h6>Add Team Member</h6>
+            </div>
+            <div class="registeration-form px-12 pt-8 pb-20 bg-white line-border flex flex-col gap-10">
+                <div class="header member-information">Member information</div>
+                <form [formGroup]="recruiterData" class="flex flex-col justify-center items-start gap-7">
+                    <div class="add-email flex flex-col gap-3 justify-center  global-width  ">
+                        <div class=""><label class="label" for="">Email</label></div>
+                        <div class="input">
+                            <input formControlName="email" class="input-field w-full" type="text">
+                            <p *ngIf="(email.hasError('email')  || email.hasError('required')) && email.touched"
+                                class="text-red-600 error-message text-xs validation-message">
+                                Valid Email is required
+                            </p>
+                        </div>
+                    </div>
+                    <div class="add-email flex flex-col gap-3 justify-center  global-width  ">
+                        <div class=""><label class="label" for="">Job title</label></div>
+                        <div class="input">
+                            <input formControlName="jobTitle" class="input-field w-full" type="text">
+                            <p *ngIf="jobTitle.hasError('required') && jobTitle.touched"
+                                class="text-red-600 error-message text-xs validation-message">
+                                Job Title is required
+                            </p>
+                        </div>
+                    </div>
+                    <div class="sign-upbtn pt-8 flex flex-col justify-center items-start gap-4">
+                        <div class="error">
+                            <p *ngIf="errorMsg != ''" class="error-message">
+                                {{errorMsg}}!
+                            </p>
+                        </div>
+                        <div class="btns flex flex-row">
+                            <button type="submit" (click)="sendInvitation()" class="btn flex items-center justify-center">Invite member</button>
+                            <button type="submit" (click)="backToTeamPage()" class="btn vip-btn flex items-center justify-center">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

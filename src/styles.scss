@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap");
+
+// PrimeNg
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+// Owl Styles
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";
+ 
+
+:root {
+  // Set base 1rem = 8px
+  font-size: 8px;
+
+  @media screen and (max-width: 992px) {
+    font-size: 7px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 5px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.app-tooltip {
+  position: relative;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.app-dark-tooltip-text,
+.app-light-tooltip-text {
+  visibility: hidden;
+  text-align: center;
+  padding: 5px 14px;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 1;
+  bottom: calc(100% + 8px);
+  font-size: 10px;
+  left: 0%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-weight: 600;
+  box-shadow: 0px -1px 10px rgb(168 168 168 / 13%);
+}
+
+
+.app-dark-tooltip-text {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+
+.app-dark-tooltip-text::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.7);
+  transform: translateX(-50%);
+
+}
+
+.app-light-tooltip-text {
+  background-color: rgb(236 236 236);
+  color: #033f47;
+}
+
+.app-light-tooltip-text::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg) translateX(-50%);
+  background-color: rgb(236 236 236);
+  color: #033f47;
+  box-shadow: 0px -1px 10px rgb(168 168 168 / 13%);
+  left: 30%;
+  bottom: -8px;
+  z-index: 100;
+};
+
+.app-tooltip:hover .app-dark-tooltip-text,
+.app-tooltip:hover .app-light-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+$padding-large: 100px;
+$padding-medium: 60px;
+$padding-small: 20px;
+$padding-xsmall: 10px;
+
+.job-seeker-profile-container {
+  padding-right: $padding-large;
+  padding-left: $padding-large;
+
+  @media (max-width: 1200px) {
+    padding-left: $padding-medium;
+    padding-right:  $padding-medium;
+  }
+
+  @media (max-width: 992px) {
+    padding-right: $padding-small;
+    padding-left: $padding-small;
+  }
+
+  @media (max-width: 768px) {
+    padding-right: $padding-xsmall;
+    padding-left: $padding-xsmall;
+  }
+  .general-info  .content{
+    text-align: center;
+  }
+  .general-info .info{
+    max-width: 65%;
+  }
+}

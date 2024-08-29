@@ -1,0 +1,469 @@
+@import "../../scss/variables";
+@import "../../scss/typography";
+
+.hiring-team-page {
+    padding-block: 40px;
+    min-height: 100vh;
+    background-color: $color-n-200;
+
+    .global-small-label {
+        font-size: $font-l2;
+        font-family: $font-family-open-sans;
+        font-weight: 700;
+        color: $color-n-800;
+        line-height: $line-height-body;
+    }
+
+    .global-input {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid $color-n-500;
+        font-size: $font-b3;
+        color: $color-n-800;
+        line-height: $line-height-body;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: $color-n-800;
+        }
+
+    }
+
+    .global-button {
+        padding: 12px 16px;
+        background-color: $color-sec-300;
+        color: $color-white;
+        font-size: $font-l2;
+        border-radius: 8px;
+        font-family: $font-family-open-sans;
+        font-weight: 700;
+        line-height: $line-height-heading;
+    }
+    .cancel-btn{
+        background-color: transparent;
+        color:$color-sec-300 ;
+    }
+
+    .delete-pop-up {
+        position: fixed;
+        border-radius: 8px;
+        z-index: 999999999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .header {
+            font-size: $font-h11;
+            font-family: $font-family-open-sans;
+            line-height: $line-height-body;
+            color: $color-n-800;
+        }
+
+        .title {
+            font-size: $font-l3;
+            font-family: $font-family-open-sans;
+            color: $color-n-600;
+        }
+
+        .warning {
+            font-size: $font-l3;
+            font-family: $font-family-open-sans;
+            color: red;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 10px;
+            gap: 30px;
+            .button {
+                background-color: $color-sec-500;
+                padding: 10px 13px;
+                font-family: $font-family-open-sans;
+                font-size: $font-b3 ;
+                line-height: $line-height-body ;
+                color: white;
+                font-weight: 600;
+                border-radius: 6px;
+            }
+        }
+
+        
+    }
+
+    .containing-header {
+        border-radius: 8px;
+
+        .add-team-memb {
+            font-family: $font-family-crimson ;
+            font-weight: 700;
+            font-size: $font-h6;
+            line-height: $line-height-heading;
+            color: $color-n-800 ;
+        }
+    }
+
+    .all-under-part {
+        width: 95%;
+        margin: auto;
+
+        .add-team-memb {
+            font-family: $font-family-crimson ;
+            font-weight: 700;
+            font-size: $font-h7;
+            line-height: $line-height-heading;
+            color: $color-n-800 ;
+        }
+
+        .all-containing-carts {
+            width: 100%;
+
+            .line-border {
+                border: 1px solid $color-n-500;
+                border-radius: 8px;
+            }
+
+            .all-carts {
+                gap: 30px;
+
+
+                .invite-button {
+                    font-family: $font-family-open-sans ;
+                    font-size: $font-l3;
+                    line-height: $line-height-heading;
+                    color: $color-sec-500;
+                }
+
+                .containing-team-memb {
+                    .team-member {
+                        border-radius: 8px;
+                        padding: 24px 32px;
+                        transition: 0.4s background-color;
+                        border: 1px solid $color-n-300;
+
+                        .update-memb-title {
+                            margin-top: 15px;
+                            border-top: 2px solid $color-n-300;
+
+                            .add-job-title {
+                                padding-top: 15px;
+
+                                .title {
+                                    font-family: $font-family-open-sans ;
+                                    font-size: $font-b3 ;
+                                    font-weight: 600;
+                                    color: $color-n-800;
+                                }
+                            }
+
+                            .under-buttons {
+                                margin-top: 25px;
+
+                                .button {
+                                    border-radius: 8px;
+                                    background-color: $color-sec-500;
+                                    padding: 8px 24px;
+                                    font-family: $font-family-open-sans ;
+                                    font-size: $font-b3 ;
+                                    font-weight: 700;
+                                    color: white;
+                                }
+
+                                .vip-btn {
+                                    background-color: transparent;
+                                    font-size: $font-b3 ;
+                                    font-weight: 600;
+                                    color: $color-n-600;
+                                }
+                            }
+
+                        }
+
+                        .span-icon-container {
+                            transition: 0.4s all;
+                            width:60px;
+                            height: 60px;
+                        }
+
+                        .memb-name {
+                            font-family: $font-family-open-sans ;
+                            font-size: $font-b3;
+                            line-height: $line-height-body;
+                            color: $color-n-800;
+                            transition: 0.4s color;
+                        }
+
+                        .memb-job-title {
+                            font-size: $font-l3 ;
+                            font-family: $font-family-open-sans ;
+                            line-height: $line-height-body;
+                            color: $color-n-700;
+                        }
+
+                        .member-button {
+                            font-size: $font-l3 ;
+                            font-family: $font-family-open-sans ;
+                            line-height: $line-height-body;
+                            visibility: hidden;
+                            transition: 0.1s all;
+                        }
+
+                        .vip-btn {
+                            color: #EA2A2A;
+                        }
+
+                        &:hover .member-button {
+                            visibility: visible;
+                        }
+                    }
+
+                    &:hover .team-member {
+                        background-color: $color-ac-100 ;
+                        border-left: 4px solid $color-n-400;
+                        border-bottom: 4px solid $color-n-400;
+                    }
+
+                    &:hover .team-member .memb-name,
+                    &:hover .team-member .member-button {
+                        color: $color-n-700;
+                    }
+
+                    &:hover .team-member .memb-job-title {
+                        color: $color-n-600;
+                    }
+
+                    &:hover .team-member .vip-btn {
+                        color: red;
+                    }
+
+                    &:hover .span-icon-container {
+                        border: 1px solid $color-n-800;
+                    }
+
+                }
+
+            }
+
+
+        }
+
+        .all-invite-memb-form {
+            width: 60%;
+            border-radius: 8px;
+            .error-message{
+                color: rgba(255, 0, 0, 0.723);
+                font-size: small;
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+
+            .invite-button {
+                .error-message{
+                    color: rgba(255, 0, 0, 0.723);
+                    font-size: medium;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+            
+
+            .under-form {
+                padding: 24px 32px;
+                border-radius: 8px;
+                border: 1px solid $color-n-300;
+
+                
+
+                .sub-div {
+                    border-radius: 8px;
+                    border: 1px solid $color-n-300;
+
+                    .containing-email {
+                        font-family: $font-family-open-sans ;
+                        font-size: $font-b3;
+                        font-weight: 600;
+                        color: $color-n-800 ;
+                    }
+
+                    button {
+                        font-size: $font-l3 ;
+                        font-family: $font-family-open-sans ;
+                        line-height: $line-height-body;
+                        font-weight: 700;
+                        color: #EA2A2A;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(66, 65, 65, 0.49);
+        top: 0;
+        right: 0;
+        z-index: 4;
+    }
+
+}
+
+.container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// applies to xx-large
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+    .container {
+        max-width: 1250px;
+    }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+    .container {
+        max-width: 1100px;
+    }
+
+    .hiring-team-page {
+        .global-button {
+            padding: 12px 20px;
+        }
+
+        .containing-header {
+            .add-team-memb {
+                font-size: $font-h7;
+            }
+        }
+
+        .all-under-part {
+            .add-team-memb {
+                font-size: $font-h8;
+            }
+
+            .all-containing-carts {
+                width: 90%;
+
+            }
+
+            .all-invite-memb-form {
+                .edit-email {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 6px;
+                }
+            }
+        }
+    }
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .hiring-team-page {
+        .global-button {
+            font-size: 14px;
+            padding: 12px 16px;
+        }
+
+        .all-under-part {
+            flex-direction: column;
+            align-items: center;
+
+            .all-containing-carts {
+                width: 100%;
+
+            }
+
+            .all-invite-memb-form {
+                width: 95%;
+            }
+        }
+    }
+
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    .container {
+        max-width: 540px;
+    }
+
+    .hiring-team-page {
+        .global-button {
+            padding: 12px 14px;
+        }
+
+        .global-input {
+            font-size: 12px;
+            padding: 11px 8px;
+        }
+        .all-under-part{
+            .all-containing-carts {
+                .all-carts {
+                    .add-team-memb {
+                        font-size: $font-h11;
+                    }
+    
+                    .containing-team-memb {
+                        .team-member {
+                            padding:18px 26px ;
+                            .edit-memb-info {
+                                flex-direction: column;
+                                gap: 15px;
+                            }
+    
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .hiring-team-page {
+        .vip-margin{
+            margin-inline: 4px;
+        }
+        .all-under-part{
+            .all-containing-carts {
+                .all-carts {
+                    .containing-team-memb {
+                        .team-member {
+                            padding:18px 20px ;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

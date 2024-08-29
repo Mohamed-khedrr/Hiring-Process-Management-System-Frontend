@@ -1,0 +1,127 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/typography";
+
+// responsive container
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+//   styles for counter page 1
+
+.stage-counter {
+  background-color: $color-n-100;
+}
+
+.counters .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.counters .item a {
+  padding: 12px 18px;
+  background-color: $color-sec-100;
+  font-family: $font-family-open-sans;
+  font-size: $font-b4;
+  font-weight: 600;
+  border-radius: 13px;
+}
+
+.counters .item.active {
+  a {
+    background-color: $color-sec-500;
+  }
+  p {
+    color: $color-sec-500;
+  }
+}
+
+.counters .item .step-heading {
+  color: $color-sec-100;
+}
+
+.counters .item p {
+  color: $color-n-800;
+  font-family: $font-family-open-sans;
+  font-size: $font-b3;
+  line-height: $line-height-body;
+  font-weight: 400;
+}
+
+@media (min-width: 1399.98px) {
+  .counters {
+    max-width: 60%;
+  }
+}
+
+// `xxl` applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+  .counters {
+    max-width: 70%;
+  }
+}
+
+// `xl` applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .counters {
+    max-width: 80%;
+  }
+}
+
+// `md` applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .counters {
+    .item p {
+      font-size: 14px;
+    }
+  }
+}
+
+// `sm` applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .counters {
+    .item p {
+      font-size: 12px;
+    }
+  }
+}
+
+// =============================================================

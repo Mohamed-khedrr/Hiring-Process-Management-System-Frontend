@@ -1,0 +1,32 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography";
+
+.btn-link {
+    cursor: pointer;
+    color: $color-n-800;
+    background: none;
+    border: none; 
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.chooise-filter-label {
+    font-family: $font-family-open-sans;
+    font-size: $font-l3 ;
+    line-height: 21px;
+    color: $color-n-700;
+    cursor: pointer;
+}
+
+.checkbox-input {
+    width: 16px;
+    height: 16px;
+}
+
+i{
+    margin: 0 5px;
+    font-size: 12px;
+    color: $color-n-800;
+}
+

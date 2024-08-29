@@ -1,0 +1,22 @@
+<section class="stage-counter h-auto pt-32 pb-32">
+  <div class="container ">
+    <div class="counters   mx-auto flex justify-between">
+      <div [ngClass]="{'active': currentStage == 1}" class="item  flex justify-center items-center">
+        <a routerLink="/job-seeker/complete-profile/first" class="btn text-white " type="button">1</a>
+        <p class="step-heading">General Info</p>
+      </div>
+      <div [ngClass]="{'active': currentStage == 2}" class="item text-center">
+        <a routerLink="/job-seeker/complete-profile/second" class="btn text-white" type="button">2</a>
+        <p class="step-heading">Career Interests</p>
+      </div>
+      <div [ngClass]="{'active': currentStage == 3}" class="item text-center">
+        <a routerLink="/job-seeker/complete-profile/third" class=" btn text-white" type="button">3</a>
+        <p class="step-heading">Professional Info</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- rem =8px -->
+</section>

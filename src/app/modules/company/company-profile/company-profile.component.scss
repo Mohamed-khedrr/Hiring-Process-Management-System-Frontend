@@ -1,0 +1,1008 @@
+@import "../../../scss/variables";
+@import "../../../scss/typography"; 
+* {
+    box-sizing: border-box;
+}
+
+// responsive container
+.container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.comp-profile-photo {
+    .photo {
+        max-width: 140px;
+        max-height: 140px;
+        position: relative;
+        border: 1px solid #033f47;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        img {
+            border-radius: 2px;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        &:hover {
+            .edit-profile-image {
+                display: flex;
+            }
+        }
+
+        .edit-profile-image {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            background-color: rgba(66, 65, 65, 0.49);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            i {
+                color: white;
+                font-size: 25px;
+            }
+        }
+    }
+}
+
+.company-view {
+    background-color: #f8f8f1;
+
+    .all-containing {
+        .line-border {
+            border: 1px solid $color-n-600;
+            border-radius: 8px;
+        }
+
+        .intro-section {
+            .photo-cover {
+                // position: relative;
+                background-color: $color-n-600;
+                border-radius: 6.4px 6.4px 0px 0px;
+                padding-block: 72px;
+                min-height: 250px;
+                background-size: cover;
+                background-position: center;
+
+                .add-btn {
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-family: $font-family-open-sans;
+                    background-color: transparent;
+                    color: white;
+                    line-height: $line-height-body;
+                }
+
+                .add-cover-text {
+                    font-size: 14px;
+                    font-family: $font-family-open-sans;
+                    line-height: $line-height-body;
+                    color: white;
+                }
+            }
+
+            .photo-cover {
+                cursor: pointer;
+
+                .containing-cover-button {
+                    visibility: hidden;
+                    transition: all .5;
+
+                    &:hover {
+                        visibility: visible;
+                    }
+                }
+
+                .containing-cover-text {
+                    visibility: hidden;
+                    transition: all .5;
+
+                    &:hover {
+                        visibility: visible;
+                    }
+                }
+
+                &:hover {
+
+                    .containing-cover-button,
+                    .containing-cover-text {
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .change-cover-photo,
+            .change-profile-photo {
+                border-radius: 6px;
+                position: fixed;
+                z-index: 9999;
+                border-radius: 6px;
+
+                .span-space {
+                    background-color: $color-n-500 ;
+                    padding: 20px;
+
+                    img {
+                        width: 60px;
+                    }
+
+                    .camera-image {
+                        width: 40px;
+                    }
+                }
+
+                .text {
+                    font-family: $font-family-open-sans ;
+                    font-size: $font-b3 ;
+                    font-weight: 600;
+                    line-height: $line-height-body;
+                    color: $color-n-700 ;
+                }
+
+                .bttn {
+                    background-color: $color-n-500;
+                    padding: 4px 13px;
+                    font-size: 14px;
+                    font-family: $font-family-open-sans ;
+                    color: white;
+                    font-weight: 700;
+                    line-height: $line-height-body;
+                }
+
+                .cancel-btn {
+                    color: $color-sec-100;
+                    background-color: transparent;
+                    border: 1px solid $color-sec-100;
+                }
+            }
+
+            .company-info {
+
+                // position: relative;
+                .comp-profile-photo {
+                    position: relative;
+                    padding-block: 15px;
+
+                    .photo {
+                        position: absolute;
+                        top: -70px;
+                        left: 35px;
+                    }
+                }
+
+                .comp-info {
+                    padding-block: 25px 25px;
+
+                    .comp-name {
+                        font-size: $font-b2 ;
+                        font-weight: 600;
+                        line-height: $line-height-body ;
+                        color: $color-n-800;
+                    }
+
+                    .tagline {
+                        font-family: $font-family-open-sans;
+                        font-size: $font-b3 ;
+                        line-height: $line-height-body ;
+                        color: $color-n-800;
+                    }
+
+                    .comp-industry-location {
+                        font-family: $font-family-open-sans;
+                        font-size: $font-l3 ;
+                        line-height: $line-height-body ;
+                        color: $color-n-600;
+                    }
+
+                    .subscribe-view-btn {
+                        .btn {
+                            background-color: $color-sec-500;
+                            padding: 4px 8px;
+                            font-size: 12px;
+                            font-family: $font-family-open-sans ;
+                            color: white;
+                            font-weight: 600;
+                            width: max-content;
+                            padding: 8px 15px;
+                            cursor: pointer;
+                        }
+
+                        .vip-btn {
+                            background-color: transparent;
+                            color: $color-sec-500 ;
+                            border: 1px solid $color-sec-500;
+                        }
+                    }
+                }
+
+                .change-intro {
+                    position: fixed;
+                    border-radius: 8px;
+                    z-index: 999999999;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    .header {
+                        font-size: $font-h11;
+                        font-family: $font-family-open-sans;
+                        line-height: $line-height-body;
+                        color: $color-n-800;
+                    }
+
+                    .title {
+                        font-size: $font-l3;
+                        font-family: $font-family-open-sans;
+                        color: $color-n-600;
+                    }
+
+                    .input-field {
+                        padding: 5px 12px;
+                        border-radius: 4px;
+                        border: 1px solid $color-n-800;
+                        font-size: $font-b3;
+                        color: $color-n-800;
+                        line-height: $line-height-body;
+
+                        &:focus {
+                            outline: none;
+                        }
+
+                        &::placeholder {
+                            color: $color-n-800;
+                        }
+                    }
+
+                    .bttn {
+                        background-color: $color-sec-500;
+                        padding: 3px 13px;
+                        font-family: $font-family-open-sans;
+                        font-size: $font-b3 ;
+                        line-height: $line-height-body ;
+                        color: white;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .under-sections {
+
+            .section-header {
+                font-size: $font-h6 ;
+                font-family: $font-family-crimson;
+                font-weight: 700;
+                line-height: $line-height-heading ;
+                color: $color-n-800;
+            }
+
+            .title {
+                font-size: $font-b3;
+                font-family: $font-family-open-sans;
+                line-height: $line-height-body;
+                color: $color-n-800;
+                font-weight: 600;
+            }
+
+            .text {
+                font-size: $font-b3;
+                font-family: $font-family-open-sans;
+                line-height: $line-height-body;
+                color: $color-n-600;
+            }
+
+            .change-about {
+                position: fixed;
+                border-radius: 8px;
+                z-index: 999999999;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                .header {
+                    font-size: $font-h11;
+                    font-family: $font-family-open-sans;
+                    line-height: $line-height-body;
+                    color: $color-n-800;
+                }
+
+                .title {
+                    font-size: $font-l3;
+                    font-family: $font-family-open-sans;
+                    color: $color-n-600;
+                }
+
+                .input-field {
+                    padding: 5px 12px;
+                    border-radius: 4px;
+                    border: 1px solid $color-n-800;
+                    font-size: $font-b3;
+                    color: $color-n-800;
+                    line-height: $line-height-body;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: $color-n-800;
+                    }
+                }
+
+                .bttn {
+                    background-color: $color-sec-500;
+                    padding: 3px 13px;
+                    font-family: $font-family-open-sans;
+                    font-size: $font-b3 ;
+                    line-height: $line-height-body ;
+                    color: white;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+// applies to xx-large
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    .company-view {
+        .all-containing {
+            width: 85%;
+        }
+    }
+}
+
+// applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .company-view {
+        .all-containing {
+            width: 90%;
+
+            .intro-section {
+                .company-info {
+                    .comp-profile-photo {
+                        .photo {
+                            width: 140px;
+                            height: 140px;
+                        }
+                    }
+
+                    .comp-info {
+                        padding-block: 10px 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  applies to large devices (desktops, less than 1200px)
+
+@media (max-width: 1199.98px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .company-view {
+        .all-containing {
+            width: 100%;
+
+            .intro-section {
+
+                .change-cover-photo,
+                .change-profile-photo {
+                    .span-space {
+                        padding: 20px;
+
+                        img {
+                            width: 50px;
+                        }
+                    }
+                }
+                .change-intro{
+                    width: 65%;
+                }
+            }
+            .under-sections {
+                .change-about{
+                    width: 65%;
+                }
+            }
+        }
+    }
+
+}
+
+// applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+    .container {
+        max-width: 800px;
+    }
+
+    .company-view {
+        .all-containing {
+            .intro-section {
+
+                .change-cover-photo,
+                .change-profile-photo {
+                    width: 50%;
+                }
+
+                .photo-cover {
+                    padding-block: 65px;
+                }
+
+                .company-info {
+                    .comp-profile-photo {
+                        .photo {
+                            width: 100px;
+                            height: 100px;
+                            top: -50px;
+                        }
+                    }
+
+                    .comp-info {
+                        padding-block: 0px 25px;
+
+                        .comp-name {
+                            font-size: 19px;
+                        }
+                    }
+                    .change-intro{
+                        width: 75%;
+                    }
+                }
+            }
+
+            .under-sections {
+                .section-header {
+                    font-size: 27px;
+                }
+                .change-about{
+                    width: 75%;
+                }
+            }
+        }
+    }
+}
+
+//  applies to small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    .container {
+        max-width: 600px;
+    }
+
+    .company-view {
+        .all-containing {
+            .intro-section {
+
+                .change-cover-photo,
+                .change-profile-photo {
+                    .span-space {
+                        padding: 15px;
+
+                        img {
+                            width: 40px;
+                        }
+                    }
+                }
+
+                .photo-cover {
+                    padding-block: 50px;
+
+                    .add-btn {
+                        font-size: $font-l3;
+
+                        .add-btn-icon {
+                            width: 17px;
+                        }
+
+                        .add-cover-text {
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                .company-info {
+                    .comp-profile-photo {
+                        padding-top: 10px;
+
+                        .photo {
+                            width: 90px;
+                            height: 90px;
+                        }
+                    }
+
+                    .comp-info {
+                        padding-block: 15px 25px;
+
+                        .comp-name {
+                            font-size: 20px;
+                        }
+
+                        .tagline {
+                            font-size: $font-l3 ;
+                        }
+
+                        .comp-industry-location {
+                            font-size: $font-l3 ;
+                        }
+                    }
+                    .change-intro{
+                        width: 80%;
+                    }
+                }
+            }
+
+            .under-sections {
+                .section-header {
+                    font-size: $font-h7;
+
+                }
+
+                .about-section {
+                    .six-row {
+                        gap: 15px;
+                    }
+                }
+                .change-about{
+                    width: 80%;
+                }
+            }
+
+            .pin-edit-icon {
+                width: 20px;
+            }
+        }
+    }
+
+}
+
+//  applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .company-view {
+        .all-containing {
+            .intro-section {
+
+                .change-cover-photo,
+                .change-profile-photo {
+                    width: 80%;
+                }
+
+                .company-info {
+                    .change-intro {
+                        width: 90%;
+                        .input-field {
+                            font-size: $font-b4;
+                        }
+                    }
+                }
+
+            }
+            .under-sections {
+                .change-about {
+                    width: 90%;
+                    .input-field {
+                        font-size: $font-b4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(66, 65, 65, 0.49);
+    top: 0;
+    right: 0;
+    z-index: 4;
+}
+
+
+
+
+
+.empty-about {
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        margin: 15px auto;
+
+        @media (min-width:$breakpoint-large) {
+            min-width: 200px;
+        }
+    }
+
+    img.spcial {
+        @media (min-width:$breakpoint-large) {
+            min-width: 160px;
+        }
+    }
+
+    p {
+        color: $color-sec-500;
+        text-align: center;
+    }
+
+    button {
+        padding: 6px 16px;
+        color: #fff;
+        background-color: $color-sec-500;
+        font-weight: 500;
+        border-radius: 3px;
+        margin: 15px auto 0;
+    }
+}
+
+.title a {
+    margin-left: 40px !important;
+    font-size: 16px !important;
+    ;
+    color: $color-sec-100 !important;
+    ;
+    font-weight: 500;
+}
+
+button.btn.vip-btn.rounded-full.bg-transparent:hover {
+    background-color: $color-n-800;
+    color: white;
+}
+
+.view-button:hover {
+    background-color: $color-n-800 !important;
+    color: white !important;
+    transition: .2s all;
+}
+
+.socia-icons-links {
+    i {
+        font-size: 32px;
+        color: $color-n-800;
+    }
+}
+
+.global-button {
+    padding: 12px 24px;
+    background-color: $color-sec-300;
+    color: $color-white;
+    font-size: $font-l2;
+    border-radius: 4px;
+    font-family: $font-family-open-sans;
+    font-weight: 700;
+    line-height: $line-height-heading;
+
+    &:disabled {
+        cursor: default;
+        background-color: $color-sec-100;
+    }
+}
+
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    position: relative;
+    margin: 0 10px 10px 0;
+}
+
+.social-icon i {
+    font-size: 36px;
+    color: $color-n-800;
+}
+
+.social-link {
+    position: relative;
+    display: inline-block;
+}
+
+.delete-icon {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: $color-n-800;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.social-icon:hover .delete-icon {
+    visibility: visible;
+    opacity: 1;
+}
+
+.item-review {
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #bcbcbc;
+    background-color: #eeeeee5e;
+}
+
+.social-title {
+    font-size: 18px;
+    color: $color-n-800;
+}
+
+.error {
+    border-color: rgb(251, 19, 19) !important;
+}
+
+.link-error-message {
+    font-size: 12px;
+    color: rgb(251, 19, 19);
+    margin-left: 4px;
+    margin-top: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+
+#benefits-section {
+    padding: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 20px;
+}
+
+.active {
+    background-color: #2b786c !important;
+    color: white !important;
+}
+
+.benefit-card {
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(243, 243, 243);
+    border-radius: 4px;
+    padding: 20px;
+    gap: 15px;
+    width: 265px;
+}
+
+.benefit-card.social-icon {
+    max-width: fit-content;
+
+    i {
+        color: #033f47;
+    }
+}
+
+.empty-head {
+    font-size: 30px;
+    background-color: transparent;
+    text-align: center;
+    margin: auto;
+    color: #cbcbcb;
+}
+
+.benefit-section .second-row {
+    width: auto;
+    margin: 0 auto;
+}
+
+.benefit-card.social-icon {
+    padding: 8px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    position: relative;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.custom-file-upload input[type="file"] {
+    display: block;
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-file-upload span {
+    font-family: Arial, sans-serif;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.erorr-message {
+    font-size: 16px;
+    text-align: center;
+    color: #db0b0b;
+}
+
+.upload-image-icon {
+    height: 140px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    overflow: hidden;
+    border: 1px solid #033f47;
+}
+
+.custom-2 {
+    display: flex !important;
+    position: relative;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: none !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+}
+
+.main-header {
+    font-family: $font-family-crimson;
+    font-weight: 700;
+    font-size: $font-h7;
+    color: $color-n-900;
+    line-height: 27px;
+}
+
+.main-body {
+    width: 95%;
+    margin-top: 30px; 
+}
+
+.job-title {
+    font-family: $font-family-open-sans;
+    font-weight: 700;
+    font-size: 18px;
+    color: $color-n-800;
+    line-height: 27px;
+}
+
+.exp-level,
+.category,
+.Keyword {
+    font-family: $font-family-open-sans;
+    font-size: $font-b4;
+    color: $color-n-800;
+    line-height: 18px;
+    padding: 0px 6px;
+    background-color: $color-n-200;
+    border-radius: 2px;
+}
+
+.company-name,
+.company-location {
+    font-family: $font-family-open-sans;
+    font-weight: 600;
+    font-size: $font-b4;
+    color: $color-n-800;
+    line-height: 18px;
+}
+
+.global-long-width {
+    width: 70%;
+}
+
+.unsave-btn {
+    padding: 3px 5px;
+    font-family: $font-family-open-sans;
+    font-weight: 600;
+    font-size: $font-b4;
+    color: $color-sec-500;
+    line-height: 18px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: 0.6s all;
+
+    &:hover{
+        border-color: white;
+        background-color:$color-sec-500 ;
+        color: white;
+    }
+
+    .bookmark {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+
+
+}
+
+@media (max-width: 1399.98px) {
+    .container {
+        max-width: 1140px;
+    }
+ 
+    .global-long-width {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .container {
+        max-width: 960px;
+    }
+ 
+
+    .global-long-width {
+        width: 80%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .container {
+        max-width: 720px;
+    }
+
+ 
+    .global-long-width {
+        width: 80%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        max-width: 540px;
+    }
+
+ 
+}

@@ -1,0 +1,5 @@
+<router-outlet></router-outlet>
+<div class="loader-container">
+  <app-job-seeker-profile-loader *ngIf="loaderService.isLoading "></app-job-seeker-profile-loader>
+</div>
+<app-loader *ngIf="isLoading$ | async"></app-loader>

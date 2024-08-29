@@ -1,0 +1,218 @@
+<section id="applicant-page" class=" pt-8 ">
+  <div class="container max-h-fit  ">
+    <div class="page-header  rounded-xl flex flex-col gap-4 items-start bg bg-white shadow-sm py-6 px-24">
+      <div class="flex gap-5 items-center">
+        <div>
+          <h6 class="job-title ">Applications ({{appsJobs.length}})</h6>
+        </div>
+      </div>
+    </div>
+    <div class="contaning-all-left-narrow-divs" *ngIf="showInfo" (click)="hideInfo()">
+      <div class="py-10 containing-narrow-left ">
+        <button><img src="../../../assets/imgs/Line arrow-left.svg" alt=""></button>
+      </div>
+    </div>
+    <div class="under-page py-20 mt-6  flex gap-7 max-h-fit flex-col items-center bg-white" *ngIf="!appsJobs.length">
+      <div class=""><img src="../../../../assets/Group 1.png" alt=""></div>
+      <div class="">
+        <p class="text-under-photo">No applications to show yet.</p>
+      </div>
+    </div>
+    <div class="under-page mt-6  flex gap-7 max-h-fit" *ngIf="appsJobs.length">
+      <div class="left-scrollbar-div-large-screen rounded-xl  bg-white shadow-sm  flex flex-col  ">
+        <div class="candidate-card py-8 px-16 global-bottom-border flex gap-12 "
+          *ngFor="let post of appsJobs; let i=index" (click)="fillNumbersAndQuestions(i)">
+
+          <!-- <div class=""> <img class="h-60 w-60" [src]="(post.companyLogo|handleFileUrl) || '../../../assets/imgs/Group (1).svg' " alt=""></div> -->
+          <div
+            class="flex justify-center items-center h-60 w-60 overflow-hidden border-slate-600 border-2 border-opacity-10">
+            <img class=" h-full max-w-fit"
+              [src]="(post.companyLogo|handleFileUrl) || '../../../assets/imgs/Group (1).svg' " alt="">
+          </div>
+          <div class=" flex flex-col gap-2 w-full">
+            <div class="flex justify-between w-full ">
+              <div class="flex gap-5 items-center">
+                <div class="">
+                  <p class="name">{{post.jobTitle}}</p>
+                </div>
+                <div class="status">{{post.applicationStatus}}</div>
+              </div>
+              <div class="" *ngIf="post.newActionsNumber">
+                <p class="status-num ">{{post.newActionsNumber}}</p>
+              </div>
+            </div>
+            <p class="location-line">{{post.jobType}}</p>
+            <p class="university">{{post.employmentType}}</p>
+            <div class="">
+              <button class="location global-button  flex gap-4 items-center"><i class="fa-solid fa-location-dot"></i>
+                <span>{{post.companyLocation}}</span></button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="left-scrollbar-div rounded-xl   bg-white shadow-sm  flex flex-col " *ngIf="showApps">
+        <div class="candidate-card py-8 px-16 global-bottom-border flex gap-12 "
+          *ngFor="let post of appsJobs; let i=index" (click)="fillNumbersAndQuestions(i)">
+          <div class=""> <img class="h-60 w-60"
+              [src]="(post.companyLogo|handleFileUrl) || '../../../assets/imgs/Group (1).svg' " alt=""></div>
+          <div class=" flex flex-col gap-2 w-full">
+            <div class="flex justify-between w-full ">
+              <div class="flex gap-5 items-center">
+                <div class="">
+                  <p class="name">{{post.jobTitle}}</p>
+                </div>
+                <div class="status">{{post.applicationStatus}}</div>
+              </div>
+              <div class="" *ngIf="post.newActionsNumber">
+                <p class="status-num ">{{post.newActionsNumber}}</p>
+              </div>
+            </div>
+            <p class="location-line">{{post.jobType}}</p>
+            <p class="university">{{post.employmentType}}</p>
+            <div class="">
+              <button class="location global-button  flex gap-4 items-center"><i class="fa-solid fa-location-dot"></i>
+                <span>{{post.companyLocation}}</span></button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="right-div-empty shadow-sm  p-12 flex gap-12 flex-col justify-center items-center rounded-xl h-full"
+        *ngIf="!showInfo">
+        <div class=""><img src="../../../../assets/Group 1.png" alt=""></div>
+        <div class="">
+          <p class="text-under-photo">Choose An application to show info</p>
+        </div>
+      </div>
+      <div class="right-div   grid gap-12 flex-col  rounded-xl  " *ngIf="showInfo">
+        <div class=" h-100 ">
+          <div class="candidate-card  py-8 px-16 global-bottom-border flex gap-12 bg-white shadow-sm rounded-xl ">
+            <div class="containing-candidate-avatar">
+              <img class="h-36 w-36" [src]="(postInfoWithNumbers.companyLogo|handleFileUrl)||
+                            '../../../assets/imgs/Group (1).svg '" alt="">
+            </div>
+            <div class=" flex flex-col gap-2 w-full">
+              <div class=" first-div flex items-center justify-between ">
+                <div class="flex gap-5 items-center">
+                  <div class="">
+                    <p class="name bold-name">{{postInfoWithNumbers.jobTitle}}</p>
+                  </div>
+                  <div class="">
+                    <p class="status">{{postInfoWithNumbers.applicationStatus}}</p>
+                  </div>
+                </div>
+                <!-- <div ><button class="wethdraw-btn global-button">Withdraw</button></div> -->
+              </div>
+              <p class="location-line">{{postInfoWithNumbers.companyLocation}}</p>
+              <p class="posted-time">posted {{postInfoWithNumbers.appUpdatedAt |date}}</p>
+              <div class="job-info grid md:grid-cols-4 grid-cols-2 gap-7 mt-4  divide-x-2  ">
+                <div class="flex flex-col items-center justify-center">
+                  <div class="">
+                    <p class="numbers">{{postInfoWithNumbers.publicNumbers.applied}}</p>
+                  </div>
+                  <div class="">
+                    <p class="title">Application</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center ">
+                  <div class="">
+                    <p class="numbers">{{postInfoWithNumbers.publicNumbers.viewed}}</p>
+                  </div>
+                  <div class="">
+                    <p class="title">Viewed</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center  vip">
+                  <div class="">
+                    <p class="numbers ">{{postInfoWithNumbers.publicNumbers.inConsideration}}</p>
+                  </div>
+                  <div class="">
+                    <p class="title">In-Consideration</p>
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                  <div class="">
+                    <p class="numbers">{{postInfoWithNumbers.publicNumbers.rejected}}</p>
+                  </div>
+                  <div class="">
+                    <p class="title">Rejected</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="bg-white h-100 shadow-sm rounded-xl gap-5 ">
+          <div class="indicator-header flex justify-between items-center  py-10 px-20 rounded-xl rounded-b-none">
+            <div class="parts-headers">
+              <ul class="parts grid grid-cols-4   gap-16">
+                <li>
+                  <a [ngClass]="{'clicked-btn': selectedButton === 'questions', 'global-button': selectedButton !== 'questions'}"
+                    (click)="changeSelectedButton('questions')"
+                    [routerLink]="'questions/'+postInfoWithNumbers.applicationId">Questions</a>
+                </li>
+                <li>
+                  <a [ngClass]="{'clicked-btn': selectedButton === 'assessments', 'global-button': selectedButton !== 'assessments'}"
+                    (click)="changeSelectedButton('assessments')"
+                    [routerLink]="'assessments/'+postInfoWithNumbers.applicationId">Assessments</a>
+                </li>
+                <li>
+                  <a [ngClass]="{'clicked-btn': selectedButton === 'interviews', 'global-button': selectedButton !== 'interviews'}"
+                    (click)="changeSelectedButton('interviews')"
+                    [routerLink]="'interviews/'+postInfoWithNumbers.applicationId">Interviews</a>
+                </li>
+                <li>
+                  <a [ngClass]="{'clicked-btn': selectedButton === 'offer', 'global-button': selectedButton !== 'offer'}"
+                    (click)="changeSelectedButton('offer')"
+                    [routerLink]="'offer/'+postInfoWithNumbers.applicationId">Offer</a>
+                </li>
+              </ul>
+            </div>
+            <div class="add-comment flex  bg-white flex-col shadow-sm " *ngIf="showAddOfferComment">
+              <div class="title">
+                <h6>Add comment on offer</h6>
+              </div>
+              <div class=" containing-remaning w-full flex flex-col gap-4">
+                <div class="">
+                  <textarea [(ngModel)]="commentContent" cols="" rows="5" class="global-input w-full" name="" id=""
+                    placeholder="Write your comment here"></textarea>
+                </div>
+                <div class=" flex gap-8 p-8">
+                  <button class="global-button" (click)="addOfferComment()">Submit</button>
+                  <button class="global-button" (click)="closeAddComment()">Discard</button>
+                </div>
+              </div>
+
+            </div>
+            <div class="add-comment flex  bg-white flex-col shadow-sm " *ngIf="showAddOfferSignedDoc">
+              <div class="title">
+                <h6>Add signed documnet</h6>
+              </div>
+              <div class=" containing-remaning w-full flex flex-col gap-4">
+                <div class="">
+                  <input (change)="addFileToSubmit($event)"
+                    class="relative select-file global-input  m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border file:bg-transparent border-solid border-secondary-500 bg-transparent bg-clip-padding px-3  text-base font-normal text-surface transition duration-300 ease-in-out file:-mx-4   file:-my-[9px] file:me-3 file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-e file:border-solid file:border-inherit  file:px-3  file:py-[0.32rem] file:text-surface focus:border-primary focus:text-gray-700 focus:shadow-inset focus:outline-none dark:border-white/70 dark:text-white  file:dark:text-white"
+                    type="file" id="formFile" />
+                </div>
+                <div class=" flex gap-8 p-8">
+                  <button class="global-button" (click)="addOfferSignedFile()">Submit</button>
+                  <button class="global-button" (click)="closeAddDoc()">Discard</button>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+          <router-outlet *ngIf="showRouterOutlet"></router-outlet>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

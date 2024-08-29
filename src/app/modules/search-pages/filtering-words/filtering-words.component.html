@@ -1,0 +1,13 @@
+<div class="search-filtering-words shadow-sm bg-white flex justify-center flex-col gap-8 px-32 py-10 rounded-6">
+    <div class="filtering-words-btn flex items-center justify-start gap-10 ps-5">
+        <div>
+            <button class="btn rounded-full" [class.active]="activeEle === 'Jobs'" (click)="navigateToJobs()">Jobs</button>
+        </div>
+        <div>
+            <button class="btn rounded-full" [class.active]="activeEle === 'Companies'" (click)="navigateToCompanies()">Companies</button>
+        </div>
+        <div>
+            <button class="btn rounded-full" [class.active]="activeEle === 'People'" (click)="navigateToPeople()">People</button>
+        </div>
+    </div>
+</div>

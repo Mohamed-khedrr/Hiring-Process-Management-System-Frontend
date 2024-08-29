@@ -1,0 +1,36 @@
+<form [formGroup]="offerForm" (ngSubmit)="submitFrom()" class="assessment-form" action="">
+  <div class="form-header">
+    <h3>
+      @if (oldOffer?.id) {
+        <span>Edit</span>
+      }@else{
+        <span>Add</span>
+      }
+      Offer</h3>
+  </div>
+
+
+  <div class="input-container">
+    <p class="label">Offer Document</p>
+    <label class="custom-file-input" for="offer-doc">
+      <span class="browse">Browse</span>
+      @if (offerDocument.value) {
+        <span>{{offerDocument.value}}</span>
+      }@else {
+        <span>No file selected</span>
+      }
+    </label>
+    <input  (change)="handleFileInput($event)" value="hello" type="file" id="offer-doc">
+  </div>
+
+  <div class="input-container">
+    <label class="label" for="offer-deadline">Deadline</label>
+    <input  formControlName="offerDeadline" type="date" id="offer-deadline">
+  </div>
+
+  <div class="btn-container ">
+    <button class="btn btn-submit" [disabled]="offerForm.invalid"  type="submit">Submit</button>
+    <button class="btn btn-discard" (click)="hideForm()" type="reset">Discard</button>
+  </div>
+
+</form>
